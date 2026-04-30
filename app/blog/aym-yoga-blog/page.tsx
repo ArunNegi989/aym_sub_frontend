@@ -14,7 +14,7 @@ export interface Blog {
   title: string;
   excerpt: string;
   date: string;
-  rawDate: string; // keep raw ISO date for sorting
+  rawDate: string;
   author?: string;
   category: string;
   image: string;
@@ -27,6 +27,19 @@ interface BlogPageProps {
 }
 
 const BLOGS_PER_PAGE = 9;
+
+const CATEGORY_OPTIONS = [
+  "All",
+  "Yoga Teacher Training",
+  "Yoga",
+  "Ayurveda",
+  "Yoga Retreats",
+  "Lifestyle",
+  "Health",
+  "Meditation",
+  "Philosophy",
+  "Nutrition",
+];
 
 function normalise(raw: any): Blog {
   return {
@@ -80,7 +93,6 @@ const MandalaDecor = () => (
   </svg>
 );
 
-// ── Search Icon SVG ──
 const SearchIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="11" cy="11" r="8" />
@@ -88,7 +100,6 @@ const SearchIcon = () => (
   </svg>
 );
 
-// ── Clear Icon SVG ──
 const ClearIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
     <line x1="18" y1="6" x2="6" y2="18" />
@@ -102,8 +113,8 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
   const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState<"latest" | "oldest">("latest");
+  const [activeCategory, setActiveCategory] = useState("All");
 
-  /* ── Fetch published blogs from API if none passed via props ── */
   useEffect(() => {
     if (propBlogs && propBlogs.length > 0) return;
 
@@ -125,22 +136,24 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
     load();
   }, []);
 
-  /* ── Reset to page 1 when search/sort changes ── */
   useEffect(() => {
     setPage(1);
-  }, [searchQuery, sortOrder]);
+  }, [searchQuery, sortOrder, activeCategory]);
 
-  /* ── Filtered + Sorted blog list ── */
   const filteredBlogs = useMemo(() => {
     let result = [...blogList];
 
-    // 1. Filter by search query (title match)
     if (searchQuery.trim()) {
       const q = searchQuery.trim().toLowerCase();
       result = result.filter((b) => b.title.toLowerCase().includes(q));
     }
 
-    // 2. Sort by `date` field
+    if (activeCategory !== "All") {
+      result = result.filter(
+        (b) => b.category?.toLowerCase() === activeCategory.toLowerCase()
+      );
+    }
+
     result.sort((a, b) => {
       const dateA = a.rawDate ? new Date(a.rawDate).getTime() : 0;
       const dateB = b.rawDate ? new Date(b.rawDate).getTime() : 0;
@@ -148,17 +161,20 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
     });
 
     return result;
-  }, [blogList, searchQuery, sortOrder]);
+  }, [blogList, searchQuery, sortOrder, activeCategory]);
 
   const totalPages = Math.ceil(filteredBlogs.length / BLOGS_PER_PAGE);
   const visibleBlogs = filteredBlogs.slice(0, page * BLOGS_PER_PAGE);
   const hasMore = page < totalPages;
-  const latestPosts = recentPosts ?? blogList
-    .slice()
-    .sort((a, b) => new Date(b.rawDate).getTime() - new Date(a.rawDate).getTime())
-    .slice(0, 8);
+  const latestPosts =
+    recentPosts ??
+    blogList
+      .slice()
+      .sort((a, b) => new Date(b.rawDate).getTime() - new Date(a.rawDate).getTime())
+      .slice(0, 8);
 
-  /* ── Skeleton grid while loading ── */
+  const isFiltered = searchQuery.trim() !== "" || activeCategory !== "All";
+
   if (isLoading) {
     return (
       <div className={styles.pageRoot}>
@@ -263,19 +279,54 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
             </div>
           </div>
 
+          {/* ── Category Filter Chips ── */}
+          <div className={styles.categoryBar}>
+            {CATEGORY_OPTIONS.map((cat) => (
+              <button
+                key={cat}
+                className={`${styles.catChip} ${activeCategory === cat ? styles.catChipActive : ""}`}
+                onClick={() => setActiveCategory(cat)}
+                aria-pressed={activeCategory === cat}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
           {/* ── Results Count ── */}
-          {searchQuery.trim() && (
+          {isFiltered && (
             <p className={styles.resultsCount}>
               {filteredBlogs.length === 0
-                ? `No articles found for "${searchQuery}"`
-                : `${filteredBlogs.length} article${filteredBlogs.length !== 1 ? "s" : ""} found for "${searchQuery}"`}
+                ? `No articles found${searchQuery ? ` for "${searchQuery}"` : ""}${activeCategory !== "All" ? ` in "${activeCategory}"` : ""}`
+                : `${filteredBlogs.length} article${filteredBlogs.length !== 1 ? "s" : ""} found${searchQuery ? ` for "${searchQuery}"` : ""}${activeCategory !== "All" ? ` in "${activeCategory}"` : ""}`}
             </p>
           )}
 
           {filteredBlogs.length === 0 ? (
             <div style={{ textAlign: "center", padding: "4rem 0", color: "#a07840", fontFamily: "'Cormorant Garamond', serif" }}>
               <p style={{ fontSize: "2rem" }}>ॐ</p>
-              <p>{searchQuery ? `No articles match your search.` : "No articles published yet. Check back soon."}</p>
+              <p>{isFiltered ? "No articles match your current filters." : "No articles published yet. Check back soon."}</p>
+              {isFiltered && (
+                <button
+                  onClick={() => { setSearchQuery(""); setActiveCategory("All"); }}
+                  style={{
+                    marginTop: "1rem",
+                    background: "none",
+                    border: "1px solid #F15505",
+                    color: "#F15505",
+                    padding: "0.5rem 1.2rem",
+                    borderRadius: 2,
+                    cursor: "pointer",
+                    fontFamily: "Montserrat, Arial, sans-serif",
+                    fontSize: "0.75rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Clear All Filters
+                </button>
+              )}
             </div>
           ) : (
             <>
