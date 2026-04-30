@@ -1001,7 +1001,74 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* Responsive */
+/* ====================================================
+   MORE RELATED INFORMATION SECTION
+==================================================== */
+.moreInfoSection {
+  background: #fff9e6;
+  border-radius: 8px;
+  padding: 36px 40px;
+  margin: 40px 0;
+  border: 1px solid #f0d080;
+}
+
+.moreInfoTitle {
+  font-family: 'Montserrat', serif;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e8cc80;
+}
+
+.moreInfoText {
+  font-family: 'Montserrat', serif;
+  font-size: clamp(0.82rem, 1.4vw, 1rem);
+  line-height: 1.85;
+  color: var(--text-body);
+  margin-bottom: 1rem;
+}
+
+.dressCodeBlock {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  border-left: 3px solid var(--orange);
+}
+
+.dressCodeTitle {
+  font-family: 'Montserrat', serif;
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  text-decoration: underline;
+}
+
+.dressCodeItem {
+  font-family: 'Montserrat', serif;
+  font-size: clamp(0.82rem, 1.4vw, 1rem);
+  line-height: 1.75;
+  color: var(--text-body);
+  margin-bottom: 6px;
+}
+
+.dressCodeItem strong {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.moreInfoRules {
+  margin-top: 8px;
+}
+
+/* ====================================================
+   RESPONSIVE
+==================================================== */
 @media (max-width: 768px) {
   .datesGrid,
   .pricingGrid,
@@ -1022,6 +1089,14 @@
   .descriptionCard {
     padding: 20px;
   }
+
+  .moreInfoSection {
+    padding: 24px 20px;
+  }
+
+  .dressCodeBlock {
+    padding: 16px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1032,5 +1107,9 @@
   .stepNumber {
     width: 32px;
     height: 32px;
+  }
+
+  .moreInfoSection {
+    padding: 20px 14px;
   }
 }
