@@ -700,9 +700,9 @@ function TabContent({ tab }: { tab: (typeof tabs)[0] }) {
         </div>
       ))}
 
-      <a href="#" className={styles.applyBtn}>
+      <Link href="/yoga-registration" className={styles.applyBtn}>
         Apply Now →
-      </a>
+      </Link>
     </div>
   );
 }
@@ -888,12 +888,12 @@ export default function YogaCollegeRishikesh() {
                   <span className={styles.certVal}>{card.fee}</span>
                 </div>
                 <div className={styles.certBtns}>
-                  <a href="#" className={styles.certBtnOutline}>
+                  <a href="/" className={styles.certBtnOutline}>
                     More Details
                   </a>
-                  <a href="#" className={styles.certBtnFill}>
+                  <Link href="/yoga-registration" className={styles.certBtnFill}>
                     Book Now
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

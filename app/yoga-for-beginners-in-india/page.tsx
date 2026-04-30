@@ -6,6 +6,7 @@ import beginners from "@/assets/images/yogg.jpg";
 import yogatecherimage from "@/assets/images/yoga-techer-training-course-for-beginners.webp";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/37.png";
+import Link from "next/link";
 
 // ---- Om Divider ----
 const OmSVG: React.FC = () => (
@@ -334,9 +335,9 @@ const YogaBeginners: React.FC = () => {
                   <strong>Book Your Spot</strong>
                   <span>Register your spot by paying $110 only</span>
                 </div>
-                <a href="#" className={styles.paymentsBtn}>
+                <Link href="/200-hour-yoga-ttc-fees" className={styles.paymentsBtn}>
                   Payments Page
-                </a>
+                </Link>
               </div>
             </td>
           </tr>
