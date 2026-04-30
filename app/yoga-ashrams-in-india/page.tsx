@@ -6,6 +6,7 @@ import yogaashramimg1 from "@/assets/images/yoga-ashram-in-india.jpg";
 import yogaashramimg2 from "@/assets/images/yoga-ashram-in-rishikesh.jpg";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/35.png";
+import Link from "next/link";
 
 // ---- Om Symbol SVG ----
 const OmSVG: React.FC = () => (
@@ -99,24 +100,12 @@ const YogaAshrams: React.FC = () => {
     </div>
     <div className={styles.welcomeContent}>
       <p className={styles.welcomeText}>
-        Welcome to AYM Yoga Ashram in Rishikesh. India, the land of religions,
-        faith, traditions, and spirituality, is well-known worldwide for yoga
-        and meditation practices. Many schools and yoga ashrams across India
-        provide yoga and meditation training to all those seeking them.
+        Welcome to AYM Yoga Ashram in Rishikesh. India, the land of religions, faith, traditions, and spirituality, is well-known worldwide for yoga and meditation practices. Many schools and yoga ashrams across India provide yoga and meditation training to all those seeking them. For this reason, people from all walks of life come to India to find calm and peace. Here, they come to learn and practice yoga and meditation and find peace for mind, body, and soul.
       </p>
       <p className={styles.welcomeText}>
-        Welcome to AYM Yoga Ashram in Rishikesh. India, the land of religions,
-        faith, traditions, and spirituality, is well-known worldwide for yoga
-        and meditation practices. Many schools and yoga ashrams across India
-        provide yoga and meditation training to all those seeking them.
+        <strong> Yoga Ashrams in India</strong> provide various yoga courses for one and all, starting from- Primary (Basic), Secondary (Intermediate) and Intensive (In-depth /Thorough). Yoga seekers, enthusiasts, and yoga travellers can choose the course of their choice according to the time they can give to learn them.  <strong>AYM yoga ashram in rishikesh</strong> also provides many yoga activities like yoga retreats for beginners, yoga teacher training for those who want to be a yoga teacher and inner awakening for spiritual shadhakas.
       </p>
-      <p className={styles.welcomeText}>
-        <strong>Yoga Ashrams in India</strong> provide various yoga courses
-        for one and all, starting from Primary (Basic), Secondary
-        (Intermediate) and Intensive (In-depth /Thorough). AYM{" "}
-        <strong>yoga ashram in rishikesh</strong> also provides yoga retreats,
-        teacher training, and inner awakening programs.
-      </p>
+      
     </div>
   </div>
 </section>
@@ -173,10 +162,10 @@ const YogaAshrams: React.FC = () => {
       <h3 className={styles.highlightCardTitle}>About Rishikesh</h3>
       <p className={styles.bodyText}>
         Rishikesh, the holy city of India, is recognized worldwide as the{" "}
-        <a href="#">"International Yoga Hub"</a>. People who wish to
+        <Link href="/international-yoga-competition">"International Yoga Hub"</Link>. People who wish to
         rediscover themselves visit Rishikesh AYM Yoga Ashram. There are many{" "}
         <em>yoga ashrams in Rishikesh</em> offering styles such as{" "}
-        <a href="#">Hatha Yoga</a>, <a href="#">Ashtanga</a>, Vinyasa,
+        <Link href="/hatha-yoga-teacher-training-Rishikesh">Hatha Yoga</Link>, <Link href="/vinyasa-teacher-training-india">Ashtanga</Link>, Vinyasa,
         Vinyasa Flow, Iyengar, Kundalini and Power Yoga.
       </p>
       <div className={styles.certBadges}>
@@ -191,9 +180,9 @@ const YogaAshrams: React.FC = () => {
         internationally recognised certificates.
       </p>
       <div className={styles.coursePills}>
-        <a href="#" className={styles.pillLink}>200 Hours Teacher Training <span className={styles.pillArrow}>›</span></a>
-        <a href="#" className={styles.pillLink}>300 Hours Teacher Training <span className={styles.pillArrow}>›</span></a>
-        <a href="#" className={styles.pillLink}>500 Hours Teacher Training <span className={styles.pillArrow}>›</span></a>
+        <Link href="/200-hour-yoga-teacher-training-rishikesh" className={styles.pillLink}>200 Hours Teacher Training <span className={styles.pillArrow}>›</span></Link>
+        <Link href="/300-hours-yoga-teacher-training-rishikesh" className={styles.pillLink}>300 Hours Teacher Training <span className={styles.pillArrow}>›</span></Link>
+        <Link href="/500-hour-yoga-teacher-training-india" className={styles.pillLink}>500 Hours Teacher Training <span className={styles.pillArrow}>›</span></Link>
       </div>
     </div>
   </div>
@@ -265,7 +254,7 @@ const YogaAshrams: React.FC = () => {
   <div className={styles.whyInner}>
     <p className={styles.sectionLabel}>Our Difference</p>
     <h2 className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>
-      <a href="#">Why is AYM Yoga Ashram best to learn yoga?</a>
+      <Link href="/yoga-ttc-rishikesh">Why is AYM Yoga Ashram best to learn yoga?</Link>
     </h2>
     <div className={styles.whyGrid}>
       {[
@@ -318,17 +307,17 @@ const YogaAshrams: React.FC = () => {
   <p className={styles.bodyText}>
     At AYM, you have a lot to learn. Don&apos;t wait — come and learn the
     nuances of yoga and meditation at AYM{" "}
-    <a href="#"><em>Yoga School in Rishikesh</em></a>, India.
+    <Link href="/yoga-teacher-training-in-rishikesh"><em>Yoga School in Rishikesh</em></Link>, India.
   </p>
   <div className={styles.coursesBlock}>
     <p className={styles.coursesHeading}>
       Various yoga courses offered by AYM yoga ashram in Rishikesh:
     </p>
     <ul className={styles.coursesList}>
-      <li><a href="#">100 Hour Yoga Teacher Training in Rishikesh</a></li>
-      <li><a href="#">200 Hour Yoga Teacher Training in Rishikesh</a></li>
-      <li><a href="#">300 Hour Yoga Teacher Training in Rishikesh</a></li>
-      <li><a href="#">500 Hour Yoga Teacher Training in Rishikesh</a></li>
+      <li><Link href="/100-hour-yoga-teacher-training-in-rishikesh">100 Hour Yoga Teacher Training in Rishikesh</Link></li>
+      <li><Link href="/200-hour-yoga-teacher-training-rishikesh">200 Hour Yoga Teacher Training in Rishikesh</Link></li>
+      <li><Link href="/300-hours-yoga-teacher-training-rishikesh">300 Hour Yoga Teacher Training in Rishikesh</Link></li>
+      <li><Link href="/500-hour-yoga-teacher-training-india">500 Hour Yoga Teacher Training in Rishikesh</Link></li>
     </ul>
   </div>
 </section>

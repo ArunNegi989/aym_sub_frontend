@@ -6,6 +6,7 @@ import image1 from "@/assets/images/hday.jpg";
 import image2 from "@/assets/images/hday3.jpg";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/36.png";
+import Link from "next/link";
 // ===================== MAIN COMPONENT =====================
 const YogaHolidays: React.FC = () => {
   return (
@@ -112,7 +113,7 @@ const YogaHolidays: React.FC = () => {
       Ayurveda. Yoga and Ayurveda Spa will enhance your well-being — stimulating
       your mind and transforming your body. Meditation will calm your mind and
       body, reducing anxiety and tension. Practising{" "}
-      <a href="#" className={styles.link}>Yoga with Ayurveda</a>{" "}
+      <Link href="/yoga-ayurveda-teacher-training-rishikesh" className={styles.link}>Yoga with Ayurveda</Link>{" "}
       will restore your inner vitality and give you a healthy mind, body and soul.
     </p>
   </div>
@@ -145,9 +146,9 @@ const YogaHolidays: React.FC = () => {
     <p className={styles.ctaText}>
       For more detail about yoga holiday packages / vacations in Rishikesh, India.
     </p>
-    <a href="#" className={styles.ctaButton}>
+    <Link href="/yoga-retreats-in-rishikesh" className={styles.ctaButton}>
       Click Here to See Yoga Holidays Packages
-    </a>
+    </Link>
   </div>
 </section>
 

@@ -7,6 +7,7 @@ import Image from "next/image";
 import bannerImage from "@/assets/images/meditation.jpg";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/41.png";
+import Link from "next/link";
 
 /* ─── Types ─── */
 interface PricingRow {
@@ -465,12 +466,12 @@ function PremiumSeatBookingMeditation({
               )}
             </div>
             {selected && !(selected.bookedSeats >= selected.totalSeats) ? (
-              <a href={selected.applyLink ?? "/yoga-registration?type=meditation"} className={styles.psbBookBtn}>
+              <Link href={selected.applyLink ?? "/yoga-registration?type=meditation"} className={styles.psbBookBtn}>
                 Book Now — {fmtPrice(selected.dormPrice).amount} {currency}
                 <svg className={styles.psbArrowIcon} viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff3d2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </a>
+              </Link>
             ) : (
               <span className={`${styles.psbBookBtn} ${styles.psbBookBtnDis}`}>Book Now</span>
             )}
@@ -562,9 +563,7 @@ const MeditationPage: React.FC = () => {
           being in the universe. It is the space where you become the complete watcher of everything.
         </p>
         <p className={styles.splitPara}>
-          When you open yourself completely and surrender to the divine, that moment of surrender 
-          is when you fully accept your life is happening before you. You become the watcher, 
-          and everything works through you and for you.
+          When you open yourself completely and surrender to God or the divine, that moment of surrender is when you fully accept your life is happening before you. You become the watcher, and everything works through you and for you. Meditation is digging deep within and constantly finding surprises about yourself, the world, the universe, and love. It is a beautiful process of unfolding or peeling to reach that complete, blissful core essence. Once you begin this inner journey, all desires vanish, and you want nothing but to go deeper.
         </p>
       </div>
 
@@ -657,20 +656,7 @@ const MeditationPage: React.FC = () => {
       <div className={styles.methodContent}>
         <h3 className={styles.methodTitle}>Static Meditation</h3>
         <p className={styles.bodyPara}>
-          Static meditation is a practice in which the meditator sits still,
-          focusing inward until reaching a meditative state. Over time,
-          meditation can expand into every action throughout the day,
-          including brushing teeth, walking, doing chores, practicing Yoga,
-          working, and other aspects of daily life. In this context,
-          meditation means being fully mindful and aware of actions,
-          sensations, and thoughts, both internally and externally. Unlike
-          practices with vigorous movement, static meditation emphasizes
-          stillness and doing each activity at its natural pace with complete
-          energy and attention. This sustained and mindful practice sometimes
-          takes more or less time but always centers on careful awareness.
-          Through static meditation, one aims to connect to the universe's
-          powers, attain advanced meditative stages, and possibly remain in
-          such a state for extended periods.
+         Static meditation is a practice in which the meditator sits still, focusing inward until reaching a meditative state. Over time, meditation can expand into every action throughout the day, including brushing teeth, walking, doing chores, practicing Yoga, working, and other aspects of daily life. In this context, meditation means being fully mindful and aware of actions, sensations, and thoughts, both internally and externally. Unlike practices with vigorous movement, static meditation emphasizes stillness and doing each activity at its natural pace with complete energy and attention. This sustained and mindful practice sometimes takes more or less time but always centers on careful awareness. Through static meditation, one aims to connect to the universe's powers, attain advanced meditative stages, and possibly remain in such a state for extended periods. Vipassana meditation, as referenced above, exemplifies a method that can lead to traditional static meditation.
         </p>
       </div>
       <div className={styles.methodImage}>
@@ -738,8 +724,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>🌟</div>
         <h4 className={styles.whyCardTitle}>Empowering Environment</h4>
         <p className={styles.whyCardText}>
-          Traditional meditation focuses on the self and tries to unite the self with the almighty. 
-          Using mala beads and mantra chanting helps in focusing on oneself and getting free of distractions.
+         Traditional meditation is that kind of meditation in which one focuses on the self and tries to unite the self with the almighty. This practice is also known as moksha or nirvana. The use of mala beads is done to do japa or chanting of a mantra repeatedly up to 108 times. This helps in focusing on oneself and getting free of distractions while meditating.
         </p>
       </div>
       
@@ -747,8 +732,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>👨‍🏫</div>
         <h4 className={styles.whyCardTitle}>Expert Instructors</h4>
         <p className={styles.whyCardText}>
-          Our experienced teachers are passionate about sharing their knowledge and expertise with you. 
-          They provide tools and feedback to help you lead confidently and clearly.
+        Our experienced teachers are passionate about sharing their knowledge and expertise with you. They will provide you with the tools and feedback necessary to help you lead confidently and clearly.
         </p>
       </div>
       
@@ -756,8 +740,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>📚</div>
         <h4 className={styles.whyCardTitle}>Comprehensive Curriculum</h4>
         <p className={styles.whyCardText}>
-          Well-rounded curriculum covering yoga philosophy, anatomy, and meditation techniques. 
-          Gain deep understanding to enhance your practice and teaching.
+          Our well-rounded curriculum covers essential topics, including yoga philosophy, anatomy, and meditation techniques. You'll gain a deep understanding of how to combine these elements to enhance your practice and teaching.
         </p>
       </div>
       
@@ -765,8 +748,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>💪</div>
         <h4 className={styles.whyCardTitle}>Practical Experience</h4>
         <p className={styles.whyCardText}>
-          Step into your role as a teacher with ample opportunities to lead meditation sessions 
-          and teach asanas, ensuring you're well-prepared for your future students.
+          Get ready to step into your role as a teacher! Our program offers ample opportunities to lead meditation sessions and teach asanas, ensuring you are well-prepared to create a nurturing and effective environment for your future students.
         </p>
       </div>
       
@@ -774,8 +756,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>🦋</div>
         <h4 className={styles.whyCardTitle}>Transformational Journey</h4>
         <p className={styles.whyCardText}>
-          Designed for teaching and personal evolution. Cultivate profound insights and develop 
-          your mindfulness practice to share authentic experiences.
+         This training is designed for teaching and personal evolution. Cultivate profound insights and develop your mindfulness practice, enabling you to share authentic experiences with your students.
         </p>
       </div>
       
@@ -783,8 +764,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>🤝</div>
         <h4 className={styles.whyCardTitle}>Building a Strong Community</h4>
         <p className={styles.whyCardText}>
-          Connect with driven individuals who share your passion. Share experiences and support 
-          one another in this empowering journey.
+          You'll connect with a network of driven individuals who share your passion. Together, you will share experiences and support one another in this empowering journey, forging strong relationships that last beyond the program.
         </p>
       </div>
     </div>
@@ -808,7 +788,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.highlightCardIcon}>🧘‍♀️</div>
         <h4 className={styles.highlightCardTitle}>Daily Meditation & Yoga</h4>
         <p className={styles.highlightCardText}>
-        Daily meditation and yoga practices designed to ignite your confidence and deepen your personal practice, helping you build a stronger connection between mind and body. 
+        Daily meditation and yoga practices designed to ignite your confidence.
         </p>
       </div>
       
@@ -816,7 +796,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.highlightCardIcon}>🎯</div>
         <h4 className={styles.highlightCardTitle}>Engaging Workshops</h4>
         <p className={styles.highlightCardText}>
-        Engaging workshops on cutting-edge meditation techniques, breathwork, and mindfulness practices, designed to help you explore new dimensions of awareness and inner balance. 
+         Engaging workshops on cutting-edge meditation techniques, breathwork, and mindfulness.
         </p>
       </div>
       
@@ -824,7 +804,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.highlightCardIcon}>📖</div>
         <h4 className={styles.highlightCardTitle}>Anatomy & Physiology</h4>
         <p className={styles.highlightCardText}>
-        A clear look at how meditation affects the body, including basic anatomy and physiological responses. You’ll learn how practices like breathwork and mindfulness influence the nervous system and support relaxation.
+        In-depth exploration of the anatomy and physiology related to meditation.
         </p>
       </div>
       
@@ -832,7 +812,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.highlightCardIcon}>🕉️</div>
         <h4 className={styles.highlightCardTitle}>Eight Limbs of Yoga</h4>
         <p className={styles.highlightCardText}>
-        Thought-provoking discussions on the Eight Limbs of Yoga and a range of meditation traditions, offering practical insights into how these teachings can be applied in everyday life. Explore core principles, reflect on their meaning, and gain a deeper understanding of how they support balance, awareness, and personal growth.
+        Thought-provoking discussions on the Eight Limbs of Yoga and various meditation traditions.
         </p>
       </div>
       
@@ -840,8 +820,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.highlightCardIcon}>💻</div>
         <h4 className={styles.highlightCardTitle}>Flexible Training</h4>
         <p className={styles.highlightCardText}>
-        Flexible training options, available both online and in-person, designed to fit seamlessly into your lifestyle and schedule. Whether you prefer learning from home or engaging in a guided, in-person setting, these options make it easier to stay consistent and committed to your practice.
-
+        Flexible training options, available both online and in-person, to accommodate your lifestyle.
         </p>
       </div>
     </div>
@@ -893,15 +872,15 @@ const MeditationPage: React.FC = () => {
         </p>
         
         <div className={styles.ctaButtonGroup}>
-          <a href="/contact" className={styles.ctaButton}>
+          <Link href="/yoga-registration" className={styles.ctaButton}>
             Enroll Now
             <svg className={styles.ctaButtonIcon} viewBox="0 0 20 20" fill="none">
               <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-          </a>
-          <a href="/contact" className={styles.ctaButtonOutline}>
+          </Link>
+          <Link href="/contact" className={styles.ctaButtonOutline}>
             Learn More
-          </a>
+          </Link>
         </div>
       </div>
       
