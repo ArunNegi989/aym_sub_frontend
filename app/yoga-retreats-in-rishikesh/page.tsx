@@ -5,6 +5,7 @@ import HowToReach from "@/components/home/Howtoreach";
 import Image from "next/image";
 import heroImg from "@/assets/images/33.webp";
 import PremiumGallerySection from "@/components/PremiumGallerySection";
+import Link from "next/link";
 
 const IMAGES = {
   banner:
@@ -242,9 +243,9 @@ export default function YogaRetreatPage() {
           </div>
 
           <div className={styles.applyWrap}>
-            <a href="#book" className={styles.applyBtn}>
+            <Link href="/yoga-registration" className={styles.applyBtn}>
               Apply Now
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -295,6 +296,7 @@ export default function YogaRetreatPage() {
             detoxification, and Ashtanga yoga. Hatha yoga and mantra
             chanting sessions for healing and peace continue in the evening.
           </p>
+          <p className={styles.bodyPara}>Our <strong>3 to 7 days yoga retreat Rishikesh</strong> costs 25 USD / 2000 INR per day (food and accommodation included).</p>
           <div className={styles.pricePill}>
             <span className={styles.priceLabel}>From</span>
             <span className={styles.priceVal}>25 USD / ₹2,000 per day</span>
@@ -431,9 +433,9 @@ export default function YogaRetreatPage() {
       </h2>
       <OmDivider />
       <p className={styles.bodyPara}>
-        <a href="#" className={styles.infoLink}>
+        <Link href="/yoga-teacher-training-in-rishikesh" className={styles.infoLink}>
           AYM&apos;s yoga ashram in Rishikesh
-        </a>{" "}
+        </Link>{" "}
         tends to fill up quickly, with bookings made one to two months in
         advance. We recommend pre-booking your yoga retreat by filling out
         the registration form and paying an advance deposit fee of 55 USD.
@@ -450,9 +452,9 @@ export default function YogaRetreatPage() {
       </p>
       <p className={styles.bodyPara}>
         <strong>For more details, check out our </strong>
-        <a href="#" className={styles.infoLink}>
+        <Link href="/yoga-ttc-india" className={styles.infoLink}>
           Rule and Regulation - AYM YOGA SCHOOL
-        </a>
+        </Link>
       </p>
     </div>
   </div>
@@ -549,12 +551,12 @@ export default function YogaRetreatPage() {
               </p>
 
               <div className={styles.bookBtnGroup}>
-                <a href="#" className={styles.bookNowBtn}>
+                <Link href="/yoga-registration" className={styles.bookNowBtn}>
                   Yoga Retreats — Book Now
-                </a>
-                <a href="#" className={styles.paypalBtn}>
+                </Link>
+                <Link href="/200-hour-yoga-ttc-fees" className={styles.paypalBtn}>
                   <span className={styles.paypalText}>PayPal</span>
-                </a>
+                </Link>
               </div>
             </div>
 
