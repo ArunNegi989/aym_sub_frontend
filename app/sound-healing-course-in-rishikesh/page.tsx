@@ -648,6 +648,57 @@ export default function SoundHealingPage() {
         </div>
       </section>
 
+      {/* ══ WHAT IS SOUND HEALING SECTION ══ */}
+      <section className={styles.whatIsSection}>
+        <div className={styles.container}>
+          <h2 className={styles.secTitleOrange}>
+            What is a Sound Healing Course?
+          </h2>
+          <div className={styles.omDivider}>
+            <span className={styles.divLine} />
+            <span className={styles.omGlyph}>ॐ</span>
+            <span className={styles.divLine} />
+          </div>
+
+          <p className={styles.bodyPara}>
+            Sound healing is a process that helps in releasing stress from the body. It has been demonstrated to be a successful process as this approach makes it simple to remove toxins from the body. The sound healing course relies on vibrational effects to reduce physical and mental stress. Overall, it profoundly affects a person&apos;s body and soul in addition to restoring mental equilibrium.
+          </p>
+
+          {/* Level Cards */}
+          <div className={styles.levelsGrid}>
+            {levels.map((level, idx) => (
+              <div key={idx} className={styles.levelCard}>
+                <div className={styles.levelCardHeader}>
+                  <h3 className={styles.levelCardTitle}>{level.title}</h3>
+                </div>
+                <div className={styles.levelCardDivider} />
+                <ol className={styles.levelCardList}>
+                  {level.items.map((item, i) => (
+                    <li key={i} className={styles.levelCardItem}>
+                      <span className={styles.levelCardNum}>{i + 1}.</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+          </div>
+
+          {/* Three-photo row */}
+          <div className={styles.bowlPhotoRow}>
+            <div className={styles.bowlPhotoItem}>
+              <img src={IMG.bowl1} alt="Singing bowls arrangement" className={styles.bowlPhoto} />
+            </div>
+            <div className={styles.bowlPhotoItem}>
+              <img src={IMG.bowl2} alt="Sound healing session" className={styles.bowlPhoto} />
+            </div>
+            <div className={styles.bowlPhotoItem}>
+              <img src={IMG.bowl3} alt="Tibetan singing bowls" className={styles.bowlPhoto} />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ══ AIM SECTION ══ */}
       <section className={styles.aimSection}>
         <div className={styles.aimInner}>

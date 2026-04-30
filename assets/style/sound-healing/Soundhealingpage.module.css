@@ -1614,3 +1614,125 @@
   .benefitsImgWrap:hover .benefitsImg, .aimPhotoWrap:hover .aimPhoto,
   .benCard:hover, .expectCard:hover, .instrPill:hover, .whyCard:hover { transform: none; }
 }
+
+/* ──────────────────────────────────────────
+   WHAT IS SOUND HEALING SECTION
+────────────────────────────────────────── */
+.whatIsSection {
+  padding: clamp(2.4rem, 5vw, 4rem) 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Level Cards Grid */
+.levelsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin: 1.8rem 0 2rem;
+}
+
+.levelCard {
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.levelCard:hover {
+  border-color: var(--saffron);
+  box-shadow: 0 4px 20px rgba(241, 85, 5, 0.12);
+  transform: translateY(-3px);
+}
+
+.levelCardHeader {
+  background: linear-gradient(135deg, var(--saffron) 0%, #a85800 100%);
+  padding: 0.85rem 1rem;
+}
+
+.levelCardTitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff3d2;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.levelCardDivider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(241, 85, 5, 0.25), transparent);
+}
+
+.levelCardList {
+  list-style: none;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.levelCardItem {
+  display: flex;
+  gap: 0.45rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--ink-mid);
+}
+
+.levelCardNum {
+  font-weight: 700;
+  color: var(--saffron);
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  min-width: 16px;
+}
+
+/* Three-photo row */
+.bowlPhotoRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.bowlPhotoItem {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.bowlPhotoItem:hover {
+  border-color: var(--saffron);
+  box-shadow: 0 4px 16px rgba(241, 85, 5, 0.12);
+}
+
+.bowlPhoto {
+  display: block;
+  width: 100%;
+  height: clamp(180px, 22vw, 280px);
+  object-fit: cover;
+  transition: transform 0.38s ease;
+}
+
+.bowlPhotoItem:hover .bowlPhoto {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .levelsGrid { grid-template-columns: 1fr; gap: 1rem; }
+  .bowlPhotoRow { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+  .bowlPhoto { height: clamp(120px, 25vw, 200px); }
+}
+
+@media (max-width: 600px) {
+  .bowlPhotoRow { grid-template-columns: 1fr; }
+  .bowlPhoto { height: 220px; }
+}
