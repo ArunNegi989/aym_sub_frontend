@@ -47,6 +47,8 @@ interface KundaliniContent {
 
   
   _id: string;
+  kundaliniIntroHeading: string;
+  kundaliniIntroParagraph: string;
   status: string;
   refundIcons?: string[];
   refundColors?: Array<{ color: string; bg: string; border: string }>;
@@ -1434,6 +1436,30 @@ export default function KundaliniYogaTTC() {
       <CourseInfoCard content={content} currency={currency} rate={rate} />
       {/* ✅ STICKY NAVIGATION (from 100hr page) */}
       <StickySectionNav items={NAV_ITEMS} triggerId="hero" />
+
+
+{/* ──────────────────────────────────────────────────
+     SECTION 1.5 — KUNDALINI YOGA INTRODUCTION (NEW)
+  ────────────────────────────────────────────────── */}
+{content.kundaliniIntroHeading && content.kundaliniIntroParagraph && (
+  <section className={`${styles.section} ${styles.sectionLight}`}>
+    <div className={`container px-3 px-md-4 ${styles.maxx}`}>
+      <div className={styles.introBlock}>
+        <div className={styles.introBlockInner}>
+          <span className={styles.secTagline}>Discover the Path</span>
+          <h2 className={styles.sectionTitleCenter}>
+            {content.kundaliniIntroHeading}
+          </h2>
+          <OmDivider />
+          <div 
+            className={`${styles.bodyPara} ${styles.textCenter} ${styles.introBlockParagraph}`}
+            dangerouslySetInnerHTML={{ __html: content.kundaliniIntroParagraph }}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+)}
 
       {/* ══════════════════════════════════════
         SECTION 2 — WHAT IS KUNDALINI YOGA (Enhanced)
