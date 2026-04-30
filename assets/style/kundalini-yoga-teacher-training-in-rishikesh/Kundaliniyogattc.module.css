@@ -6608,3 +6608,34 @@
     gap: .75rem;
   }
 }
+
+/* ─────────────────────────────────────────
+   INTRO BLOCK SECTION (NEW)
+───────────────────────────────────────── */
+.introBlock {
+  padding: 1.5rem 0;
+}
+
+.introBlockInner {
+  max-width: 1600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.introBlockParagraph {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: #4a3a2a;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .introBlock {
+    padding: 1rem 0;
+  }
+  
+  .introBlockParagraph {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}

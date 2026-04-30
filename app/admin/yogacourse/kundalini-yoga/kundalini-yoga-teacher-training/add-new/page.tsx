@@ -651,6 +651,9 @@ interface KundaliniFormValues {
   courseInfoInrPrice: number;
   courseInfoOriginalUsdPrice: number;
   courseInfoOriginalInrPrice: number;
+  // NEW: Section 1.5
+  kundaliniIntroHeading: string;
+  kundaliniIntroParagraph: string;
 }
 
 export default function KundaliniTTCAdminForm() {
@@ -797,7 +800,7 @@ export default function KundaliniTTCAdminForm() {
     { color: "#c8890a", bg: "rgba(200,137,10,0.07)", border: "rgba(200,137,10,0.2)" }
   ]);
 
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm<KundaliniFormValues>({
+  const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<KundaliniFormValues>({
     defaultValues: {
       status: "Active",
       whatIsTitle: "What is Kundalini Yoga?",
@@ -871,6 +874,9 @@ export default function KundaliniTTCAdminForm() {
       courseInfoInrPrice: 82000,
       courseInfoOriginalUsdPrice: 1799,
       courseInfoOriginalInrPrice: 148000,
+      // NEW: Section 1.5 defaults
+      kundaliniIntroHeading: "The Science of Kundalini Yoga",
+      kundaliniIntroParagraph: "<p>Kundalini Yoga is the ancient science of awakening the dormant energy within every human being. It combines breath, movement, meditation, and mantra to help you connect with your highest self and unlock your full potential.</p>",
     },
   });
 
@@ -903,6 +909,8 @@ export default function KundaliniTTCAdminForm() {
           "courseInfoFeeLabel", "courseInfoFeeFromText", "courseInfoBookBtnText",
           "courseInfoUsdPrice", "courseInfoInrPrice", "courseInfoOriginalUsdPrice",
           "courseInfoOriginalInrPrice",
+          // NEW: Section 1.5
+          "kundaliniIntroHeading", "kundaliniIntroParagraph",
         ];
         keys.forEach((k) => { if (d[k] !== undefined) setValue(k, d[k]); });
 
@@ -1075,7 +1083,7 @@ export default function KundaliniTTCAdminForm() {
             {isEdit ? "Edit Kundalini Yoga TTC Page" : "Add Kundalini Yoga TTC Page"}
           </h1>
           <p className={styles.pageSubtitle}>
-            Hero · Course Info Card · What is Kundalini · Activate & Benefits · Syllabus · Eligibility · Location · Facilities · Schedule · Why AYM · Why Rishikesh · Refund
+            Hero · Course Info Card · Kundalini Intro · What is Kundalini · Activate & Benefits · Syllabus · Eligibility · Location · Facilities · Schedule · Why AYM · Why Rishikesh · Refund
           </p>
         </div>
       </div>
@@ -1201,6 +1209,33 @@ export default function KundaliniTTCAdminForm() {
               </div>
             </div>
           </div>
+        </Sec>
+        <D />
+
+        {/* ✨ NEW SECTION 1.5 - KUNDALINI YOGA INTRODUCTION ✨ */}
+        <Sec title="Kundalini Yoga Introduction" badge="Section 1.5 - Before What is Kundalini">
+          <div className={styles.fieldHint} style={{ marginBottom: "1rem", background: "#fef8e8", padding: "0.75rem", borderRadius: "8px" }}>
+            <span className={styles.hintIcon}>📍</span> This section appears right after the Course Info Card and Sticky Navigation, before the "What is Kundalini Yoga?" section.
+          </div>
+          
+          <F label="Heading" req>
+            <div className={styles.inputWrap}>
+              <input 
+                className={styles.input} 
+                {...register("kundaliniIntroHeading")} 
+                placeholder="e.g., The Science of Kundalini Yoga" 
+              />
+            </div>
+          </F>
+          
+          <F label="Paragraph (Rich Text)">
+            <StableJodit 
+              onSave={(v) => { setValue("kundaliniIntroParagraph", v); }} 
+              value={watch("kundaliniIntroParagraph")}
+              ph="Enter introductory paragraph about Kundalini Yoga..."
+              h={250}
+            />
+          </F>
         </Sec>
         <D />
 
