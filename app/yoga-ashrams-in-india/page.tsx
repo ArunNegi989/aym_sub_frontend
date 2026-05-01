@@ -111,13 +111,22 @@ const YogaAshrams: React.FC = () => {
 </section>
 
 
-{/* ===== EXPERIENCE SECTION - TIMELINE STYLE ===== */}
+{/* ===== EXPERIENCE SECTION - UPDATED WITH FULL CONTENT ===== */}
 <section className={styles.experienceSection}>
   <div className={styles.experienceHeader}>
-    <h2 className={styles.experienceTitle}>Enthralling Experiences</h2>
-    <p className={styles.experienceSubtitle}>Practice of Yoga & Meditation</p>
+    <h2 className={styles.experienceTitle}>
+      Enthralling experiences in Yoga Ashrams Rishikesh &amp; Practice of Yoga &amp; Mediation
+    </h2>
   </div>
-  
+
+  <p className={`${styles.experienceBody} container`}>
+    There has never been a better time to commence your Rishikesh yoga adventure. Enjoyment in every moment can be yours through learning and practising yoga, breathing, and meditation techniques. Imagine learning to live a genuinely fulsome life right in the heart of India - living in a large, comfortable ashram with other seekers worldwide. You will be creating memories of a lifetime. AYM <strong>yoga ashram in rishikesh</strong>, India, is well-known for traditional and authentic yoga. At our ashram, yoga seekers can stay and indulge in more profound practice in the presence of traditional gurus. The best part is that you will get the incredible opportunity to learn yoga from its pioneers, the experts who have learnt these techniques at the Vedic Gurukuls and yoga tradition. You have a unique and authentic opportunity to learn and grow at AYM Yoga Ashram in India.
+  </p>
+
+  <p className={`${styles.experienceBody} container`}>
+    What distinguishes yoga learning at the AYM Rishikesh ashrams from the others is our commitment to providing comprehensive and thorough training. We ensure that the yoga practitioner will be educated in the foundational principles and science behind each pose. Our teachers are both skilled and experienced. They are experts who have experienced ultimate enlightenment and teach from their hearts, minds, and souls, instilling in you a deep sense of confidence in the quality of education you will receive.
+  </p>
+
   <div className={styles.timelineGrid}>
     <div className={styles.timelineItem}>
       <div className={styles.timelineIcon}>🧘</div>
@@ -176,8 +185,7 @@ const YogaAshrams: React.FC = () => {
     <div className={styles.highlightCard}>
       <h3 className={styles.highlightCardTitle}>Courses Offered</h3>
       <p className={styles.bodyText}>
-        Durations range from 25 days to 2 months. Upon completion you receive
-        internationally recognised certificates.
+      Different yoga ashrams offer different courses of various durations, affording variety and choice. The courses offered include 200 hours teacher training, 300 hour teacher training and 500 hours teacher training and span from 25 days to 1 month to about two months. All of the previous activities you will find at one home known as AYM Yoga Ashram in rishikesh. Once you have completed your course, you receive certificates which are verified and recognized by Yoga Alliance USA and International Yoga Federation.
       </p>
       <div className={styles.coursePills}>
         <Link href="/200-hour-yoga-teacher-training-rishikesh" className={styles.pillLink}>200 Hours Teacher Training <span className={styles.pillArrow}>›</span></Link>
@@ -256,7 +264,15 @@ const YogaAshrams: React.FC = () => {
     <h2 className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>
       <Link href="/yoga-ttc-rishikesh">Why is AYM Yoga Ashram best to learn yoga?</Link>
     </h2>
-    <div className={styles.whyGrid}>
+    
+    <p className={styles.whyBody}>
+      Yoga ashram is considered the best place to learn yoga because it is located away from the hustle and bustle of daily life and is free from interruptions and disturbances. AYM Yoga ashram has experienced and qualified teachers who teach different styles and aspects of yoga. Regular yoga practice with various asanas allows people to have a healthy mind and body free of toxins and harmful things. It is an ashram where people learn to focus and concentrate on doing one particular thing at a time or a set of skills while doing a specific kind of work.
+    </p>
+    <p className={styles.whyBody}>
+      Once at our ashram, people can focus on themselves and find who they are and what they want to do. Also, at AYM Yoga Ashram, people find the true meaning of life and find out how they can serve themselves by serving others. Once they have become well-versed in one or more styles of yoga and have learned to meditate, they can get back to their lives and work better and more efficiently. By doing so, they are equipped with life skills to start progressing.
+    </p>
+  </div>
+  <div className={styles.whyGrid}>
       {[
         { num: "01", label: "Location", title: "Free from distraction", desc: "Located away from the hustle of daily life, free from interruptions, with full focus on your practice." },
         { num: "02", label: "Teachers", title: "Experienced masters", desc: "Qualified teachers who teach different styles and aspects of yoga with heart, mind, and soul." },
@@ -270,12 +286,6 @@ const YogaAshrams: React.FC = () => {
         </div>
       ))}
     </div>
-    <p className={styles.whyBody}>
-      Once at our ashram, people can focus on themselves and find who they are
-      and what they want to do. Once well-versed in yoga and meditation, they
-      can return to their lives and work better and more efficiently.
-    </p>
-  </div>
 </section>
 
 
