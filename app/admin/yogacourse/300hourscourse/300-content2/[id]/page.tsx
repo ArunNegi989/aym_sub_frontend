@@ -705,14 +705,22 @@ export default function Edit300hrContent2() {
       fd.append("markPracticalDetail", markPracticalDetailRef.current);
 
       // String arrays
-      careerItems.forEach((v) => fd.append("careerItems", v));
-      feeCard1Items.forEach((v) => fd.append("feeCard1Items", v));
-      feeCard2Items.forEach((v) => fd.append("feeCard2Items", v));
-      luxuryFeatures.forEach((v) => fd.append("luxuryFeatures", v));
-      featuresList.forEach((v) => fd.append("featuresList", v));
-      learningItems.forEach((v) => fd.append("learningItems", v));
-      ethicsRules.forEach((v) => fd.append("ethicsRules", v));
-      misconItems.forEach((v) => fd.append("misconItems", v));
+      // careerItems.forEach((v) => fd.append("careerItems", v));
+      fd.append("careerItems", JSON.stringify(careerItems)); 
+      // feeCard1Items.forEach((v) => fd.append("feeCard1Items", v));
+      fd.append("feeCard1Items", JSON.stringify(feeCard1Items));
+      // feeCard2Items.forEach((v) => fd.append("feeCard2Items", v));
+      fd.append("feeCard2Items", JSON.stringify(feeCard2Items));
+      // luxuryFeatures.forEach((v) => fd.append("luxuryFeatures", v));
+      fd.append("luxuryFeatures", JSON.stringify(luxuryFeatures));
+      // featuresList.forEach((v) => fd.append("featuresList", v));
+      fd.append("featuresList", JSON.stringify(featuresList));
+      // learningItems.forEach((v) => fd.append("learningItems", v));
+      fd.append("learningItems", JSON.stringify(learningItems));
+      // ethicsRules.forEach((v) => fd.append("ethicsRules", v));
+      fd.append("ethicsRules", JSON.stringify(ethicsRules));
+      // misconItems.forEach((v) => fd.append("misconItems", v));
+      fd.append("misconItems", JSON.stringify(misconItems));
 
       // Complex arrays
       fd.append("faqItems", JSON.stringify(faqItems));
