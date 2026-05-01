@@ -2,7 +2,12 @@
 import React, { useState } from "react";
 import styles from "@/assets/style/international-yoga-competition/Yogacompetition.module.css";
 import Link from "next/link";
-
+import HowToReach from "@/components/home/Howtoreach";
+import Competitionimage from "@/assets/images/mainimages/43960229012_41cbf853a3_b.jpg"
+import Image from "next/image";
+import img1 from "@/assets/images/mainimages/28531495457_bfb39bbd82_b.jpg"
+import img2 from "@/assets/images/mainimages/44085500521_468d1df423_b.jpg"
+import img3 from "@/assets/images/mainimages/30887814928_8a7f1290e5_b.jpg"
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
@@ -67,12 +72,7 @@ const previousWinners = [
   { place: "3rd", name: "Aarti Gupta" },
 ];
 
-const winnerImages = [
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80&fit=crop",
-  "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80&fit=crop",
-  "https://images.unsplash.com/photo-1545389336-cf090694435e?w=600&q=80&fit=crop",
-];
-
+const winnerImages = [img1, img2, img3];
 const prizes = [
   { place: "1st Prize", amount: "5100 INR" },
   { place: "2nd Prize", amount: "3100 INR" },
@@ -82,10 +82,7 @@ const prizes = [
 /* ─────────────────────────────────────────────
    SUBCOMPONENTS
 ───────────────────────────────────────────── */
-
-const SectionHeading: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => (
+const SectionHeading: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <>
     <h2 className={styles.sectionHeading}>{children}</h2>
     <div className={styles.sectionUnderline}>
@@ -94,71 +91,25 @@ const SectionHeading: React.FC<{ children: React.ReactNode }> = ({
   </>
 );
 
-const OrangeBtn: React.FC<{
-  children: React.ReactNode;
-  onClick?: () => void;
-}> = ({ children, onClick }) => (
+const OrangeBtn: React.FC<{ children: React.ReactNode; onClick?: () => void }> = ({
+  children,
+  onClick,
+}) => (
   <button className={styles.btnOrange} onClick={onClick} type="button">
     {children}
   </button>
 );
 
 /* ─────────────────────────────────────────────
-   FORM STATE
-───────────────────────────────────────────── */
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  country: string;
-  ageGroup: string;
-  dob: string;
-  gender: string;
-  city: string;
-  paymentMode: string;
-  transactionId: string;
-  message: string;
-}
-
-const initialForm: FormData = {
-  name: "",
-  email: "",
-  phone: "",
-  country: "",
-  ageGroup: "",
-  dob: "",
-  gender: "",
-  city: "",
-  paymentMode: "",
-  transactionId: "",
-  message: "",
-};
-
-/* ─────────────────────────────────────────────
    MAIN COMPONENT
 ───────────────────────────────────────────── */
 const YogaCompetition: React.FC = () => {
-  const [form, setForm] = useState<FormData>(initialForm);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >,
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
     <div className={styles.section}>
       <div className={styles.a} />
 
       <div className={styles.container}>
+
         {/* ── PAGE HEADER ── */}
         <div className={styles.pageHeader}>
           <h1 className={styles.pageTitle}>
@@ -174,14 +125,13 @@ const YogaCompetition: React.FC = () => {
           <div className={styles.prose}>
             <p>
               <strong>
-                Association for Yoga and Meditation (AYM) yoga school in
-                Rishikesh
+                Association for Yoga and Meditation (AYM) yoga school in Rishikesh
               </strong>{" "}
-              is organizing <strong>7th International Yoga championship</strong>
-              . This Online and Offline yoga championship is open for
-              participants worldwide to ensure that the maximum number of yogis
-              can take part in these competitions. The participants to submit
-              their videos before 15th May 2026.
+              is organizing <strong>7th International Yoga championship</strong>.
+              This Online and Offline yoga championship is open for participants
+              worldwide to ensure that the maximum number of yogis can take part in
+              these competitions. The participants to submit their videos before{" "}
+              <strong>15th May 2026</strong>.
             </p>
             <ul>
               <li>The Video must not exceed 5 Minutes.</li>
@@ -190,12 +140,13 @@ const YogaCompetition: React.FC = () => {
           </div>
 
           <div className={styles.btnCenter}>
-            <OrangeBtn>Results Announced</OrangeBtn>
-          </div>
+  <Link href="/">
+    <OrangeBtn>Results Announced</OrangeBtn>
+  </Link>
+</div>
 
           {/* Objectives */}
           <SectionHeading>Objectives of the Competition</SectionHeading>
-
           <ul className={styles.objectivesList}>
             {objectives.map((obj, i) => (
               <li key={i}>{obj}</li>
@@ -204,10 +155,11 @@ const YogaCompetition: React.FC = () => {
 
           {/* Hero image */}
           <div className={styles.imgPlaceholder}>
-            <img
-              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&q=80&fit=crop"
-              alt="Yoga Competition Performance"
-            />
+           <Image
+  src={Competitionimage}
+  alt="Yoga Competition Performance"
+  className={styles.image}
+/>
           </div>
         </div>
 
@@ -216,8 +168,8 @@ const YogaCompetition: React.FC = () => {
 
         <div className={styles.contentCard}>
           <p className={styles.registerNote}>
-            This Online and Offline yoga competition is open to any participant
-            as per age group any one from any part of the world.
+            This Online and Offline yoga competition is open to any participant as
+            per age group any one from any part of the world.
           </p>
 
           <div className={styles.twoColGrid}>
@@ -231,7 +183,7 @@ const YogaCompetition: React.FC = () => {
             </div>
 
             <div className={styles.subSection}>
-              <div className={styles.subHeading}>Dress Code:</div>
+              <div className={styles.subHeading}>Dress Code</div>
               <ul className={styles.bulletList}>
                 <li>Men: Tight Short.</li>
                 <li>Women: Swimming Costume.</li>
@@ -248,7 +200,7 @@ const YogaCompetition: React.FC = () => {
             <div className={styles.syllabusCard} key={i}>
               <div className={styles.syllabusCardTitle}>{group.title}</div>
               <div className={styles.syllabusSubNote}>
-                Compulsory Any 4 Asana - Holding 30 Sec.
+                Compulsory Any 4 Asana — Holding 30 Sec.
               </div>
               <ul className={styles.bulletList}>
                 {group.asanas.map((asana, j) => (
@@ -257,7 +209,7 @@ const YogaCompetition: React.FC = () => {
               </ul>
               <div className={styles.syllabusNote}>
                 After Performing, Participant need to choose any 3 asana by self
-                - Holding 15 sec.
+                — Holding 15 sec.
               </div>
             </div>
           ))}
@@ -265,26 +217,26 @@ const YogaCompetition: React.FC = () => {
 
         {/* ── BOOK YOUR SPOT ── */}
         <div className={styles.bookRow}>
-          {[0, 1, 2].map((i) => (
-            <div className={styles.bookCard} key={i}>
-              <OrangeBtn>Book Your Spot</OrangeBtn>
-            </div>
-          ))}
-        </div>
+  {[0, 1, 2].map((i) => (
+    <div className={styles.bookCard} key={i}>
+      <Link href="/yoga-registration">
+        <OrangeBtn>Book Your Spot</OrangeBtn>
+      </Link>
+    </div>
+  ))}
+</div>
 
         {/* ── HOW TO REGISTER ── */}
         <SectionHeading>How to Register?</SectionHeading>
 
         <div className={styles.contentCard}>
           <p className={styles.registerNote}>
-            The participant can register in this international yoga championship
-            by sending email on:{" "}
-            <span className={styles.emailHighlight}>
-              aymyogaschool@gmail.com
-            </span>
+            The participant can register in this international yoga championship by
+            sending email on:{" "}
+            <span className={styles.emailHighlight}>aymyogaschool@gmail.com</span>
           </p>
 
-          <div className={styles.boldLabel}>Registraion Fee:</div>
+          <div className={styles.boldLabel}>Registration Fee</div>
           <ul className={styles.bulletList}>
             <li>Indian Students: 300 INR</li>
             <li>International Students: 10 USD</li>
@@ -297,9 +249,9 @@ const YogaCompetition: React.FC = () => {
         <div className={styles.contentCard}>
           <p className={styles.registerNote}>
             The last date of registration for the 1st round of the international
-            yoga competition is <strong>15th May 2026</strong> and the
-            participants have to submit their performance video before 15th May
-            2026. After 15th May submission is not valid.
+            yoga competition is <strong>15th May 2026</strong> and the participants
+            have to submit their performance video before 15th May 2026. After 15th
+            May submission is not valid.
           </p>
 
           <div className={styles.noteBox}>
@@ -309,8 +261,8 @@ const YogaCompetition: React.FC = () => {
           </div>
 
           <p className={styles.registerNote} style={{ marginTop: "0.8rem" }}>
-            Selected students from 1st round, will participate in the Final
-            round of competition at AYM Yoga School on the{" "}
+            Selected students from 1st round, will participate in the Final round
+            of competition at AYM Yoga School on the{" "}
             <strong>21st of June 2026.</strong>
           </p>
 
@@ -323,18 +275,18 @@ const YogaCompetition: React.FC = () => {
 
         {/* ── 6th COMPETITION RESULTS ── */}
         <SectionHeading>
-          6th International Yoga Competition - Final Result - 21 June 2025
+          6th International Yoga Competition — Final Result — 21 June 2025
         </SectionHeading>
 
         <div className={styles.photoGrid}>
           {previousWinners.map((winner, i) => (
             <div className={styles.photoCard} key={i}>
               <div className={styles.winnerImgWrap}>
-                <img
-                  src={winnerImages[i]}
-                  alt={`${winner.place} winner ${winner.name}`}
-                  className={styles.winnerImg}
-                />
+                <Image
+  src={winnerImages[i]}
+  alt={`${winner.place} winner ${winner.name}`}
+  className={styles.winnerImg}
+/>
                 <div className={styles.winnerOverlay}>
                   <div className={styles.winnerOccasion}>
                     On the Occasion of International Yoga Day
@@ -348,8 +300,7 @@ const YogaCompetition: React.FC = () => {
                   </div>
                   <div className={styles.winnerName}>
                     ●●● {winner.place} winner{" "}
-                    <strong style={{ color: "#f5b800" }}>{winner.name}</strong>{" "}
-                    ●●●
+                    <strong style={{ color: "#f5b800" }}>{winner.name}</strong> ●●●
                   </div>
                 </div>
               </div>
@@ -359,21 +310,21 @@ const YogaCompetition: React.FC = () => {
 
         {/* ── 7th COMPETITION DETAILS ── */}
         <SectionHeading>
-          7th International Yoga Competition - 21 June 2026 - Details
+          7th International Yoga Competition — 21 June 2026 — Details
         </SectionHeading>
 
         <div className={styles.contentCard}>
           <div className={styles.finalRoundBox}>
             <span className={styles.finalRoundLabel}>Final Round: </span>
-            Judges may ask participants to perform any asana from Categories A
-            to E. Therefore, we recommend practicing asanas from all categories
-            to be fully prepared.
+            Judges may ask participants to perform any asana from Categories A to E.
+            Therefore, we recommend practicing asanas from all categories to be fully
+            prepared.
           </div>
         </div>
 
         {/* ── SCHEDULE ── */}
         <SectionHeading>
-          7th International Yoga Competition - 21 June 2026 - Schedule
+          7th International Yoga Competition — 21 June 2026 — Schedule
         </SectionHeading>
 
         <div className={styles.scheduleTable}>
@@ -395,7 +346,7 @@ const YogaCompetition: React.FC = () => {
 
         {/* ── PRIZE ── */}
         <SectionHeading>
-          7th International Yoga Competition - Prize
+          7th International Yoga Competition — Prize
         </SectionHeading>
 
         <div className={styles.contentCard}>
@@ -427,15 +378,21 @@ const YogaCompetition: React.FC = () => {
               Pay By UPI / Bank / Debit / Credit Card
             </div>
             <div className={styles.paymentSubLabel}>For Indian Students</div>
-            <div className={styles.btnCenter} style={{ marginBottom: "1rem" }}>
-              <OrangeBtn>Book Now</OrangeBtn>
-            </div>
-            <div className={styles.paymentSubLabel}>
-              For International Students
-            </div>
-            <div className={styles.btnCenter}>
-              <OrangeBtn>Book Now</OrangeBtn>
-            </div>
+           <div className={styles.btnCenter} style={{ marginBottom: "1rem" }}>
+  <Link href="/yoga-registration">
+    <OrangeBtn>Book Now</OrangeBtn>
+  </Link>
+</div>
+
+<div className={styles.paymentSubLabel}>
+  For International Students
+</div>
+
+<div className={styles.btnCenter}>
+  <Link href="/yoga-registration">
+    <OrangeBtn>Book Now</OrangeBtn>
+  </Link>
+</div>
           </div>
 
           {/* Card 2 - PhonePe */}
@@ -444,10 +401,7 @@ const YogaCompetition: React.FC = () => {
               <span style={{ fontSize: "1.1rem" }}>Ⓟ</span> PhonePe
             </div>
             <span className={styles.acceptedBadge}>Accepted Here</span>
-            <p
-              className={styles.phonepeMobile}
-              style={{ fontSize: "0.8rem", marginBottom: "0.5rem" }}
-            >
+            <p className={styles.phonepeMobile} style={{ fontSize: "0.8rem", marginBottom: "0.5rem" }}>
               Scan &amp; Pay Using PhonePe App
             </p>
             <div className={styles.qrPlaceholder}>[ QR Code ]</div>
@@ -467,19 +421,19 @@ const YogaCompetition: React.FC = () => {
               <div>IFSC Code: IDIB000R639</div>
               <div>Name of bank: ALLAHABAD Bank</div>
               <div>
-                Address: Utpal Plaza, Haridwar Road, Rishikesh, Uttarakhand
-                India.
+                Address: Utpal Plaza, Haridwar Road, Rishikesh, Uttarakhand India.
               </div>
               <div style={{ marginTop: "0.8rem" }}>
                 International Students Pay via PayPal:
               </div>
-              <div>PayPal ID - aymyogaschool@gmail.com</div>
+              <div>PayPal ID — aymyogaschool@gmail.com</div>
             </div>
           </div>
         </div>
 
         <div className={styles.divider} />
       </div>
+      <HowToReach/>
     </div>
   );
 };

@@ -1,75 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Dancing+Script:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@500;600;700&family=Lato:wght@300;400;700&display=swap');
 
-/* ── CSS Variables ── */
+/* ================================================================
+   ROOT & CSS VARIABLES
+   ================================================================ */
 :root {
-  --saffron: #F15505;
-  --saffron-dark: #f15505;
-  --saffron-light: #f5b800;
-  --brown-dark: #3d1d00;
-  --brown-mid: #7a5c2e;
-  --brown-light: #5c2d00;
-  --parchment: #fff9f0;
-  --parchment-mid: #fdf0dc;
-  --parchment-warm: #ffecd8;
-  --border-color: #e8d5b5;
-  --text-body: #3d2b10;
-  --text-small: #5a3e22;
+  --sf: #F15505;
+  --sf-dark: #c44400;
+  --sf-gold: #d4780a;
+  --ink: #1a0e04;
+  --ink-mid: #3d2208;
+  --ink-soft: #7a5230;
+  --bg: #ffffff;
+  --bg-card: #ffffff;
+  --border: rgba(212, 120, 10, 0.2);
+  --border-strong: rgba(241, 85, 5, 0.35);
+  --shadow: rgba(80, 35, 5, 0.10);
+  --ff: 'Montserrat', Arial, sans-serif;
+  --fm: 'Montserrat', Arial, sans-serif;
+  --fb: 'Lato', Arial, sans-serif;
 }
 
-/* ── Section shell ── */
+/* ================================================================
+   SECTION SHELL
+   ================================================================ */
 .section {
   position: relative;
-  background: linear-gradient(160deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
+  background: var(--bg);
   overflow: hidden;
   min-height: 100vh;
+  font-family: var(--fb);
+  color: var(--ink);
 }
 
-/* Subtle aged-paper texture */
-.section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(ellipse at 10% 20%, rgba(224, 123, 0, 0.04) 0%, transparent 55%),
-    radial-gradient(ellipse at 90% 80%, rgba(92, 45, 0, 0.05) 0%, transparent 55%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Large watermark OM */
 .section::after {
   content: 'ॐ';
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: clamp(16rem, 30vw, 28rem);
-  color: rgba(224, 123, 0, 0.03);
-  font-family: 'Cinzel', serif;
+  font-size: clamp(14rem, 28vw, 26rem);
+  color: rgba(241, 85, 5, 0.03);
   pointer-events: none;
   z-index: 0;
   line-height: 1;
   user-select: none;
 }
 
-/* ── Decorative border strips ── */
 .a {
-  height: 5px;
+  height: 4px;
   background: linear-gradient(90deg,
-      transparent 0%,
-      #F15505 20%,
-      #f5b800 50%,
-      #F15505 80%,
-      transparent 100%);
+      transparent 0%, var(--sf) 25%,
+      var(--sf-gold) 50%, var(--sf) 75%, transparent 100%);
 }
 
-/* ── Container ── */
+/* ================================================================
+   CONTAINER
+   ================================================================ */
 .container {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: 1580px;
   margin: 0 auto;
-  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 2.5rem);
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 2.5rem);
 }
 
 /* ================================================================
@@ -77,215 +69,292 @@
    ================================================================ */
 .pageHeader {
   text-align: center;
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.5rem;
+  padding: 2.5rem 0 2rem;
+  position: relative;
+}
+
+.pageHeader::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--sf);
+  border-radius: 2px;
+  margin: .75rem auto 0;
 }
 
 .pageTitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-  font-style: italic;
+  font-family: var(--ff);
+  font-size: clamp(1.5rem, 3.8vw, 2.5rem);
   font-weight: 600;
-  color: var(--brown-dark);
-  margin-bottom: 0.8rem;
-  line-height: 1.3;
+  color: var(--ink);
+  line-height: 1.25;
+  letter-spacing: .01em;
 }
 
 .titleUnderline {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+  display: none;
 }
 
 .underlineLine {
-  width: 120px;
-  height: 1.5px;
-  background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+  display: none;
 }
 
 /* ================================================================
    SECTION HEADINGS
    ================================================================ */
 .sectionHeading {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.3rem, 2.8vw, 1.9rem);
-  font-style: italic;
+  font-family: var(--ff);
+  font-size: clamp(1.1rem, 2.3vw, 1.6rem);
   font-weight: 600;
-  color: var(--brown-dark);
+  color: var(--ink);
   text-align: center;
-  margin: 2rem 0 0.6rem;
+  margin: 2.5rem 0 .5rem;
+  letter-spacing: .01em;
 }
 
 .sectionUnderline {
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
 .sectionUnderlineLine {
-  width: 100px;
+  width: 60px;
   height: 1.5px;
-  background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+  background: linear-gradient(90deg, transparent, var(--sf), transparent);
 }
 
 /* ================================================================
    CONTENT CARD
    ================================================================ */
 .contentCard {
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: clamp(1.2rem, 3vw, 2rem);
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 12px rgba(92, 45, 0, 0.06);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: clamp(1.3rem, 3vw, 2rem);
+  margin-bottom: 1.4rem;
+  box-shadow: 0 4px 24px var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.contentCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sf), var(--sf-gold));
 }
 
 /* ================================================================
    PROSE / BODY TEXT
    ================================================================ */
 .prose {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
-  line-height: 1.85;
-  color: var(--text-body);
-  margin-bottom: 1rem;
+  font-family: var(--fb);
+  font-size: clamp(.93rem, 1.6vw, 1.03rem);
+  line-height: 1.9;
+  color: var(--ink-mid);
+  margin-bottom: .8rem;
 }
 
 .prose p {
-  margin-bottom: 0.75rem;
+  margin-bottom: .75rem;
+  font-family: var(--fb);
 }
 
 .prose strong,
 .prose b {
   font-weight: 700;
-  color: var(--brown-dark);
+  color: var(--ink);
+  font-family: var(--fb);
 }
 
 .prose ul,
 .prose ol {
-  padding-left: 1.4rem;
-  margin: 0.6rem 0 0.8rem;
+  padding-left: 1.3rem;
+  margin: .5rem 0 .75rem;
+  font-family: var(--fb);
 }
 
 .prose li {
-  margin-bottom: 0.35rem;
+  margin-bottom: .3rem;
+  font-family: var(--fb);
 }
 
 .boldLabel {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  font-family: var(--fm);
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--brown-dark);
-  margin-bottom: 0.4rem;
-  margin-top: 1rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--sf);
+  margin: .9rem 0 .5rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid rgba(241, 85, 5, .18);
+  display: inline-block;
 }
 
 /* ================================================================
-   RESULTS ANNOUNCED BUTTON
+   BUTTON
    ================================================================ */
 .btnCenter {
   display: flex;
   justify-content: center;
-  margin: 1.5rem 0;
+  margin: 1.3rem 0;
 }
 
 .btnOrange {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-family: var(--fm);
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .18em;
   text-transform: uppercase;
   color: #fff;
-  background: linear-gradient(135deg, var(--saffron) 0%, var(--saffron-dark) 100%);
-  padding: 0.7rem 1.8rem;
+  background: linear-gradient(135deg, var(--sf), var(--sf-dark));
+  padding: .8rem 2rem;
   border-radius: 4px;
-  text-decoration: none;
   border: none;
   cursor: pointer;
   white-space: nowrap;
-  box-shadow: 0 4px 18px rgba(224, 123, 0, 0.35);
-  transition: box-shadow 0.22s ease, transform 0.22s ease;
+  box-shadow: 0 4px 18px rgba(241, 85, 5, .32);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .18s;
+  text-decoration: none;
 }
 
 .btnOrange:hover {
   transform: translateY(-2px);
-  box-shadow: 0 7px 26px rgba(224, 123, 0, 0.5);
+  box-shadow: 0 7px 26px rgba(241, 85, 5, .46);
+  opacity: .92;
 }
 
 /* ================================================================
    OBJECTIVES
    ================================================================ */
 .objectivesList {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.93rem, 1.55vw, 1.03rem);
-  line-height: 1.85;
-  color: var(--text-body);
-  padding-left: 1.4rem;
-  margin: 0;
-}
-
-.objectivesList li {
-  margin-bottom: 0.5rem;
-}
-
-/* ================================================================
-   ELIGIBILITY / AGE GROUPS
-   ================================================================ */
-.twoColGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.subSection {
-  margin-bottom: 1.2rem;
-}
-
-.subHeading {
-  font-family: 'Cinzel', serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--brown-dark);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.bulletList {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-  line-height: 1.8;
-  color: var(--text-body);
+  font-family: var(--fb);
+  font-size: clamp(.9rem, 1.55vw, 1rem);
+  line-height: 1.9;
+  color: var(--ink-mid);
   padding-left: 1.3rem;
   margin: 0;
 }
 
-.bulletList li {
-  margin-bottom: 0.3rem;
+.objectivesList li {
+  margin-bottom: .5rem;
+  font-family: var(--fb);
 }
 
 /* ================================================================
-   SYLLABUS — 3 COLUMNS
+   HERO IMAGE
+   ================================================================ */
+.imgPlaceholder {
+  width: 100%;
+  max-width: 962px;
+  margin: 1.2rem auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.imgPlaceholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+
+.imgPlaceholder:hover img {
+  transform: scale(1.04);
+}
+
+/* ================================================================
+   ELIGIBILITY
+   ================================================================ */
+.registerNote {
+  font-family: var(--fb);
+  font-size: clamp(.9rem, 1.55vw, 1rem);
+  line-height: 1.88;
+  color: var(--ink-mid);
+  margin-bottom: .8rem;
+}
+
+.emailHighlight {
+  color: var(--sf);
+  font-weight: 700;
+}
+
+.twoColGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.subSection {
+  margin-bottom: 1rem;
+}
+
+.subHeading {
+  font-family: var(--fm);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--sf);
+  margin-bottom: .55rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid rgba(241, 85, 5, .18);
+}
+
+.bulletList {
+  font-family: var(--fb);
+  font-size: clamp(.88rem, 1.5vw, 1.1rem);
+  line-height: 1.85;
+  color: var(--ink-mid);
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.bulletList li {
+  margin-bottom: .3rem;
+  font-family: var(--fb);
+  font-size: clamp(.88rem, 1.5vw, 1.1rem);
+
+}
+
+/* ================================================================
+   SYLLABUS
    ================================================================ */
 .threeColGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
-  margin-top: 1rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .syllabusCard {
-  border: 1px solid rgba(224, 123, 0, 0.2);
-  border-radius: 8px;
-  padding: 1.2rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.3rem 1.1rem;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 3px 16px var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.syllabusCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(241, 85, 5, .13);
 }
 
 .syllabusCard::before {
@@ -295,103 +364,191 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--saffron), var(--saffron-light));
+  background: linear-gradient(90deg, var(--sf), var(--sf-gold));
 }
 
 .syllabusCardTitle {
-  font-family: 'Cinzel', serif;
-  font-size: 0.78rem;
+  font-family: var(--fm);
+  font-size: 1.1rem;
   font-weight: 700;
-  color: var(--brown-dark);
-  letter-spacing: 0.06em;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  color: var(--sf);
+  margin-bottom: .4rem;
 }
 
 .syllabusSubNote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.87rem;
-  font-style: italic;
-  color: var(--brown-mid);
-  margin-bottom: 0.6rem;
+  font-family: var(--ff);
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin-bottom: .6rem;
 }
 
 .syllabusNote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.87rem;
-  color: var(--text-small);
-  margin-top: 0.6rem;
+  font-family: var(--fb);
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin-top: .6rem;
+  padding-top: .55rem;
+  border-top: 1px dashed rgba(241, 85, 5, .2);
   line-height: 1.6;
-}
-
-/* ================================================================
-   BOOK YOUR SPOT BUTTONS ROW
-   ================================================================ */
-.bookRow {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
-  margin: 1.5rem 0;
-}
-
-.bookCard {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ================================================================
-   HOW TO REGISTER
-   ================================================================ */
-.registerNote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.93rem, 1.6vw, 1.03rem);
-  line-height: 1.8;
-  color: var(--text-body);
-  margin-bottom: 0.8rem;
-}
-
-.emailHighlight {
-  color: var(--saffron-dark);
   font-weight: 600;
 }
 
 /* ================================================================
-   RULES & REGULATIONS
+   BOOK ROW
+   ================================================================ */
+.bookRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.bookCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 14px var(--shadow);
+}
+
+/* ================================================================
+   NOTE BOX
    ================================================================ */
 .noteBox {
-  background: linear-gradient(135deg, #fff7eb 0%, #ffefd4 100%);
-  border-left: 3px solid var(--saffron);
-  border-radius: 0 6px 6px 0;
-  padding: 0.85rem 1.1rem;
-  margin: 0.8rem 0;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-  color: var(--brown-dark);
-  line-height: 1.7;
+  background: linear-gradient(135deg, #fff8ee, #ffefd4);
+  border-left: 3px solid var(--sf);
+  padding: .9rem 1.1rem;
+  margin: .85rem 0;
+  font-family: var(--fb);
+  font-size: clamp(.88rem, 1.5vw, .97rem);
+  color: var(--ink-mid);
+  line-height: 1.75;
 }
 
 .noteLabel {
   font-weight: 700;
-  color: var(--saffron-dark);
+  color: var(--sf);
 }
 
 /* ================================================================
-   PREVIOUS RESULTS — PHOTO GRID
+   WINNER PHOTO GRID
    ================================================================ */
 .photoGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin: 1rem 0;
+  margin-bottom: 1.5rem;
 }
 
 .photoCard {
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(92, 45, 0, 0.18);
-  min-height: 220px;
+  box-shadow: 0 6px 24px rgba(80, 35, 5, .18);
+  min-height: 390px;
   background: #e8d5b5;
+  transition: transform .3s ease;
+}
+
+.photoCard:hover {
+  transform: translateY(-5px);
+}
+
+.winnerImgWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+}
+
+.winnerImg {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+
+.winnerImgWrap:hover .winnerImg {
+  transform: scale(1.05);
+}
+
+.winnerOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(20, 10, 2, .88) 0%, rgba(20, 10, 2, .40) 55%, rgba(20, 10, 2, .10) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: .9rem 1rem;
+  gap: .2rem;
+}
+
+.winnerOccasion {
+  font-family: var(--fm);
+  font-size: 0.9rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255, 220, 160, .8);
+}
+
+.winnerCompTitle {
+  font-family: var(--fm);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .05em;
+}
+
+.winnerChamp {
+  font-family: var(--fb);
+  font-size: 1rem;
+  color: rgba(255, 220, 160, .9);
+}
+
+.winnerYear {
+  background: var(--sf);
+  color: #fff;
+  font-size: 1rem;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: var(--fm);
+  font-weight: 700;
+  margin-left: 3px;
+}
+
+.winnerName {
+  font-family: var(--fb);
+  font-size: 1rem;
+  color: rgba(255, 242, 200, .95);
+  margin-top: .15rem;
+}
+
+/* ================================================================
+   FINAL ROUND
+   ================================================================ */
+.finalRoundBox {
+  background: linear-gradient(135deg, #fff9f3, #fff4ea);
+  border: 1px solid rgba(241, 85, 5, .2);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  font-family: var(--fb);
+  font-size: clamp(.88rem, 1.5vw, 1.2rem);
+  line-height: 1.8;
+  color: var(--ink-mid);
+
+}
+
+.finalRoundLabel {
+  font-weight: 700;
+  color: var(--ink);
+  font-family: var(--fb);
+  font-size: clamp(.88rem, 1.5vw, 1.2rem)
 }
 
 /* ================================================================
@@ -400,174 +557,186 @@
 .scheduleTable {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border: 1.5px solid rgba(224, 123, 0, 0.4);
-  border-radius: 6px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 8px;
   overflow: hidden;
+  background: var(--bg-card);
   margin: 1rem 0;
 }
 
 .scheduleCell {
-  padding: 1.2rem 1.5rem;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-  line-height: 1.8;
-  color: var(--brown-dark);
-  
+  padding: 1.3rem 1.6rem;
+  font-family: var(--fb);
+  font-size: clamp(.88rem, 1.5vw, 1.2rem);
+  line-height: 1.85;
+  color: var(--ink-mid);
+  text-align: center;
 }
 
 .scheduleCell:first-child {
-  border-right: 1.5px solid rgba(224, 123, 0, 0.3);
-  text-align: center;
-}
-
-.scheduleCell:last-child {
-  text-align: center;
+  border-right: 1.5px solid var(--border-strong);
 }
 
 .scheduleNote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.9rem;
-  color: var(--brown-mid);
   text-align: center;
-  margin-top: 0.6rem;
+  font-family: var(--fb);
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  margin-top: .5rem;
 }
 
 .scheduleNote strong {
-  color: var(--brown-dark);
-  font-weight: 700;
+  color: var(--ink);
 }
 
 /* ================================================================
-   PRIZE SECTION
+   PRIZE
    ================================================================ */
 .prizeBlock {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
   padding: 1rem 0;
 }
 
 .prizeItem {
-  font-family: 'Dancing Script', cursive;
-  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-family: var(--ff);
+  font-size: clamp(.95rem, 1.8vw, 1.25rem);
   font-weight: 600;
-  color: var(--saffron-dark);
-  line-height: 1.8;
+  color: var(--sf);
+  text-align: center;
 }
 
 /* ================================================================
-   PAYMENT OPTIONS — 3 CARDS
+   PAYMENT GRID
    ================================================================ */
 .paymentGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
-  margin: 1rem 0;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .paymentCard {
-  background: linear-gradient(135deg, var(--parchment) 0%, var(--parchment-mid) 100%);
-  border: 1.5px solid rgba(224, 123, 0, 0.3);
-  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--sf);
+  border-radius: 10px;
   padding: 1.5rem 1.2rem;
   text-align: center;
+  box-shadow: 0 3px 14px var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.paymentCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(241, 85, 5, .12);
 }
 
 .paymentCardTitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
-  font-weight: 600;
-  color: var(--brown-dark);
-  margin-bottom: 0.8rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1.5px solid rgba(224, 123, 0, 0.3);
+  font-family: var(--fm);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-bottom: .65rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: .9rem;
 }
 
 .paymentSubLabel {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.9rem;
-  font-style: italic;
-  color: var(--brown-mid);
-  margin: 0.6rem 0 0.4rem;
+  font-family: var(--fb);
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  margin: .65rem 0 .35rem;
 }
 
 .paymentInfo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
-  line-height: 1.75;
-  color: var(--text-body);
+  font-family: var(--fb);
+  font-size: clamp(.82rem, 1.35vw, 1rem);
+  line-height: 1.82;
+  color: var(--ink-mid);
   text-align: left;
+  font-weight: 600;
 }
 
 .phonepeBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Cinzel', serif;
-  font-size: 0.78rem;
+  display: block;
+  font-family: var(--fm);
+  font-size: .72rem;
   font-weight: 700;
   color: #5f259f;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.3rem;
+  letter-spacing: .07em;
+  margin-bottom: .25rem;
 }
 
 .acceptedBadge {
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  color: var(--saffron-dark);
+  font-family: var(--fm);
+  font-size: .58rem;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  color: var(--sf);
   display: block;
+  margin-bottom: .5rem;
 }
 
 .qrPlaceholder {
-  width: 110px;
-  height: 110px;
-  background: #f0e8da;
-  border: 1px solid var(--border-color);
+  width: 100px;
+  height: 100px;
+  background: #faf4ea;
+  border: 1px dashed var(--border-strong);
   border-radius: 6px;
-  margin: 0.5rem auto;
+  margin: .6rem auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--brown-mid);
-  font-size: 0.7rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--fb);
+  font-size: .68rem;
+  color: var(--ink-soft);
 }
 
 .phonepeMobile {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.88rem;
-  color: var(--text-small);
-  margin-top: 0.5rem;
+  font-family: var(--fb);
+  font-size: .84rem;
+  color: var(--ink-soft);
+  margin-top: .45rem;
 }
 
 .phonepeName {
-  font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--brown-dark);
-  margin-top: 0.3rem;
+  font-family: var(--fm);
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: .06em;
+  margin-top: .35rem;
 }
 
 /* ================================================================
-   DIVIDER
+   MISC
    ================================================================ */
+.submitRow {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 2rem;
+}
+
 .divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+  background: linear-gradient(90deg, transparent, rgba(212, 120, 10, .3), transparent);
   margin: 2rem 0;
 }
 
-/* ================================================================
-   REGISTRATION FORM
-   ================================================================ */
+/* Form compat */
 .formSection {
-  background: linear-gradient(135deg, var(--parchment) 0%, var(--parchment-mid) 100%);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: clamp(1.2rem, 3vw, 2rem);
-  margin-bottom: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--sf);
+  border-radius: 12px;
+  padding: clamp(1.3rem, 3vw, 2rem);
+  margin-bottom: 1.4rem;
+  box-shadow: 0 4px 24px var(--shadow);
 }
 
 .formGrid {
@@ -580,213 +749,86 @@
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: .35rem;
 }
 
 .formLabel {
-  font-family: 'Cinzel', serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--fm);
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--brown-mid);
+  color: var(--ink-soft);
 }
 
 .formInput,
 .formSelect {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.97rem;
-  color: var(--brown-dark);
+  font-family: var(--fb);
+  font-size: .97rem;
+  color: var(--ink);
   background: #fff;
-  border: 1.5px solid var(--border-color);
+  border: 1.5px solid var(--border);
   border-radius: 4px;
-  padding: 0.55rem 0.75rem;
+  padding: .6rem .8rem;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color .2s, box-shadow .2s;
   width: 100%;
   box-sizing: border-box;
 }
 
 .formInput:focus,
 .formSelect:focus {
-  border-color: var(--saffron);
-  box-shadow: 0 0 0 3px rgba(224, 123, 0, 0.12);
+  border-color: var(--sf);
+  box-shadow: 0 0 0 3px rgba(241, 85, 5, .1);
 }
 
 .formInput::placeholder {
   color: #c4a882;
-  font-style: italic;
 }
 
 .formGroupFull {
   grid-column: 1 / -1;
 }
 
-.submitRow {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.2rem;
-}
-
-/* ── Winner card image with overlay ── */
-.winnerImgWrap {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 220px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.winnerImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  min-height: 220px;
-  transition: transform 0.4s ease;
-}
-
-.winnerImgWrap:hover .winnerImg {
-  transform: scale(1.04);
-}
-
-.winnerOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top,
-      rgba(30, 10, 0, 0.88) 0%,
-      rgba(30, 10, 0, 0.45) 55%,
-      rgba(30, 10, 0, 0.15) 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1rem 0.9rem 0.9rem;
-  gap: 0.25rem;
-}
-
-.winnerOccasion {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  color: rgba(255, 220, 160, 0.85);
-  text-transform: uppercase;
-}
-
-.winnerCompTitle {
-  font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.04em;
-}
-
-.winnerChamp {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.82rem;
-  color: rgba(255, 220, 160, 0.9);
-}
-
-.winnerYear {
-  background: #F15505;
-  color: #fff;
-  font-size: 0.7rem;
-  padding: 1px 5px;
-  border-radius: 3px;
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-}
-
-.winnerName {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.85rem;
-  color: rgba(255, 240, 200, 0.95);
-  margin-top: 0.15rem;
-}
-
-
-.imgPlaceholder {
-  width: 100%;
-  max-width: 680px;
-  margin: 1.2rem auto;
-  aspect-ratio: 16/9;
-  background: linear-gradient(135deg, #f0e4cc 0%, #e8d5b5 100%);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  color: var(--brown-mid);
-  font-style: italic;
-  border: 1px solid var(--border-color);
-  overflow: hidden;
-}
-
-.imgPlaceholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* ================================================================
-   FINAL ROUND DETAILS
-   ================================================================ */
-.finalRoundBox {
-  
-  border: 1px solid rgba(224, 123, 0, 0.25);
-  border-radius: 8px;
-  padding: 1.1rem 1.4rem;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-  line-height: 1.8;
-  color: var(--text-body);
-}
-
-.finalRoundLabel {
-  font-weight: 700;
-  color: var(--brown-dark);
-}
-
 /* ================================================================
    RESPONSIVE
    ================================================================ */
-
-/* Large desktop */
-@media (max-width: 1200px) {
-  .container {
-    max-width: 100%;
-  }
-}
-
-/* Tablet landscape */
 @media (max-width: 1024px) {
   .threeColGrid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
   }
 
   .paymentGrid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  }
+
+  .bookRow {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Tablet portrait */
 @media (max-width: 860px) {
   .twoColGrid {
     grid-template-columns: 1fr;
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
   .threeColGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
 
   .photoGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .paymentGrid {
     grid-template-columns: 1fr;
-    gap: 0.8rem;
+  }
+
+  .bookRow {
+    grid-template-columns: 1fr 1fr;
   }
 
   .scheduleTable {
@@ -795,17 +837,7 @@
 
   .scheduleCell:first-child {
     border-right: none;
-    border-bottom: 1.5px solid rgba(224, 123, 0, 0.3);
-  }
-
-  .paymentGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .bookRow {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
+    border-bottom: 1.5px solid var(--border-strong);
   }
 
   .formGrid {
@@ -815,56 +847,105 @@
   .formGroupFull {
     grid-column: 1;
   }
+
+  .prizeBlock {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-/* Mobile */
 @media (max-width: 640px) {
   .pageTitle {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
   }
 
   .sectionHeading {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
   }
 
   .contentCard {
-    padding: 1rem;
+    padding: 1.1rem;
   }
 
   .syllabusCard {
-    padding: 1rem 0.85rem;
+    padding: 1rem .9rem;
   }
 
   .paymentCard {
     padding: 1.2rem 1rem;
   }
-}
 
-/* Small mobile */
-@media (max-width: 480px) {
-  .pageTitle {
-    font-size: 1.3rem;
-  }
-
-  .container {
-    padding: 1.2rem 0.85rem;
+  .threeColGrid {
+    grid-template-columns: 1fr;
   }
 
   .photoGrid {
     grid-template-columns: 1fr;
   }
+
+  .bookRow {
+    grid-template-columns: 1fr;
+    gap: .8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageTitle {
+    font-size: 1.25rem;
+  }
+
+  .container {
+    padding: 1rem .85rem;
+  }
+
+  .scheduleCell {
+    padding: 1rem;
+  }
+
+  .prizeItem {
+    font-size: .95rem;
+  }
 }
 
 @media (max-width: 380px) {
   .pageTitle {
-    font-size: 1.15rem;
-  }
-
-  .sectionHeading {
     font-size: 1.1rem;
   }
 
+  .sectionHeading {
+    font-size: 1rem;
+  }
+
   .container {
-    padding: 1rem 0.7rem;
+    padding: .9rem .7rem;
+  }
+
+  .contentCard {
+    padding: .9rem;
+  }
+
+  .btnOrange {
+    font-size: .6rem;
+    padding: .72rem 1.4rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .pageTitle {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: .8rem .65rem;
+  }
+
+  .btnOrange {
+    font-size: .56rem;
+    padding: .65rem 1.1rem;
+  }
+
+  .paymentCardTitle {
+    font-size: .64rem;
   }
 }

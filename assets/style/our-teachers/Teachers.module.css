@@ -252,7 +252,6 @@
 
 .founderCardInner {
   display: grid;
-  grid-template-columns: 320px 1fr;
   gap: 2.5rem;
   align-items: stretch;
   padding: 2.5rem;
@@ -1164,7 +1163,6 @@
   }
 
   .founderCardInner {
-    grid-template-columns: 280px 1fr;
     gap: 2rem;
     padding: 2rem;
   }
@@ -1265,7 +1263,6 @@
   }
 
   .founderCardInner {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 1.5rem;
   }
