@@ -630,6 +630,17 @@
   flex-shrink: 0;
 }
 
+/* ADD THIS — was missing entirely */
+.experienceBody {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-body);
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+.experienceBody strong {
+  color: #e8600a;
+}
 .timelineContent h3 {
   font-family: 'Montserrat', serif;
   font-size: 1.2rem;
