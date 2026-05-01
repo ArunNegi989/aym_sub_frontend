@@ -1484,8 +1484,8 @@ export default function YogaTTC300() {
         </section>
       )}
 
-     {/* ══════════════════════════════════════
-   SECTION 5 — EVOLUTION & CERTIFICATION
+ {/* ══════════════════════════════════════
+    SECTION 5 — EVOLUTION & CERTIFICATION
 ══════════════════════════════════════ */}
 {content2 && (
   <section className={`${styles.section} ${styles.sectionLight}`}>
@@ -1501,6 +1501,7 @@ export default function YogaTTC300() {
         )}
         <div className={styles.sectionUnderline} />
       </div>
+
       <div className={styles.evoIntroSplit}>
         <div className={styles.evoIntroLeft}>
           {content2.evolutionParas?.map((para, i) => (
@@ -1511,7 +1512,6 @@ export default function YogaTTC300() {
         </div>
         <div className={styles.evoIntroRight}>
           <div className={styles.evoImgFrame}>
-            {/* DYNAMIC IMAGE - REPLACES HARDCODED URL */}
             {content2.evolutionRightImage ? (
               <img
                 src={imgUrl(content2.evolutionRightImage)}
@@ -1532,15 +1532,89 @@ export default function YogaTTC300() {
           </div>
         </div>
       </div>
-      
-      {/* Rest of your existing code remains the same */}
+
+      {/* ── MARK DISTRIBUTION BLOCK ── */}
       {content2.markDistH3 && (
         <div className={styles.evoMarkCard}>
-          {/* ... existing mark card code ... */}
+          <h3 className={styles.evoMarkH3}>{content2.markDistH3}</h3>
+          {content2.markDistSubText && (
+            <p className={styles.evoMarkSub}>{content2.markDistSubText}</p>
+          )}
+          <div className={styles.evoMarkGrid}>
+            {content2.markTotalLabel && (
+              <div className={styles.evoMarkItem}>
+                <span className={styles.evoMarkLabel}>{content2.markTotalLabel}</span>
+                <span className={styles.evoMarkValue}>{content2.markTotalText}</span>
+              </div>
+            )}
+            {content2.markTheoryLabel && (
+              <div className={styles.evoMarkItem}>
+                <span className={styles.evoMarkLabel}>{content2.markTheoryLabel}</span>
+                <span className={styles.evoMarkValue}>{content2.markTheoryText}</span>
+              </div>
+            )}
+            {content2.markPracticalLabel && (
+              <div className={styles.evoMarkItem}>
+                <span className={styles.evoMarkLabel}>{content2.markPracticalLabel}</span>
+                <span className={styles.evoMarkValue}>{content2.markPracticalText}</span>
+              </div>
+            )}
+          </div>
+          {content2.markPracticalDetail && (
+            <div className={styles.evoMarkDetail}>
+              <SafeHtml html={content2.markPracticalDetail} />
+            </div>
+          )}
         </div>
       )}
-      
-      {/* ... rest of the section ... */}
+
+      {/* ── CAREER OPPORTUNITIES ── */}
+      {content2.careerH3 && (
+        <div className={styles.evoCareerWrap}>
+          <h3 className={styles.evoCareerH3}>{content2.careerH3}</h3>
+          {content2.careerItems && content2.careerItems.length > 0 && (
+            <div className={styles.evoCareerGrid}>
+              {content2.careerItems.map((item, i) => (
+                <div key={i} className={styles.evoCareerItem}>
+                  <span className={styles.evoCareerDot} />
+                  <span className={styles.evoCareerTxt}>{item}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── FEE CARDS ── */}
+      {(content2.feeCard1Title || content2.feeCard2Title) && (
+        <div className={styles.evoFeeCards}>
+          {content2.feeCard1Title && (
+            <div className={`${styles.evoFeeCard} ${styles.evoFeeCardLight}`}>
+              <div className={styles.evoFeeCardTitle}>{content2.feeCard1Title}</div>
+              {content2.feeCard1Items && content2.feeCard1Items.length > 0 && (
+                <ul className={styles.evoFeeList}>
+                  {content2.feeCard1Items.map((item, i) => (
+                    <li key={i} className={styles.evoFeeListItem}>{item}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
+          {content2.feeCard2Title && (
+            <div className={`${styles.evoFeeCard} ${styles.evoFeeCardDark}`}>
+              <div className={styles.evoFeeCardTitle}>{content2.feeCard2Title}</div>
+              {content2.feeCard2Items && content2.feeCard2Items.length > 0 && (
+                <ul className={styles.evoFeeList}>
+                  {content2.feeCard2Items.map((item, i) => (
+                    <li key={i} className={styles.evoFeeListItem}>{item}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
     </div>
   </section>
 )}
