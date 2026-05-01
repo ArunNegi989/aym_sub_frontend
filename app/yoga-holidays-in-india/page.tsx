@@ -91,16 +91,6 @@ const YogaHolidays: React.FC = () => {
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowFullScreen
 ></iframe>
-
-        {/* Option B: placeholder until you have a video URL */}
-        {/* <div className={styles.videoPlaceholder}>
-          <div className={styles.playBtn}>
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <polygon points="5,2 16,9 5,16" fill="white" />
-            </svg>
-          </div>
-          <span className={styles.videoLabel}>Watch: Life at AYM Rishikesh</span>
-        </div> */}
       </div>
     </div>
   </div>
@@ -378,12 +368,64 @@ const YogaHolidays: React.FC = () => {
       </div>
     </div>
 
+    {/* ===== MORE RELATED INFORMATION SECTION ===== */}
+    <div className={styles.moreInfoSection}>
+      <h2 className={styles.moreInfoTitle}>
+        More related information for yog shivir Rishikesh at AYM
+      </h2>
+
+      <p className={styles.moreInfoText}>
+        Participants are requested to bring necessary items such as bed-sheets, mosquito coils/mats,
+        torch, stationery items (pen, pencil, rubber, sharpeners, writing pad/note book), toiletry
+        articles for the entire duration of yoga camp.
+      </p>
+
+      <div className={styles.dressCodeBlock}>
+        <h3 className={styles.dressCodeTitle}>Dress code for Yoga sessions</h3>
+        <p className={styles.dressCodeItem}>
+          <strong>For Men :</strong> Loose T-shirt of any light color along with pyjayama and shorts.
+        </p>
+        <p className={styles.dressCodeItem}>
+          <strong>For Women :</strong> Loosely made Salwar-Kameez (normal ladies suit) of light colour.
+        </p>
+        <p className={styles.moreInfoText}>
+          Shorts for men are allowed only in yoga sessions and not outside them.
+        </p>
+      </div>
+
+      <div className={styles.moreInfoRules}>
+        <p className={styles.moreInfoText}>
+          Mobile phones, i-pods, i-pads, cd/dvd recorders and tape recorders are not allowed in yoga sessions.
+        </p>
+        <p className={styles.moreInfoText}>
+          All participants should report and attend yoga sessions on time.
+        </p>
+        <p className={styles.moreInfoText}>
+          Participants must report at camp&apos;s office a day before the camp, latest by 6:00 p.m. and can
+          leave after lunch on the concluding day. Students are not allowed to leave the camp before its
+          conclusion.
+        </p>
+        <p className={styles.moreInfoText}>
+          Going out of campus to smoke cigarette, cigar, for chewing paan, pan-masala, for drinking alcohol
+          or any other intoxicants, is completely banned.
+        </p>
+        <p className={styles.moreInfoText}>
+          The participants must walk 2 kilometers and must climb stairs till 2nd floor daily, within the
+          campus for various yoga and meditation sessions.
+        </p>
+        <p className={styles.moreInfoText}>
+          Participants are not allowed to eat any kind of fast food and junk food during the camp and during
+          various sessions.
+        </p>
+      </div>
+    </div>
+
     {/* How to Reach */}
     <div className={styles.reachSection}>
       <h2 className={styles.sectionHeading}>How to Reach?</h2>
       <p className={styles.beigeBodyText}>
         Rishikesh is located 300 km from Delhi and is well-connected by road, train, and air.
-        Use Google Maps and search "AYM Yoga Teacher Training School Rishikesh" for directions.
+        Use Google Maps and search &quot;AYM Yoga Teacher Training School Rishikesh&quot; for directions.
       </p>
     </div>
   </div>

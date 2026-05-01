@@ -29,10 +29,8 @@
 /* ====================================================
    RESET & GLOBAL
 ==================================================== */
-
-
 .pageWrapper {
-   font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   background: var(--off-white);
   color: var(--text-body);
   overflow-x: hidden;
@@ -70,7 +68,7 @@
 }
 
 /* ====================================================
-   HERO SECTION — top full-width image
+   HERO SECTION
 ==================================================== */
 .heroSection {
   position: relative;
@@ -87,9 +85,6 @@
   object-fit: cover;
 }
 
-/* ====================================================
-   HERO IMAGE BOX (second hero with fill image)
-==================================================== */
 .heroContainer {
   max-width: 1520px;
   margin: 0 auto;
@@ -133,7 +128,7 @@
    MAIN TITLE
 ==================================================== */
 .mainTitle {
-   font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(1.6rem, 3.5vw, 2rem);
   font-weight: 700;
   color: var(--orange);
@@ -145,7 +140,7 @@
 }
 
 .orangeTitle {
-   font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(1.3rem, 2.8vw, 2rem);
   font-weight: 700;
   color: var(--orange);
@@ -180,7 +175,7 @@
 }
 
 .questionText {
-   font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(1.1rem, 2vw, 1.45rem);
   line-height: 1.7;
   color: var(--text-dark);
@@ -227,7 +222,7 @@
 
 .infoNumber {
   display: block;
-   font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 700;
   color: var(--orange);
@@ -253,7 +248,7 @@
 }
 
 .sectionTitle {
-   font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--orange);
@@ -288,11 +283,11 @@
 
 .benefitsHeader {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 
 .benefitsFullTitle {
-   font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--orange);
@@ -308,6 +303,104 @@
   border-radius: 2px;
 }
 
+/* ====================================================
+   UNDERSTANDING OF YOGA BLOCK (new)
+==================================================== */
+.understandingBlock {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 32px 36px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.understandingBlock::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--orange-dark), transparent);
+}
+
+.understandingTitle {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.understandingIntro {
+  font-size: clamp(0.88rem, 1.4vw, 1rem);
+  line-height: 1.85;
+  color: var(--text-body);
+  margin: 0 0 24px;
+}
+
+.yogaPillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.yogaPillarCard {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 20px 18px;
+  background: var(--orange-light);
+  border: 1px solid rgba(232, 96, 10, 0.18);
+  border-radius: var(--radius-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.yogaPillarCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--orange);
+}
+
+.yogaPillarIcon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(232, 96, 10, 0.2);
+}
+
+.yogaPillarName {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(0.88rem, 1.3vw, 0.98rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+
+.yogaPillarName span {
+  font-weight: 500;
+  color: var(--orange-dark);
+}
+
+.yogaPillarDesc {
+  font-size: clamp(0.78rem, 1.1vw, 0.88rem);
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ====================================================
+   BENEFIT CARDS
+==================================================== */
 .benefitsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -345,7 +438,7 @@
 .benefitFullCard:hover::after { transform: scaleX(1); }
 
 .benefitFullNumber {
-   font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 2.8rem;
   font-weight: 700;
   color: var(--orange);
@@ -371,12 +464,81 @@
 }
 
 /* ====================================================
+   Q&A SECTION (new)
+==================================================== */
+.qaSection {
+  width: 100%;
+  background: var(--white);
+  padding: 64px 0;
+  position: relative;
+  border-top: 1px solid var(--border-light);
+}
+
+.qaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 8px;
+}
+
+.qaCard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.qaCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--orange), var(--orange-dark));
+  border-radius: 4px 0 0 4px;
+}
+
+.qaCard:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(232, 96, 10, 0.4);
+}
+
+.qaQuestion {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 16px;
+  line-height: 1.5;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.qaAnswerBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.qaAnswer {
+  font-size: clamp(0.82rem, 1.25vw, 0.95rem);
+  line-height: 1.85;
+  color: var(--text-body);
+  margin: 0;
+  text-align: justify;
+}
+
+/* ====================================================
    MORE INFORMATION SECTION
 ==================================================== */
 .moreInfoSection {
   width: 100%;
-  background: var(--white);
+  background: var(--off-white);
   padding: 64px 0;
+  border-top: 1px solid var(--border-light);
 }
 
 .bulletList { list-style: disc; padding-left: 20px; margin-bottom: 16px; }
@@ -458,6 +620,7 @@
   width: 100%;
   background: var(--off-white);
   padding: 64px 0 80px;
+  border-top: 1px solid var(--border-light);
 }
 
 .pricingIntro {
@@ -570,7 +733,7 @@
 }
 
 /* ====================================================
-   LEGACY CLASSES (used in TSX, kept for compatibility)
+   LEGACY CLASSES
 ==================================================== */
 .titleSection         { padding: 24px 32px 16px; max-width: 1600px; margin: 0 auto; }
 .heroImageSection     { padding: 24px 32px 0; max-width: 1140px; margin: 0 auto; }
@@ -581,26 +744,29 @@
 .twoColQA             { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-top: 16px; }
 .twoColImage          {}
 .colHeading           { font-size: clamp(0.88rem,1.5vw,1rem); font-weight: 700; color: var(--text-dark); margin: 0 0 10px; }
-.qaQuestion           { font-size: clamp(0.85rem,1.4vw,0.96rem); font-weight: 700; color: var(--text-dark); margin: 0 0 12px; line-height: 1.45; }
 .qaCol                {}
 
 /* ====================================================
-   RESPONSIVE — 6 BREAKPOINTS, NO CARD CLIPPING
+   RESPONSIVE
 ==================================================== */
 
 /* ── XXL  ≥ 1400px ───────────────────────────────── */
 @media (min-width: 1400px) {
-  .heroImageBox  { height: 520px; }
-  .benefitsGrid  { grid-template-columns: repeat(3, 1fr); }
-  .infoGrid      { grid-template-columns: repeat(3, 1fr); }
+  .heroImageBox      { height: 520px; }
+  .benefitsGrid      { grid-template-columns: repeat(3, 1fr); }
+  .infoGrid          { grid-template-columns: repeat(3, 1fr); }
+  .yogaPillarsGrid   { grid-template-columns: repeat(3, 1fr); }
+  .qaGrid            { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── XL  1200–1399px ─────────────────────────────── */
 @media (min-width: 1200px) and (max-width: 1399.98px) {
-  .heroImageBox  { height: 460px; }
-  .sideImageBox  { height: 500px; }
-  .benefitsGrid  { grid-template-columns: repeat(3, 1fr); }
-  .infoGrid      { grid-template-columns: repeat(3, 1fr); }
+  .heroImageBox      { height: 460px; }
+  .sideImageBox      { height: 500px; }
+  .benefitsGrid      { grid-template-columns: repeat(3, 1fr); }
+  .infoGrid          { grid-template-columns: repeat(3, 1fr); }
+  .yogaPillarsGrid   { grid-template-columns: repeat(3, 1fr); }
+  .qaGrid            { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── LG  992–1199px ──────────────────────────────── */
@@ -611,9 +777,10 @@
   .contentContainer      { padding: 48px 24px 0; }
   .sectionContainer      { padding: 0 24px; }
   .benefitsFullContainer { padding: 0 24px; }
-  /* 3→2 col for benefits, 3→2 for info */
   .benefitsGrid          { grid-template-columns: repeat(3, 1fr); }
   .infoGrid              { grid-template-columns: repeat(2, 1fr); }
+  .yogaPillarsGrid       { grid-template-columns: repeat(3, 1fr); }
+  .qaGrid                { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── MD  768–991px ───────────────────────────────── */
@@ -628,20 +795,22 @@
   .benefitsFullSection   { padding: 48px 0; }
   .moreInfoSection       { padding: 48px 0; }
   .pricingSection        { padding: 48px 0 64px; }
+  .qaSection             { padding: 48px 0; }
   .contentBlock          { padding: 28px 26px; }
+  .understandingBlock    { padding: 24px 26px; }
 
-  /* 2-col — safe, no clipping */
-  .benefitsGrid  { grid-template-columns: repeat(2, 1fr); gap: 18px; }
-  .infoGrid      { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .twoColRow     { grid-template-columns: 1fr 1fr; gap: 22px; }
-  .twoColQA      { grid-template-columns: 1fr 1fr; gap: 22px; }
+  .benefitsGrid    { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .infoGrid        { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .yogaPillarsGrid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .qaGrid          { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .twoColRow       { grid-template-columns: 1fr 1fr; gap: 22px; }
+  .twoColQA        { grid-template-columns: 1fr 1fr; gap: 22px; }
 
   .mainTitle         { font-size: 1.6rem; }
   .sectionTitle      { font-size: 1.4rem; }
   .benefitsFullTitle { font-size: 1.4rem; }
   .questionText      { font-size: 1.1rem; }
   .bodyText          { font-size: 0.92rem; }
-
   .infoItem          { min-width: 100px; padding: 0 16px; }
   .bookContent       { flex-direction: column; align-items: flex-start; }
   .bookInfo          { flex-direction: column; gap: 4px; }
@@ -659,14 +828,17 @@
   .benefitsFullSection   { padding: 44px 0; }
   .moreInfoSection       { padding: 44px 0; }
   .pricingSection        { padding: 44px 0 56px; }
+  .qaSection             { padding: 44px 0; }
   .contentBlock          { padding: 22px 18px; }
+  .understandingBlock    { padding: 20px 18px; }
 
-  /* 1-col on SM — no card clips guaranteed */
-  .benefitsGrid { grid-template-columns: 1fr; gap: 14px; }
-  .infoGrid     { grid-template-columns: 1fr; gap: 14px; }
-  .twoColRow    { grid-template-columns: 1fr; gap: 18px; }
-  .twoColQA     { grid-template-columns: 1fr; gap: 18px; }
-  .twoColImage  { order: -1; }
+  .benefitsGrid    { grid-template-columns: 1fr; gap: 14px; }
+  .infoGrid        { grid-template-columns: 1fr; gap: 14px; }
+  .yogaPillarsGrid { grid-template-columns: 1fr; gap: 12px; }
+  .qaGrid          { grid-template-columns: 1fr; gap: 18px; }
+  .twoColRow       { grid-template-columns: 1fr; gap: 18px; }
+  .twoColQA        { grid-template-columns: 1fr; gap: 18px; }
+  .twoColImage     { order: -1; }
 
   .mainTitle         { font-size: 1.4rem; }
   .sectionTitle      { font-size: 1.2rem; }
@@ -676,7 +848,6 @@
 
   .infoRow   { flex-wrap: wrap; }
   .infoItem  { min-width: 100px; padding: 0 12px; }
-
   .bookContent { flex-direction: column; align-items: flex-start; }
   .bookInfo    { flex-direction: column; gap: 3px; }
 }
@@ -693,25 +864,28 @@
   .benefitsFullSection   { padding: 40px 0; }
   .moreInfoSection       { padding: 40px 0; }
   .pricingSection        { padding: 40px 0 52px; }
+  .qaSection             { padding: 40px 0; }
   .contentBlock          { padding: 18px 16px; }
+  .understandingBlock    { padding: 18px 16px; }
 
-  /* All grids → 1 col — zero clipping possible */
-  .benefitsGrid { grid-template-columns: 1fr; gap: 12px; }
-  .infoGrid     { grid-template-columns: 1fr; gap: 12px; }
-  .twoColRow    { grid-template-columns: 1fr; gap: 14px; }
-  .twoColQA     { grid-template-columns: 1fr; gap: 14px; }
-  .twoColImage  { order: -1; }
+  .benefitsGrid    { grid-template-columns: 1fr; gap: 12px; }
+  .infoGrid        { grid-template-columns: 1fr; gap: 12px; }
+  .yogaPillarsGrid { grid-template-columns: 1fr; gap: 10px; }
+  .qaGrid          { grid-template-columns: 1fr; gap: 16px; }
+  .twoColRow       { grid-template-columns: 1fr; gap: 14px; }
+  .twoColQA        { grid-template-columns: 1fr; gap: 14px; }
+  .twoColImage     { order: -1; }
 
   .mainTitle         { font-size: 1.25rem; }
   .sectionTitle      { font-size: 1.05rem; }
   .benefitsFullTitle { font-size: 1.05rem; }
+  .understandingTitle { font-size: 1rem; }
   .questionText      { font-size: 0.95rem; padding-bottom: 12px; margin-bottom: 14px; }
   .bodyText          { font-size: 0.84rem; line-height: 1.75; margin-bottom: 12px; }
   .bodyText:last-of-type { margin-bottom: 16px; }
 
   .divider { margin: 8px auto 22px; }
 
-  /* Stats strip → vertical stacked */
   .infoRow   { flex-direction: column; gap: 0; padding-top: 16px; }
   .infoItem  {
     border-right: none;
@@ -732,6 +906,15 @@
   .benefitFullNumber { font-size: 2rem; margin-bottom: 10px; }
   .benefitFullName   { font-size: 0.95rem; }
   .benefitFullDesc   { font-size: 0.8rem; }
+
+  .yogaPillarCard { padding: 14px 12px; gap: 10px; }
+  .yogaPillarIcon { width: 34px; height: 34px; }
+  .yogaPillarName { font-size: 0.88rem; }
+  .yogaPillarDesc { font-size: 0.78rem; }
+
+  .qaCard     { padding: 20px 18px 16px; }
+  .qaQuestion { font-size: 0.9rem; }
+  .qaAnswer   { font-size: 0.82rem; text-align: left; }
 
   .infoCard  { padding: 14px 12px; gap: 10px; }
   .infoIcon  { width: 34px; height: 34px; }
@@ -756,13 +939,15 @@
   .bookInfo span   { font-size: 0.75rem; }
 }
 
-/* ── XXS  < 380px (very small phones) ────────────── */
+/* ── XXS  < 380px ─────────────────────────────────── */
 @media (max-width: 379.98px) {
-  .heroImageBox  { height: 168px; }
-  .mainTitle     { font-size: 1.1rem; }
-  .sectionTitle  { font-size: 0.95rem; }
+  .heroImageBox      { height: 168px; }
+  .mainTitle         { font-size: 1.1rem; }
+  .sectionTitle      { font-size: 0.95rem; }
   .benefitsFullTitle { font-size: 0.95rem; }
-  .contentBlock  { padding: 14px 12px; }
+  .understandingTitle { font-size: 0.9rem; }
+  .contentBlock      { padding: 14px 12px; }
+  .understandingBlock { padding: 14px 12px; }
 
   .pricingTable thead th,
   .pricingTable tbody td {
