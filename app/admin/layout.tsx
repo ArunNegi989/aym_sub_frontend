@@ -2,13 +2,11 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "../../assets/style/Admin/AdminLayout.module.css";
 import { Toaster } from "react-hot-toast";
+import { useAuth } from "@/context/AuthContext";
 
-/* ══════════════════════════════════════════════
-   NAV TYPES
-══════════════════════════════════════════════ */
 interface NavChild {
   href: string;
   label: string;
@@ -24,214 +22,177 @@ interface NavItem {
   href?: string;
   label: string;
   icon: string;
-  /** flat children — simple links */
   children?: NavChild[];
-  /** nested subgroups — one more level deep */
   subGroups?: NavSubGroup[];
 }
 
-/* ══════════════════════════════════════════════
-   NAV DATA
-══════════════════════════════════════════════ */
 const navItems: NavItem[] = [
   { href: "/admin", label: "Dashboard", icon: "⌂" },
-
   {
     label: "Home",
     icon: "🏡",
     children: [
-      { href: "/admin/dashboard/homebanner",            label: "Hero Section" },
-      { href: "/admin/dashboard/yogateachertraning",    label: "About Section" },
-      { href: "/admin/dashboard/homeCoursessection",  label: "Home Course Section" },
-      { href: "/admin/dashboard/accreditationsection",  label: "Accreditation Section" },
-      { href: "/admin/dashboard/yogacoursespage",       label: "Yoga Courses Page" },
-      { href: "/admin/dashboard/Classcampusameniti",    label: "Class Campus Ameniti" },
-      { href: "/admin/dashboard/aymfullpage",           label: "Aym Full Page" },
-      { href: "/admin/dashboard/ourmission",            label: "Our Mission" },
-      { href: "/admin/dashboard/whyaymschool",          label: "Why Aym School" },
+      { href: "/admin/dashboard/homebanner",           label: "Hero Section" },
+      { href: "/admin/dashboard/yogateachertraning",   label: "About Section" },
+      { href: "/admin/dashboard/homeCoursessection",   label: "Home Course Section" },
+      { href: "/admin/dashboard/accreditationsection", label: "Accreditation Section" },
+      { href: "/admin/dashboard/yogacoursespage",      label: "Yoga Courses Page" },
+      { href: "/admin/dashboard/Classcampusameniti",   label: "Class Campus Ameniti" },
+      { href: "/admin/dashboard/aymfullpage",          label: "Aym Full Page" },
+      { href: "/admin/dashboard/ourmission",           label: "Our Mission" },
+      { href: "/admin/dashboard/whyaymschool",         label: "Why Aym School" },
     ],
   },
-
-  /* ── Courses — 2-level ── */
   {
     label: "Courses",
     icon: "📜",
     subGroups: [
       {
-        label: "100 Hours",
-        icon: "①",
+        label: "100 Hours", icon: "①",
         children: [
           { href: "/admin/yogacourse/100hourscourse/100hr-seats",   label: "Seats & Dates" },
           { href: "/admin/yogacourse/100hourscourse/100hr-content", label: "Page Content" },
         ],
       },
       {
-        label: "200 Hours",
-        icon: "②",
+        label: "200 Hours", icon: "②",
         children: [
           { href: "/admin/yogacourse/200hourscourse/200hr-seats",   label: "Seats & Dates" },
-           { href: "/admin/yogacourse/200hourscourse/200hr-content",   label: "page Content" },
-            { href: "/admin/yogacourse/200hourscourse/200hrcontent2",   label: "page Content second" },
-         
+          { href: "/admin/yogacourse/200hourscourse/200hr-content", label: "Page Content" },
+          { href: "/admin/yogacourse/200hourscourse/200hrcontent2", label: "Page Content Second" },
         ],
       },
       {
-        label: "300 Hours",
-        icon: "③",
+        label: "300 Hours", icon: "③",
         children: [
-          { href: "/admin/yogacourse/300hourscourse/300hr-seats",   label: "Seats & Dates" },
+          { href: "/admin/yogacourse/300hourscourse/300hr-seats",  label: "Seats & Dates" },
           { href: "/admin/yogacourse/300hourscourse/300-content1", label: "Page Content" },
-           { href: "/admin/yogacourse/300hourscourse/300-content2", label: "Page Content second" },
+          { href: "/admin/yogacourse/300hourscourse/300-content2", label: "Page Content Second" },
         ],
       },
       {
-        label: "500 Hours",
-        icon: "⑤",
+        label: "500 Hours", icon: "⑤",
         children: [
-          { href: "/admin/yogacourse/500hourscourse/500hr-seats",   label: "Seats & Dates" },
-          { href: "/admin/yogacourse/500hourscourse/content", label: "Page Content" },
+          { href: "/admin/yogacourse/500hourscourse/500hr-seats", label: "Seats & Dates" },
+          { href: "/admin/yogacourse/500hourscourse/content",     label: "Page Content" },
         ],
       },
       {
-        label: "kundalini-yoga",
-        icon: "⑤",
+        label: "Kundalini Yoga", icon: "🔱",
         children: [
-          { href: "/admin/yogacourse/kundalini-yoga/kundalini-yoga-seat",   label: "Yoga Teacher Seat" },
-          { href: "/admin/yogacourse/kundalini-yoga/kundalini-yoga-teacher-training",   label: "Yoga Teacher India" },
-        
+          { href: "/admin/yogacourse/kundalini-yoga/kundalini-yoga-seat",             label: "Yoga Teacher Seat" },
+          { href: "/admin/yogacourse/kundalini-yoga/kundalini-yoga-teacher-training", label: "Yoga Teacher India" },
         ],
       },
       {
-        label: "Yoga Teacher Rishikesh",
-        icon: "⑤",
+        label: "Yoga Teacher Rishikesh", icon: "🏔",
         children: [
-          { href: "/admin/yogacourse/yoga-teacher-in-rishikesh",   label: "Yoga Teacher Rishikesh" },
-        
-        ],
-      },
-        {
-        label: "Prenatal Yoga Course",
-        icon: "⑤",
-        children: [
-          { href: "/admin/yogacourse/prenatal-yoga-course/prenatal-seats",   label: "prenatal yoga seats "},
-          { href: "/admin/yogacourse/prenatal-yoga-course/prenatal-content",   label: "prenatal content "},
-        
-        ],
-      },
-       {
-        label: "Vinyasa Teacher Training",
-        icon: "⑤",
-        children: [
-           { href: "/admin/yogacourse/vinyasa-yoga-course/vinyasa-seats",   label: "vinyasa Seat" },
-          { href: "/admin/yogacourse/vinyasa-yoga-course/vinyasa-teacher-training",   label: "vinyasa teacher training" },
-        
+          { href: "/admin/yogacourse/yoga-teacher-in-rishikesh", label: "Yoga Teacher Rishikesh" },
         ],
       },
       {
-        label: "Yoga Teacher In India",
-        icon: "⑤",
+        label: "Prenatal Yoga Course", icon: "🤱",
         children: [
-          { href: "/admin/yogacourse/yoga-teacher-in-india",   label: "Yoga Teacher India" },
-        
+          { href: "/admin/yogacourse/prenatal-yoga-course/prenatal-seats",   label: "Prenatal Yoga Seats" },
+          { href: "/admin/yogacourse/prenatal-yoga-course/prenatal-content", label: "Prenatal Content" },
         ],
       },
       {
-        label: "Hatha Yoga Teacher Training",
-        icon: "⑤",
+        label: "Vinyasa Teacher Training", icon: "🌊",
         children: [
-          { href: "/admin/yogacourse/hatha-yoga-teacher-training/hatha-yoga-training-seats",   label: "Hatha Yoga Seats" },
-          { href: "/admin/yogacourse/hatha-yoga-teacher-training/hatha-yoga-teacher-training-content",   label: "Hatha Yoga Teacher Content" },
-          
-        
-        ],
-      },
-    
-       
-     
-       {
-        label: "Yoga GOA in India",
-        icon: "⑤",
-        children: [
-          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-200hr-seats",   label: "200hr-seats-in-goa" },
-          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-300hr-seats",   label: "300hr-seats-in-goa" },
-          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-500hr-seats",   label: "500hr-seats-in-goa" },
-          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-content",   label: "content-in-goa" },
-        
+          { href: "/admin/yogacourse/vinyasa-yoga-course/vinyasa-seats",            label: "Vinyasa Seat" },
+          { href: "/admin/yogacourse/vinyasa-yoga-course/vinyasa-teacher-training", label: "Vinyasa Teacher Training" },
         ],
       },
       {
-        label: "Yoga Course Bali",
-        icon: "⑤",
+        label: "Yoga Teacher In India", icon: "🇮🇳",
         children: [
-          { href: "/admin/yogacourse/yoga-course-bali",   label: "Yoga Course Bali" },
-        
+          { href: "/admin/yogacourse/yoga-teacher-in-india", label: "Yoga Teacher India" },
         ],
       },
       {
-        label: "Yoga Ayurveda Teacher",
-        icon: "⑤",
+        label: "Hatha Yoga Teacher Training", icon: "🧘",
         children: [
-          { href: "/admin/yogacourse/yoga-ayurveda-teacher",   label: "Yoga Ayurveda " },
-        
+          { href: "/admin/yogacourse/hatha-yoga-teacher-training/hatha-yoga-training-seats",           label: "Hatha Yoga Seats" },
+          { href: "/admin/yogacourse/hatha-yoga-teacher-training/hatha-yoga-teacher-training-content", label: "Hatha Yoga Content" },
         ],
       },
       {
-        label: "World Wide",
-        icon: "⑤",
+        label: "Yoga GOA in India", icon: "🌴",
         children: [
-          { href: "/admin/yogacourse/world-wide",   label: "World Wide" },
-        
+          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-200hr-seats", label: "200hr Seats in Goa" },
+          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-300hr-seats", label: "300hr Seats in Goa" },
+          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-500hr-seats", label: "500hr Seats in Goa" },
+          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-content",     label: "Content in Goa" },
+        ],
+      },
+      {
+        label: "Yoga Course Bali", icon: "🌺",
+        children: [
+          { href: "/admin/yogacourse/yoga-course-bali", label: "Yoga Course Bali" },
+        ],
+      },
+      {
+        label: "Yoga Ayurveda Teacher", icon: "🌿",
+        children: [
+          { href: "/admin/yogacourse/yoga-ayurveda-teacher", label: "Yoga Ayurveda" },
+        ],
+      },
+      {
+        label: "World Wide", icon: "🌍",
+        children: [
+          { href: "/admin/yogacourse/world-wide", label: "World Wide" },
         ],
       },
     ],
   },
-
   {
-    label: "Teachers",
-    icon: "🧘",
+    label: "Teachers", icon: "🧘",
     children: [
       { href: "/admin/our-teachers/founder",       label: "Founder" },
       { href: "/admin/our-teachers/teachers",      label: "All Teachers" },
       { href: "/admin/our-teachers/guestteachers", label: "All Guest Teachers" },
     ],
   },
-
   {
-    label: "Home Testimonials",
-    icon: "✦",
+    label: "Home Testimonials", icon: "✦",
     children: [
-      { href: "/admin/dashboard/testimonialsvideo",  label: "Testimonials Video" },
-      { href: "/admin/dashboard/testimonialstext",   label: "Testimonials Review Text" },
+      { href: "/admin/dashboard/testimonialsvideo", label: "Testimonials Video" },
+      { href: "/admin/dashboard/testimonialstext",  label: "Testimonials Review Text" },
     ],
   },
-
-  { href: "/admin/dashboard/gallery", label: "Gallery", icon: "🖼" },
-  { href: "/admin/dashboard/blog",    label: "Blog",    icon: "✏" },
-   { href: "/admin/Registrationlist", label: "Registration List", icon: "🖼" },
-  { href: "/admin/accommodation", label: "Accommodation", icon: "🏠" },
+  { href: "/admin/dashboard/gallery", label: "Gallery",           icon: "🖼" },
+  { href: "/admin/dashboard/blog",    label: "Blog",              icon: "✏" },
+  { href: "/admin/Registrationlist",  label: "Registration List", icon: "📋" },
+  { href: "/admin/accommodation",     label: "Accommodation",     icon: "🏠" },
   {
-    label: "Testimonials",
-    icon: "✦",
+    label: "Testimonials", icon: "✦",
     children: [
-      { href: "/admin/testimonial/text-testimonial",  label: "Text Testimonials " },
-      { href: "/admin/testimonial/video-testimonial",   label: "Video Testimonials" },
+      { href: "/admin/testimonial/text-testimonial",  label: "Text Testimonials" },
+      { href: "/admin/testimonial/video-testimonial", label: "Video Testimonials" },
     ],
   },
- 
 ];
 
-/* ══════════════════════════════════════════════
-   COMPONENT
-══════════════════════════════════════════════ */
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  const [sidebarOpen, setSidebarOpen]   = useState(false);
-  const [openMenu, setOpenMenu]         = useState<string | null>(null);
-  const [openSubMenu, setOpenSubMenu]   = useState<string | null>(null);
-  const [profileOpen, setProfileOpen]   = useState(false);
-  const profileRef                      = useRef<HTMLDivElement>(null);
-  const pathname                        = usePathname();
+  // ✅ ALL hooks inside the component
+  const { user, logout, loading } = useAuth();
+  const router                    = useRouter();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [openMenu, setOpenMenu]       = useState<string | null>(null);
+  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const profileRef                    = useRef<HTMLDivElement>(null);
+  const pathname                      = usePathname();
 
-  /* Close profile on outside click */
+  // ✅ Redirect if not authenticated
+  useEffect(() => {
+    if (!loading && !user) {
+      router.replace("/auth/login");
+    }
+  }, [user, loading, router]);
+
+  // Close profile on outside click
   useEffect(() => {
     function handler(e: MouseEvent) {
       if (profileRef.current && !profileRef.current.contains(e.target as Node))
@@ -241,7 +202,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  /* Auto-open parent menu if current path matches */
+  // Auto-open parent menu if current path matches
   useEffect(() => {
     navItems.forEach(item => {
       if (item.children?.some(c => pathname.startsWith(c.href))) {
@@ -258,15 +219,27 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     });
   }, [pathname]);
 
-  const toggleMenu    = (label: string) => setOpenMenu(p  => p === label  ? null : label);
+  const toggleMenu    = (label: string) => setOpenMenu(p  => p === label ? null : label);
   const toggleSubMenu = (label: string) => setOpenSubMenu(p => p === label ? null : label);
 
-  /* ── helpers ── */
   const isMenuActive = (item: NavItem): boolean => {
-    if (item.children) return item.children.some(c => pathname.startsWith(c.href));
+    if (item.children)  return item.children.some(c => pathname.startsWith(c.href));
     if (item.subGroups) return item.subGroups.some(sg => sg.children.some(c => pathname.startsWith(c.href)));
     return false;
   };
+
+  // ✅ Show nothing while checking session
+  if (loading) {
+    return (
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100vh", flexDirection: "column", gap: 12 }}>
+        <div style={{ fontSize: 48, color: "#f15505" }}>ॐ</div>
+        <p style={{ color: "#f15505", fontFamily: "serif" }}>Checking session…</p>
+      </div>
+    );
+  }
+
+  // ✅ Show nothing while redirect is in progress
+  if (!user) return null;
 
   return (
     <div className={styles.adminShell}>
@@ -278,7 +251,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         }}
       />
 
-      {/* Mobile overlay */}
       <div
         className={`${styles.sidebarOverlay} ${sidebarOpen ? styles.sidebarOverlayOpen : ""}`}
         onClick={() => setSidebarOpen(false)}
@@ -298,7 +270,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {navItems.map(item => (
             <div key={item.label}>
 
-              {/* ── Simple link (no children) ── */}
               {!item.children && !item.subGroups && (
                 <Link
                   href={item.href!}
@@ -310,7 +281,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </Link>
               )}
 
-              {/* ── Flat dropdown (children) ── */}
               {item.children && (
                 <>
                   <button
@@ -342,10 +312,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </>
               )}
 
-              {/* ── 2-level nested (subGroups) ── */}
               {item.subGroups && (
                 <>
-                  {/* Level-1 button */}
                   <button
                     className={`${styles.navLink} ${styles.navDropdownBtn}
                       ${openMenu === item.label ? styles.navDropdownBtnOpen : ""}
@@ -357,16 +325,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <span className={`${styles.chevron} ${openMenu === item.label ? styles.chevronOpen : ""}`}>›</span>
                   </button>
 
-                  {/* Level-1 panel */}
                   <div className={`${styles.dropdown} ${openMenu === item.label ? styles.dropdownOpen : ""}`}>
                     <div className={styles.dropdownInner}>
                       {item.subGroups.map(sg => {
                         const sgActive = sg.children.some(c => pathname.startsWith(c.href));
                         return (
                           <div key={sg.label}>
-                            {/* Level-2 button */}
                             <button
-                              className={`${styles.subGroupBtn} ${openSubMenu === sg.label ? styles.subGroupBtnOpen : ""} ${sgActive ? styles.subGroupBtnActive : ""}`}
+                              className={`${styles.subGroupBtn}
+                                ${openSubMenu === sg.label ? styles.subGroupBtnOpen : ""}
+                                ${sgActive ? styles.subGroupBtnActive : ""}`}
                               onClick={() => toggleSubMenu(sg.label)}
                             >
                               <span className={styles.subGroupIcon}>{sg.icon}</span>
@@ -374,7 +342,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                               <span className={`${styles.subChevron} ${openSubMenu === sg.label ? styles.subChevronOpen : ""}`}>›</span>
                             </button>
 
-                            {/* Level-2 panel */}
                             <div className={`${styles.subDropdown} ${openSubMenu === sg.label ? styles.subDropdownOpen : ""}`}>
                               {sg.children.map(child => (
                                 <Link
@@ -416,16 +383,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Link href="/" className={styles.topbarLink}>← View Site</Link>
             <span className={styles.topbarDivider} />
 
-            {/* Profile Dropdown */}
             <div className={styles.profileWrapper} ref={profileRef}>
               <button
                 className={`${styles.profileBtn} ${profileOpen ? styles.profileBtnOpen : ""}`}
                 onClick={() => setProfileOpen(!profileOpen)}
                 aria-label="Profile menu"
               >
-                <div className={styles.topbarAvatar}>A</div>
+                <div className={styles.topbarAvatar}>
+                  {user?.name?.charAt(0).toUpperCase() ?? "A"}
+                </div>
                 <div className={styles.profileInfo}>
-                  <span className={styles.profileName}>Aryan</span>
+                  <span className={styles.profileName}>{user?.name ?? "Admin"}</span>
                   <span className={styles.profileRole}>Administrator</span>
                 </div>
                 <span className={`${styles.profileChevron} ${profileOpen ? styles.profileChevronOpen : ""}`}>›</span>
@@ -433,22 +401,27 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
               <div className={`${styles.profileDropdown} ${profileOpen ? styles.profileDropdownOpen : ""}`}>
                 <div className={styles.profileDropdownHeader}>
-                  <div className={styles.profileDropdownAvatar}>A</div>
+                  <div className={styles.profileDropdownAvatar}>
+                    {user?.name?.charAt(0).toUpperCase() ?? "A"}
+                  </div>
                   <div>
-                    <p className={styles.profileDropdownName}>Aryan</p>
-                    <p className={styles.profileDropdownEmail}>admin@aymyoga.com</p>
+                    <p className={styles.profileDropdownName}>{user?.name ?? "Admin"}</p>
+                    <p className={styles.profileDropdownEmail}>{user?.email ?? ""}</p>
                   </div>
                 </div>
 
                 <div className={styles.profileDropdownDivider} />
 
-                <Link href="/admin/profile"          className={styles.profileDropdownItem} onClick={() => setProfileOpen(false)}><span className={styles.profileDropdownIcon}>◉</span>My Profile</Link>
-                <Link href="/admin/settings"         className={styles.profileDropdownItem} onClick={() => setProfileOpen(false)}><span className={styles.profileDropdownIcon}>⚙</span>Settings</Link>
-                <Link href="/admin/change-password"  className={styles.profileDropdownItem} onClick={() => setProfileOpen(false)}><span className={styles.profileDropdownIcon}>🔑</span>Change Password</Link>
+                <Link href="/admin/profile"         className={styles.profileDropdownItem} onClick={() => setProfileOpen(false)}><span className={styles.profileDropdownIcon}>◉</span>My Profile</Link>
+                <Link href="/admin/settings"        className={styles.profileDropdownItem} onClick={() => setProfileOpen(false)}><span className={styles.profileDropdownIcon}>⚙</span>Settings</Link>
+                <Link href="/admin/change-password" className={styles.profileDropdownItem} onClick={() => setProfileOpen(false)}><span className={styles.profileDropdownIcon}>🔑</span>Change Password</Link>
 
                 <div className={styles.profileDropdownDivider} />
 
-                <button className={`${styles.profileDropdownItem} ${styles.profileDropdownLogout}`}>
+                <button
+                  className={`${styles.profileDropdownItem} ${styles.profileDropdownLogout}`}
+                  onClick={logout}
+                >
                   <span className={styles.profileDropdownIcon}>⏻</span>Logout
                 </button>
               </div>

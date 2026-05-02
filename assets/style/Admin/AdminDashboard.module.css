@@ -17,11 +17,11 @@
 }
 
 /* ================================================================
-   STATS GRID
+   STATS GRID - 5 cards on desktop
    ================================================================ */
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.2rem;
   margin-bottom: 2.5rem;
 }
@@ -171,6 +171,8 @@
   color: #3d2b10;
   padding: 0.82rem 1.4rem;
   border-bottom: 1px solid rgba(232, 213, 181, 0.5);
+  white-space: nowrap;
+  vertical-align: middle;
 }
 
 .enqTable tr:last-child td {
@@ -219,6 +221,186 @@
   background: #f5f5f5;
   color: #757575;
   border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* ================================================================
+   TABLE WRAPPER FOR HORIZONTAL SCROLL
+   ================================================================ */
+.tableWrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.tableWrapper table {
+  min-width: 680px;
+  width: 100%;
+}
+
+/* Custom scrollbar styling */
+.tableWrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+  background: #f5f0e6;
+  border-radius: 10px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+  background: #d4a373;
+  border-radius: 10px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb:hover {
+  background: #b8860b;
+}
+
+/* ================================================================
+   NAME CELL STYLES
+   ================================================================ */
+.nameCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 150px;
+  white-space: nowrap;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f15505, #ff884d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.namePrimary {
+  font-weight: 600;
+  margin: 0;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.nameSecondary {
+  font-size: 11px;
+  color: #888;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ================================================================
+   CONTACT CELL STYLES
+   ================================================================ */
+.contactEmail {
+  font-size: 13px;
+  margin: 0 0 4px 0;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.contactPhone {
+  font-size: 11px;
+  color: #888;
+  margin: 0;
+  white-space: normal;
+}
+
+/* ================================================================
+   COURSE BADGE
+   ================================================================ */
+.courseBadge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(241, 85, 5, 0.1);
+  color: #f15505;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ================================================================
+   LOCATION CELL
+   ================================================================ */
+.locationCell {
+  font-size: 13px;
+  color: #666;
+  white-space: nowrap;
+}
+
+/* ================================================================
+   ACTION BUTTONS
+   ================================================================ */
+.actions {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.actionBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.eyeBtn {
+  color: #4a90e2;
+}
+
+.eyeBtn:hover {
+  background: rgba(74, 144, 226, 0.1);
+  transform: scale(1.05);
+}
+
+.deleteBtn {
+  color: #e74c3c;
+}
+
+.deleteBtn:hover {
+  background: rgba(231, 76, 60, 0.1);
+  transform: scale(1.05);
+}
+
+/* ================================================================
+   LOADING & EMPTY STATES
+   ================================================================ */
+.loadingState {
+  text-align: center;
+  padding: 3rem;
+}
+
+.spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(241, 85, 5, 0.2);
+  border-radius: 50%;
+  border-top-color: #f15505;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem;
+  color: #999;
 }
 
 /* ================================================================
@@ -311,14 +493,303 @@
 }
 
 /* ================================================================
+   MODAL STYLES
+   ================================================================ */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  background: white;
+  border-radius: 24px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 85vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease;
+}
+
+.confirmModal {
+  max-width: 450px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modalHeader {
+  position: relative;
+  background: linear-gradient(135deg, #f15505, #ff884d);
+  padding: 32px 32px 24px;
+  color: white;
+}
+
+.modalHeroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.modalAvatar {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.modalName {
+  font-size: 24px;
+  margin: 0 0 8px;
+}
+
+.modalSince {
+  font-size: 13px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 3;
+}
+
+.closeBtn:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modalBody {
+  padding: 24px 32px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.sectionBlock {
+  margin-bottom: 28px;
+}
+
+.sectionBlock:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.sectionDot {
+  width: 8px;
+  height: 8px;
+  background: #f15505;
+  border-radius: 50%;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.detailRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #999;
+  font-weight: 500;
+}
+
+.detailValue {
+  font-size: 14px;
+  color: #333;
+  word-break: break-word;
+}
+
+.modalFooter {
+  padding: 16px 32px 24px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modalDeleteBtn {
+  background: none;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 10px 20px;
+  border-radius: 40px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.modalDeleteBtn:hover {
+  background: #e74c3c;
+  color: white;
+}
+
+.modalCloseBtn {
+  background: #f5f5f5;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.modalCloseBtn:hover {
+  background: #e0e0e0;
+}
+
+.modalLoadingWrap {
+  text-align: center;
+  padding: 40px;
+}
+
+.modalSpinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(241, 85, 5, 0.2);
+  border-radius: 50%;
+  border-top-color: #f15505;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 16px;
+}
+
+.modalErrorWrap {
+  text-align: center;
+  padding: 40px;
+}
+
+.retryBtn {
+  background: #f15505;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.confirmIcon {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.confirmTitle {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.confirmText {
+  text-align: center;
+  color: #666;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.confirmActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.cancelBtn {
+  background: #f5f5f5;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.confirmDeleteBtn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.btnSpinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+/* ================================================================
    RESPONSIVE
    ================================================================ */
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-
+  
   .dashBody {
     grid-template-columns: 1fr;
   }
@@ -346,9 +817,9 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .statsGrid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 0.7rem;
   }
 
