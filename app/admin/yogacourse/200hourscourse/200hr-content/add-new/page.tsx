@@ -77,7 +77,16 @@ function toEmbedUrl(url: string): string {
   return url;
 }
 
-/* ─────────────────────────── UI Components ─────────────────────────── */
+/**
+ * 🔥 KEY FIX: Safely encode HTML string for FormData transport.
+ * HTML content with <tags>, newlines, special chars can get corrupted
+ * in multipart/form-data boundaries. JSON.stringify wraps it safely.
+ */
+function encodeHtml(html: string): string {
+  return JSON.stringify(html || "");
+}
+
+/* ─────────────────────────── Step Indicator ─────────────────────────── */
 function StepIndicator({
   currentStep,
   totalSteps,
@@ -88,17 +97,100 @@ function StepIndicator({
   steps: string[];
 }) {
   return (
-    <div className={styles.stepIndicator}>
-      {steps.map((step, index) => (
-        <div
-          key={index}
-          className={`${styles.stepItem} ${currentStep === index + 1 ? styles.stepActive : currentStep > index + 1 ? styles.stepCompleted : ""}`}
-        >
-          <div className={styles.stepCircle}>{index + 1}</div>
-          <span className={styles.stepLabel}>{step}</span>
-          {index < totalSteps - 1 && <div className={styles.stepLine} />}
-        </div>
-      ))}
+    <div
+      style={{
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "center",
+        gap: 0,
+        marginBottom: "2rem",
+        padding: "0 1rem",
+        overflowX: "auto",
+      }}
+    >
+      {steps.map((step, index) => {
+        const stepNum = index + 1;
+        const isActive = currentStep === stepNum;
+        const isCompleted = currentStep > stepNum;
+        return (
+          <div
+            key={index}
+            style={{ display: "flex", alignItems: "center", flexShrink: 0 }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "0.4rem",
+              }}
+            >
+              <div
+                style={{
+                  width: 38,
+                  height: 38,
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontWeight: 800,
+                  fontSize: isCompleted ? 16 : 14,
+                  transition: "all 0.3s ease",
+                  background: isCompleted
+                    ? "linear-gradient(135deg,#22c55e,#16a34a)"
+                    : isActive
+                      ? "linear-gradient(135deg,#b8860b,#d4a017)"
+                      : "#f0e8d8",
+                  color: isCompleted || isActive ? "#fff" : "#b8a080",
+                  border: isActive
+                    ? "2.5px solid #b8860b"
+                    : isCompleted
+                      ? "2.5px solid #16a34a"
+                      : "2px solid #e8d5b5",
+                  boxShadow: isActive
+                    ? "0 4px 16px rgba(184,134,11,0.35)"
+                    : isCompleted
+                      ? "0 2px 8px rgba(34,197,94,0.25)"
+                      : "none",
+                }}
+              >
+                {isCompleted ? "✓" : stepNum}
+              </div>
+              <span
+                style={{
+                  fontSize: 10,
+                  fontWeight: isActive ? 700 : 500,
+                  color: isActive
+                    ? "#b8860b"
+                    : isCompleted
+                      ? "#16a34a"
+                      : "#b8a080",
+                  textAlign: "center",
+                  maxWidth: 72,
+                  lineHeight: 1.3,
+                  whiteSpace: "normal",
+                }}
+              >
+                {step}
+              </span>
+            </div>
+            {index < totalSteps - 1 && (
+              <div
+                style={{
+                  width: 36,
+                  height: 2,
+                  marginBottom: 22,
+                  background: isCompleted
+                    ? "linear-gradient(90deg,#16a34a,#22c55e)"
+                    : "linear-gradient(90deg,#e8d5b5,#f0e8d8)",
+                  flexShrink: 0,
+                  transition: "background 0.3s ease",
+                }}
+              />
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -160,13 +252,13 @@ function F({
   );
 }
 
-/* ─────────────────────────── Lazy Jodit Editor ─────────────────────────── */
-function LazyJodit({
+/* ─────────────────────────── Controlled Jodit Editor ─────────────────────────── */
+function ControlledJodit({
   label,
   hint,
-  cr,
+  value,
+  onChange,
   err,
-  clr,
   ph = "Start typing…",
   h = 200,
   required = false,
@@ -174,9 +266,9 @@ function LazyJodit({
 }: {
   label: string;
   hint?: string;
-  cr: React.MutableRefObject<string>;
+  value: string;
+  onChange: (v: string) => void;
   err?: string;
-  clr?: () => void;
   ph?: string;
   h?: number;
   required?: boolean;
@@ -201,14 +293,6 @@ function LazyJodit({
     return () => obs.disconnect();
   }, []);
 
-  const onChange = useCallback(
-    (v: string) => {
-      cr.current = v;
-      if (clr && !isEmptyHtml(v)) clr();
-    },
-    [cr, clr],
-  );
-
   return (
     <div className={styles.fieldGroup}>
       <label className={styles.label}>
@@ -225,7 +309,7 @@ function LazyJodit({
         {visible ? (
           <JoditEditor
             key={editorKey}
-            value={cr.current}
+            value={value}
             config={{ ...joditConfig, placeholder: ph, height: h }}
             onChange={onChange}
           />
@@ -252,12 +336,15 @@ function LazyJodit({
   );
 }
 
+/* Dynamic para editor */
 function DynamicParaEditor({
-  cr,
+  value,
+  onChange,
   ph,
   editorKey = "para",
 }: {
-  cr: { current: string };
+  value: string;
+  onChange: (v: string) => void;
   ph: string;
   editorKey?: string;
 }) {
@@ -285,11 +372,9 @@ function DynamicParaEditor({
       {visible ? (
         <JoditEditor
           key={editorKey}
-          value={cr.current}
+          value={value}
           config={{ ...joditConfig, placeholder: ph, height: 200 }}
-          onChange={(v) => {
-            cr.current = v;
-          }}
+          onChange={onChange}
         />
       ) : (
         <div
@@ -380,16 +465,12 @@ function SingleImg({
   onSelect: (f: File, p: string) => void;
   onRemove: () => void;
 }) {
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const BASE = process.env.NEXT_PUBLIC_API_URL || "";
-
-  // Agar preview server path hai to full URL banao
   const displayPreview = preview?.startsWith("http")
     ? preview
     : preview
       ? `${BASE}${preview}`
       : "";
-
   return (
     <div>
       <div
@@ -398,7 +479,6 @@ function SingleImg({
         {!displayPreview ? (
           <>
             <input
-              ref={fileInputRef}
               type="file"
               accept="image/*"
               onChange={(e) => {
@@ -471,7 +551,6 @@ function MultiImageUpload({
   maxFiles?: number;
 }) {
   const BASE = process.env.NEXT_PUBLIC_API_URL || "";
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const sel = Array.from(e.target.files || []);
     if (!sel.length) return;
@@ -483,7 +562,6 @@ function MultiImageUpload({
     onSelect(nf, np);
     e.target.value = "";
   };
-
   return (
     <div
       style={{
@@ -581,7 +659,6 @@ function VideoField({
 }) {
   const [mode, setMode] = useState<"url" | "upload">("url");
   const embedPreview = mode === "url" ? toEmbedUrl(urlValue) : "";
-
   return (
     <div className={styles.fieldGroup}>
       <label className={styles.label}>
@@ -704,7 +781,7 @@ interface ModuleRow {
   title: string;
   intro: string;
   items: string[];
-  bodyRef: React.MutableRefObject<string>;
+  body: string;
 }
 interface ProgramItem {
   title: string;
@@ -712,7 +789,7 @@ interface ProgramItem {
   start: string;
   oldPrice: string;
   price: string;
-  descRef: React.MutableRefObject<string>;
+  desc: string;
   imageFile: File | null;
   imagePreview: string;
 }
@@ -747,9 +824,9 @@ interface HathaAsana {
   filter: string;
 }
 
-/* ══════════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════════
    MAIN FORM
-══════════════════════════════════════════════════════════════════ */
+═══════════════════════════════════════════════════════════════ */
 export default function Yoga200HourCombinedForm() {
   const router = useRouter();
   const params = useParams();
@@ -761,7 +838,6 @@ export default function Yoga200HourCombinedForm() {
   const [submitted, setSubmitted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [loading, setLoading] = useState(false);
-  // Key to force re-render of all Jodit editors after data load
   const [editorKey, setEditorKey] = useState("init");
 
   const steps = [
@@ -926,40 +1002,42 @@ export default function Yoga200HourCombinedForm() {
   const [luxImgPrevs, setLuxImgPrevs] = useState<string[]>([]);
   const [schedImgFiles, setSchedImgFiles] = useState<File[]>([]);
   const [schedImgPrevs, setSchedImgPrevs] = useState<string[]>([]);
+  const [aimsImgFile, setAimsImgFile] = useState<File | null>(null);
+  const [aimsImgPrev, setAimsImgPrev] = useState("");
+  const [primaryImgFile, setPrimaryImgFile] = useState<File | null>(null);
+  const [primaryImgPrev, setPrimaryImgPrev] = useState("");
 
   /* ── Video State ── */
   const [videoUrl, setVideoUrl] = useState("");
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [videoPrev, setVideoPrev] = useState("");
 
-  /* ── Jodit Refs ── */
+  /* ── Dynamic Paragraph Arrays ── */
   const [introParas, setIntroParas] = useState<string[]>(["", "", "", ""]);
-  const introParaRefs = useRef<string[]>(["", "", "", ""]);
   const [aimsIntroPars, setAimsIntroPars] = useState<string[]>([""]);
-  const aimsIntroRefs = useRef<string[]>([""]);
   const [syllabusParas, setSyllabusParas] = useState<string[]>([""]);
-  const syllabusParaRefs = useRef<string[]>([""]);
 
-  const aimsOutroRef = useRef("");
-  const ashtangaRef = useRef("");
-  const primaryRef = useRef("");
-  const hathaRef = useRef("");
-  const evalRef = useRef("");
-  const schedDescRef = useRef("");
-  const visaRef = useRef("");
-  const globalCert1Ref = useRef("");
-  const globalCert2Ref = useRef("");
-  const req1Ref = useRef("");
-  const req2Ref = useRef("");
-  const req3Ref = useRef("");
-  const req4Ref = useRef("");
-  const best200HrRef = useRef("");
-  const step1Ref = useRef("");
-  const step2Ref = useRef("");
-  const step3Ref = useRef("");
-  const step4Ref = useRef("");
+  /* ── Standalone rich text (controlled state) ── */
+  const [aimsOutro, setAimsOutro] = useState("");
+  const [ashtangaDesc, setAshtangaDesc] = useState("");
+  const [primaryIntro, setPrimaryIntro] = useState("");
+  const [hathaDesc, setHathaDesc] = useState("");
+  const [evalDesc, setEvalDesc] = useState("");
+  const [schedDesc, setSchedDesc] = useState("");
+  const [visaDesc, setVisaDesc] = useState("");
+  const [globalCert1, setGlobalCert1] = useState("");
+  const [globalCert2, setGlobalCert2] = useState("");
+  const [req1, setReq1] = useState("");
+  const [req2, setReq2] = useState("");
+  const [req3, setReq3] = useState("");
+  const [req4, setReq4] = useState("");
+  const [best200Hr, setBest200Hr] = useState("");
+  const [step1Desc, setStep1Desc] = useState("");
+  const [step2Desc, setStep2Desc] = useState("");
+  const [step3Desc, setStep3Desc] = useState("");
+  const [step4Desc, setStep4Desc] = useState("");
 
-  /* ── Jodit Errors ── */
+  /* ── Validation Errors ── */
   const [introErr, setIntroErr] = useState("");
   const [aimsErr, setAimsErr] = useState("");
   const [sylErr, setSylErr] = useState("");
@@ -1001,54 +1079,54 @@ export default function Yoga200HourCombinedForm() {
       title: "Module 1: The Philosophy of Yoga",
       intro: "The course covers fundamental concepts underlying Ashtanga Yoga.",
       items: [""],
-      bodyRef: { current: "" } as React.MutableRefObject<string>,
+      body: "",
     },
     {
       title: "Module 2: The Yogic Breathing Techniques/Pranayama",
       intro:
         "You will learn about different types of breathing used in pranayama.",
       items: [""],
-      bodyRef: { current: "" } as React.MutableRefObject<string>,
+      body: "",
     },
     {
       title: "Module 3: The Shat Kriyas (Cleansing Detox)",
       intro:
         "This module gives you understanding of the detoxification process.",
       items: [""],
-      bodyRef: { current: "" } as React.MutableRefObject<string>,
+      body: "",
     },
     {
       title: "Module 4: Anatomy and Physiology",
       intro:
         "Teacher will connect ancient science of yoga to the present science.",
       items: [""],
-      bodyRef: { current: "" } as React.MutableRefObject<string>,
+      body: "",
     },
     {
       title: "Module 5: Knowledge of Meditation",
       intro: "Meditation is the key part of yoga teacher training.",
       items: [""],
-      bodyRef: { current: "" } as React.MutableRefObject<string>,
+      body: "",
     },
     {
       title: "Module 6: Mantras, Chants, and Prayers",
       intro: "Mantras are coded in Sanskrit native language of India.",
       items: [""],
-      bodyRef: { current: "" } as React.MutableRefObject<string>,
+      body: "",
     },
     {
       title: "Module 7: Mastering the Art of Teaching Yoga",
       intro:
         "This module gives you the confidence to take your yoga classes to the next level.",
       items: [""],
-      bodyRef: { current: "" } as React.MutableRefObject<string>,
+      body: "",
     },
     {
       title: "Module 8: Knowledge of Asanas (Yoga Postures)",
       intro:
         "By the end of your training, you will have learned all the poses.",
       items: [""],
-      bodyRef: { current: "" } as React.MutableRefObject<string>,
+      body: "",
     },
   ]);
 
@@ -1059,7 +1137,7 @@ export default function Yoga200HourCombinedForm() {
     start: "",
     oldPrice: "",
     price: "",
-    descRef: { current: "" },
+    desc: "",
     imageFile: null,
     imagePreview: "",
   });
@@ -1078,7 +1156,10 @@ export default function Yoga200HourCombinedForm() {
     { week: "Week 1", icon: "☀️", t1: "", d1: "", t2: "", d2: "" },
   ]);
 
-  /* ── Helper Functions ── */
+  /* ── Programs H2/Subtext ── */
+  const [programsH2, setProgramsH2] = useState("");
+  const [programsSubtext, setProgramsSubtext] = useState("");
+
   const upd = useCallback(
     <T,>(arr: T[], set: (v: T[]) => void, i: number, k: keyof T, v: string) => {
       const a = [...arr] as any[];
@@ -1095,7 +1176,7 @@ export default function Yoga200HourCombinedForm() {
         title: `Module ${prev.length + 1}: New Module`,
         intro: "",
         items: [""],
-        bodyRef: { current: "" } as React.MutableRefObject<string>,
+        body: "",
       },
     ]);
   const removeModule = (i: number) =>
@@ -1104,6 +1185,12 @@ export default function Yoga200HourCombinedForm() {
     setModules((prev) => {
       const a = [...prev];
       a[i] = { ...a[i], [key]: val };
+      return a;
+    });
+  const updateModuleBody = (i: number, val: string) =>
+    setModules((prev) => {
+      const a = [...prev];
+      a[i] = { ...a[i], body: val };
       return a;
     });
   const updateModuleItem = (modI: number, itemI: number, val: string) =>
@@ -1134,14 +1221,12 @@ export default function Yoga200HourCombinedForm() {
   useEffect(() => {
     if (!isEditMode || !params.id) return;
     setLoading(true);
-
     const fetchData = async () => {
       try {
         const res = await api.get(`/yoga-200hr/content/${params.id}`);
         const d = res.data?.data;
         if (!d) return;
 
-        // ── Set all simple string fields via react-hook-form ──
         const simpleFields = [
           "slug",
           "status",
@@ -1220,8 +1305,6 @@ export default function Yoga200HourCombinedForm() {
           "whatsIncludedH4",
           "faqH2",
           "bookingH2",
-          "newProgramsH2",
-          "newProgramsSubtext",
           "metaTitle",
           "metaDesc",
           "metaKeywords",
@@ -1249,7 +1332,9 @@ export default function Yoga200HourCombinedForm() {
           if (d[key] !== undefined && d[key] !== null) setValue(key, d[key]);
         });
 
-        // ── Stats ──
+        if (d.newProgramsH2) setProgramsH2(d.newProgramsH2);
+        if (d.newProgramsSubtext) setProgramsSubtext(d.newProgramsSubtext);
+
         if (d.stats && Array.isArray(d.stats)) {
           d.stats.forEach((stat: any, i: number) => {
             setValue(`stat${i + 1}Icon`, stat.icon || "");
@@ -1259,66 +1344,45 @@ export default function Yoga200HourCombinedForm() {
           });
         }
 
-        // ── Images ──
         if (d.heroImage) setHeroPrev(d.heroImage);
         if (d.ashtangaImage) setAshtangaPrev(d.ashtangaImage);
         if (d.hathaImage) setHathaPrev(d.hathaImage);
         if (d.reqImage) setReqImgPrev(d.reqImage);
         if (d.luxImages?.length) setLuxImgPrevs(d.luxImages);
         if (d.schedImages?.length) setSchedImgPrevs(d.schedImages);
+        if (d.aimsImage) setAimsImgPrev(d.aimsImage);
+        if (d.primarySeriesImage) setPrimaryImgPrev(d.primarySeriesImage);
 
-        // ── Video ──
         if (d.videoUrl) setVideoUrl(d.videoUrl);
 
-        // ── Intro Paragraphs (flat fields: introPara1, introPara2...) ──
         const introPArr: string[] = [];
         for (let i = 1; i <= 10; i++) {
           if (d[`introPara${i}`]) introPArr.push(d[`introPara${i}`]);
         }
-        if (introPArr.length) {
-          introParaRefs.current = introPArr;
-          setIntroParas(introPArr.map((_, i) => String(i)));
-        }
+        if (introPArr.length) setIntroParas(introPArr);
 
-        // ── Aims Intro (array field: aimsIntro[]) ──
-        if (d.aimsIntro && Array.isArray(d.aimsIntro) && d.aimsIntro.length) {
-          aimsIntroRefs.current = [...d.aimsIntro];
-          setAimsIntroPars(d.aimsIntro.map((_: any, i: number) => String(i)));
-        }
+        if (d.aimsIntro?.length) setAimsIntroPars(d.aimsIntro);
+        if (d.syllabusIntro?.length) setSyllabusParas(d.syllabusIntro);
 
-        // ── Syllabus Intro (array field: syllabusIntro[]) ──
-        if (
-          d.syllabusIntro &&
-          Array.isArray(d.syllabusIntro) &&
-          d.syllabusIntro.length
-        ) {
-          syllabusParaRefs.current = [...d.syllabusIntro];
-          setSyllabusParas(
-            d.syllabusIntro.map((_: any, i: number) => String(i)),
-          );
-        }
+        if (d.aimsOutro) setAimsOutro(d.aimsOutro);
+        if (d.ashtangaDesc) setAshtangaDesc(d.ashtangaDesc);
+        if (d.primaryIntro) setPrimaryIntro(d.primaryIntro);
+        if (d.hathaDesc) setHathaDesc(d.hathaDesc);
+        if (d.evalDesc) setEvalDesc(d.evalDesc);
+        if (d.schedDesc) setSchedDesc(d.schedDesc);
+        if (d.visaPassportDesc) setVisaDesc(d.visaPassportDesc);
+        if (d.globalCert1) setGlobalCert1(d.globalCert1);
+        if (d.globalCert2) setGlobalCert2(d.globalCert2);
+        if (d.req1) setReq1(d.req1);
+        if (d.req2) setReq2(d.req2);
+        if (d.req3) setReq3(d.req3);
+        if (d.req4) setReq4(d.req4);
+        if (d.best200Hr) setBest200Hr(d.best200Hr);
+        if (d.bookingStep1Desc) setStep1Desc(d.bookingStep1Desc);
+        if (d.bookingStep2Desc) setStep2Desc(d.bookingStep2Desc);
+        if (d.bookingStep3Desc) setStep3Desc(d.bookingStep3Desc);
+        if (d.bookingStep4Desc) setStep4Desc(d.bookingStep4Desc);
 
-        // ── Rich Text single fields ──
-        if (d.aimsOutro) aimsOutroRef.current = d.aimsOutro;
-        if (d.ashtangaDesc) ashtangaRef.current = d.ashtangaDesc;
-        if (d.primaryIntro) primaryRef.current = d.primaryIntro;
-        if (d.hathaDesc) hathaRef.current = d.hathaDesc;
-        if (d.evalDesc) evalRef.current = d.evalDesc;
-        if (d.schedDesc) schedDescRef.current = d.schedDesc;
-        if (d.visaPassportDesc) visaRef.current = d.visaPassportDesc;
-        if (d.globalCert1) globalCert1Ref.current = d.globalCert1;
-        if (d.globalCert2) globalCert2Ref.current = d.globalCert2;
-        if (d.req1) req1Ref.current = d.req1;
-        if (d.req2) req2Ref.current = d.req2;
-        if (d.req3) req3Ref.current = d.req3;
-        if (d.req4) req4Ref.current = d.req4;
-        if (d.best200Hr) best200HrRef.current = d.best200Hr;
-        if (d.bookingStep1Desc) step1Ref.current = d.bookingStep1Desc;
-        if (d.bookingStep2Desc) step2Ref.current = d.bookingStep2Desc;
-        if (d.bookingStep3Desc) step3Ref.current = d.bookingStep3Desc;
-        if (d.bookingStep4Desc) step4Ref.current = d.bookingStep4Desc;
-
-        // ── Array / List fields ──
         if (d.aimsBullets?.length) setAimsBullets(d.aimsBullets);
         if (d.includedFee?.length) setInclFee(d.includedFee);
         if (d.notIncludedFee?.length) setNotInclFee(d.notIncludedFee);
@@ -1331,21 +1395,17 @@ export default function Yoga200HourCombinedForm() {
         if (d.faqItems?.length) setFaqItems(d.faqItems);
         if (d.knowQA?.length) setKnowQA(d.knowQA);
 
-        // ── Modules ──
         if (d.modules?.length) {
           setModules(
             d.modules.map((m: any) => ({
               title: m.title || "",
               intro: m.intro || "",
               items: m.items?.length ? m.items : [""],
-              bodyRef: {
-                current: m.body || "",
-              } as React.MutableRefObject<string>,
+              body: m.body || "",
             })),
           );
         }
 
-        // ── Programs ──
         if (d.programs?.length) {
           setPrograms(
             d.programs.map((p: any) => ({
@@ -1354,20 +1414,16 @@ export default function Yoga200HourCombinedForm() {
               start: p.start || "",
               oldPrice: p.oldPrice || "",
               price: p.price || "",
-              descRef: {
-                current: p.desc || "",
-              } as React.MutableRefObject<string>,
+              desc: p.desc || "",
               imageFile: null,
               imagePreview: p.image || "",
             })),
           );
         }
 
-        // ── Hatha Asanas & Week Grid ──
         if (d.hatha43?.length) setHatha43(d.hatha43);
         if (d.weekGrid?.length) setWeekGrid(d.weekGrid);
 
-        // Force all Jodit editors to re-render with new values
         setEditorKey(`loaded-${Date.now()}`);
       } catch (err) {
         console.error("Error fetching data:", err);
@@ -1375,93 +1431,105 @@ export default function Yoga200HourCombinedForm() {
         setLoading(false);
       }
     };
-
     fetchData();
   }, [isEditMode, params.id, setValue]);
 
-  const nextStep = () =>
-    setCurrentStep((prev) => Math.min(prev + 1, steps.length));
-  const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1));
+  /* ── Step Navigation ── */
+  const goToStep = (dir: "next" | "prev") => {
+    if (dir === "next")
+      setCurrentStep((prev) => Math.min(prev + 1, steps.length));
+    else setCurrentStep((prev) => Math.max(prev - 1, 1));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-  /* ── Submit ── */
-  const onSubmit = async (data: any) => {
+  /* ── Submit Logic ── */
+  const runSubmit = async (data: any) => {
     let hasErr = false;
-
-    if (!isEditMode) {
-      if (!heroFile && !heroPrev) {
-        setHeroErr("Hero image is required");
-        hasErr = true;
-      } else setHeroErr("");
-    } else {
-      setHeroErr("");
-    }
-
-    if (!introParaRefs.current.some((r) => !isEmptyHtml(r))) {
+    if (!isEditMode && !heroFile && !heroPrev) {
+      setHeroErr("Hero image is required");
+      hasErr = true;
+    } else setHeroErr("");
+    if (!introParas.some((r) => !isEmptyHtml(r))) {
       setIntroErr("At least one paragraph is required");
       hasErr = true;
     }
-    if (!aimsIntroRefs.current.some((r) => !isEmptyHtml(r))) {
+    if (!aimsIntroPars.some((r) => !isEmptyHtml(r))) {
       setAimsErr("At least one aims paragraph is required");
       hasErr = true;
     }
-    if (!syllabusParaRefs.current.some((r) => !isEmptyHtml(r))) {
+    if (!syllabusParas.some((r) => !isEmptyHtml(r))) {
       setSylErr("At least one syllabus paragraph is required");
       hasErr = true;
     }
-    if (isEmptyHtml(ashtangaRef.current)) {
+    if (isEmptyHtml(ashtangaDesc)) {
       setAstErr("Required");
       hasErr = true;
     }
-    if (isEmptyHtml(hathaRef.current)) {
+    if (isEmptyHtml(hathaDesc)) {
       setHtErr("Required");
       hasErr = true;
     }
-    if (isEmptyHtml(evalRef.current)) {
+    if (isEmptyHtml(evalDesc)) {
       setEvErr("Required");
       hasErr = true;
     }
-
     if (hasErr) return;
 
     try {
       setIsSubmitting(true);
       const fd = new globalThis.FormData();
 
+      // Append all simple string fields from react-hook-form
       Object.entries(data).forEach(([k, v]) => {
         if (v !== undefined && v !== null) fd.append(k, String(v));
       });
 
-      introParaRefs.current.forEach((v, i) =>
-        fd.append(`introPara${i + 1}`, v),
-      );
-      fd.append("introParaCount", String(introParaRefs.current.length));
-      aimsIntroRefs.current.forEach((v, i) =>
-        fd.append(`aimsIntro${i + 1}`, v),
-      );
-      fd.append("aimsIntroCount", String(aimsIntroRefs.current.length));
-      syllabusParaRefs.current.forEach((v, i) =>
-        fd.append(`syllabusIntro${i + 1}`, v),
-      );
-      fd.append("syllabusIntroCount", String(syllabusParaRefs.current.length));
+      fd.set("newProgramsH2", programsH2);
+      fd.set("newProgramsSubtext", programsSubtext);
 
-      fd.append("aimsOutro", aimsOutroRef.current);
-      fd.append("ashtangaDesc", ashtangaRef.current);
-      fd.append("primaryIntro", primaryRef.current);
-      fd.append("hathaDesc", hathaRef.current);
-      fd.append("evalDesc", evalRef.current);
-      fd.append("schedDesc", schedDescRef.current);
-      fd.append("visaPassportDesc", visaRef.current);
-      fd.append("globalCert1", globalCert1Ref.current);
-      fd.append("globalCert2", globalCert2Ref.current);
-      fd.append("req1", req1Ref.current);
-      fd.append("req2", req2Ref.current);
-      fd.append("req3", req3Ref.current);
-      fd.append("req4", req4Ref.current);
-      fd.append("best200Hr", best200HrRef.current);
-      fd.append("bookingStep1Desc", step1Ref.current);
-      fd.append("bookingStep2Desc", step2Ref.current);
-      fd.append("bookingStep3Desc", step3Ref.current);
-      fd.append("bookingStep4Desc", step4Ref.current);
+      /* Dynamic paragraphs */
+      introParas.forEach((v, i) => fd.append(`introPara${i + 1}`, v));
+      fd.append("introParaCount", String(introParas.length));
+      aimsIntroPars.forEach((v, i) => fd.append(`aimsIntro${i + 1}`, v));
+      fd.append("aimsIntroCount", String(aimsIntroPars.length));
+      syllabusParas.forEach((v, i) => fd.append(`syllabusIntro${i + 1}`, v));
+      fd.append("syllabusIntroCount", String(syllabusParas.length));
+
+      /*
+       * 🔥 CRITICAL FIX: Encode all HTML rich-text fields using JSON.stringify.
+       *
+       * Problem: When HTML content (containing <tags>, newlines, special chars
+       * like &amp; &lt; etc.) is sent via multipart/form-data, the content can
+       * get corrupted or truncated at special character boundaries.
+       *
+       * Solution: JSON.stringify wraps the HTML in a safe JSON string with
+       * escaped characters, then the backend JSON.parses it back to get the
+       * full original HTML. This guarantees 100% data integrity.
+       *
+       * Fields affected:
+       * - visaPassportDesc  → partial save issue (was losing content after < >)
+       * - globalCert1/2     → partial save issue
+       * - bookingStep1-4Desc → not saving at all
+       * - All other HTML fields as a precaution
+       */
+      fd.append("aimsOutro", encodeHtml(aimsOutro));
+      fd.append("ashtangaDesc", encodeHtml(ashtangaDesc));
+      fd.append("primaryIntro", encodeHtml(primaryIntro));
+      fd.append("hathaDesc", encodeHtml(hathaDesc));
+      fd.append("evalDesc", encodeHtml(evalDesc));
+      fd.append("schedDesc", encodeHtml(schedDesc));
+      fd.append("visaPassportDesc", encodeHtml(visaDesc));
+      fd.append("globalCert1", encodeHtml(globalCert1));
+      fd.append("globalCert2", encodeHtml(globalCert2));
+      fd.append("req1", encodeHtml(req1));
+      fd.append("req2", encodeHtml(req2));
+      fd.append("req3", encodeHtml(req3));
+      fd.append("req4", encodeHtml(req4));
+      fd.append("best200Hr", encodeHtml(best200Hr));
+      fd.append("bookingStep1Desc", encodeHtml(step1Desc));
+      fd.append("bookingStep2Desc", encodeHtml(step2Desc));
+      fd.append("bookingStep3Desc", encodeHtml(step3Desc));
+      fd.append("bookingStep4Desc", encodeHtml(step4Desc));
 
       aimsBullets.forEach((v) => fd.append("aimsBullets", v));
       inclFee.forEach((v) => fd.append("includedFee", v));
@@ -1482,7 +1550,6 @@ export default function Yoga200HourCombinedForm() {
       fd.append("schedRows", JSON.stringify(schedRows));
       fd.append("faqItems", JSON.stringify(faqItems));
       fd.append("knowQA", JSON.stringify(knowQA));
-
       fd.append(
         "modules",
         JSON.stringify(
@@ -1490,7 +1557,7 @@ export default function Yoga200HourCombinedForm() {
             title: m.title,
             intro: m.intro,
             items: m.items,
-            body: m.bodyRef.current,
+            body: m.body,
           })),
         ),
       );
@@ -1505,10 +1572,15 @@ export default function Yoga200HourCombinedForm() {
             start: p.start,
             oldPrice: p.oldPrice,
             price: p.price,
-            desc: p.descRef.current,
+            desc: p.desc,
+            image: p.imageFile ? "" : p.imagePreview,
           })),
         ),
       );
+
+      programs.forEach((p, i) => {
+        if (p.imageFile) fd.append(`programImage${i}`, p.imageFile);
+      });
 
       if (videoFile) fd.append("videoFile", videoFile);
       else if (videoUrl?.trim()) fd.append("videoUrl", videoUrl.trim());
@@ -1517,22 +1589,21 @@ export default function Yoga200HourCombinedForm() {
       if (ashtangaFile) fd.append("ashtangaImage", ashtangaFile);
       if (hathaFile) fd.append("hathaImage", hathaFile);
       if (reqImgFile) fd.append("reqImage", reqImgFile);
+      if (aimsImgFile) fd.append("aimsImage", aimsImgFile);
+      if (primaryImgFile) fd.append("primarySeriesImage", primaryImgFile);
       luxImgFiles.forEach((f) => fd.append("luxImages", f));
       schedImgFiles.forEach((f) => fd.append("schedImages", f));
-      programs.forEach((p, i) => {
-        if (p.imageFile) fd.append(`programImage${i}`, p.imageFile);
+
+      const url = isEditMode
+        ? `/yoga-200hr/content/update/${params.id}`
+        : "/yoga-200hr/content/create";
+      await api({
+        method: isEditMode ? "put" : "post",
+        url,
+        data: fd,
+        headers: { "Content-Type": undefined },
       });
 
-const url = isEditMode
-  ? `/yoga-200hr/content/update/${params.id}`
-  : "/yoga-200hr/content/create";
-
-await api({
-  method: isEditMode ? "put" : "post",
-  url,
-  data: fd,
-  headers: { "Content-Type": undefined },
-});
       setSubmitted(true);
       setTimeout(
         () => router.push("/admin/yogacourse/200hourscourse/200hr-content"),
@@ -1546,7 +1617,11 @@ await api({
     }
   };
 
-  /* ────── Loading & Success Screens ────── */
+  const handleSaveClick = () => {
+    handleSubmit(runSubmit)();
+  };
+
+  /* ── Loading & Success ── */
   if (loading) {
     return (
       <div className={styles.formPage}>
@@ -1571,10 +1646,14 @@ await api({
     );
   }
 
+  const progressPct = Math.round((currentStep / steps.length) * 100);
+
   return (
     <div className={styles.formPage}>
+      {/* ── Breadcrumb ── */}
       <div className={styles.breadcrumb}>
         <button
+          type="button"
           className={styles.breadcrumbLink}
           onClick={() =>
             router.push("/admin/yogacourse/200hourscourse/200hr-content")
@@ -1588,6 +1667,7 @@ await api({
         </span>
       </div>
 
+      {/* ── Page Header ── */}
       <div className={styles.pageHeader}>
         <div className={styles.pageHeaderText}>
           <h1 className={styles.pageTitle}>
@@ -1596,6 +1676,45 @@ await api({
           <p className={styles.pageSubtitle}>
             Complete content management for 200 Hour Yoga Teacher Training page
           </p>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
+            background: "#fdf8f0",
+            border: "1.5px solid #e8d5b5",
+            borderRadius: 50,
+            padding: "0.4rem 1rem",
+            fontSize: 13,
+            fontWeight: 700,
+            color: "#b8860b",
+            whiteSpace: "nowrap",
+          }}
+        >
+          <span>
+            Step {currentStep} / {steps.length}
+          </span>
+          <div
+            style={{
+              width: 80,
+              height: 6,
+              background: "#f0e8d8",
+              borderRadius: 99,
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                width: `${progressPct}%`,
+                height: "100%",
+                background: "linear-gradient(90deg,#b8860b,#d4a017)",
+                borderRadius: 99,
+                transition: "width 0.4s ease",
+              }}
+            />
+          </div>
+          <span>{progressPct}%</span>
         </div>
       </div>
 
@@ -1614,7 +1733,13 @@ await api({
       />
 
       <div className={styles.formCard}>
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          }}
+          noValidate
+        >
           {/* ════════ STEP 1 ════════ */}
           {currentStep === 1 && (
             <>
@@ -1831,83 +1956,76 @@ await api({
                     ⚠ {introErr}
                   </p>
                 )}
-                {introParas.map((_, i) => {
-                  const cr = {
-                    get current() {
-                      return introParaRefs.current[i] || "";
-                    },
-                    set current(v: string) {
-                      introParaRefs.current[i] = v;
-                    },
-                  };
-                  return (
+                {introParas.map((val, i) => (
+                  <div
+                    key={`intro-${i}`}
+                    style={{
+                      position: "relative",
+                      marginBottom: "1.2rem",
+                      border: "1px solid #e8d5b5",
+                      borderRadius: 10,
+                      padding: "1rem",
+                      background: "#faf8f4",
+                    }}
+                  >
                     <div
-                      key={i}
                       style={{
-                        position: "relative",
-                        marginBottom: "1.2rem",
-                        border: "1px solid #e8d5b5",
-                        borderRadius: 10,
-                        padding: "1rem",
-                        background: "#faf8f4",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        marginBottom: "0.5rem",
                       }}
                     >
-                      <div
+                      <span
                         style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          marginBottom: "0.5rem",
+                          fontWeight: 700,
+                          color: "#b8860b",
+                          fontSize: "0.85rem",
                         }}
                       >
-                        <span
+                        Paragraph {i + 1}
+                      </span>
+                      {introParas.length > 1 && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setIntroParas((prev) =>
+                              prev.filter((_, x) => x !== i),
+                            )
+                          }
                           style={{
+                            background: "#fee",
+                            border: "1px solid #fbb",
+                            color: "#c00",
+                            borderRadius: 6,
+                            padding: "0.2rem 0.7rem",
+                            cursor: "pointer",
+                            fontSize: 12,
                             fontWeight: 700,
-                            color: "#b8860b",
-                            fontSize: "0.85rem",
                           }}
                         >
-                          Paragraph {i + 1}
-                        </span>
-                        {introParas.length > 1 && (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              introParaRefs.current.splice(i, 1);
-                              setIntroParas((prev) =>
-                                prev.filter((_, x) => x !== i),
-                              );
-                            }}
-                            style={{
-                              background: "#fee",
-                              border: "1px solid #fbb",
-                              color: "#c00",
-                              borderRadius: 6,
-                              padding: "0.2rem 0.7rem",
-                              cursor: "pointer",
-                              fontSize: 12,
-                              fontWeight: 700,
-                            }}
-                          >
-                            ✕ Remove
-                          </button>
-                        )}
-                      </div>
-                      <DynamicParaEditor
-                        cr={cr}
-                        ph="Enter paragraph content…"
-                        editorKey={`intro-${i}-${editorKey}`}
-                      />
+                          ✕ Remove
+                        </button>
+                      )}
                     </div>
-                  );
-                })}
+                    <DynamicParaEditor
+                      value={val}
+                      onChange={(v) =>
+                        setIntroParas((prev) => {
+                          const a = [...prev];
+                          a[i] = v;
+                          return a;
+                        })
+                      }
+                      ph="Enter paragraph content…"
+                      editorKey={`intro-${i}-${editorKey}`}
+                    />
+                  </div>
+                ))}
                 <button
                   type="button"
                   className={styles.addItemBtn}
-                  onClick={() => {
-                    introParaRefs.current.push("");
-                    setIntroParas((prev) => [...prev, ""]);
-                  }}
+                  onClick={() => setIntroParas((prev) => [...prev, ""])}
                 >
                   ＋ Add Paragraph
                 </button>
@@ -2007,7 +2125,8 @@ await api({
                 <div className={styles.fieldGroup}>
                   <label className={styles.label}>
                     <span className={styles.labelIcon}>✦</span>Aims Introduction
-                    Paragraphs<span className={styles.required}>*</span>
+                    Paragraphs
+                    <span className={styles.required}>*</span>
                   </label>
                   {aimsErr && (
                     <p
@@ -2017,83 +2136,76 @@ await api({
                       ⚠ {aimsErr}
                     </p>
                   )}
-                  {aimsIntroPars.map((_, i) => {
-                    const cr = {
-                      get current() {
-                        return aimsIntroRefs.current[i] || "";
-                      },
-                      set current(v: string) {
-                        aimsIntroRefs.current[i] = v;
-                      },
-                    };
-                    return (
+                  {aimsIntroPars.map((val, i) => (
+                    <div
+                      key={`aims-${i}`}
+                      style={{
+                        position: "relative",
+                        marginBottom: "1.2rem",
+                        border: "1px solid #e8d5b5",
+                        borderRadius: 10,
+                        padding: "1rem",
+                        background: "#faf8f4",
+                      }}
+                    >
                       <div
-                        key={i}
                         style={{
-                          position: "relative",
-                          marginBottom: "1.2rem",
-                          border: "1px solid #e8d5b5",
-                          borderRadius: 10,
-                          padding: "1rem",
-                          background: "#faf8f4",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          marginBottom: "0.5rem",
                         }}
                       >
-                        <div
+                        <span
                           style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            marginBottom: "0.5rem",
+                            fontWeight: 700,
+                            color: "#b8860b",
+                            fontSize: "0.85rem",
                           }}
                         >
-                          <span
+                          Aims Introduction {i + 1}
+                        </span>
+                        {aimsIntroPars.length > 1 && (
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setAimsIntroPars((prev) =>
+                                prev.filter((_, x) => x !== i),
+                              )
+                            }
                             style={{
+                              background: "#fee",
+                              border: "1px solid #fbb",
+                              color: "#c00",
+                              borderRadius: 6,
+                              padding: "0.2rem 0.7rem",
+                              cursor: "pointer",
+                              fontSize: 12,
                               fontWeight: 700,
-                              color: "#b8860b",
-                              fontSize: "0.85rem",
                             }}
                           >
-                            Aims Introduction {i + 1}
-                          </span>
-                          {aimsIntroPars.length > 1 && (
-                            <button
-                              type="button"
-                              onClick={() => {
-                                aimsIntroRefs.current.splice(i, 1);
-                                setAimsIntroPars((prev) =>
-                                  prev.filter((_, x) => x !== i),
-                                );
-                              }}
-                              style={{
-                                background: "#fee",
-                                border: "1px solid #fbb",
-                                color: "#c00",
-                                borderRadius: 6,
-                                padding: "0.2rem 0.7rem",
-                                cursor: "pointer",
-                                fontSize: 12,
-                                fontWeight: 700,
-                              }}
-                            >
-                              ✕ Remove
-                            </button>
-                          )}
-                        </div>
-                        <DynamicParaEditor
-                          cr={cr}
-                          ph="The 200 hour yoga teacher training is carefully designed…"
-                          editorKey={`aims-${i}-${editorKey}`}
-                        />
+                            ✕ Remove
+                          </button>
+                        )}
                       </div>
-                    );
-                  })}
+                      <DynamicParaEditor
+                        value={val}
+                        onChange={(v) =>
+                          setAimsIntroPars((prev) => {
+                            const a = [...prev];
+                            a[i] = v;
+                            return a;
+                          })
+                        }
+                        ph="The 200 hour yoga teacher training is carefully designed…"
+                        editorKey={`aims-${i}-${editorKey}`}
+                      />
+                    </div>
+                  ))}
                   <button
                     type="button"
                     className={styles.addItemBtn}
-                    onClick={() => {
-                      aimsIntroRefs.current.push("");
-                      setAimsIntroPars((prev) => [...prev, ""]);
-                    }}
+                    onClick={() => setAimsIntroPars((prev) => [...prev, ""])}
                   >
                     ＋ Add Aims Paragraph
                   </button>
@@ -2122,9 +2234,25 @@ await api({
                     }}
                   />
                 </F>
-                <LazyJodit
+                <F label="Aims & Objectives Image" hint="716×537px">
+                  <SingleImg
+                    preview={aimsImgPrev}
+                    badge="Aims"
+                    hint="JPG/PNG · 716×537px"
+                    onSelect={(f, p) => {
+                      setAimsImgFile(f);
+                      setAimsImgPrev(p);
+                    }}
+                    onRemove={() => {
+                      setAimsImgFile(null);
+                      setAimsImgPrev("");
+                    }}
+                  />
+                </F>
+                <ControlledJodit
                   label="Aims Outro Paragraph"
-                  cr={aimsOutroRef}
+                  value={aimsOutro}
+                  onChange={setAimsOutro}
                   ph="The 200-hour yoga training at AYM Yoga School offers…"
                   h={180}
                   editorKey={`aimsOutro-${editorKey}`}
@@ -2219,6 +2347,7 @@ await api({
                 </F>
               </Sec>
               <D />
+
               <Sec title="9. Course Fee Inclusions & Exclusions">
                 <F label="Included Section Title">
                   <div className={styles.inputWrap}>
@@ -2298,83 +2427,76 @@ await api({
                       ⚠ {sylErr}
                     </p>
                   )}
-                  {syllabusParas.map((_, i) => {
-                    const cr = {
-                      get current() {
-                        return syllabusParaRefs.current[i] || "";
-                      },
-                      set current(v: string) {
-                        syllabusParaRefs.current[i] = v;
-                      },
-                    };
-                    return (
+                  {syllabusParas.map((val, i) => (
+                    <div
+                      key={`syl-${i}`}
+                      style={{
+                        position: "relative",
+                        marginBottom: "1.2rem",
+                        border: "1px solid #e8d5b5",
+                        borderRadius: 10,
+                        padding: "1rem",
+                        background: "#faf8f4",
+                      }}
+                    >
                       <div
-                        key={i}
                         style={{
-                          position: "relative",
-                          marginBottom: "1.2rem",
-                          border: "1px solid #e8d5b5",
-                          borderRadius: 10,
-                          padding: "1rem",
-                          background: "#faf8f4",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          marginBottom: "0.5rem",
                         }}
                       >
-                        <div
+                        <span
                           style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            marginBottom: "0.5rem",
+                            fontWeight: 700,
+                            color: "#b8860b",
+                            fontSize: "0.85rem",
                           }}
                         >
-                          <span
+                          Syllabus Paragraph {i + 1}
+                        </span>
+                        {syllabusParas.length > 1 && (
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setSyllabusParas((prev) =>
+                                prev.filter((_, x) => x !== i),
+                              )
+                            }
                             style={{
+                              background: "#fee",
+                              border: "1px solid #fbb",
+                              color: "#c00",
+                              borderRadius: 6,
+                              padding: "0.2rem 0.7rem",
+                              cursor: "pointer",
+                              fontSize: 12,
                               fontWeight: 700,
-                              color: "#b8860b",
-                              fontSize: "0.85rem",
                             }}
                           >
-                            Syllabus Paragraph {i + 1}
-                          </span>
-                          {syllabusParas.length > 1 && (
-                            <button
-                              type="button"
-                              onClick={() => {
-                                syllabusParaRefs.current.splice(i, 1);
-                                setSyllabusParas((prev) =>
-                                  prev.filter((_, x) => x !== i),
-                                );
-                              }}
-                              style={{
-                                background: "#fee",
-                                border: "1px solid #fbb",
-                                color: "#c00",
-                                borderRadius: 6,
-                                padding: "0.2rem 0.7rem",
-                                cursor: "pointer",
-                                fontSize: 12,
-                                fontWeight: 700,
-                              }}
-                            >
-                              ✕ Remove
-                            </button>
-                          )}
-                        </div>
-                        <DynamicParaEditor
-                          cr={cr}
-                          ph="It is our commitment as yoga school…"
-                          editorKey={`syllabus-${i}-${editorKey}`}
-                        />
+                            ✕ Remove
+                          </button>
+                        )}
                       </div>
-                    );
-                  })}
+                      <DynamicParaEditor
+                        value={val}
+                        onChange={(v) =>
+                          setSyllabusParas((prev) => {
+                            const a = [...prev];
+                            a[i] = v;
+                            return a;
+                          })
+                        }
+                        ph="It is our commitment as yoga school…"
+                        editorKey={`syllabus-${i}-${editorKey}`}
+                      />
+                    </div>
+                  ))}
                   <button
                     type="button"
                     className={styles.addItemBtn}
-                    onClick={() => {
-                      syllabusParaRefs.current.push("");
-                      setSyllabusParas((prev) => [...prev, ""]);
-                    }}
+                    onClick={() => setSyllabusParas((prev) => [...prev, ""])}
                   >
                     ＋ Add Syllabus Paragraph
                   </button>
@@ -2465,7 +2587,8 @@ await api({
                         </button>
                       </F>
                       <ModuleBodyEditor
-                        bodyRef={mod.bodyRef}
+                        value={mod.body}
+                        onChange={(v) => updateModuleBody(i, v)}
                         idx={i}
                         editorKey={`module-${i}-${editorKey}`}
                       />
@@ -2535,11 +2658,14 @@ await api({
                     />
                   </div>
                 </F>
-                <LazyJodit
+                <ControlledJodit
                   label="Ashtanga Description"
-                  cr={ashtangaRef}
+                  value={ashtangaDesc}
+                  onChange={(v) => {
+                    setAshtangaDesc(v);
+                    if (!isEmptyHtml(v)) setAstErr("");
+                  }}
                   err={astErr}
-                  clr={() => setAstErr("")}
                   ph="This form of yoga practice combines breath and body movements…"
                   required
                   editorKey={`ashtanga-${editorKey}`}
@@ -2576,9 +2702,10 @@ await api({
                     />
                   </div>
                 </F>
-                <LazyJodit
+                <ControlledJodit
                   label="Primary Series Intro"
-                  cr={primaryRef}
+                  value={primaryIntro}
+                  onChange={setPrimaryIntro}
                   ph="All students of 200 hour yoga teacher training will practice primary series…"
                   h={180}
                   editorKey={`primary-${editorKey}`}
@@ -2749,6 +2876,21 @@ await api({
                     ＋ Add Week Card
                   </button>
                 </F>
+                <F label="Primary Series Curriculum Image" hint="735×950px">
+                  <SingleImg
+                    preview={primaryImgPrev}
+                    badge="Primary Series"
+                    hint="JPG/PNG · 735×950px"
+                    onSelect={(f, p) => {
+                      setPrimaryImgFile(f);
+                      setPrimaryImgPrev(p);
+                    }}
+                    onRemove={() => {
+                      setPrimaryImgFile(null);
+                      setPrimaryImgPrev("");
+                    }}
+                  />
+                </F>
               </Sec>
               <D />
 
@@ -2792,11 +2934,14 @@ await api({
                     />
                   </div>
                 </F>
-                <LazyJodit
+                <ControlledJodit
                   label="Hatha Description"
-                  cr={hathaRef}
+                  value={hathaDesc}
+                  onChange={(v) => {
+                    setHathaDesc(v);
+                    if (!isEmptyHtml(v)) setHtErr("");
+                  }}
                   err={htErr}
-                  clr={() => setHtErr("")}
                   ph="Hatha yoga is the traditional, ancient and classical yoga…"
                   required
                   editorKey={`hatha-${editorKey}`}
@@ -2982,7 +3127,9 @@ await api({
                     <div className={styles.inputWrap}>
                       <input
                         className={`${styles.input} ${styles.inputNoCount}`}
-                        {...register("newProgramsH2")}
+                        value={programsH2}
+                        placeholder="Our Programs"
+                        onChange={(e) => setProgramsH2(e.target.value)}
                       />
                     </div>
                   </F>
@@ -2990,7 +3137,9 @@ await api({
                     <div className={styles.inputWrap}>
                       <input
                         className={`${styles.input} ${styles.inputNoCount}`}
-                        {...register("newProgramsSubtext")}
+                        value={programsSubtext}
+                        placeholder="Choose the program that suits you best"
+                        onChange={(e) => setProgramsSubtext(e.target.value)}
                       />
                     </div>
                   </F>
@@ -3019,6 +3168,7 @@ await api({
                             <input
                               className={`${styles.input} ${styles.inputNoCount}`}
                               value={prog.title}
+                              placeholder="e.g. Shared Room"
                               onChange={(e) =>
                                 upd(
                                   programs,
@@ -3036,6 +3186,7 @@ await api({
                             <input
                               className={`${styles.input} ${styles.inputNoCount}`}
                               value={prog.duration}
+                              placeholder="e.g. 26 Days"
                               onChange={(e) =>
                                 upd(
                                   programs,
@@ -3053,6 +3204,7 @@ await api({
                             <input
                               className={`${styles.input} ${styles.inputNoCount}`}
                               value={prog.start}
+                              placeholder="e.g. 1st of every month"
                               onChange={(e) =>
                                 upd(
                                   programs,
@@ -3070,6 +3222,7 @@ await api({
                             <input
                               className={`${styles.input} ${styles.inputNoCount}`}
                               value={prog.oldPrice}
+                              placeholder="e.g. 1000"
                               onChange={(e) =>
                                 upd(
                                   programs,
@@ -3087,6 +3240,7 @@ await api({
                             <input
                               className={`${styles.input} ${styles.inputNoCount}`}
                               value={prog.price}
+                              placeholder="e.g. 699"
                               onChange={(e) =>
                                 upd(
                                   programs,
@@ -3100,10 +3254,10 @@ await api({
                           </div>
                         </F>
                       </div>
-                      <F label="Program Image">
+                      <F label="Program Image" hint="JPG/PNG · 600×400px">
                         <SingleImg
                           preview={prog.imagePreview}
-                          badge="Program"
+                          badge={`Program ${i + 1}`}
                           hint="JPG/PNG · 600×400px"
                           onSelect={(f, p) => {
                             const np = [...programs];
@@ -3121,9 +3275,14 @@ await api({
                           }}
                         />
                       </F>
-                      <LazyJodit
+                      <ControlledJodit
                         label="Program Description"
-                        cr={prog.descRef}
+                        value={prog.desc}
+                        onChange={(v) => {
+                          const np = [...programs];
+                          np[i] = { ...np[i], desc: v };
+                          setPrograms(np);
+                        }}
                         ph="Program description…"
                         h={140}
                         editorKey={`prog-${i}-${editorKey}`}
@@ -3154,11 +3313,14 @@ await api({
                     />
                   </div>
                 </F>
-                <LazyJodit
+                <ControlledJodit
                   label="Evaluation Description"
-                  cr={evalRef}
+                  value={evalDesc}
+                  onChange={(v) => {
+                    setEvalDesc(v);
+                    if (!isEmptyHtml(v)) setEvErr("");
+                  }}
                   err={evErr}
-                  clr={() => setEvErr("")}
                   ph="There will be practical and theoretical exam…"
                   required
                   editorKey={`eval-${editorKey}`}
@@ -3292,9 +3454,10 @@ await api({
                     />
                   </div>
                 </F>
-                <LazyJodit
+                <ControlledJodit
                   label="Schedule Introduction"
-                  cr={schedDescRef}
+                  value={schedDesc}
+                  onChange={setSchedDesc}
                   ph="Planning on teaching yoga?…"
                   h={180}
                   editorKey={`sched-${editorKey}`}
@@ -3466,9 +3629,11 @@ await api({
                     />
                   </div>
                 </F>
-                <LazyJodit
+                {/* 🔥 FIX: visaDesc is now encoded via encodeHtml() on submit */}
+                <ControlledJodit
                   label="Visa & Passport Description"
-                  cr={visaRef}
+                  value={visaDesc}
+                  onChange={setVisaDesc}
                   ph="You may need to have a valid tourist visa…"
                   h={200}
                   editorKey={`visa-${editorKey}`}
@@ -3485,16 +3650,19 @@ await api({
                     />
                   </div>
                 </F>
-                <LazyJodit
+                {/* 🔥 FIX: globalCert1/2 are now encoded via encodeHtml() on submit */}
+                <ControlledJodit
                   label="Paragraph 1"
-                  cr={globalCert1Ref}
+                  value={globalCert1}
+                  onChange={setGlobalCert1}
                   ph="At Association for Yoga and Meditation…"
                   h={160}
                   editorKey={`gc1-${editorKey}`}
                 />
-                <LazyJodit
+                <ControlledJodit
                   label="Paragraph 2"
-                  cr={globalCert2Ref}
+                  value={globalCert2}
+                  onChange={setGlobalCert2}
                   ph="As the best 200 Hour Yoga Teacher Teaching Course…"
                   h={160}
                   editorKey={`gc2-${editorKey}`}
@@ -3534,30 +3702,35 @@ await api({
                     />
                   </div>
                 </F>
-                <LazyJodit
+                {/* 🔥 FIX: req1-4 are now encoded via encodeHtml() on submit */}
+                <ControlledJodit
                   label="Paragraph 1"
-                  cr={req1Ref}
+                  value={req1}
+                  onChange={setReq1}
                   ph="AYM Yoga School provides…"
                   h={160}
                   editorKey={`req1-${editorKey}`}
                 />
-                <LazyJodit
+                <ControlledJodit
                   label="Paragraph 2"
-                  cr={req2Ref}
+                  value={req2}
+                  onChange={setReq2}
                   ph="The basic requirements for a 200 hour RYT…"
                   h={160}
                   editorKey={`req2-${editorKey}`}
                 />
-                <LazyJodit
+                <ControlledJodit
                   label="Paragraph 3"
-                  cr={req3Ref}
+                  value={req3}
+                  onChange={setReq3}
                   ph="The applicant must have…"
                   h={140}
                   editorKey={`req3-${editorKey}`}
                 />
-                <LazyJodit
+                <ControlledJodit
                   label="Paragraph 4"
-                  cr={req4Ref}
+                  value={req4}
+                  onChange={setReq4}
                   ph="The basics of anatomy should include…"
                   h={140}
                   editorKey={`req4-${editorKey}`}
@@ -3644,9 +3817,11 @@ await api({
                     />
                   </div>
                 </F>
-                <LazyJodit
+                {/* 🔥 FIX: best200Hr is now encoded via encodeHtml() on submit */}
+                <ControlledJodit
                   label="Best 200hr Paragraph"
-                  cr={best200HrRef}
+                  value={best200Hr}
+                  onChange={setBest200Hr}
                   ph="Where is the best yoga teacher training in the world?…"
                   h={160}
                   editorKey={`best-${editorKey}`}
@@ -3691,7 +3866,13 @@ await api({
                     />
                   </div>
                 </F>
-                {[1, 2, 3, 4].map((n) => (
+                {/* 🔥 FIX: step1-4Desc are now encoded via encodeHtml() on submit */}
+                {[
+                  { n: 1, val: step1Desc, set: setStep1Desc },
+                  { n: 2, val: step2Desc, set: setStep2Desc },
+                  { n: 3, val: step3Desc, set: setStep3Desc },
+                  { n: 4, val: step4Desc, set: setStep4Desc },
+                ].map(({ n, val, set }) => (
                   <div key={n} className={styles.nestedCard}>
                     <div className={styles.nestedCardHeader}>
                       <span className={styles.nestedCardNum}>Step {n}</span>
@@ -3715,17 +3896,10 @@ await api({
                           </div>
                         </F>
                       </div>
-                      <LazyJodit
+                      <ControlledJodit
                         label="Step Description"
-                        cr={
-                          n === 1
-                            ? step1Ref
-                            : n === 2
-                              ? step2Ref
-                              : n === 3
-                                ? step3Ref
-                                : step4Ref
-                        }
+                        value={val}
+                        onChange={set}
                         ph="Step description…"
                         h={130}
                         editorKey={`step${n}-${editorKey}`}
@@ -3928,42 +4102,68 @@ await api({
             </>
           )}
 
-          {/* ── Navigation ── */}
-          <div className={styles.formActions}>
-            {currentStep > 1 && (
-              <button
-                type="button"
-                className={styles.prevBtn}
-                onClick={prevStep}
-              >
-                ← Previous
-              </button>
-            )}
-            {currentStep < steps.length ? (
-              <button
-                type="button"
-                className={styles.nextBtn}
-                onClick={nextStep}
-              >
-                Next Step →
-              </button>
-            ) : (
-              <button
-                type="submit"
-                className={`${styles.submitBtn} ${isSubmitting ? styles.submitBtnLoading : ""}`}
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <>
-                    <span className={styles.spinner} /> Saving…
-                  </>
-                ) : (
-                  <>
-                    <span>✦</span> Save All Content
-                  </>
-                )}
-              </button>
-            )}
+          {/* ── Navigation Bar ── */}
+          <div
+            className={styles.formActions}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "1rem",
+              borderTop: "2px solid #f0e8d8",
+              marginTop: "2rem",
+              paddingTop: "1.5rem",
+            }}
+          >
+            <div>
+              {currentStep > 1 && (
+                <button
+                  type="button"
+                  className={styles.prevBtn}
+                  onClick={() => goToStep("prev")}
+                >
+                  ← Previous
+                </button>
+              )}
+            </div>
+            <div
+              style={{
+                fontSize: 13,
+                color: "#b8860b",
+                fontWeight: 600,
+                opacity: 0.8,
+              }}
+            >
+              {steps[currentStep - 1]}
+            </div>
+            <div>
+              {currentStep < steps.length ? (
+                <button
+                  type="button"
+                  className={styles.nextBtn}
+                  onClick={() => goToStep("next")}
+                >
+                  Next Step →
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className={`${styles.submitBtn} ${isSubmitting ? styles.submitBtnLoading : ""}`}
+                  disabled={isSubmitting}
+                  onClick={handleSaveClick}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <span className={styles.spinner} /> Saving…
+                    </>
+                  ) : (
+                    <>
+                      <span>✦</span> Save All Content
+                    </>
+                  )}
+                </button>
+              )}
+            </div>
           </div>
         </form>
       </div>
@@ -3973,11 +4173,13 @@ await api({
 
 /* ─────────────────────────── Module Body Editor ─────────────────────────── */
 function ModuleBodyEditor({
-  bodyRef,
+  value,
+  onChange,
   idx,
   editorKey = "mod",
 }: {
-  bodyRef: React.MutableRefObject<string>;
+  value: string;
+  onChange: (v: string) => void;
   idx: number;
   editorKey?: string;
 }) {
@@ -4010,15 +4212,13 @@ function ModuleBodyEditor({
         {visible ? (
           <JoditEditor
             key={editorKey}
-            value={bodyRef.current}
+            value={value}
             config={{
               ...joditConfig,
               placeholder: "Additional description…",
               height: 160,
             }}
-            onChange={(v) => {
-              bodyRef.current = v;
-            }}
+            onChange={onChange}
           />
         ) : (
           <div

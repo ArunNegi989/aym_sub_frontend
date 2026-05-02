@@ -8,7 +8,7 @@
 
 .formPage {
   width: 100%;
-  max-width: 860px;
+  max-width: 1060px;
   margin: 0 auto;
   padding: 1rem clamp(0.75rem, 3vw, 1.5rem) 3rem;
 }
