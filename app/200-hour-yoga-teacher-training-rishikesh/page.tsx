@@ -1156,7 +1156,7 @@ export default function TwoHundredHourYoga() {
       try {
         setLoading(true);
         const [c1Res, c2Res, batchRes] = await Promise.all([
-          api.get("/yoga-200hr/content1"),
+          api.get("/yoga-200hr/content"),
           api.get("/yoga-200hr/content2/get"),
           api.get("/200hr-seats/getAllBatches"),
         ]);

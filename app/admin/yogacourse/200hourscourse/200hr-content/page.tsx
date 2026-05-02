@@ -26,7 +26,7 @@ export default function Content1ListPage() {
     try {
       setLoading(true);
       setError("");
-      const res = await api.get("/yoga-200hr/content1");
+      const res = await api.get("/yoga-200hr/content");
       setRows(res.data?.data || []);
     } catch {
       setError("Failed to load records.");
