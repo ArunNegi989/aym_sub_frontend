@@ -52,6 +52,11 @@ const joditConfig = {
   uploader: { insertImageAsBase64URI: true },
   height: 220,
   placeholder: "",
+  // 🔥 KEY FIX: Disable Jodit's internal HTML encoding
+  processPasteHTML: false,
+  cleanHTML: {
+    fillEmptyParagraph: false,
+  },
 } as any;
 
 const FILTER_OPTIONS = [
@@ -62,8 +67,35 @@ const FILTER_OPTIONS = [
   "Balancing",
 ] as const;
 
+/* ─────────────────────────────────────────────────────────────────
+   🔥 CORE FIX: Decode Jodit's __HTML__:base64:__HTML__ encoding
+   Jodit sometimes encodes HTML as __HTML__:base64data:__HTML__
+   This function safely decodes it back to plain HTML.
+───────────────────────────────────────────────────────────────── */
+function decodeJoditHTML(value: string): string {
+  if (!value) return value;
+  // Pattern: __HTML__:BASE64DATA:__HTML__
+  const pattern = /__HTML__:([\w+/=]+):__HTML__/g;
+  return value.replace(pattern, (_, b64) => {
+    try {
+      return atob(b64);
+    } catch {
+      return _;
+    }
+  });
+}
+
+/* Wrap onChange to always decode before storing */
+function safeOnChange(setter: (v: string) => void) {
+  return (v: string) => setter(decodeJoditHTML(v));
+}
+
 function isEmptyHtml(html: string) {
-  return html.replace(/<[^>]*>/g, "").trim() === "";
+  return (
+    decodeJoditHTML(html)
+      .replace(/<[^>]*>/g, "")
+      .trim() === ""
+  );
 }
 
 function toEmbedUrl(url: string): string {
@@ -75,15 +107,6 @@ function toEmbedUrl(url: string): string {
   if (vm)
     return `https://player.vimeo.com/video/${vm[1]}?autoplay=1&loop=1&muted=1&background=1`;
   return url;
-}
-
-/**
- * 🔥 KEY FIX: Safely encode HTML string for FormData transport.
- * HTML content with <tags>, newlines, special chars can get corrupted
- * in multipart/form-data boundaries. JSON.stringify wraps it safely.
- */
-function encodeHtml(html: string): string {
-  return JSON.stringify(html || "");
 }
 
 /* ─────────────────────────── Step Indicator ─────────────────────────── */
@@ -293,6 +316,12 @@ function ControlledJodit({
     return () => obs.disconnect();
   }, []);
 
+  // 🔥 FIX: Always decode before passing up
+  const handleChange = useCallback(
+    (v: string) => onChange(decodeJoditHTML(v)),
+    [onChange],
+  );
+
   return (
     <div className={styles.fieldGroup}>
       <label className={styles.label}>
@@ -311,7 +340,7 @@ function ControlledJodit({
             key={editorKey}
             value={value}
             config={{ ...joditConfig, placeholder: ph, height: h }}
-            onChange={onChange}
+            onChange={handleChange}
           />
         ) : (
           <div
@@ -336,7 +365,7 @@ function ControlledJodit({
   );
 }
 
-/* Dynamic para editor */
+/* Dynamic para editor — also controlled */
 function DynamicParaEditor({
   value,
   onChange,
@@ -367,6 +396,12 @@ function DynamicParaEditor({
     return () => obs.disconnect();
   }, []);
 
+  // 🔥 FIX: Always decode before passing up
+  const handleChange = useCallback(
+    (v: string) => onChange(decodeJoditHTML(v)),
+    [onChange],
+  );
+
   return (
     <div ref={wrapRef} style={{ minHeight: 200 }}>
       {visible ? (
@@ -374,7 +409,7 @@ function DynamicParaEditor({
           key={editorKey}
           value={value}
           config={{ ...joditConfig, placeholder: ph, height: 200 }}
-          onChange={onChange}
+          onChange={handleChange}
         />
       ) : (
         <div
@@ -1012,12 +1047,10 @@ export default function Yoga200HourCombinedForm() {
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [videoPrev, setVideoPrev] = useState("");
 
-  /* ── Dynamic Paragraph Arrays ── */
+  /* ── All rich text — controlled state ── */
   const [introParas, setIntroParas] = useState<string[]>(["", "", "", ""]);
   const [aimsIntroPars, setAimsIntroPars] = useState<string[]>([""]);
   const [syllabusParas, setSyllabusParas] = useState<string[]>([""]);
-
-  /* ── Standalone rich text (controlled state) ── */
   const [aimsOutro, setAimsOutro] = useState("");
   const [ashtangaDesc, setAshtangaDesc] = useState("");
   const [primaryIntro, setPrimaryIntro] = useState("");
@@ -1190,7 +1223,7 @@ export default function Yoga200HourCombinedForm() {
   const updateModuleBody = (i: number, val: string) =>
     setModules((prev) => {
       const a = [...prev];
-      a[i] = { ...a[i], body: val };
+      a[i] = { ...a[i], body: decodeJoditHTML(val) };
       return a;
     });
   const updateModuleItem = (modI: number, itemI: number, val: string) =>
@@ -1352,36 +1385,45 @@ export default function Yoga200HourCombinedForm() {
         if (d.schedImages?.length) setSchedImgPrevs(d.schedImages);
         if (d.aimsImage) setAimsImgPrev(d.aimsImage);
         if (d.primarySeriesImage) setPrimaryImgPrev(d.primarySeriesImage);
-
         if (d.videoUrl) setVideoUrl(d.videoUrl);
 
+        /* Dynamic intro paragraphs — decode each */
         const introPArr: string[] = [];
         for (let i = 1; i <= 10; i++) {
-          if (d[`introPara${i}`]) introPArr.push(d[`introPara${i}`]);
+          if (d[`introPara${i}`])
+            introPArr.push(decodeJoditHTML(d[`introPara${i}`]));
         }
         if (introPArr.length) setIntroParas(introPArr);
 
-        if (d.aimsIntro?.length) setAimsIntroPars(d.aimsIntro);
-        if (d.syllabusIntro?.length) setSyllabusParas(d.syllabusIntro);
+        if (d.aimsIntro?.length)
+          setAimsIntroPars(d.aimsIntro.map(decodeJoditHTML));
+        if (d.syllabusIntro?.length)
+          setSyllabusParas(d.syllabusIntro.map(decodeJoditHTML));
 
-        if (d.aimsOutro) setAimsOutro(d.aimsOutro);
-        if (d.ashtangaDesc) setAshtangaDesc(d.ashtangaDesc);
-        if (d.primaryIntro) setPrimaryIntro(d.primaryIntro);
-        if (d.hathaDesc) setHathaDesc(d.hathaDesc);
-        if (d.evalDesc) setEvalDesc(d.evalDesc);
-        if (d.schedDesc) setSchedDesc(d.schedDesc);
-        if (d.visaPassportDesc) setVisaDesc(d.visaPassportDesc);
-        if (d.globalCert1) setGlobalCert1(d.globalCert1);
-        if (d.globalCert2) setGlobalCert2(d.globalCert2);
-        if (d.req1) setReq1(d.req1);
-        if (d.req2) setReq2(d.req2);
-        if (d.req3) setReq3(d.req3);
-        if (d.req4) setReq4(d.req4);
-        if (d.best200Hr) setBest200Hr(d.best200Hr);
-        if (d.bookingStep1Desc) setStep1Desc(d.bookingStep1Desc);
-        if (d.bookingStep2Desc) setStep2Desc(d.bookingStep2Desc);
-        if (d.bookingStep3Desc) setStep3Desc(d.bookingStep3Desc);
-        if (d.bookingStep4Desc) setStep4Desc(d.bookingStep4Desc);
+        /* Decode all rich text fields on load */
+        if (d.aimsOutro) setAimsOutro(decodeJoditHTML(d.aimsOutro));
+        if (d.ashtangaDesc) setAshtangaDesc(decodeJoditHTML(d.ashtangaDesc));
+        if (d.primaryIntro) setPrimaryIntro(decodeJoditHTML(d.primaryIntro));
+        if (d.hathaDesc) setHathaDesc(decodeJoditHTML(d.hathaDesc));
+        if (d.evalDesc) setEvalDesc(decodeJoditHTML(d.evalDesc));
+        if (d.schedDesc) setSchedDesc(decodeJoditHTML(d.schedDesc));
+        if (d.visaPassportDesc)
+          setVisaDesc(decodeJoditHTML(d.visaPassportDesc));
+        if (d.globalCert1) setGlobalCert1(decodeJoditHTML(d.globalCert1));
+        if (d.globalCert2) setGlobalCert2(decodeJoditHTML(d.globalCert2));
+        if (d.req1) setReq1(decodeJoditHTML(d.req1));
+        if (d.req2) setReq2(decodeJoditHTML(d.req2));
+        if (d.req3) setReq3(decodeJoditHTML(d.req3));
+        if (d.req4) setReq4(decodeJoditHTML(d.req4));
+        if (d.best200Hr) setBest200Hr(decodeJoditHTML(d.best200Hr));
+        if (d.bookingStep1Desc)
+          setStep1Desc(decodeJoditHTML(d.bookingStep1Desc));
+        if (d.bookingStep2Desc)
+          setStep2Desc(decodeJoditHTML(d.bookingStep2Desc));
+        if (d.bookingStep3Desc)
+          setStep3Desc(decodeJoditHTML(d.bookingStep3Desc));
+        if (d.bookingStep4Desc)
+          setStep4Desc(decodeJoditHTML(d.bookingStep4Desc));
 
         if (d.aimsBullets?.length) setAimsBullets(d.aimsBullets);
         if (d.includedFee?.length) setInclFee(d.includedFee);
@@ -1401,7 +1443,7 @@ export default function Yoga200HourCombinedForm() {
               title: m.title || "",
               intro: m.intro || "",
               items: m.items?.length ? m.items : [""],
-              body: m.body || "",
+              body: decodeJoditHTML(m.body || ""),
             })),
           );
         }
@@ -1414,7 +1456,7 @@ export default function Yoga200HourCombinedForm() {
               start: p.start || "",
               oldPrice: p.oldPrice || "",
               price: p.price || "",
-              desc: p.desc || "",
+              desc: decodeJoditHTML(p.desc || ""),
               imageFile: null,
               imagePreview: p.image || "",
             })),
@@ -1424,6 +1466,7 @@ export default function Yoga200HourCombinedForm() {
         if (d.hatha43?.length) setHatha43(d.hatha43);
         if (d.weekGrid?.length) setWeekGrid(d.weekGrid);
 
+        /* Force re-mount all editors with loaded data */
         setEditorKey(`loaded-${Date.now()}`);
       } catch (err) {
         console.error("Error fetching data:", err);
@@ -1479,7 +1522,6 @@ export default function Yoga200HourCombinedForm() {
       setIsSubmitting(true);
       const fd = new globalThis.FormData();
 
-      // Append all simple string fields from react-hook-form
       Object.entries(data).forEach(([k, v]) => {
         if (v !== undefined && v !== null) fd.append(k, String(v));
       });
@@ -1487,49 +1529,40 @@ export default function Yoga200HourCombinedForm() {
       fd.set("newProgramsH2", programsH2);
       fd.set("newProgramsSubtext", programsSubtext);
 
-      /* Dynamic paragraphs */
-      introParas.forEach((v, i) => fd.append(`introPara${i + 1}`, v));
+      /* Dynamic paragraphs — always decode before sending */
+      introParas.forEach((v, i) =>
+        fd.append(`introPara${i + 1}`, decodeJoditHTML(v)),
+      );
       fd.append("introParaCount", String(introParas.length));
-      aimsIntroPars.forEach((v, i) => fd.append(`aimsIntro${i + 1}`, v));
+      aimsIntroPars.forEach((v, i) =>
+        fd.append(`aimsIntro${i + 1}`, decodeJoditHTML(v)),
+      );
       fd.append("aimsIntroCount", String(aimsIntroPars.length));
-      syllabusParas.forEach((v, i) => fd.append(`syllabusIntro${i + 1}`, v));
+      syllabusParas.forEach((v, i) =>
+        fd.append(`syllabusIntro${i + 1}`, decodeJoditHTML(v)),
+      );
       fd.append("syllabusIntroCount", String(syllabusParas.length));
 
-      /*
-       * 🔥 CRITICAL FIX: Encode all HTML rich-text fields using JSON.stringify.
-       *
-       * Problem: When HTML content (containing <tags>, newlines, special chars
-       * like &amp; &lt; etc.) is sent via multipart/form-data, the content can
-       * get corrupted or truncated at special character boundaries.
-       *
-       * Solution: JSON.stringify wraps the HTML in a safe JSON string with
-       * escaped characters, then the backend JSON.parses it back to get the
-       * full original HTML. This guarantees 100% data integrity.
-       *
-       * Fields affected:
-       * - visaPassportDesc  → partial save issue (was losing content after < >)
-       * - globalCert1/2     → partial save issue
-       * - bookingStep1-4Desc → not saving at all
-       * - All other HTML fields as a precaution
-       */
-      fd.append("aimsOutro", encodeHtml(aimsOutro));
-      fd.append("ashtangaDesc", encodeHtml(ashtangaDesc));
-      fd.append("primaryIntro", encodeHtml(primaryIntro));
-      fd.append("hathaDesc", encodeHtml(hathaDesc));
-      fd.append("evalDesc", encodeHtml(evalDesc));
-      fd.append("schedDesc", encodeHtml(schedDesc));
-      fd.append("visaPassportDesc", encodeHtml(visaDesc));
-      fd.append("globalCert1", encodeHtml(globalCert1));
-      fd.append("globalCert2", encodeHtml(globalCert2));
-      fd.append("req1", encodeHtml(req1));
-      fd.append("req2", encodeHtml(req2));
-      fd.append("req3", encodeHtml(req3));
-      fd.append("req4", encodeHtml(req4));
-      fd.append("best200Hr", encodeHtml(best200Hr));
-      fd.append("bookingStep1Desc", encodeHtml(step1Desc));
-      fd.append("bookingStep2Desc", encodeHtml(step2Desc));
-      fd.append("bookingStep3Desc", encodeHtml(step3Desc));
-      fd.append("bookingStep4Desc", encodeHtml(step4Desc));
+      /* All standalone rich text — decode before sending */
+      fd.append("aimsOutro", decodeJoditHTML(aimsOutro));
+      fd.append("ashtangaDesc", decodeJoditHTML(ashtangaDesc));
+      fd.append("primaryIntro", decodeJoditHTML(primaryIntro));
+      fd.append("hathaDesc", decodeJoditHTML(hathaDesc));
+      fd.append("evalDesc", decodeJoditHTML(evalDesc));
+      fd.append("schedDesc", decodeJoditHTML(schedDesc));
+      fd.append("visaPassportDesc", decodeJoditHTML(visaDesc));
+      fd.append("globalCert1", decodeJoditHTML(globalCert1));
+      fd.append("globalCert2", decodeJoditHTML(globalCert2));
+      fd.append("req1", decodeJoditHTML(req1));
+      fd.append("req2", decodeJoditHTML(req2));
+      fd.append("req3", decodeJoditHTML(req3));
+      fd.append("req4", decodeJoditHTML(req4));
+      fd.append("best200Hr", JSON.stringify(decodeJoditHTML(best200Hr)));
+
+fd.append("bookingStep1Desc", JSON.stringify(decodeJoditHTML(step1Desc)));
+fd.append("bookingStep2Desc", JSON.stringify(decodeJoditHTML(step2Desc)));
+fd.append("bookingStep3Desc", JSON.stringify(decodeJoditHTML(step3Desc)));
+fd.append("bookingStep4Desc", JSON.stringify(decodeJoditHTML(step4Desc)));
 
       aimsBullets.forEach((v) => fd.append("aimsBullets", v));
       inclFee.forEach((v) => fd.append("includedFee", v));
@@ -1550,6 +1583,7 @@ export default function Yoga200HourCombinedForm() {
       fd.append("schedRows", JSON.stringify(schedRows));
       fd.append("faqItems", JSON.stringify(faqItems));
       fd.append("knowQA", JSON.stringify(knowQA));
+
       fd.append(
         "modules",
         JSON.stringify(
@@ -1557,12 +1591,14 @@ export default function Yoga200HourCombinedForm() {
             title: m.title,
             intro: m.intro,
             items: m.items,
-            body: m.body,
+            body: decodeJoditHTML(m.body),
           })),
         ),
       );
+
       fd.append("hatha43", JSON.stringify(hatha43));
       fd.append("weekGrid", JSON.stringify(weekGrid));
+
       fd.append(
         "programs",
         JSON.stringify(
@@ -1572,7 +1608,7 @@ export default function Yoga200HourCombinedForm() {
             start: p.start,
             oldPrice: p.oldPrice,
             price: p.price,
-            desc: p.desc,
+            desc: decodeJoditHTML(p.desc),
             image: p.imageFile ? "" : p.imagePreview,
           })),
         ),
@@ -2125,8 +2161,7 @@ export default function Yoga200HourCombinedForm() {
                 <div className={styles.fieldGroup}>
                   <label className={styles.label}>
                     <span className={styles.labelIcon}>✦</span>Aims Introduction
-                    Paragraphs
-                    <span className={styles.required}>*</span>
+                    Paragraphs<span className={styles.required}>*</span>
                   </label>
                   {aimsErr && (
                     <p
@@ -3118,7 +3153,7 @@ export default function Yoga200HourCombinedForm() {
             </>
           )}
 
-          {/* ════════ STEP 7 ════════ */}
+          {/* ════════ STEP 7 — PROGRAMS ════════ */}
           {currentStep === 7 && (
             <>
               <Sec title="16. Programs" badge={`${programs.length} programs`}>
@@ -3629,7 +3664,6 @@ export default function Yoga200HourCombinedForm() {
                     />
                   </div>
                 </F>
-                {/* 🔥 FIX: visaDesc is now encoded via encodeHtml() on submit */}
                 <ControlledJodit
                   label="Visa & Passport Description"
                   value={visaDesc}
@@ -3650,7 +3684,6 @@ export default function Yoga200HourCombinedForm() {
                     />
                   </div>
                 </F>
-                {/* 🔥 FIX: globalCert1/2 are now encoded via encodeHtml() on submit */}
                 <ControlledJodit
                   label="Paragraph 1"
                   value={globalCert1}
@@ -3702,7 +3735,6 @@ export default function Yoga200HourCombinedForm() {
                     />
                   </div>
                 </F>
-                {/* 🔥 FIX: req1-4 are now encoded via encodeHtml() on submit */}
                 <ControlledJodit
                   label="Paragraph 1"
                   value={req1}
@@ -3817,7 +3849,6 @@ export default function Yoga200HourCombinedForm() {
                     />
                   </div>
                 </F>
-                {/* 🔥 FIX: best200Hr is now encoded via encodeHtml() on submit */}
                 <ControlledJodit
                   label="Best 200hr Paragraph"
                   value={best200Hr}
@@ -3866,7 +3897,6 @@ export default function Yoga200HourCombinedForm() {
                     />
                   </div>
                 </F>
-                {/* 🔥 FIX: step1-4Desc are now encoded via encodeHtml() on submit */}
                 {[
                   { n: 1, val: step1Desc, set: setStep1Desc },
                   { n: 2, val: step2Desc, set: setStep2Desc },
@@ -4102,7 +4132,9 @@ export default function Yoga200HourCombinedForm() {
             </>
           )}
 
-          {/* ── Navigation Bar ── */}
+          {/* ══════════════════════════════════════════════════════════
+              Navigation Bar
+          ══════════════════════════════════════════════════════════ */}
           <div
             className={styles.formActions}
             style={{
@@ -4171,7 +4203,7 @@ export default function Yoga200HourCombinedForm() {
   );
 }
 
-/* ─────────────────────────── Module Body Editor ─────────────────────────── */
+/* ─────────────────────────── Module Body Editor (Controlled) ─────────────────────────── */
 function ModuleBodyEditor({
   value,
   onChange,
@@ -4202,6 +4234,12 @@ function ModuleBodyEditor({
     return () => obs.disconnect();
   }, []);
 
+  // 🔥 FIX: Decode before passing up
+  const handleChange = useCallback(
+    (v: string) => onChange(decodeJoditHTML(v)),
+    [onChange],
+  );
+
   return (
     <div className={styles.fieldGroup}>
       <label className={styles.label}>
@@ -4218,7 +4256,7 @@ function ModuleBodyEditor({
               placeholder: "Additional description…",
               height: 160,
             }}
-            onChange={onChange}
+            onChange={handleChange}
           />
         ) : (
           <div

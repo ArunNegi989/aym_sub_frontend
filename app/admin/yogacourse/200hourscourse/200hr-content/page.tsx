@@ -12,7 +12,7 @@ interface Content1Row {
   pageMainH1: string;
   slug: string;
   status: "Active" | "Inactive";
-  createdAt: string;
+  updatedAt: string;
 }
 
 export default function Content1ListPage() {
@@ -41,7 +41,7 @@ export default function Content1ListPage() {
     if (!confirm(`Delete "${title}"?\nThis cannot be undone.`)) return;
     try {
       setDeleting(id);
-      await api.delete(`/yoga-200hr/content1/delete/${id}`);
+      await api.delete(`/yoga-200hr/content/delete/${id}`);
       setRows(prev => prev.filter(r => r._id !== id));
     } catch {
       alert("Delete failed. Please try again.");
@@ -53,7 +53,7 @@ export default function Content1ListPage() {
   const toggleStatus = async (id: string, current: "Active" | "Inactive") => {
     const next = current === "Active" ? "Inactive" : "Active";
     try {
-      await api.put(`/yoga-200hr/content1/update/${id}`, { status: next });
+      await api.put(`/yoga-200hr/content/update/${id}`, { status: next });
       setRows(prev => prev.map(r => r._id === id ? { ...r, status: next } : r));
     } catch {
       alert("Status update failed.");
@@ -65,7 +65,7 @@ export default function Content1ListPage() {
 
       <div className={styles.listHeader}>
         <div>
-          <h1 className={styles.listTitle}>200 Hour Yoga — Content Part 1</h1>
+          <h1 className={styles.listTitle}>200 Hour Yoga — Content </h1>
           <p className={styles.listSubtitle}>
             Hero · Intro · Stats · Aims · Overview · Fee · Syllabus · Modules 1–8 · Ashtanga · Hatha · Asanas
           </p>
@@ -133,7 +133,7 @@ export default function Content1ListPage() {
                 <th className={styles.th}>Page Title (H1)</th>
                 <th className={styles.th}>Slug</th>
                 <th className={styles.th}>Status</th>
-                <th className={styles.th}>Created</th>
+                <th className={styles.th}>Update</th>
                 <th className={styles.th}>Actions</th>
               </tr>
             </thead>
@@ -168,8 +168,8 @@ export default function Content1ListPage() {
 
                   <td className={styles.td}>
                     <span className={styles.dateText}>
-                      {row.createdAt
-                        ? new Date(row.createdAt).toLocaleDateString("en-IN", {
+                      {row.updatedAt
+                        ? new Date(row.updatedAt).toLocaleDateString("en-IN", {
                             day: "2-digit", month: "short", year: "numeric",
                           })
                         : "—"}
