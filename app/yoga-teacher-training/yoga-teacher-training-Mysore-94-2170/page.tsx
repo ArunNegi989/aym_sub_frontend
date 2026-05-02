@@ -12,50 +12,79 @@ const sections = [
     imageLeft: true,
     image:
       "https://images.unsplash.com/photo-1588286840104-8957b019727f?w=700&q=80&fit=crop",
-    imageAlt: "Yoga teacher training class in India",
-    heading: "Qualified yoga training in India",
-    headingStyle: "serif" as const,
-    text: `AYM Yoga School is located in Rishikesh and Goa. We are a famous yoga and meditation institution in India, specializing in teacher training, yoga gurus in india. We are a non-profit organization that aims to teach quality yoga classes to anyone who wants to become a qualified yoga instructor. AYM Yoga School also helps you relieve emotional problems through yoga therapy retreat. In addition, if you are in India, AYM Yoga School will also fully operate our facilities here.`,
+    imageAlt: "Best Yoga Teacher Training in Mysore India",
+    heading: "Best Yoga Teacher Training in Mysore India",
+    headingStyle: "script" as const,
+    text: `If you know the benefits of yoga and how it can impact one's life, taking up yoga teacher training in Mysore is a great option to spread your knowledge to others. People embracing this old practice may want to share their experiences and assist others in their inner development. At AYM, we offer exclusive programmes in Rishikesh since 2005.
+
+Through our comprehensive course, we aim to help individuals gain a solid grasp of yoga so that they can instruct with assurance and effectiveness. As the provider of the top YTT course in Mysore, we introduce our students to yoga's roots, from its history, styles and traditions to where it stands today.
+
+Besides focusing on mindfulness and meditation techniques, students are introduced to new research, strategies, ideologies and much more in our institute in Rishikesh. Students get a chance to be a part of a welcoming atmosphere and get complete assistance as they enrol in our 200 hour yoga teacher training in Mysore.`,
   },
   {
     id: 2,
     imageLeft: false,
     image:
       "https://images.unsplash.com/photo-1545389336-cf090694435e?w=700&q=80&fit=crop",
-    imageAlt: "Yoga meditation class AYM India",
-    heading: "Experience the art of yoga and mediatation at AYM in India",
-    headingStyle: "script" as const,
-    text: `AYM Yoga School is a professional yoga and meditation school located in Rishikesh and Goa. Our area of expertise is to provide high-quality yoga teacher training and yoga retreat service to anyone willing to enjoy the benefits of yoga in India. Enjoy Mantras, Pranayama, yoga prayer with our yoga teachers. Our outstanding achievements are widely recognized by students and professors all over the world. And if you live in India or plan to visit, we also provide our facilities and training courses there.`,
+    imageAlt: "Yoga Teacher Training in Mysore",
+    heading: "Yoga Teacher Training in Mysore",
+    headingStyle: "serif" as const,
+    text: `Our goal at AYM is to use the science of yoga by preserving the core teachings while modernizing their ancient knowledge simultaneously. Through yoga, students can discover their nature and inner abilities. As the top 300 hour yoga teacher training in Mysore India, we offer transformative experiences that impact life in many ways.
+
+Our extensive curriculum covers every detail of yoga, including anatomy, physiology, alignment and more. You would discover prevalent injuries along with tips for preventing them. We concentrate on the subtle facets beyond asanas and aim to improve the practice. Each 500 hour yoga teacher training course in Mysore has unique goals and aims. In the comfortable environment of Rishikesh, our teachers promote self-awareness. We create an encouraging atmosphere where students can confidently graduate and become professionals.`,
   },
   {
     id: 3,
     imageLeft: true,
     image:
       "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=700&q=80&fit=crop",
-    imageAlt: "Best yoga meditation centre India",
-    heading: "Best yoga and mediation centre in India",
+    imageAlt: "Features of Yoga Teacher Training Course in Mysore",
+    heading: "Features of Yoga Teacher Training Course in Mysore",
     headingStyle: "serif" as const,
-    text: `India is part of the Asia region. Most of India forms a peninsula, which means that all three sides are surrounded by water. The Himalayas, located in the north, are the highest mountains in the world. India borders are the Bay of Bengal in the southeast region and the Arabian Sea in the southwest. In addition, India is also a country with rich history that could date back into early civilisation era. India is also the birthplace of yoga, its origins can be traced back to 5,000 years ago, the Indian-Saraswati civilization in northern India`,
+    textList: [
+      "Our yoga teacher training course in Mysore is conducted in a spacious and peaceful ambience.",
+      "Students are allowed to spend time with like-minded individuals and experienced professionals.",
+      "Lodging is offered in a secure, comfortable space where lifestyle is not compromised.",
+      "Theoretical and practical classes are conducted besides regular tests and assessments.",
+      "We provide all the study materials to make learning easier. Also, access to pre-recorded videos, live sessions, notes and more are provided.",
+      "Students are offered basic amenities like hot water, wifi, dietary meals, and more.",
+      "Student's progress is recorded and rectified in a non-competitive and non-judgemental atmosphere.",
+      "We offer classes six days a week with one day off during the yoga TTC in Mysore.",
+      "Students are allowed to participate in excursions and seminars where their knowledge is broadened.",
+      "Valuable certification is provided at the end of the courses, making the students' learning evident.",
+    ],
   },
   {
     id: 4,
     imageLeft: false,
     image:
       "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80&fit=crop",
-    imageAlt: "Experience yoga and meditation at AYM India",
-    heading: "Experience the art of yoga and mediatation at AYM in India",
-    headingStyle: "script" as const,
-    text: `India is a country that makes up most of South Asia. It has New Delhi as a capital that was built in the 20th century. The Indian government is a constitutional republic, representing a very diverse population of thousands of ethnic groups and hundreds of languages. India is about one-sixth of the world's population, second only to China. India is also a birthplace of yoga which could trace back into 5,000 years ago by Indus-Sarasvati civilization in Northern India`,
+    imageAlt:
+      "200 Hour and 300 Hour Yoga Teacher Training Course in Mysore India",
+    heading: "200 Hour Yoga Teacher Training Course in Mysore India",
+    headingStyle: "serif" as const,
+    subSections: [
+      {
+        heading: "200 Hour Yoga Teacher Training Course in Mysore India",
+        text: `Our 200 hour yoga teacher training in Mysore is a thorough course programme that includes the basics of yoga. It expands its principles, from covering the fundamentals to enlightening the students on meditation, breathing techniques, and more. The skilled and informed instructors at AYM in Rishikesh would help me better understand yoga philosophy. Once the ytt course in Mysore is completed, the students will achieve thorough beginner-level expertise through confidence.`,
+      },
+      {
+        heading: "300 Hour Yoga Teacher Training Course in Mysore",
+        text: `At AYM in Rishikesh, our 300 hour YTT in Mysore is designed for students who aspire to become professionals or deepen their knowledge. Through this course program, students would be introduced to topics like Ayurveda, Sanskrit, Mantras, Vedic Texts and more.
+
+Simply put, the updated 300 hour yoga teacher training course in Mysore has been designed to provide a deeper insight. With knowledgeable and committed instructors in the team, we focus on increasing abilities and discovering inner strength while instilling confidence.`,
+      },
+    ],
   },
   {
     id: 5,
     imageLeft: true,
     image:
       "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?w=700&q=80&fit=crop",
-    imageAlt: "Top yoga meditation centre India",
-    heading: "Top yoga and mediation centre in India",
+    imageAlt: "Recognized Yoga Teacher Training Course Certification in Mysore",
+    heading: "Recognized Yoga Teacher Training Course Certification in Mysore",
     headingStyle: "serif" as const,
-    text: `As one of India's best yoga and meditation centers, the goal of AYM Yoga School is to help you learn the correct yoga retreat to solve emotional pain and personal problems, we help you to open your seven chakras. And whether you want to become a yoga instructor or relax, we also offer qualified courses in Rishikesh and Goa.`,
+    text: `Regardless of the course program they choose, students enrolling at AYM in Rishikesh are handed over Recognized Yoga Teacher Training courses in Mysore. These certifications hold great value and are accredited, besides meeting the standards of the Yoga Alliances. Once students complete the courses and showcase their expertise and ability towards this practice, they are handed the certificates. Our students can use these yoga TTC certificates in Mysore anywhere in the world to start their journey. Students can begin their yoga studio and teach in reputed yoga institutions worldwide.`,
   },
 ];
 
@@ -182,7 +211,7 @@ const cityLinks: { name: string; href: string }[] = [
 /* ─────────────────────────────────────────────
    MAIN COMPONENT
 ───────────────────────────────────────────── */
-const YogaTraining: React.FC = () => {
+const YogaTrainingMysore: React.FC = () => {
   return (
     <div className={styles.page}>
       {/* Top border */}
@@ -191,7 +220,9 @@ const YogaTraining: React.FC = () => {
       <div className={styles.container}>
         {/* ── PAGE TITLE ── */}
         <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>Yoga Teacher Training in India</h1>
+          <h1 className={styles.pageTitle}>
+            Yoga Teacher Training in Mysore India
+          </h1>
           <div className={styles.titleUnderline}>
             <div className={styles.underlineLine} />
           </div>
@@ -231,7 +262,38 @@ const YogaTraining: React.FC = () => {
               <div className={styles.headingUnderline}>
                 <div className={styles.headingUnderlineLine} />
               </div>
-              <p className={styles.bodyText}>{section.text}</p>
+
+              {/* Sub-sections (section 4: 200hr + 300hr) */}
+              {"subSections" in section && section.subSections ? (
+                section.subSections.map((sub, idx) => (
+                  <div key={idx} style={{ marginBottom: "1.2rem" }}>
+                    {idx > 0 && (
+                      <h3
+                        className={styles.headingSerif}
+                        style={{ marginTop: "1rem" }}
+                      >
+                        {sub.heading}
+                      </h3>
+                    )}
+                    <p className={styles.bodyText}>{sub.text}</p>
+                  </div>
+                ))
+              ) : "textList" in section && section.textList ? (
+                /* Bullet list (section 3: features) */
+                <ul
+                  className={styles.bodyText}
+                  style={{ paddingLeft: "1.2rem", margin: 0 }}
+                >
+                  {section.textList.map((item, idx) => (
+                    <li key={idx} style={{ marginBottom: "0.4rem" }}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                /* Regular paragraph */
+                <p className={styles.bodyText}>{(section as any).text}</p>
+              )}
             </div>
           </div>
         ))}
@@ -263,4 +325,4 @@ const YogaTraining: React.FC = () => {
   );
 };
 
-export default YogaTraining;
+export default YogaTrainingMysore;
