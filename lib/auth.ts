@@ -18,18 +18,26 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    if (error.response?.status === 401) {
+    const originalRequest = error.config;
+
+    // ✅ Never retry refresh calls
+    if (originalRequest?.url?.includes("/auth/refresh")) {
+      return Promise.reject(error);
+    }
+
+    if (error.response?.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
       try {
         const res = await api.post("/auth/refresh");
         setAccessToken(res.data.accessToken);
-
-        error.config.headers.Authorization = "Bearer " + res.data.accessToken;
-
-        return api(error.config);
+        originalRequest.headers.Authorization = "Bearer " + res.data.accessToken;
+        return api(originalRequest);
       } catch {
-        window.location.href = "/login";
+        window.location.href = "/auth/login";
+        return Promise.reject(error);
       }
     }
+
     return Promise.reject(error);
-  },
+  }
 );
