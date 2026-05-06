@@ -29,128 +29,190 @@ export const HomeaboutSection = () => {
   const [data, setData] = useState<HomeAboutData | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const fetchAbout = async () => {
-    try {
-      const res = await api.get("/home-about/get-home-about");
-      setData(res.data.data);
-    } catch (error) {
-      console.error("Failed to fetch home about");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchAbout = async () => {
+      try {
+        const res = await api.get("/home-about/get-home-about");
+        setData(res.data.data);
+      } catch (error) {
+        console.error("Failed to fetch home about");
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchAbout();
   }, []);
 
   if (loading) {
-    return <div className={styles.section}>Loading...</div>;
+    return (
+      <div className={styles.loadingWrapper}>
+        <div className={styles.loadingSpinner} />
+      </div>
+    );
   }
 
   if (!data) return null;
 
+  const hasStats      = Array.isArray(data.stats)          && data.stats.length > 0;
+  const hasAccred     = Array.isArray(data.accreditations) && data.accreditations.length > 0;
+  const hasYogaStyles = Array.isArray(data.yogaStyles)     && data.yogaStyles.length > 0;
+
+  const estStat   = hasStats ? data.stats[0] : null;
+  const restStats = hasStats ? data.stats.slice(0) : [];
+
   return (
     <section className={styles.section}>
-     
 
-      <div className={styles.container}>
-        {/* HEADER */}
-        <div className={styles.header}>
-          <p className={styles.superTitle}>{data.superTitle}</p>
+      {/* ═══════════════════════════════════════════════════
+          HERO — centered, est-year badge merged in
+      ════════════════════════════════════════════════════ */}
+      <div className={styles.hero}>
+        <span className={styles.heroOm} aria-hidden="true">ॐ</span>
+        <div className={styles.heroInner}>
 
-          <h2 className={styles.mainTitle}>{data.mainTitle}</h2>
-
-          <div className={styles.omDivider}>
-            <span className={styles.dividerLine} />
-            <span className={styles.omSymbol}>ॐ</span>
-            <span className={styles.dividerLine} />
-          </div>
-        </div>
-
-        {/* STATS */}
-        <div className={styles.statsRow}>
-          {data.stats?.map((s, i) => (
-            <div key={i} className={styles.statCard}>
-              <span className={styles.statValue}>{s.value}</span>
-              <span className={styles.statLabel}>{s.label}</span>
+          {/* {estStat && (
+            <div className={styles.estBadge}>
+              <span className={styles.estValue}>{estStat.value}</span>
+              <span className={styles.estLabel}>{estStat.label}</span>
             </div>
-          ))}
-        </div>
+          )} */}
 
-        {/* BODY */}
-        <div className={styles.body}>
-          {/* LEFT */}
-          <div className={styles.bodyLeft}>
-            <div
-              className={styles.para}
-              dangerouslySetInnerHTML={{ __html: data.paraOne }}
-            />
-            <div
-              className={styles.para}
-              dangerouslySetInnerHTML={{ __html: data.paraTwo }}
-            />
-            <div
-              className={styles.para}
-              dangerouslySetInnerHTML={{ __html: data.paraThree }}
-            />
+          {data.superTitle && (
+            <p className={styles.superTitle}>{data.superTitle}</p>
+          )}
 
-            <div className={styles.accreditations}>
-              {data.accreditations?.map((a, i) => (
-                <span key={i} className={styles.accBadge}>
-                  {a}
-                </span>
+          {data.mainTitle && (
+            <h2 className={styles.mainTitle}>{data.mainTitle}</h2>
+          )}
+
+          <div className={styles.titleRule}>
+            <span className={styles.ruleLine} />
+            <span className={styles.ruleSymbol}>◆</span>
+            <span className={styles.ruleLine} />
+          </div>
+
+          {restStats.length > 0 && (
+            <div className={styles.heroStats}>
+              {restStats.map((s, i) => (
+                <React.Fragment key={i}>
+                  <div className={styles.heroStat}>
+                    <span className={styles.heroStatVal}>{s.value}</span>
+                    <span className={styles.heroStatLbl}>{s.label}</span>
+                  </div>
+                  {i < restStats.length - 1 && (
+                    <span className={styles.heroStatDiv} aria-hidden="true">✦</span>
+                  )}
+                </React.Fragment>
               ))}
             </div>
-          </div>
+          )}
 
-          {/* RIGHT */}
-          <div className={styles.bodyRight}>
-            <blockquote className={styles.quote}>
-              <span className={styles.quoteMarks}>"</span>
-              <span dangerouslySetInnerHTML={{ __html: data.quoteText }} />
-              <span className={styles.quoteMarks}>"</span>
-            </blockquote>
-
-            <div
-              className={styles.para}
-              dangerouslySetInnerHTML={{ __html: data.paraRight }}
-            />
-
-            <div className={styles.stylesBlock}>
-              <h4 className={styles.stylesTitle}>Multi-Style Yoga Courses</h4>
-
-              <div className={styles.stylesGrid}>
-                {data.yogaStyles?.map((style, i) => (
-                  <span key={i} className={styles.styleChip}>
-                    {style}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div
-              className={styles.paraSmall}
-              dangerouslySetInnerHTML={{ __html: data.paraSmall }}
-            />
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className={styles.ctaRow}>
-          <div
-            className={styles.ctaText}
-            dangerouslySetInnerHTML={{ __html: data.ctaText }}
-          />
-
-          <a href={data.ctaLink} className={styles.ctaBtn}>
-            Explore All Courses
-            <span className={styles.ctaArrow}>→</span>
-          </a>
         </div>
       </div>
 
-     
+      {/* ═══════════════════════════════════════════════════
+          ACCREDITATIONS TICKER
+      ════════════════════════════════════════════════════ */}
+      {hasAccred && (
+        <div className={styles.tickerWrap}>
+          <div className={styles.tickerLabel}>Accreditations</div>
+          <div className={styles.tickerTrack}>
+            {[...data.accreditations, ...data.accreditations].map((a, i) => (
+              <span key={i} className={styles.tickerItem}>
+                <span className={styles.tickerCheck}>✓</span>{a}
+                <span className={styles.tickerSep}>·</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ═══════════════════════════════════════════════════
+          CONTENT SECTION
+      ════════════════════════════════════════════════════ */}
+      <div className={styles.contentSection}>
+
+        {/* ── ROW A: paraOne (left) + pullQuote (right) ── */}
+        <div className={styles.rowA}>
+          <div className={styles.rowALeft}>
+            {data.paraOne && (
+              <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraOne }} />
+            )}
+          </div>
+
+          {data.quoteText && (
+            <aside className={styles.pullQuote}>
+              <span className={styles.pullMark} aria-hidden="true">&ldquo;</span>
+              <div className={styles.pullText} dangerouslySetInnerHTML={{ __html: data.quoteText }} />
+            </aside>
+          )}
+        </div>
+
+        {/* ── PARA TWO — full width spanning both columns ── */}
+        {data.paraTwo && (
+          <div className={styles.paraFullWidth}>
+            <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraTwo }} />
+          </div>
+        )}
+
+        {/* ── DIVIDER ── */}
+        <div className={styles.sectionDivider}>
+          <span className={styles.dividerLine} />
+          <span className={styles.dividerGem}>ॐ</span>
+          <span className={styles.dividerLine} />
+        </div>
+
+        {/* ── ROW B: yogaStyles (left) + paraRight/paraThree/paraSmall (right) ── */}
+        <div className={styles.rowB}>
+          {hasYogaStyles && (
+            <div className={styles.stylesPanel}>
+              <div className={styles.stylesPanelHead}>
+                <span>🧘</span>
+                <h4 className={styles.stylesPanelTitle}>Multi-Style Yoga Courses</h4>
+              </div>
+              <div className={styles.stylesTags}>
+                {data.yogaStyles.map((s, i) => (
+                  <span key={i} className={styles.styleTag}>{s}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className={styles.rowBInfo}>
+            {data.paraRight && (
+              <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraRight }} />
+            )}
+          </div>
+        </div>
+            {data.paraThree && (
+              <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraThree }} />
+            )}
+            {data.paraSmall && (
+              <div className={styles.paraFullWidth} dangerouslySetInnerHTML={{ __html: data.paraSmall }} />
+            )}
+
+      </div>
+
+      {/* ═══════════════════════════════════════════════════
+          CTA BAND
+      ════════════════════════════════════════════════════ */}
+      {(data.ctaText || data.ctaLink) && (
+        <div className={styles.ctaBand}>
+          <span className={styles.ctaOm} aria-hidden="true">ॐ</span>
+          <div className={styles.ctaInner}>
+            {data.ctaText && (
+              <div className={styles.ctaText} dangerouslySetInnerHTML={{ __html: data.ctaText }} />
+            )}
+            {data.ctaLink && (
+              <a href={data.ctaLink} className={styles.ctaBtn}>
+                Explore All Courses
+                <span className={styles.ctaArrow}>→</span>
+              </a>
+            )}
+          </div>
+        </div>
+      )}
+
     </section>
   );
 };

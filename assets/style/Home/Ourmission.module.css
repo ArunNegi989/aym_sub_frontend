@@ -1,8 +1,9 @@
+/* Ourmission.module.css */
 /* ─── CSS Variables ─────────────────────────────────────────────── */
 .missionSection {
   --saffron: #f15505;
-  --saffron-light: #F15505;
-  --saffron-pale: #f5b800;
+  --saffron-light: #f5b800;
+  --saffron-pale: #fde8d0;
   --ink: #2e1800;
   --ink-soft: #4a2e0e;
   --ink-muted: #7a5c2e;
@@ -10,48 +11,107 @@
   --parchment-mid: #f7ead6;
   --parchment-deep: #f0d9b5;
   --border-color: rgba(196, 106, 0, 0.28);
+  --gold-gradient: linear-gradient(135deg, #f15505 0%, #f5b800 100%);
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* ─── Section wrapper ───────────────────────────────────────────── */
 .missionSection {
   position: relative;
-  background: var(--parchment);
-  background-image: url("../../images/backgroundimage/1905x1446.png");
+  background: linear-gradient(135deg, var(--parchment) 0%, #fdf8f0 50%, var(--parchment) 100%);
   padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 3rem);
   overflow: hidden;
 }
 
-/* Subtle aged-paper radial texture */
+/* Animated gradient overlay */
 .missionSection::before {
   content: '';
   position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(241, 85, 5, 0.02) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* ── Background lotus watermark ── */
+/* ── Background Lotus ── */
 .bgLotus {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: clamp(14rem, 30vw, 28rem);
-  color: rgba(196, 106, 0, 0.04);
+  font-size: clamp(18rem, 35vw, 32rem);
+  color: rgba(196, 106, 0, 0.03);
   font-family: var(--font-display), serif;
   pointer-events: none;
   z-index: 0;
   line-height: 1;
   user-select: none;
   letter-spacing: -0.05em;
+  animation: floatLotus 20s ease-in-out infinite;
 }
 
-/* ── Corner ornament lines (top-left & bottom-right) ── */
-.bgCornerTL,
-.bgCornerBR {
+@keyframes floatLotus {
+  0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+  50% { transform: translate(-50%, -52%) rotate(5deg); }
+}
+
+/* Background Mandala */
+.bgMandala {
   position: absolute;
-  width: 120px;
-  height: 120px;
-  border-color: rgba(196, 106, 0, 0.18);
+  bottom: 5%;
+  right: 3%;
+  font-size: clamp(8rem, 15vw, 12rem);
+  color: rgba(241, 85, 5, 0.02);
+  font-family: var(--font-display), serif;
+  pointer-events: none;
+  animation: spinMandala 40s linear infinite;
+}
+
+@keyframes spinMandala {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Floating Om symbols */
+.floatingOm,
+.floatingOm2 {
+  position: absolute;
+  font-family: var(--font-display), serif;
+  font-size: 3rem;
+  color: rgba(241, 85, 5, 0.04);
+  pointer-events: none;
+  animation: floatOm 15s ease-in-out infinite;
+}
+
+.floatingOm {
+  top: 15%;
+  left: 5%;
+  animation-delay: -3s;
+}
+
+.floatingOm2 {
+  bottom: 20%;
+  right: 8%;
+  font-size: 4rem;
+  animation-duration: 18s;
+}
+
+@keyframes floatOm {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* ── Corner ornaments ── */
+.bgCornerTL,
+.bgCornerTR,
+.bgCornerBR,
+.bgCornerBL {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-color: rgba(196, 106, 0, 0.12);
   border-style: solid;
   pointer-events: none;
   z-index: 1;
@@ -63,106 +123,169 @@
   border-width: 2px 0 0 2px;
 }
 
+.bgCornerTR {
+  top: 20px;
+  right: 20px;
+  border-width: 2px 2px 0 0;
+}
+
 .bgCornerBR {
   bottom: 20px;
   right: 20px;
   border-width: 0 2px 2px 0;
 }
 
-/* ─── Outer Frame (the rounded bordered card) ───────────────────── */
+.bgCornerBL {
+  bottom: 20px;
+  left: 20px;
+  border-width: 0 0 2px 2px;
+}
+
+/* ─── Outer Frame ──────────────────────────────────────────────── */
 .outerFrame {
   position: relative;
   z-index: 2;
-  max-width: 1500px;
+  max-width: 1400px;
   margin: 0 auto;
-  border: 1.5px solid var(--border-color);
-  border-radius: 16px;
-  background: linear-gradient(145deg, #fdfdfb 0%, #fffefb 50%, #fdfcfa 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(2px);
   padding: clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 5vw, 4rem);
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s ease;
 }
 
-/* ── Inner Frame — double-border vintage feel ── */
+.outerFrame:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Inner Frame ── */
 .innerFrame {
-  border: 1px solid rgba(196, 106, 0, 0.15);
-  border-radius: 10px;
-  padding: clamp(1.5rem, 3vw, 2.8rem) clamp(1rem, 3vw, 2.5rem);
+  border: 1px solid rgba(196, 106, 0, 0.12);
+  border-radius: 24px;
+  padding: clamp(1.8rem, 3.5vw, 3rem) clamp(1.2rem, 3.5vw, 2.8rem);
   position: relative;
-  background: #fff;
+  background: linear-gradient(135deg, #fffefc 0%, #fffaf5 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), var(--shadow-sm);
 }
 
-/* Four inner corner flourishes via pseudo-elements on innerFrame */
+/* Corner flourishes */
 .innerFrame::before,
 .innerFrame::after {
   content: '';
   position: absolute;
-  width: 28px;
-  height: 28px;
-  border-color: rgba(196, 106, 0, 0.3);
+  width: 40px;
+  height: 40px;
+  border-color: rgba(241, 85, 5, 0.25);
   border-style: solid;
+  transition: all 0.3s ease;
 }
 
 .innerFrame::before {
   top: -1px;
   left: -1px;
   border-width: 2px 0 0 2px;
-  border-radius: 2px 0 0 0;
+  border-radius: 4px 0 0 0;
 }
 
 .innerFrame::after {
   bottom: -1px;
   right: -1px;
   border-width: 0 2px 2px 0;
-  border-radius: 0 0 2px 0;
+  border-radius: 0 0 4px 0;
 }
 
-/* ─── Mission Block ─────────────────────────────────────────────── */
+.innerFrame:hover::before,
+.innerFrame:hover::after {
+  width: 50px;
+  height: 50px;
+  border-color: rgba(241, 85, 5, 0.45);
+}
+
+/* ─── Mission Block ────────────────────────────────────────────── */
 .missionBlock {
   text-align: center;
   margin-bottom: 0;
 }
 
-/* ── h2 — Our Mission ── */
+.tagWrapper {
+  margin-bottom: 1rem;
+}
+
+.missionTag {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--saffron);
+  text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(241, 85, 5, 0.08), rgba(245, 184, 0, 0.05));
+  padding: 0.3rem 1rem;
+  border-radius: 40px;
+  display: inline-block;
+}
+
 .missionHeading {
   font-family: var(--font-display), serif;
-  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
-  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
   color: var(--ink);
-  letter-spacing: 0.06em;
-  margin: 0 0 0.6rem;
-  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.8rem;
+  line-height: 1.25;
+  background: var(--gold-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* ── Heading rule — gold line under headings ── */
 .headingRule {
-  width: 80px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--saffron-light), transparent);
-  margin: 0 auto 1.2rem;
-  border-radius: 2px;
+  width: 100px;
+  height: 3px;
+  background: var(--gold-gradient);
+  margin: 0 auto 1.5rem;
+  border-radius: 3px;
 }
 
-/* ── SEO Tagline — "Yoga Teacher Training in Rishikesh India" ── */
+/* SEO Tagline */
+.seoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.seoDecor {
+  font-family: var(--font-display), serif;
+  font-size: 0.9rem;
+  color: var(--saffron);
+  opacity: 0.6;
+}
+
 .seoTagline {
-  font-family: var(--font-alt), sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: clamp(0.85rem, 1.4vw, 1rem);
-  font-style: italic;
+  font-weight: 500;
   color: var(--ink-muted);
-  letter-spacing: 0.05em;
-  margin: 0 0 1.8rem;
-  opacity: 0.9;
+  letter-spacing: 0.02em;
+  margin: 0;
+  background: rgba(241, 85, 5, 0.04);
+  padding: 0.3rem 1.2rem;
+  border-radius: 30px;
+  display: inline-block;
 }
 
-/* ── Body text wrapper ── */
+/* Mission Body */
 .missionBody {
   text-align: left;
   max-width: 920px;
   margin: 0 auto;
 }
 
-/* ─── Paragraph base ────────────────────────────────────────────── */
 .para {
   font-family: var(--font-body), sans-serif;
-  font-size: clamp(1rem, 1.7vw, 1.12rem);
+  font-size: clamp(1rem, 1.7vw, 1.1rem);
   line-height: 1.88;
   color: var(--ink-soft);
   margin: 0 0 1.4rem;
@@ -172,84 +295,191 @@
   margin-bottom: 0;
 }
 
-/* ── Bold lead word styling ── */
-.leadBold {
-  font-family: var(--font-display), serif;
-  font-size: 0.92em;
-  font-weight: 700;
-  color: var(--saffron);
-  font-style: normal;
-  letter-spacing: 0.02em;
+.firstPara {
+  font-weight: 500;
+  color: var(--ink);
 }
 
-/* ─── Ornamental Separator ──────────────────────────────────────── */
+/* Leaf Divider */
+.leafDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0 0.5rem;
+  opacity: 0.5;
+}
+
+.leafIcon {
+  font-size: 1rem;
+  animation: leafFloat 3s ease-in-out infinite;
+}
+
+.leafIcon:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.leafIcon:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes leafFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* ─── Ornament Separator ───────────────────────────────────────── */
 .ornamentRow {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin: 2.4rem 0;
+  margin: 2.5rem 0;
 }
 
 .ornamentLine {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(196, 106, 0, 0.35), transparent);
-  display: block;
+  background: linear-gradient(90deg, transparent, rgba(196, 106, 0, 0.35), rgba(196, 106, 0, 0.15), transparent);
+}
+
+.ornamentCenter {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(241, 85, 5, 0.05);
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
 }
 
 .ornamentSymbol {
   font-family: var(--font-display), serif;
   font-size: 0.9rem;
   color: var(--saffron);
-  letter-spacing: 0.3em;
-  white-space: nowrap;
-  filter: drop-shadow(0 1px 2px rgba(196, 106, 0, 0.3));
+  opacity: 0.7;
 }
 
-/* ─── Why Block ─────────────────────────────────────────────────── */
+.ornamentOm {
+  font-family: var(--font-display), serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--saffron);
+  animation: omPulse 3s ease-in-out infinite;
+}
+
+@keyframes omPulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* ─── Why Block ────────────────────────────────────────────────── */
 .whyBlock {
   text-align: center;
 }
 
-/* ── h3 — Why Yoga Teacher Training ── */
+.whyIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.whyIcon {
+  font-family: var(--font-display), serif;
+  font-size: 1.2rem;
+  color: var(--saffron);
+  opacity: 0.6;
+}
+
 .whyHeading {
-  font-family: var(--font-alt), sans-serif;
-  font-size: clamp(1.35rem, 2.8vw, 2rem);
-  font-weight: 400;
-  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
   color: var(--ink);
-  letter-spacing: 0.01em;
-  margin: 0 0 0.6rem;
+  letter-spacing: -0.01em;
+  margin: 0;
   line-height: 1.3;
 }
 
-/* ── Why body text ── */
+.headingRuleSecondary {
+  width: 70px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--saffron-light), var(--saffron));
+  margin: 0.8rem auto 1.5rem;
+  border-radius: 2px;
+}
+
+/* Why Body */
 .whyBody {
   text-align: left;
   max-width: 920px;
   margin: 0 auto;
 }
 
+.firstParaWrapper {
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(1rem, 1.7vw, 1.1rem);
+  line-height: 1.88;
+  color: var(--ink-soft);
+  margin-bottom: 1.4rem;
+}
+
+.leadBold {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05em;
+  font-weight: 800;
+  color: var(--saffron);
+  font-style: normal;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* Decorative Seal */
+.seal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(196, 106, 0, 0.2);
+}
+
+.sealText {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.sealDot {
+  font-size: 0.5rem;
+  color: var(--saffron);
+}
+
 /* ════════════════════════════════════════════════════════════════
    RESPONSIVE
    ════════════════════════════════════════════════════════════════ */
 
-/* ── 1024px ── */
 @media (max-width: 1024px) {
   .outerFrame {
-    padding: 2.5rem 2.5rem;
+    padding: 2.5rem 2rem;
   }
 }
 
-/* ── 768px ── */
 @media (max-width: 768px) {
   .outerFrame {
-    padding: 2rem 1.8rem;
-    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
   }
 
   .innerFrame {
-    padding: 1.5rem 1.4rem;
+    padding: 1.5rem 1.2rem;
   }
 
   .missionHeading {
@@ -257,68 +487,95 @@
   }
 
   .whyHeading {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .bgCornerTL,
-  .bgCornerBR {
-    width: 70px;
-    height: 70px;
+  .bgCornerTR,
+  .bgCornerBR,
+  .bgCornerBL {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ornamentCenter {
+    padding: 0.2rem 0.8rem;
   }
 }
 
-/* ── 600px ── */
 @media (max-width: 600px) {
   .missionSection {
     padding: 2rem 1rem;
   }
 
   .outerFrame {
-    padding: 1.6rem 1.2rem;
-    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
   }
 
   .innerFrame {
-    padding: 1.2rem 1rem;
+    padding: 1.2rem 0.8rem;
   }
 
   .missionHeading {
-    font-size: 1.5rem;
-    letter-spacing: 0.03em;
+    font-size: 1.4rem;
   }
 
   .whyHeading {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
   }
 
   .para {
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 0.98rem;
+    line-height: 1.75;
   }
 
   .ornamentRow {
     margin: 1.8rem 0;
   }
 
+  .ornamentSymbol {
+    font-size: 0.8rem;
+  }
+
+  .ornamentOm {
+    font-size: 1.1rem;
+  }
+
+  .seoWrapper {
+    gap: 0.4rem;
+  }
+
+  .seoTagline {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.8rem;
+  }
+
   .bgCornerTL,
-  .bgCornerBR {
-    width: 50px;
-    height: 50px;
+  .bgCornerTR,
+  .bgCornerBR,
+  .bgCornerBL {
+    width: 40px;
+    height: 40px;
+  }
+
+  .floatingOm,
+  .floatingOm2 {
+    font-size: 2rem;
   }
 }
 
-/* ── 480px ── */
 @media (max-width: 480px) {
   .outerFrame {
-    padding: 1.3rem 1rem;
+    padding: 1.2rem 0.8rem;
   }
 
   .innerFrame {
-    padding: 1rem 0.9rem;
+    padding: 1rem 0.6rem;
   }
 
   .missionHeading {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
   }
 
   .whyHeading {
@@ -326,48 +583,72 @@
   }
 
   .para {
-    font-size: 0.97rem;
+    font-size: 0.93rem;
+    line-height: 1.7;
+  }
+
+  .leadBold {
+    display: inline-block;
+    margin-bottom: 0.3rem;
+  }
+
+  .firstParaWrapper {
+    display: flex;
+    flex-direction: column;
   }
 
   .ornamentSymbol {
-    font-size: 0.78rem;
-    letter-spacing: 0.2em;
+    font-size: 0.7rem;
   }
 
   .bgLotus {
-    font-size: 10rem;
+    font-size: 12rem;
+  }
+
+  .leafDivider {
+    gap: 1rem;
   }
 }
 
-/* ── 375px ── */
 @media (max-width: 375px) {
   .missionSection {
-    padding: 1.5rem 0.8rem;
+    padding: 1.5rem 0.6rem;
   }
 
   .outerFrame {
-    padding: 1rem 0.8rem;
+    padding: 1rem 0.6rem;
   }
 
   .innerFrame {
-    padding: 0.9rem 0.7rem;
+    padding: 0.8rem 0.5rem;
   }
 
   .missionHeading {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   .whyHeading {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .para {
-    font-size: 0.93rem;
-    line-height: 1.75;
+    font-size: 0.88rem;
+    line-height: 1.65;
   }
 
   .bgCornerTL,
-  .bgCornerBR {
+  .bgCornerTR,
+  .bgCornerBR,
+  .bgCornerBL {
     display: none;
+  }
+
+  .seal {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .sealText {
+    font-size: 0.6rem;
   }
 }

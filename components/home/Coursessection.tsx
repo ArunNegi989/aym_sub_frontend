@@ -42,7 +42,18 @@ export const CoursesSection: React.FC = () => {
     const fetchCourses = async () => {
       try {
         const res = await api.get("/courses-section");
-        setCourses(res.data.data ?? []);
+        console.log("API Response:", res.data);
+
+        let coursesData = [];
+        if (res.data?.data && Array.isArray(res.data.data)) {
+          coursesData = res.data.data;
+        } else if (Array.isArray(res.data)) {
+          coursesData = res.data;
+        } else if (res.data?.courses && Array.isArray(res.data.courses)) {
+          coursesData = res.data.courses;
+        }
+
+        setCourses(coursesData);
       } catch (err) {
         console.error("Failed to fetch courses", err);
       } finally {
@@ -55,21 +66,11 @@ export const CoursesSection: React.FC = () => {
   if (loading) {
     return (
       <section className={styles.section}>
-        <div className={styles.a} />
+        <div className={styles.topBorder} />
         <div className={styles.container}>
           <div className={styles.courseList}>
             {[...Array(3)].map((_, i) => (
-              <div
-                key={i}
-                style={{
-                  height: "320px",
-                  borderRadius: "12px",
-                  background:
-                    "linear-gradient(90deg, #fdf0dc 25%, #ffe8c2 50%, #fdf0dc 75%)",
-                  marginBottom: "2rem",
-                  animation: "pulse 1.5s ease-in-out infinite",
-                }}
-              />
+              <div key={i} className={styles.skeletonCard} />
             ))}
           </div>
         </div>
@@ -78,14 +79,27 @@ export const CoursesSection: React.FC = () => {
     );
   }
 
-  if (!courses.length) return null;
+  if (!courses.length) {
+    return (
+      <section className={styles.section}>
+        <div className={styles.topBorder} />
+        <div className={styles.container}>
+          <div className={styles.emptyState}>
+            <p>No courses available at the moment. Please check back later.</p>
+          </div>
+        </div>
+        <div className={styles.bottomBorder} />
+      </section>
+    );
+  }
 
   return (
     <section className={styles.section}>
-      <div className={styles.a} />
+      <div className={styles.topBorder} />
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.header}>
+          <span className={styles.badge}>Since 2005</span>
           <p className={styles.superTitle}>Authentic Yoga Education Since 2005</p>
           <h2 className={styles.mainTitle}>
             Explore Our Yoga Teacher Training Courses &amp; Retreats
@@ -97,18 +111,117 @@ export const CoursesSection: React.FC = () => {
           </div>
         </div>
 
+        {/* Cards */}
         <div className={styles.courseList}>
           {courses.map((course, idx) => {
             const filled = course.totalSeats - course.availableSeats;
-            const pct = course.totalSeats > 0 ? (filled / course.totalSeats) * 100 : 0;
+            const pct =
+              course.totalSeats > 0 ? (filled / course.totalSeats) * 100 : 0;
             const isFull = course.availableSeats <= 0;
 
             return (
               <article
-                key={course._id}
-                className={`${styles.courseCard} ${idx % 2 === 1 ? styles.cardAlt : ""}`}
+                key={course._id || idx}
+                className={`${styles.courseCard} ${
+                  idx % 2 === 1 ? styles.cardAlt : ""
+                }`}
               >
-                {/* Image */}
+                {/* LEFT — text content + CTA strip */}
+                <div className={styles.leftColumn}>
+                  <div className={styles.content}>
+                    <div className={styles.titleBlock}>
+                      <h3 className={styles.courseTitle}>{course.title}</h3>
+                      <div className={styles.titleUnderline} />
+                      <div className={styles.courseMeta}>
+                        <div className={styles.metaItem}>
+                          <span className={styles.metaIcon}>⏱️</span>
+                          <span className={styles.metaLabel}>Duration:</span>
+                          <span className={styles.metaValue}>{course.duration}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      className={styles.description}
+                      dangerouslySetInnerHTML={{ __html: course.description }}
+                    />
+
+                    {course.links?.length > 0 && (
+                      <div className={styles.linkGrid}>
+                        {course.links.map((link, i) => (
+                          <Link key={i} href={link.href} className={styles.linkCard}>
+                            <span className={styles.linkIcon}>📘</span>
+                            <span className={styles.linkLabel}>{link.label}</span>
+                            <span className={styles.linkArrow}>→</span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* CTA strip — pinned to bottom */}
+                  <div className={styles.ctaStrip}>
+                    <div className={styles.priceCards}>
+                      <div className={styles.priceCard}>
+                        <span className={styles.priceLabel}>INR</span>
+                        <span className={styles.priceINR}>{course.priceINR}</span>
+                      </div>
+                      <div className={styles.priceCard}>
+                        <span className={styles.priceLabel}>USD</span>
+                        <span className={styles.priceUSD}>{course.priceUSD}</span>
+                      </div>
+                    </div>
+
+                    <div className={styles.seatsBlock}>
+                      <div className={styles.seatsInfo}>
+                        <div className={styles.seatsItem}>
+                          <span className={styles.seatsIcon}>👥</span>
+                          <span className={styles.seatsLabel}>Total</span>
+                          <span className={styles.seatsValue}>{course.totalSeats}</span>
+                        </div>
+                        <div className={styles.seatsItem}>
+                          <span className={styles.seatsIcon}>🪑</span>
+                          <span className={styles.seatsLabel}>Left</span>
+                          <span
+                            className={`${styles.seatsValue} ${
+                              course.availableSeats <= 5 ? styles.seatsUrgent : ""
+                            }`}
+                          >
+                            {course.availableSeats}
+                          </span>
+                        </div>
+                      </div>
+                      <div className={styles.seatsBar}>
+                        <div
+                          className={styles.seatsBarFill}
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    <div className={styles.buttonGroup}>
+                      {isFull ? (
+                        <span className={`${styles.btnEnroll} ${styles.btnEnrollDisabled}`}>
+                          Fully Booked
+                        </span>
+                      ) : (
+                        <Link
+                          href={`/yoga-registration?courseId=${course._id}`}
+                          className={styles.btnEnroll}
+                        >
+                          <span>Enroll Now</span>
+                          <span className={styles.btnIcon}>→</span>
+                        </Link>
+                      )}
+                      <Link href={course.exploreHref} className={styles.btnExplore}>
+                        <span>{course.exploreLabel || "Explore"}</span>
+                        <span className={styles.btnIcon}>↗</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* RIGHT — image panel, fills full card height */}
                 <div className={styles.imageWrapper}>
                   <img
                     src={getImageUrl(course.image)}
@@ -118,95 +231,11 @@ export const CoursesSection: React.FC = () => {
                     onError={(e) => {
                       const t = e.target as HTMLImageElement;
                       t.onerror = null;
-                      t.style.background =
-                        "linear-gradient(135deg, #fdf0dc 0%, #ffe8c2 100%)";
+                      t.style.opacity = "0";
                     }}
                   />
                   <div className={styles.imageOverlay} />
-                </div>
-
-                {/* Content */}
-                <div className={styles.content}>
-                  <div className={styles.titleBlock}>
-                    <h3 className={styles.courseTitle}>{course.title}</h3>
-                    <div className={styles.titleUnderline} />
-                    <p className={styles.courseMeta}>
-                      <span className={styles.metaLabel}>Duration:</span>{" "}
-                      <span className={styles.metaValue}>{course.duration}</span>
-                      <span className={styles.metaSep}>|</span>
-                      <span className={styles.metaLabel}>Level:</span>{" "}
-                      <span className={styles.metaValue}>{course.level}</span>
-                    </p>
-                  </div>
-
-                  <div
-                    className={styles.description}
-                    dangerouslySetInnerHTML={{ __html: course.description }}
-                  />
-
-                  <ul className={styles.linkList}>
-                    {course.links.map((link, i) => (
-                      <li key={i} className={styles.linkItem}>
-                        <span className={styles.checkIcon}>✓</span>
-                        <Link href={link.href} className={styles.courseLink}>
-                          {link.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* CTA Column */}
-                <div className={styles.ctaColumn}>
-                  {/* Price */}
-                  <div className={styles.priceBlock}>
-                    <span className={styles.priceINR}>{course.priceINR}</span>
-                    <span className={styles.priceUSD}>{course.priceUSD}</span>
-                  </div>
-
-                  {/* Seats */}
-                  <div className={styles.seatsBlock}>
-                    <div className={styles.seatsRow}>
-                      <span className={styles.seatsLabel}>Total Seats</span>
-                      <span className={styles.seatsValue}>{course.totalSeats}</span>
-                    </div>
-                    <div className={styles.seatsRow}>
-                      <span className={styles.seatsLabel}>Seats Left</span>
-                      <span
-                        className={`${styles.seatsValue} ${
-                          course.availableSeats <= 5 ? styles.seatsUrgent : ""
-                        }`}
-                      >
-                        {course.availableSeats}
-                      </span>
-                    </div>
-                    <div className={styles.seatsBar}>
-                      <div
-                        className={styles.seatsBarFill}
-                        style={{ width: `${pct}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  <div className={styles.ctaDivider} />
-
-                  {/* ✅ Enroll Now — courseId pass hoga, enrollHref ignore */}
-                  {isFull ? (
-                    <span className={`${styles.btnEnroll} ${styles.btnEnrollDisabled}`}>
-                      Fully Booked
-                    </span>
-                  ) : (
-                    <Link
-                      href={`/yoga-registration?courseId=${course._id}`}
-                      className={styles.btnEnroll}
-                    >
-                      Enroll Now
-                    </Link>
-                  )}
-
-                  <Link href={course.exploreHref} className={styles.btnExplore}>
-                    {course.exploreLabel}
-                  </Link>
+                  <div className={styles.levelBadge}>{course.level}</div>
                 </div>
               </article>
             );

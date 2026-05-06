@@ -74,12 +74,7 @@ function SmartVideo({ src, poster }: { src: string; poster?: string }) {
           title="AYM Yoga School, Rishikesh"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-          style={{
-            width: "100%",
-            height: "100%",
-            border: "none",
-            display: "block",
-          }}
+          style={{ width: "100%", height: "100%", border: "none", display: "block" }}
         />
       </div>
     );
@@ -101,13 +96,7 @@ function SmartVideo({ src, poster }: { src: string; poster?: string }) {
         loop
         playsInline
         poster={poster}
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          display: "block",
-          cursor: "pointer",
-        }}
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", cursor: "pointer" }}
       >
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
@@ -137,36 +126,18 @@ function SmartVideo({ src, poster }: { src: string; poster?: string }) {
             v.paused ? v.play() : v.pause();
             showControls();
           }}
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            color: "#fff",
-            fontSize: "20px",
-            padding: "2px",
-          }}
+          style={{ background: "none", border: "none", cursor: "pointer", color: "#fff", fontSize: "20px", padding: "2px" }}
         >
           ⏯
         </button>
         <button
           onClick={toggleMute}
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            color: "#fff",
-            fontSize: "18px",
-            padding: "2px",
-          }}
+          style={{ background: "none", border: "none", cursor: "pointer", color: "#fff", fontSize: "18px", padding: "2px" }}
         >
           {isMuted ? "🔇" : "🔊"}
         </button>
         <input
-          type="range"
-          min={0}
-          max={1}
-          step={0.05}
-          defaultValue={0}
+          type="range" min={0} max={1} step={0.05} defaultValue={0}
           onClick={(e) => e.stopPropagation()}
           onChange={(e) => {
             const v = videoRef.current;
@@ -180,10 +151,7 @@ function SmartVideo({ src, poster }: { src: string; poster?: string }) {
           style={{ width: "70px", accentColor: "#fff", cursor: "pointer" }}
         />
         <input
-          type="range"
-          min={0}
-          max={100}
-          defaultValue={0}
+          type="range" min={0} max={100} defaultValue={0}
           onClick={(e) => e.stopPropagation()}
           onChange={(e) => {
             const v = videoRef.current;
@@ -243,9 +211,15 @@ interface AwardCert {
   ayushFooter?: string;
 }
 
-/* ── Award Row — fully dynamic from API ── */
+function CheckIcon() {
+  return (
+    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 4.5L4 6.5L7.5 3" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 function AwardRow({ cert }: { cert: AwardCert }) {
-  // Build meta points array from individual fields, filter out empty ones
   const metaPoints = [
     cert.metaPoint1,
     cert.metaPoint2,
@@ -253,85 +227,116 @@ function AwardRow({ cert }: { cert: AwardCert }) {
     cert.metaPoint4,
   ].filter(Boolean) as string[];
 
-  // Use ayushCourses from API
   const ayushCourses: AyushCourse[] = cert.ayushCourses || [];
 
   return (
-    <div className={styles.awardRow}>
-      {/* LEFT: Image */}
-      <div className={styles.awardImageCol}>
-        <div className={styles.awardImgFrame}>
-          <Image
-            src={getImageUrl(cert.image)}
-            alt={cert.alt || cert.label}
-            fill
-            style={{ objectFit: "cover" }}
-          />
-          <div className={`${styles.corner} ${styles.tl}`} />
-          <div className={`${styles.corner} ${styles.tr}`} />
-          <div className={`${styles.corner} ${styles.bl}`} />
-          <div className={`${styles.corner} ${styles.br}`} />
+    <div className={styles.awardCard}>
+
+      {/* ── TOP SAFFRON BANNER ── */}
+      <div className={styles.awardTopBanner}>
+        <div className={styles.awardBannerTitle}>{cert.label}</div>
+        <span className={styles.awardBannerBadge}>✦ {cert.tag} ✦</span>
+      </div>
+
+      {/* ── BODY ── */}
+      <div className={styles.awardBody}>
+
+        {/* LEFT: portrait + stats */}
+        <div className={styles.awardPortraitCol}>
+          <div className={styles.portraitFrame}>
+            <Image
+              src={getImageUrl(cert.image)}
+              alt={cert.alt || cert.label}
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              style={{ objectFit: "contain" }}
+              priority
+            />
+          </div>
+
+          <div className={styles.statStack}>
+            <div className={styles.statBox}>
+              <div className={styles.statNum}>5,000+</div>
+              <div className={styles.statLbl}>Certified Graduates</div>
+            </div>
+            <div className={styles.statBox}>
+              <div className={styles.statNum}>{ayushCourses.length || 6}</div>
+              <div className={styles.statLbl}>Gov. Programs</div>
+            </div>
+            <div className={styles.statBox}>
+              <div className={styles.statNum}>Global</div>
+              <div className={styles.statLbl}>Recognition</div>
+            </div>
+          </div>
         </div>
-        <span className={styles.awardBadge}>✦ {cert.tag} ✦</span>
-      </div>
 
-      {/* MIDDLE: Description — fully from API */}
-      <div className={styles.awardDescCol}>
-        <h3 className={styles.awardName}>{cert.label}</h3>
-        <div className={styles.descDivider} />
+        {/* RIGHT: description + courses */}
+        <div className={styles.awardMainCol}>
 
-        {cert.descPara1 && (
-          <p className={styles.para}>{cert.descPara1}</p>
-        )}
-        {cert.descPara2 && (
-          <p className={styles.para}>{cert.descPara2}</p>
-        )}
+          {/* Description area */}
+          <div className={styles.awardDescArea}>
+            <h3 className={styles.awardDescTitle}>
+              Ministry of AYUSH Recognition — Government of India
+            </h3>
 
-        {metaPoints.length > 0 && (
-          <div className={styles.awardMeta}>
-            {metaPoints.map((point, i) => (
-              <div className={styles.metaItem} key={i}>
-                <span className={styles.metaDot} />
-                <span>{point}</span>
+            {cert.descPara1 && <p className={styles.para}>{cert.descPara1}</p>}
+            {cert.descPara2 && <p className={styles.para}>{cert.descPara2}</p>}
+
+            {metaPoints.length > 0 && (
+              <ul className={styles.bulletList}>
+                {metaPoints.map((point, i) => (
+                  <li className={styles.bulletItem} key={i}>
+                    <span className={styles.bulletDot}>
+                      <CheckIcon />
+                    </span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {cert.pullQuote && (
+              <blockquote className={styles.pullBlockquote}>
+                "{cert.pullQuote}"
+              </blockquote>
+            )}
+          </div>
+
+          {/* Courses area */}
+          {ayushCourses.length > 0 && (
+            <div className={styles.awardCoursesArea}>
+              <div className={styles.coursesHeader}>
+                <span className={styles.coursesPill}>✦ AYUSH Certified Courses ✦</span>
+                {cert.ayushSubtitle && (
+                  <span className={styles.coursesSubtitle}>{cert.ayushSubtitle}</span>
+                )}
               </div>
-            ))}
-          </div>
-        )}
-
-        {cert.pullQuote && (
-          <div className={styles.awardPullQuote}>
-            "{cert.pullQuote}"
-          </div>
-        )}
-      </div>
-
-      {/* RIGHT: AYUSH Courses — fully from API */}
-      <div className={styles.ayushCol}>
-        <div className={styles.ayushHeader}>
-          <span className={styles.ayushLabel}>✦ AYUSH Certified Courses ✦</span>
-          {cert.ayushSubtitle && (
-            <p className={styles.ayushSubtitle}>{cert.ayushSubtitle}</p>
+              <div className={styles.courseChipTrack}>
+                {ayushCourses.map((course, i) => (
+                  <div className={styles.courseChip} key={course._id || i}>
+                    <div className={styles.chipNum}>{String(i + 1).padStart(2, "0")}</div>
+                    <div className={styles.chipName}>{course.name}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           )}
+
         </div>
+      </div>
 
-        {ayushCourses.length > 0 && (
-          <div className={styles.coursesGrid}>
-            {ayushCourses.map((course, i) => (
-              <div className={styles.courseBox} key={course._id || i}>
-                <span className={styles.courseIcon}>{course.icon}</span>
-                <div className={styles.courseLevel}>{course.level}</div>
-                <div className={styles.courseName}>{course.name}</div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {cert.ayushFooter && (
-          <div className={styles.ayushFooter}>
-            {cert.ayushFooter}
-          </div>
+      {/* ── FOOTER STRIP ── */}
+      <div className={styles.awardFooterStrip}>
+        {cert.ayushFooter ? (
+          <span dangerouslySetInnerHTML={{ __html: cert.ayushFooter }} />
+        ) : (
+          <span>
+            All certifications are nationally recognized under the{" "}
+            <strong>Ministry of AYUSH</strong> framework &amp; accepted globally
+          </span>
         )}
       </div>
+
     </div>
   );
 }
@@ -364,7 +369,6 @@ export const AccreditationSection: React.FC = () => {
     <>
       {/* ══════════════ AUTHENTIC SECTION ══════════════ */}
       <section className={styles.authenticSection}>
-        
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
             <h2 className={styles.sectionTitle}>{data.sectionTitle}</h2>
@@ -372,13 +376,7 @@ export const AccreditationSection: React.FC = () => {
           </div>
 
           <div className={styles.authGrid}>
-            <div className={styles.authText}>
-              <p className={styles.para}>{data.authPara1}</p>
-              <p className={styles.para}>{data.authPara2}</p>
-              <p className={styles.para}>{data.authPara3}</p>
-              <p className={styles.para}>{data.authPara4}</p>
-            </div>
-
+            {/* Image — LEFT */}
             <div className={styles.authImageCol}>
               <div className={styles.authImageFrame}>
                 <div className={styles.authImageInner}>
@@ -387,12 +385,7 @@ export const AccreditationSection: React.FC = () => {
                     alt={data.imageCaption}
                     width={420}
                     height={300}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      borderRadius: "4px",
-                    }}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "4px" }}
                     priority
                   />
                   <p className={styles.imageCaption}>{data.imageCaption}</p>
@@ -409,18 +402,18 @@ export const AccreditationSection: React.FC = () => {
                 <span className={styles.pullQMark}>"</span>
               </div>
             </div>
+
+            {/* Text — RIGHT */}
+            <div className={styles.authText}>
+              <p className={styles.para}>{data.authPara1}</p>
+              <p className={styles.para}>{data.authPara2}</p>
+              <p className={styles.para}>{data.authPara3}</p>
+              <p className={styles.para}>{data.authPara4}</p>
+            </div>
           </div>
 
           <div className={styles.videoImmerse}>
-            <div className={styles.videoBlock}>
-              <div className={styles.videoPlaceholder}>
-                <SmartVideo
-                  src={data.videoSrc}
-                  poster="/images/video-thumbnail.jpg"
-                />
-              </div>
-            </div>
-
+            {/* Text — LEFT */}
             <div className={styles.immerseBlock}>
               <h3 className={styles.immerseTitle}>{data.immerseTitle}</h3>
               <div className={styles.immerseDivider} />
@@ -430,6 +423,16 @@ export const AccreditationSection: React.FC = () => {
                 {data.immerseCtaText}{" "}
                 <span className={styles.btnArrow}>→</span>
               </a>
+            </div>
+
+            {/* Video — RIGHT */}
+            <div className={styles.videoBlock}>
+              <div className={styles.videoPlaceholder}>
+                <SmartVideo
+                  src={data.videoSrc}
+                  poster="/images/video-thumbnail.jpg"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -449,7 +452,7 @@ export const AccreditationSection: React.FC = () => {
             <p className={styles.para}>{data.recognitionPara2}</p>
           </div>
 
-          {/* ══ COURSE CERTIFICATES ══ */}
+          {/* Course Certificates */}
           {courseCerts.length > 0 && (
             <div className={styles.certsBlock}>
               <div className={styles.certsBlockHeader}>
@@ -479,7 +482,7 @@ export const AccreditationSection: React.FC = () => {
             </div>
           )}
 
-          {/* ══ AWARDS — Dynamic 3-column layout ══ */}
+          {/* Awards */}
           {awardCerts.length > 0 && (
             <div className={styles.certsBlock}>
               <div className={styles.certsBlockHeader}>
@@ -488,7 +491,6 @@ export const AccreditationSection: React.FC = () => {
                 <span className={styles.certsBlockDecor}>✦</span>
               </div>
               <div className={styles.certsBlockLine} />
-
               <div className={styles.awardsStack}>
                 {awardCerts.map((cert: AwardCert, index: number) => (
                   <AwardRow key={cert._id || index} cert={cert} />

@@ -1,3 +1,4 @@
+// WhyAYMSection.tsx
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -28,7 +29,6 @@ interface WhyAYMData {
 
 /* ══════════════════════════════════════════════
    IMAGE URL HELPER
-   DB mein /uploads/... stored hai → full URL
 ══════════════════════════════════════════════ */
 const getImageUrl = (src: string): string => {
   if (!src) return "";
@@ -41,47 +41,18 @@ const getImageUrl = (src: string): string => {
 ══════════════════════════════════════════════ */
 const Skeleton = () => (
   <section className={styles.section}>
-    <div className={styles.a} />
+    <div className={styles.topBorder} />
     <div className={styles.container}>
-      <div className={`${styles.header}`}>
-        <div
-          style={{
-            height: "16px",
-            width: "220px",
-            background: "rgba(160,120,64,0.15)",
-            borderRadius: "6px",
-            margin: "0 auto 1rem",
-            animation: "pulse 1.5s ease-in-out infinite",
-          }}
-        />
-        <div
-          style={{
-            height: "28px",
-            width: "80%",
-            background: "rgba(160,120,64,0.15)",
-            borderRadius: "6px",
-            margin: "0 auto 0.6rem",
-            animation: "pulse 1.5s ease-in-out infinite",
-          }}
-        />
-        <div
-          style={{
-            height: "28px",
-            width: "60%",
-            background: "rgba(160,120,64,0.12)",
-            borderRadius: "6px",
-            margin: "0 auto 1.5rem",
-            animation: "pulse 1.5s ease-in-out infinite",
-          }}
-        />
+      <div className={styles.header}>
+        <div className={styles.skeletonLine} style={{ width: "220px", margin: "0 auto 1rem" }} />
+        <div className={styles.skeletonLine} style={{ width: "80%", margin: "0 auto 0.6rem" }} />
+        <div className={styles.skeletonLine} style={{ width: "60%", margin: "0 auto 1.5rem" }} />
+        <div className={styles.skeletonLine} style={{ width: "70%", margin: "0 auto", height: "80px" }} />
+      </div>
+      <div className={styles.body}>
+        <div className={styles.skeletonLine} style={{ width: "100%", height: "400px" }} />
       </div>
     </div>
-    <style>{`
-      @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.4; }
-      }
-    `}</style>
   </section>
 );
 
@@ -94,9 +65,6 @@ export const WhyAYMSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  /* ────────────────────────────────────────────
-     FETCH  →  GET /why-aym/get-all-why-aym
-  ──────────────────────────────────────────── */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -109,59 +77,55 @@ export const WhyAYMSection: React.FC = () => {
         setIsLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
-  /* ────────────────────────────────────────────
-     INTERSECTION OBSERVER — fadeUp animation
-     Data load hone ke baad run karo
-  ──────────────────────────────────────────── */
   useEffect(() => {
     if (!data) return;
-
-    /* Small timeout — DOM update hone do pehle */
     const timer = setTimeout(() => {
       const els = sectionRef.current?.querySelectorAll(`.${styles.fadeUp}`);
       if (!els) return;
-
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
             if (e.isIntersecting) e.target.classList.add(styles.fadeUpVisible);
           });
         },
-        { threshold: 0.08 },
+        { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
       );
-
       els.forEach((el) => observer.observe(el));
       return () => observer.disconnect();
     }, 100);
-
     return () => clearTimeout(timer);
   }, [data]);
 
-  /* ── Loading ── */
   if (isLoading) return <Skeleton />;
-
-  /* ── Error ya data nahi ── */
   if (error || !data) return null;
 
-  /* ── Image URL resolve ── */
   const heroImageUrl = getImageUrl(data.imageSrc);
 
   return (
     <section className={styles.section} ref={sectionRef}>
-      {/* ── Top decorative border ── */}
-      <div className={styles.a} />
+      {/* Sacred geometry background */}
+      <div className={styles.ambientBg}>
+        <span className={`${styles.bgSymbol} ${styles.symbol1}`}>🕉</span>
+        <span className={`${styles.bgSymbol} ${styles.symbol2}`}>☯</span>
+        <span className={`${styles.bgSymbol} ${styles.symbol3}`}>ॐ</span>
+        <span className={`${styles.bgSymbol} ${styles.symbol4}`}>✧</span>
+        <span className={`${styles.bgSymbol} ${styles.symbol5}`}>卐</span>
+        <span className={`${styles.bgSymbol} ${styles.symbol6}`}>✦</span>
+        <span className={`${styles.bgSymbol} ${styles.symbol7}`}>🧘</span>
+        <span className={`${styles.bgSymbol} ${styles.symbol8}`}>🔆</span>
+      </div>
 
+      <div className={styles.topBorder} />
       <div className={styles.container}>
         {/* ══ HEADER ══ */}
         <div className={`${styles.header} ${styles.fadeUp}`}>
-          {/* superTitle — plain text */}
+          <span className={styles.superTitleDecor}>✦</span>
           <p className={styles.superTitle}>{data.superTitle}</p>
+          <span className={styles.superTitleDecor}>✦</span>
 
-          {/* mainTitle — Jodit se HTML aa sakta hai */}
           <h2
             className={styles.mainTitle}
             dangerouslySetInnerHTML={{ __html: data.mainTitle }}
@@ -169,12 +133,13 @@ export const WhyAYMSection: React.FC = () => {
 
           <div className={styles.omDivider}>
             <span className={styles.dividerLine} />
-            <span className={styles.omSymbol}>ॐ</span>
+            <div className={styles.omPulse}>
+              <span className={styles.omSymbol}>ॐ</span>
+            </div>
             <span className={styles.dividerLine} />
           </div>
 
-          {/* introPara — Jodit se HTML aa sakta hai */}
-          <p
+          <div
             className={styles.introPara}
             dangerouslySetInnerHTML={{ __html: data.introPara }}
           />
@@ -182,112 +147,152 @@ export const WhyAYMSection: React.FC = () => {
 
         {/* ══ BODY — image + side features ══ */}
         <div className={styles.body}>
-          {/* ── Image Column ── */}
+          {/* Image Column */}
           <div className={`${styles.imageCol} ${styles.fadeUp}`}>
-            <div className={styles.imageWrap}>
-              <div className={styles.imageFrame}>
-                {heroImageUrl ? (
-                  /* External URL ya /uploads/... → next/image unoptimized */
-                  data.imageSrc.startsWith("http") ? (
-                    <img
-                      src={heroImageUrl}
-                      alt={data.imageAlt || "AYM Yoga School"}
-                      className={styles.heroImg}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                      }}
-                    />
-                  ) : (
-                    <Image
-                      src={heroImageUrl}
-                      alt={data.imageAlt || "AYM Yoga School"}
-                      className={styles.heroImg}
-                      width={600}
-                      height={400}
-                      unoptimized
-                    />
-                  )
-                ) : null}
+            <div className={styles.imageCard}>
+              <div className={styles.imageWrap}>
+                <div className={styles.imageFrame}>
+                  {heroImageUrl ? (
+                    data.imageSrc.startsWith("http") ? (
+                      <img
+                        src={heroImageUrl}
+                        alt={data.imageAlt || "AYM Yoga School"}
+                        className={styles.heroImg}
+                      />
+                    ) : (
+                      <Image
+                        src={heroImageUrl}
+                        alt={data.imageAlt || "AYM Yoga School"}
+                        className={styles.heroImg}
+                        width={600}
+                        height={800}
+                        unoptimized
+                      />
+                    )
+                  ) : null}
+                  
+                  <div className={styles.cornerTL} />
+                  <div className={styles.cornerBR} />
+                </div>
+
+                {data.imgBadgeYear && (
+                  <div className={styles.imgBadge}>
+                    <div className={styles.badgeInner}>
+                      <span className={styles.badgeIcon}>🔆</span>
+                      <span className={styles.badgeYear}>{data.imgBadgeYear}</span>
+                      <span className={styles.badgeText}>Years of<br />Sacred Wisdom</span>
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* Badge Year */}
-              {data.imgBadgeYear && (
-                <div className={styles.imgBadge}>
-                  <span className={styles.imgBadgeOm}>🔆</span>
-                  <span className={styles.imgBadgeYear}>
-                    {data.imgBadgeYear}
-                  </span>
+              {data.imgQuote && (
+                <div className={styles.quoteContainer}>
+                  <svg className={styles.quoteIcon} viewBox="0 0 24 24" width="32" height="32">
+                    <path d="M10 11H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3a8 8 0 0 1-8 8v-2a6 6 0 0 0 6-6z" fill="#F15505" opacity="0.6"/>
+                    <path d="M20 11h-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3a8 8 0 0 1-8 8v-2a6 6 0 0 0 6-6z" fill="#F15505" opacity="0.6"/>
+                  </svg>
+                  <blockquote className={styles.imgQuote}>
+                    <span className={styles.qMarkLeft}>"</span>
+                    {data.imgQuote}
+                    <span className={styles.qMarkRight}>"</span>
+                  </blockquote>
                 </div>
               )}
-
-              {/* Image Quote */}
-              {data.imgQuote && (
-                <blockquote className={styles.imgQuote}>
-                  <span className={styles.qMark}>&ldquo;</span>
-                  {data.imgQuote}
-                  <span className={styles.qMark}>&rdquo;</span>
-                </blockquote>
-              )}
             </div>
           </div>
 
-          {/* ── Side Features Column ── */}
-          <div className={styles.featuresCol}>
-            {data.sideFeatures.map((f, i) => (
-              <div
-                key={i}
-                className={`${styles.featureItem} ${styles.fadeUp}`}
-                style={{ "--d": `${i * 0.08}s` } as React.CSSProperties}
-              >
-                <span className={styles.featureOm} aria-hidden="true">
-                  🧘
-                </span>
-                <p className={styles.featureText}>
-                  {/* title — Jodit HTML */}
-                  <strong
-                    className={styles.featureTitle}
-                    dangerouslySetInnerHTML={{ __html: f.title }}
-                  />{" "}
-                  {/* desc — Jodit HTML */}
-                  <span dangerouslySetInnerHTML={{ __html: f.desc }} />
-                </p>
+          {/* Side Features Column — ALL FROM API */}
+          {data.sideFeatures && data.sideFeatures.length > 0 && (
+            <div className={styles.featuresCol}>
+              <div className={styles.featuresHeader}>
+                <span className={styles.featuresLabel}>✦ Why Choose Us ✦</span>
+                <div className={styles.featuresSubline}>Core Pillars of AYM Experience</div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ══ MID DIVIDER ══ */}
-        <div className={styles.midDivider}>
-          <span className={styles.dividerLine} />
-          <span className={styles.midPattern}>✦ 卐 ✦ ॐ ✦ 卐 ✦</span>
-          <span className={styles.dividerLine} />
-        </div>
-
-        {/* ══ BOTTOM FEATURES ══ */}
-        <div className={styles.bottomFeatures}>
-          {data.bottomFeatures.map((f, i) => (
-            <div
-              key={i}
-              className={`${styles.bottomItem} ${styles.fadeUp}`}
-              style={{ "--d": `${i * 0.1}s` } as React.CSSProperties}
-            >
-              <span className={styles.featureOm} aria-hidden="true">
-                🔆
-              </span>
-              <p className={styles.featureText}>
-                {/* title — Jodit HTML */}
-                <strong
-                  className={styles.featureTitle}
-                  dangerouslySetInnerHTML={{ __html: f.title }}
-                />{" "}
-                {/* desc — Jodit HTML */}
-                <span dangerouslySetInnerHTML={{ __html: f.desc }} />
-              </p>
+              
+              <div className={styles.featuresGrid}>
+                {data.sideFeatures.slice(0, 4).map((f, i) => (
+                  <div
+                    key={i}
+                    className={`${styles.featureCard} ${styles.fadeUp}`}
+                    style={{ transitionDelay: `${i * 0.08}s` } as React.CSSProperties}
+                  >
+                    <div className={styles.featureNumber}>0{i + 1}</div>
+                    <div className={styles.featureContent}>
+                      <div className={styles.featureIcon}>
+                        {i === 0 && "🧘"}
+                        {i === 1 && "🌸"}
+                        {i === 2 && "🏔️"}
+                        {i === 3 && "🔔"}
+                      </div>
+                      <div className={styles.featureText}>
+                        <strong
+                          className={styles.featureTitle}
+                          dangerouslySetInnerHTML={{ __html: f.title }}
+                        />
+                        <span dangerouslySetInnerHTML={{ __html: f.desc }} />
+                      </div>
+                    </div>
+                    <div className={styles.featureConnector} />
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+          )}
         </div>
+
+        {/* ══ ORNATE DIVIDER — Only show if bottom features exist ══ */}
+        {data.bottomFeatures && data.bottomFeatures.length > 0 && (
+          <div className={styles.midDivider}>
+            <span className={styles.dividerLineLeft} />
+            <div className={styles.midPatternWrap}>
+              <span className={styles.midPattern}>✦</span>
+              <span className={styles.midPattern}>卐</span>
+              <span className={styles.midPatternOm}>ॐ</span>
+              <span className={styles.midPattern}>卐</span>
+              <span className={styles.midPattern}>✦</span>
+            </div>
+            <span className={styles.dividerLineRight} />
+          </div>
+        )}
+
+        {/* ══ BOTTOM FEATURES - ALTERNATING LEFT/RIGHT LAYOUT — ALL FROM API ══ */}
+        {data.bottomFeatures && data.bottomFeatures.length > 0 && (
+          <div className={styles.bottomFeatures}>
+            <div className={styles.bottomFeaturesHeader}>
+              <span className={styles.bottomLabel}>✦ What We Offer ✦</span>
+              <h3 className={styles.bottomTitle}>Our Signature Programs</h3>
+            </div>
+            
+            <div className={styles.bottomAlternatingGrid}>
+              {data.bottomFeatures.map((f, i) => (
+                <div
+                  key={i}
+                  className={`${styles.bottomCard} ${i % 2 === 0 ? styles.cardLeft : styles.cardRight} ${styles.fadeUp}`}
+                  style={{ transitionDelay: `${i * 0.12}s` } as React.CSSProperties}
+                >
+                  <div className={styles.bottomCardInner}>
+                    <div className={styles.cardNumber}>{(i + 1).toString().padStart(2, '0')}</div>
+                    <div className={styles.cardIcon}>
+                      {i === 0 && "🎓"}
+                      {i === 1 && "🌿"}
+                      {i === 2 && "🧘"}
+                      {i === 3 && "🏅"}
+                    </div>
+                    <div className={styles.cardContent}>
+                      <strong
+                        className={styles.cardTitle}
+                        dangerouslySetInnerHTML={{ __html: f.title }}
+                      />
+                      <span dangerouslySetInnerHTML={{ __html: f.desc }} />
+                    </div>
+                    <div className={styles.cardArrow}>→</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       <div className={styles.bottomBorder} />
     </section>

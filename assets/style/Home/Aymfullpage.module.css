@@ -1,3 +1,4 @@
+/* Aymfullpage.module.css */
 /* ── CSS Variables ── */
 :root {
   --saffron: #F15505;
@@ -16,7 +17,7 @@
 
 /* ── Page Wrapper ── */
 .pageWrapper {
-  font-family: var(--font-body), sans-serif;        /* ✅ Lato */
+  font-family: var(--font-body), sans-serif;
   background: var(--parchment);
   color: var(--earth-warm);
   overflow-x: hidden;
@@ -50,7 +51,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-display), serif;          /* ✅ Playfair Display */
+  font-family: var(--font-display), serif;
   font-size: clamp(1.1rem, 2.5vw, 1.65rem);
   font-weight: 700;
   color: var(--earth);
@@ -70,7 +71,7 @@
 
 /* ── Shared: Para ── */
 .para {
-  font-family: var(--font-body), sans-serif;        /* ✅ Lato */
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(0.97rem, 1.6vw, 1.07rem);
   line-height: 1.9;
   color: var(--earth-warm);
@@ -78,7 +79,7 @@
 }
 
 .paraSmall {
-  font-family: var(--font-body), sans-serif;        /* ✅ Lato */
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(0.88rem, 1.4vw, 0.97rem);
   line-height: 1.8;
   color: var(--earth-light);
@@ -100,7 +101,7 @@
 }
 
 .salutation {
-  font-family: var(--font-body), sans-serif;        /* ✅ Lato */
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   color: var(--saffron-deep);
   font-weight: 600;
@@ -170,7 +171,7 @@
 }
 
 .diagramLabel {
-  font-family: var(--font-display), serif;          /* ✅ Playfair Display */
+  font-family: var(--font-display), serif;
   font-size: 0.6rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -202,7 +203,7 @@
 }
 
 .compareLabel {
-  font-family: var(--font-display), serif;          /* ✅ Playfair Display */
+  font-family: var(--font-display), serif;
   font-size: 0.58rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -246,7 +247,7 @@
 }
 
 .planesListItem {
-  font-family: var(--font-body), sans-serif;        /* ✅ Lato */
+  font-family: var(--font-body), sans-serif;
   font-size: 1.02rem;
   color: var(--earth-warm);
   padding: 0.5rem 0 0.5rem 1.5rem;
@@ -261,7 +262,7 @@
   position: absolute;
   left: 0;
   color: var(--saffron);
-  font-family: var(--font-display), serif;          /* ✅ Playfair Display */
+  font-family: var(--font-display), serif;
   font-weight: 700;
   font-size: 0.85rem;
 }
@@ -306,7 +307,7 @@
 }
 
 .groupPhotoText {
-  font-family: var(--font-body), sans-serif;        /* ✅ Lato */
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   color: rgba(253, 246, 236, 0.95);
   font-weight: 600;
@@ -314,7 +315,7 @@
 }
 
 /* ════════════════════════════════════════════════
-   SECTION — CAMPUS
+   SECTION — CAMPUS (REDESIGNED)
 ════════════════════════════════════════════════ */
 .campusSection {
   background: var(--parchment);
@@ -330,199 +331,282 @@
     radial-gradient(ellipse at 80% 10%, rgba(224, 123, 0, 0.04) 0%, transparent 55%),
     radial-gradient(ellipse at 10% 90%, rgba(92, 45, 0, 0.04) 0%, transparent 55%);
   pointer-events: none;
+  inset: 0;
 }
 
-/* ════════════════════════════════════════════════
-   CAMPUS FACILITIES — ALTERNATING LAYOUT
-════════════════════════════════════════════════ */
-.facilitiesList {
+.campusBadge {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--saffron);
+  text-transform: uppercase;
+  background: rgba(241, 85, 5, 0.08);
+  padding: 0.25rem 1rem;
+  border-radius: 40px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.facilitiesGrid {
   display: flex;
   flex-direction: column;
-  gap: clamp(2rem, 4vw, 1.5rem);
-  margin-bottom: 3rem;
+  gap: 2.5rem;
+  margin: 2rem 0 3rem;
 }
 
-.facilityItem {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 322px;
-  border: 1px solid var(--gold-border);
-  border-radius: 14px;
+.facilityCard {
+  display: flex;
+  background: white;
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 4px 24px var(--shadow-warm);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 10px 35px rgba(92, 45, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
   position: relative;
 }
 
-.facilityItem:nth-child(even) {
-  grid-template-columns: 1fr 2fr;
-}
-
-.facilityItem::before {
+.facilityCard::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--saffron), var(--saffron-light), transparent);
-  z-index: 2;
+  inset: 0;
+  border-radius: 28px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(241, 85, 5, 0.2), rgba(245, 184, 0, 0.1));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
-.facilityItem:hover {
-  box-shadow: 0 10px 40px rgba(92, 45, 0, 0.18);
-  transform: translateY(-2px);
+.facilityCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(241, 85, 5, 0.12);
 }
 
-.facilityItem:nth-child(odd) .facilityContent   { order: 1; }
-.facilityItem:nth-child(odd) .facilityImageWrap  { order: 2; }
-.facilityItem:nth-child(even) .facilityImageWrap { order: 1; }
-.facilityItem:nth-child(even) .facilityContent   { order: 2; }
+.cardLeft {
+  flex-direction: row;
+}
 
-/* ── Content block ── */
-.facilityContent {
-  padding: clamp(1.8rem, 3vw, 2.8rem) clamp(1.5rem, 3vw, 2.5rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.75rem;
+.cardRight {
+  flex-direction: row-reverse;
+}
+
+.cardImageWrapper {
+  flex: 1.2;
+  position: relative;
   overflow: hidden;
+  min-height: 320px;
 }
 
-.facilityHeader {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-}
-
-.facilityDot {
-  color: var(--saffron);
-  font-size: 0.9rem;
-  margin-top: 0.15rem;
-  flex-shrink: 0;
-}
-
-.facilityBold {
-  font-family: var(--font-display), serif;          /* ✅ Playfair Display */
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
-  color: var(--earth);
-  letter-spacing: 0.02em;
-  line-height: 1.45;
-  font-weight: 700;
-}
-
-.facilityUnderline {
-  width: 45px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--saffron), transparent);
-  border-radius: 2px;
-}
-
-.facilityText {
-  font-family: var(--font-body), sans-serif;        /* ✅ Lato */
-  font-size: clamp(0.92rem, 1.5vw, 1.02rem);
-  line-height: 1.88;
-  color: var(--earth-warm);
-  margin: 0;
-}
-
-/* ── Image block ── */
-.facilityImageWrap {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.facilityImage {
+.cardImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease;
 }
 
-.facilityItem:hover .facilityImage {
-  transform: scale(1.04);
+.facilityCard:hover .cardImage {
+  transform: scale(1.05);
 }
 
-.facilityImagePlaceholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #fdf0dc 0%, #f5e0b5 100%);
+.imageGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(241, 85, 5, 0.15), transparent 50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.imageOverlay {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.facilityPlaceholderIcon {
-  font-size: 3rem;
-  opacity: 0.35;
+.overlayIcon {
+  font-size: 1.5rem;
+  color: var(--saffron);
+}
+
+.cardContent {
+  flex: 1;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fffefc, #fffaf5);
+  position: relative;
+}
+
+.cardNumber {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(241, 85, 5, 0.08);
+  line-height: 1;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.cardIcon {
+  font-size: 1.6rem;
+  color: var(--saffron);
+}
+
+.cardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--earth);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.cardDivider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--saffron), var(--saffron-light));
+  margin: 0.5rem 0 1rem;
+  border-radius: 3px;
+}
+
+.cardText {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--earth-warm);
+  margin-bottom: 1.5rem;
+}
+
+.cardFooter {
+  margin-top: auto;
+}
+
+.cardLink {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--saffron);
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.cardLink:hover {
+  gap: 0.6rem;
+  color: var(--earth);
 }
 
 /* Promo cards */
 .promoCards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
 .promoCard {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
+  background: white;
+  border-radius: 24px;
   overflow: hidden;
-  background:  #ffffff;
-  border: 1px solid var(--gold-border);
-  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(92, 45, 0, 0.08);
+  position: relative;
 }
+
 .promoCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(222, 161, 105, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(241, 85, 5, 0.12);
+}
+
+.promoBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.promoContent {
+  padding: 1.8rem;
+  position: relative;
+  z-index: 1;
 }
 
 .promoTitle {
-  font-family: var(--font-body), sans-serif;        /* ✅ Lato */
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--saffron-deep);
   margin-bottom: 0.6rem;
-  line-height: 1.4;
+  padding-right: 3rem;
 }
 
 .promoUnderline {
   width: 50px;
   height: 2px;
-  background: linear-gradient(90deg, var(--saffron), transparent);
-  margin-bottom: 0.9rem;
+  background: linear-gradient(90deg, var(--saffron), var(--saffron-light));
+  margin-bottom: 1rem;
+  border-radius: 2px;
 }
 
 .promoText {
-  font-family: var(--font-body), sans-serif;        /* ✅ Lato */
-  font-size: clamp(0.88rem, 1.4vw, 0.97rem);
-  line-height: 1.8;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--earth-warm);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .promoLink {
-  font-family: var(--font-display), serif;          /* ✅ Playfair Display */
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--saffron-deep);
-  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
   font-weight: 600;
-  transition: color 0.2s;
+  letter-spacing: 0.05em;
+  color: var(--saffron);
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .promoLink:hover {
+  gap: 0.6rem;
   color: var(--earth);
 }
 
-/* Image top */
 .promoImageWrap {
   width: 100%;
-  height: 300px; /* control height */
+  height: 220px;
   overflow: hidden;
 }
 
@@ -534,20 +618,12 @@
   transition: transform 0.4s ease;
 }
 
-/* Hover zoom effect */
 .promoCard:hover .promoImage {
   transform: scale(1.05);
 }
 
-/* Content bottom spacing */
-.promoContent {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 /* ════════════════════════════════════════════════
-   SECTION — CTA JOURNEY BANNER
+   SECTION — CTA BANNER
 ════════════════════════════════════════════════ */
 .ctaSection {
   position: relative;
@@ -555,7 +631,6 @@
 }
 
 .ctaContent {
-  background: linear-gradient(135deg, #fffbf6 0%, #fff6eb 40%, #fdf1e3 70%, #fff7ed 100%);
   position: relative;
   overflow: hidden;
   padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
@@ -570,7 +645,7 @@
   transform: translate(-50%, -50%);
   font-size: clamp(10rem, 20vw, 18rem);
   color: rgba(255, 255, 255, 0.06);
-  font-family: var(--font-display), serif;          /* ✅ Playfair Display */
+  font-family: var(--font-display), serif;
   pointer-events: none;
   user-select: none;
   line-height: 1;
@@ -583,10 +658,11 @@
     radial-gradient(ellipse at 20% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 55%),
     radial-gradient(ellipse at 80% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
   pointer-events: none;
+  inset: 0;
 }
 
 .ctaHeading {
-  font-family: var(--font-display), serif;          /* ✅ Playfair Display */
+  font-family: var(--font-display), serif;
   font-size: clamp(1.4rem, 3.5vw, 2.4rem);
   font-weight: 700;
   color: #000000;
@@ -599,7 +675,7 @@
 }
 
 .ctaSubtext {
-  font-family: var(--font-body), sans-serif;        /* ✅ Lato */
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(1rem, 1.8vw, 1.2rem);
   color: rgba(0, 0, 0, 0.92);
   max-width: 600px;
@@ -615,7 +691,7 @@
   gap: 10px;
   background: #25D366;
   color: #fff;
-  font-family: var(--font-menu), sans-serif;        /* ✅ Montserrat — CTA button */
+  font-family: var(--font-menu), sans-serif;
   font-size: clamp(0.78rem, 1.3vw, 0.88rem);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -655,7 +731,7 @@
   top: -1rem;
   left: 50%;
   transform: translateX(-50%);
-  font-family: var(--font-body), sans-serif;        /* ✅ Lato */
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(8rem, 15vw, 14rem);
   color: rgba(224, 123, 0, 0.08);
   line-height: 1;
@@ -664,7 +740,7 @@
 }
 
 .masterQuote {
-  font-family: var(--font-display), serif;          /* ✅ Playfair Display */
+  font-family: var(--font-display), serif;
   font-size: clamp(1.1rem, 2.5vw, 1.55rem);
   font-style: italic;
   color: #000000;
@@ -676,7 +752,7 @@
 }
 
 .masterAttrib {
-  font-family: var(--font-menu), sans-serif;        /* ✅ Montserrat — attribution */
+  font-family: var(--font-menu), sans-serif;
   font-size: clamp(0.75rem, 1.2vw, 0.88rem);
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -686,67 +762,262 @@
   z-index: 1;
 }
 
-/* Journey text — Two Column Layout */
-.journeyText {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 4vw, 3.5rem);
-  align-items: center;
-  margin: 0 auto;
-}
-
-.journeyContent {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.journeyImage {
-  position: sticky;
-  top: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.journeyImageWrapper {
-  border-radius: 12px;
+/* ════════════════════════════════════════════════
+   JOURNEY SECTION — REDESIGNED
+════════════════════════════════════════════════ */
+.journeySection {
+  border-top: 1px solid var(--gold-border);
+  position: relative;
   overflow: hidden;
-  border: 2px solid var(--gold-border);
-  background: linear-gradient(135deg, var(--cream-white) 0%, #fdf6ec 100%);
-  box-shadow: 0 8px 32px var(--shadow-warm);
-  max-height: 450px;
+}
+
+/* subtle warm noise texture */
+.journeySection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 5% 50%, rgba(241, 85, 5, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse at 95% 20%, rgba(245, 184, 0, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.journeyInner {
+  position: relative;
+  z-index: 1;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5.5rem) clamp(1.5rem, 5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+}
+
+/* ── Left: text column ── */
+.journeyLeft {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.journeyBadgeWrap {
+  margin-bottom: 1.8rem;
+}
+
+.journeyBadge {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  background: rgba(241, 85, 5, 0.07);
+  border: 1px solid rgba(241, 85, 5, 0.18);
+  padding: 0.3rem 1.1rem;
+  border-radius: 40px;
+}
+
+.journeyParasWrap {
+  position: relative;
+  padding-left: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* The elegant left accent line */
+.journeyParasWrap::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--saffron) 0%,
+    var(--saffron-light) 45%,
+    rgba(245, 184, 0, 0.25) 100%
+  );
+  border-radius: 3px;
+}
+
+.journeyPara {
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(0.97rem, 1.5vw, 1.06rem);
+  line-height: 1.95;
+  color: var(--earth-warm);
+  margin-bottom: 1.35rem;
+}
+
+.journeyPara:last-of-type {
+  margin-bottom: 0;
+}
+
+.journeyParaLast {
+  font-style: italic;
+  color: var(--earth-light);
+}
+
+.journeyNamaste {
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  font-style: italic;
+  color: var(--earth-light);
+  line-height: 1.8;
+  margin-top: 1.35rem;
+  margin-bottom: 0;
+  padding-top: 1.2rem;
+  border-top: 1px dashed rgba(224, 123, 0, 0.25);
+}
+
+.journeyNamaste strong {
+  color: var(--saffron-deep);
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* Om watermark */
+.journeyOmMark {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1rem;
+  font-family: var(--font-display), serif;
+  font-size: 9rem;
+  color: rgba(241, 85, 5, 0.05);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ── Right: image column ── */
+.journeyRight {
+  position: sticky;
+  top: 2.5rem;
+}
+
+.journeyImgFrame {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* decorative offset border */
+.journeyImgBorder {
+  position: relative;
+  align-self: flex-end;
+  width: calc(100% - 18px);
+  height: 18px;
+  background: linear-gradient(90deg, var(--saffron), var(--saffron-light));
+  border-radius: 10px 10px 0 0;
+  opacity: 0.7;
+}
+
+.journeyImgInner {
+  position: relative;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+  box-shadow:
+    0 2px 0 0 rgba(241, 85, 5, 0.3),
+    -18px 18px 0 0 rgba(241, 85, 5, 0.1),
+    0 18px 55px rgba(92, 45, 0, 0.2);
+  background: var(--earth);
+}
+
+.journeyImg {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: saturate(1.05);
+}
+
+.journeyImgInner:hover .journeyImg {
+  transform: scale(1.04);
+}
+
+/* glossy sheen overlay */
+.journeyImgSheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 50%,
+    rgba(92, 45, 0, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+/* caption strip below image */
+.journeyCaption {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0 0.25rem;
 }
 
-.journeyImageWrapper img {
-  width: 100%;
-  height: 460px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
+.journeyCaptionLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-border));
 }
 
-.journeyImageWrapper:hover img {
-  transform: scale(1.03);
+.journeyCaptionLine:last-child {
+  background: linear-gradient(90deg, var(--gold-border), transparent);
 }
 
-.journeyImageCaption {
+.journeyCaptionText {
   font-family: var(--font-body), sans-serif;
-  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+  font-size: clamp(0.78rem, 1.2vw, 0.88rem);
   color: var(--earth-light);
   font-style: italic;
   text-align: center;
-  padding: 0.5rem 0;
-  line-height: 1.6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
+  letter-spacing: 0.02em;
 }
 
-.namaste {
-  font-style: italic;
-  color: var(--earth-light);
-  font-size: clamp(1rem, 1.7vw, 1.1rem);
+/* bottom lotus divider */
+.journeyDivider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 clamp(1.5rem, 5vw, 3.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.journeyDividerLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(224, 123, 0, 0.3), transparent);
+}
+
+.journeyDividerSymbol {
+  font-size: 1rem;
+  color: rgba(241, 85, 5, 0.4);
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Tablet portrait (≤1024px)
+════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .journeyInner {
+    grid-template-columns: 1fr 360px;
+    gap: 2.5rem;
+  }
 }
 
 /* ════════════════════════════════════════════════
@@ -758,40 +1029,64 @@
     gap: 1.5rem;
   }
 
-  .promoCards {
-    grid-template-columns: 1fr;
-  }
-
   .groupPhotoImg {
     height: 280px;
   }
 
-  .facilityItem {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto auto;
+  /* Campus section responsive */
+  .facilityCard {
+    flex-direction: column !important;
   }
 
-  .facilityItem:nth-child(odd) .facilityContent,
-  .facilityItem:nth-child(even) .facilityContent  { order: 2; }
-  .facilityItem:nth-child(odd) .facilityImageWrap,
-  .facilityItem:nth-child(even) .facilityImageWrap { order: 1; height: 220px; }
+  .cardImageWrapper {
+    min-height: 250px;
+    order: 1;
+  }
 
-  .facilityContent {
-    padding: 1.5rem 1.4rem;
+  .cardContent {
+    order: 2;
+  }
+
+  .cardNumber {
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+  }
+
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+
+  .promoCards {
+    grid-template-columns: 1fr;
   }
 
   /* Journey section responsive */
-  .journeyText {
+  .journeyInner {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
+    padding-bottom: 2rem;
   }
 
-  .journeyImage {
+  .journeyRight {
     position: static;
+    /* On tablet, push image to top for visual impact */
+    order: -1;
   }
 
-  .journeyImageWrapper {
-    max-height: 350px;
+  .journeyImg {
+    height: 340px;
+  }
+
+  .journeyImgBorder {
+    width: calc(100% - 14px);
+    height: 14px;
+  }
+
+  .journeyOmMark {
+    font-size: 7rem;
+    right: 0;
+    bottom: -1rem;
   }
 }
 
@@ -827,34 +1122,105 @@
     height: 160px;
   }
 
-  .promoCard {
-    padding: 1.4rem 1.2rem;
-  }
-
-  .facilityItem {
-    padding: 0;
-    border-radius: 10px;
-  }
-
-  .facilityContent {
-    padding: 1.2rem 1rem;
-  }
-
-  .facilityItem:nth-child(odd) .facilityImageWrap,
-  .facilityItem:nth-child(even) .facilityImageWrap { height: 180px; }
-
-  /* Journey section mobile */
-  .journeyText {
-    grid-template-columns: 1fr;
+  /* Campus section mobile */
+  .facilitiesGrid {
     gap: 1.5rem;
   }
 
-  .journeyImageWrapper {
-    max-height: 280px;
+  .cardContent {
+    padding: 1.2rem;
   }
 
-  .journeyImageCaption {
-    font-size: 0.85rem;
+  .cardHeader {
+    margin-bottom: 0.5rem;
+  }
+
+  .cardIcon {
+    font-size: 1.2rem;
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+  }
+
+  .cardText {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .cardNumber {
+    font-size: 1.5rem;
+  }
+
+  .promoContent {
+    padding: 1.2rem;
+  }
+
+  .promoTitle {
+    font-size: 1.1rem;
+    padding-right: 2rem;
+  }
+
+  .promoBadge {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .promoImageWrap {
+    height: 180px;
+  }
+
+  /* Journey section mobile */
+  .journeyInner {
+    padding: 2rem 1.2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .journeyImg {
+    height: 260px;
+  }
+
+  .journeyImgBorder {
+    width: calc(100% - 10px);
+    height: 10px;
+  }
+
+  .journeyParasWrap {
+    padding-left: 1.25rem;
+  }
+
+  .journeyPara {
+    font-size: 0.95rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .journeyNamaste {
+    font-size: 0.95rem;
+  }
+
+  .journeyOmMark {
+    font-size: 5.5rem;
+    bottom: -0.5rem;
+  }
+
+  .journeyBadge {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+  }
+
+  .journeyCaptionText {
+    font-size: 0.78rem;
+    max-width: 200px;
+  }
+
+  .journeyDivider {
+    padding-bottom: 1.5rem;
+  }
+
+  .facilityItem:nth-child(odd) .facilityImageWrap,
+  .facilityItem:nth-child(even) .facilityImageWrap {
+    height: 180px;
   }
 }
 
@@ -867,6 +1233,48 @@
     padding: 0.75rem 1.4rem;
   }
 
-  .facilityItem:nth-child(odd) .facilityImageWrap,
-  .facilityItem:nth-child(even) .facilityImageWrap { height: 150px; }
+  .cardImageWrapper {
+    min-height: 200px;
+  }
+
+  .cardContent {
+    padding: 1rem;
+  }
+
+  .cardIcon {
+    font-size: 1rem;
+  }
+
+  .cardTitle {
+    font-size: 0.9rem;
+  }
+
+  .cardText {
+    font-size: 0.85rem;
+  }
+
+  .promoTitle {
+    font-size: 1rem;
+  }
+
+  .promoText {
+    font-size: 0.85rem;
+  }
+
+  .journeyInner {
+    padding: 1.5rem 1rem 1.2rem;
+  }
+
+  .journeyImg {
+    height: 220px;
+  }
+
+  .journeyPara {
+    font-size: 0.9rem;
+    line-height: 1.85;
+  }
+
+  .journeyOmMark {
+    font-size: 4rem;
+  }
 }

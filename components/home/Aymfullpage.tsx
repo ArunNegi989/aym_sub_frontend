@@ -71,12 +71,12 @@ const toAbsUrl = (path: string | undefined | null): string => {
    — used only when no imageUrl from API
 ══════════════════════════════════════════════ */
 const FALLBACK_CAMPUS_IMAGES = [
-  "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=80", // yoga hall
-  "https://images.unsplash.com/photo-1588286840104-8957b019727f?w=800&q=80", // rishikesh ganges
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80", // meditation room
-  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80", // yoga class outdoor
-  "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=800&q=80", // ashram nature
-  "https://images.unsplash.com/photo-1562088287-bde35a1ea917?w=800&q=80", // yoga pose
+  "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=80",
+  "https://images.unsplash.com/photo-1588286840104-8957b019727f?w=800&q=80",
+  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80",
+  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
+  "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=800&q=80",
+  "https://images.unsplash.com/photo-1562088287-bde35a1ea917?w=800&q=80",
 ];
 
 /* ══════════════════════════════════════════════
@@ -148,109 +148,49 @@ const AYMFullPage: React.FC = () => {
     fetchData();
   }, []);
 
-  /* ── Loading ── */
   if (isLoading) {
     return (
-      <div
-        className={styles.pageWrapper}
-        style={{
-          minHeight: "60vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "1.1rem",
-            color: "#a07840",
-            fontStyle: "italic",
-          }}
-        >
+      <div className={styles.pageWrapper} style={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", color: "#a07840", fontStyle: "italic" }}>
           Loading…
         </p>
       </div>
     );
   }
 
-  /* ── Error ── */
   if (error || !data) {
     return (
-      <div
-        className={styles.pageWrapper}
-        style={{
-          minHeight: "40vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            color: "#c44a00",
-            fontStyle: "italic",
-          }}
-        >
+      <div className={styles.pageWrapper} style={{ minHeight: "40vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <p style={{ fontFamily: "'Cormorant Garamond', serif", color: "#c44a00", fontStyle: "italic" }}>
           {error ?? "Content unavailable."}
         </p>
       </div>
     );
   }
 
-  /* ════════════════════════════════════════════
-     RENDER
-  ════════════════════════════════════════════ */
   return (
     <div className={styles.pageWrapper}>
       {/* ══════════ ALIGNMENT SECTION ══════════ */}
       <section className={styles.alignSection}>
         <div className={styles.container}>
-          {/* Section heading — rich text */}
           <div className={styles.sectionHeaderCenter}>
-            <h2
-              className={styles.sectionTitle}
-              dangerouslySetInnerHTML={{ __html: data.alignTitle }}
-            />
+            <h2 className={styles.sectionTitle} dangerouslySetInnerHTML={{ __html: data.alignTitle }} />
             <div className={styles.titleUnderline} />
           </div>
-
-          {/* Salutation — plain text */}
           <p className={styles.salutation}>{data.salutation}</p>
-
-          {/* Body paragraphs — rich text */}
-          <div
-            className={styles.para}
-            dangerouslySetInnerHTML={{ __html: data.alignPara1 }}
-          />
-          <div
-            className={styles.para}
-            dangerouslySetInnerHTML={{ __html: data.alignPara2 }}
-          />
-          <div
-            className={styles.para}
-            dangerouslySetInnerHTML={{ __html: data.alignPara3 }}
-          />
-
-          {/* Body planes grid */}
+          <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.alignPara1 }} />
+          <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.alignPara2 }} />
+          <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.alignPara3 }} />
           <div className={styles.planesGrid}>
-            {/* Diagram image */}
             <div className={styles.planesImageBlock}>
               <div className={styles.planesImagePlaceholder}>
                 {data.bodyPlanesImage ? (
                   <div className={styles.diagramBox}>
-                    <img
-                      src={data.bodyPlanesImage}
-                      alt={data.bodyPlanesImageAlt || "Yoga body planes diagram"}
-                      className={styles.diagramImage}
-                    />
+                    <img src={data.bodyPlanesImage} alt={data.bodyPlanesImageAlt || "Yoga body planes diagram"} className={styles.diagramImage} />
                     {data.bodyPlanes.length > 0 && (
                       <div className={styles.diagramLabelsRow}>
                         {data.bodyPlanes.map((plane, i) => (
-                          <div key={i} className={styles.diagramLabel}>
-                            {plane.label}
-                          </div>
+                          <div key={i} className={styles.diagramLabel}>{plane.label}</div>
                         ))}
                       </div>
                     )}
@@ -258,26 +198,17 @@ const AYMFullPage: React.FC = () => {
                 ) : null}
               </div>
             </div>
-
-            {/* Planes info — rich text intro + numbered list */}
             <div className={styles.planesInfoBlock}>
-              <div
-                className={styles.para}
-                dangerouslySetInnerHTML={{ __html: data.planesPara }}
-              />
+              <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.planesPara }} />
               {data.bodyPlanes.length > 0 && (
                 <ol className={styles.planesList}>
                   {data.bodyPlanes.map((plane, i) => (
-                    <li key={i} className={styles.planesListItem}>
-                      {plane.listItem}
-                    </li>
+                    <li key={i} className={styles.planesListItem}>{plane.listItem}</li>
                   ))}
                 </ol>
               )}
             </div>
           </div>
-
-          {/* Highlight paragraph */}
           <p className={styles.para}>
             According to Yogi Chetan Mahesh, every Yoga student or Yoga teacher
             trainer should master all exercises, such as flexion, extension,
@@ -287,21 +218,13 @@ const AYMFullPage: React.FC = () => {
             <strong className={styles.highlight}>{data.highlight1}</strong> or{" "}
             <strong className={styles.highlight}>{data.highlight2}</strong>
           </p>
-
-          {/* Outdoor group photo */}
           {data.outdoorImage && (
             <div className={styles.groupPhotoBlock}>
               <div className={styles.groupPhotoBanner}>
-                <img
-                  src={data.outdoorImage}
-                  alt={data.outdoorImageAlt || "Outdoor Yoga Practice"}
-                  className={styles.groupPhotoImg}
-                />
+                <img src={data.outdoorImage} alt={data.outdoorImageAlt || "Outdoor Yoga Practice"} className={styles.groupPhotoImg} />
                 {data.outdoorCaption && (
                   <div className={styles.groupPhotoOverlay}>
-                    <span className={styles.groupPhotoText}>
-                      {data.outdoorCaption}
-                    </span>
+                    <span className={styles.groupPhotoText}>{data.outdoorCaption}</span>
                   </div>
                 )}
               </div>
@@ -314,128 +237,71 @@ const AYMFullPage: React.FC = () => {
       <section className={styles.campusSection}>
         <div className={styles.a} />
         <div className={styles.container}>
-          {/* Campus heading — rich text */}
           <div className={styles.sectionHeaderCenter}>
-            <h2
-              className={styles.sectionTitle}
-              dangerouslySetInnerHTML={{ __html: data.campusTitle }}
-            />
+            <span className={styles.campusBadge}>✦ Our Sacred Campus ✦</span>
+            <h2 className={styles.sectionTitle} dangerouslySetInnerHTML={{ __html: data.campusTitle }} />
             <div className={styles.titleUnderline} />
           </div>
 
-          {/* ── Facilities — Alternating layout ── */}
-          <div className={styles.facilitiesList}>
+          <div className={styles.facilitiesGrid}>
             {data.campusFacilities.map((f, i) => {
-              /* Use API image if available, else fallback */
-              const imgSrc =
-                f.imageUrl ||
-                FALLBACK_CAMPUS_IMAGES[i % FALLBACK_CAMPUS_IMAGES.length];
+              const imgSrc = f.imageUrl || FALLBACK_CAMPUS_IMAGES[i % FALLBACK_CAMPUS_IMAGES.length];
               const imgAlt = f.imageAlt || f.bold || "Campus facility";
+              const isEven = i % 2 === 0;
 
               return (
-                <div key={i} className={styles.facilityItem}>
-                  {/* Content: title + text */}
-                  <div className={styles.facilityContent}>
-                    <div className={styles.facilityHeader}>
-                      <span className={styles.facilityDot}>✦</span>
-                      <strong className={styles.facilityBold}>{f.bold}</strong>
+                <div key={i} className={`${styles.facilityCard} ${isEven ? styles.cardLeft : styles.cardRight}`}>
+                  <div className={styles.cardImageWrapper}>
+                    <div className={styles.imageGlow}></div>
+                    <img src={imgSrc} alt={imgAlt} className={styles.cardImage} loading="lazy" />
+                    <div className={styles.imageOverlay}>
+                      <span className={styles.overlayIcon}>🕉</span>
                     </div>
-                    <div className={styles.facilityUnderline} />
-                    {/* facility text — rich text */}
-                    <div
-                      className={styles.facilityText}
-                      dangerouslySetInnerHTML={{ __html: f.text }}
-                    />
                   </div>
-
-                  {/* Image */}
-                  <div className={styles.facilityImageWrap}>
-                    {imgSrc ? (
-                      <img
-                        src={imgSrc}
-                        alt={imgAlt}
-                        className={styles.facilityImage}
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className={styles.facilityImagePlaceholder}>
-                        <span className={styles.facilityPlaceholderIcon}>🕉</span>
-                      </div>
-                    )}
+                  <div className={styles.cardContent}>
+                    <div className={styles.cardNumber}>0{i + 1}</div>
+                    <div className={styles.cardHeader}>
+                      <span className={styles.cardIcon}>✦</span>
+                      <h3 className={styles.cardTitle}>{f.bold}</h3>
+                    </div>
+                    <div className={styles.cardDivider} />
+                    <div className={styles.cardText} dangerouslySetInnerHTML={{ __html: f.text }} />
+                    <div className={styles.cardFooter}>
+                      <span className={styles.cardLink}>Explore →</span>
+                    </div>
                   </div>
                 </div>
               );
             })}
           </div>
 
-          {/* Promo cards */}
-        <div className={styles.promoCards}>
-  
-  {/* Promo Card 1 */}
-  <div className={styles.promoCard}>
-    
-    <div className={styles.promoContent}>
-      <h3
-        className={styles.promoTitle}
-        dangerouslySetInnerHTML={{ __html: data.promoCard1.title }}
-      />
-      <div className={styles.promoUnderline} />
+          <div className={styles.promoCards}>
+            <div className={styles.promoCard}>
+              <div className={styles.promoContent}>
+                <div className={styles.promoBadge}>01</div>
+                <h3 className={styles.promoTitle} dangerouslySetInnerHTML={{ __html: data.promoCard1.title }} />
+                <div className={styles.promoUnderline} />
+                <div className={styles.promoText} dangerouslySetInnerHTML={{ __html: data.promoCard1.text }} />
+                <a href={data.promoCard1.link} className={styles.promoLink}>More information →</a>
+              </div>
+              <div className={styles.promoImageWrap}>
+                <Image src={Image1} alt="image" className={styles.promoImage} width={300} height={250} />
+              </div>
+            </div>
 
-      <div
-        className={styles.promoText}
-        dangerouslySetInnerHTML={{ __html: data.promoCard1.text }}
-      />
-
-      <a href={data.promoCard1.link} className={styles.promoLink}>
-        More information →
-      </a>
-    </div>
-
-    <div className={styles.promoImageWrap}>
-      <Image
-        src={Image1}
-        alt="image"
-        className={styles.promoImage}
-        width={300}
-        height={250}
-      />
-    </div>
-
-  </div>
-
-  {/* Promo Card 2 */}
-  <div className={styles.promoCard}>
-    
-    <div className={styles.promoContent}>
-      <h3
-        className={styles.promoTitle}
-        dangerouslySetInnerHTML={{ __html: data.promoCard2.title }}
-      />
-      <div className={styles.promoUnderline} />
-
-      <div
-        className={styles.promoText}
-        dangerouslySetInnerHTML={{ __html: data.promoCard2.text }}
-      />
-
-      <a href={data.promoCard2.link} className={styles.promoLink}>
-        More information →
-      </a>
-    </div>
-
-    <div className={styles.promoImageWrap}>
-      <Image
-        src={Image1}
-        alt="image"
-        className={styles.promoImage}
-        width={300}
-        height={250}
-      />
-    </div>
-
-  </div>
-
-</div>
+            <div className={styles.promoCard}>
+              <div className={styles.promoContent}>
+                <div className={styles.promoBadge}>02</div>
+                <h3 className={styles.promoTitle} dangerouslySetInnerHTML={{ __html: data.promoCard2.title }} />
+                <div className={styles.promoUnderline} />
+                <div className={styles.promoText} dangerouslySetInnerHTML={{ __html: data.promoCard2.text }} />
+                <a href={data.promoCard2.link} className={styles.promoLink}>More information →</a>
+              </div>
+              <div className={styles.promoImageWrap}>
+                <Image src={Image1} alt="image" className={styles.promoImage} width={300} height={250} />
+              </div>
+            </div>
+          </div>
         </div>
         <div className={styles.bottomBorder} />
       </section>
@@ -444,76 +310,87 @@ const AYMFullPage: React.FC = () => {
       <section className={styles.ctaSection}>
         <div className={styles.ctaBg} />
         <div className={styles.ctaContent}>
-          {/* CTA heading — rich text */}
-          <h2
-            className={styles.ctaHeading}
-            dangerouslySetInnerHTML={{ __html: data.ctaHeading }}
-          />
-
-          {/* CTA subtext — rich text */}
-          <div
-            className={styles.ctaSubtext}
-            dangerouslySetInnerHTML={{ __html: data.ctaSubtext }}
-          />
-
+          <h2 className={styles.ctaHeading} dangerouslySetInnerHTML={{ __html: data.ctaHeading }} />
+          <div className={styles.ctaSubtext} dangerouslySetInnerHTML={{ __html: data.ctaSubtext }} />
           <a href={data.whatsappLink} className={styles.whatsappBtn}>
             <span className={styles.waIcon}>💬</span> Chat with Us on WhatsApp
           </a>
         </div>
 
-        {/* Master quote block */}
         <div className={styles.masterQuoteBlock}>
-          <div
-            className={styles.masterQuote}
-            dangerouslySetInnerHTML={{ __html: data.masterQuote }}
-          />
+          <div className={styles.masterQuote} dangerouslySetInnerHTML={{ __html: data.masterQuote }} />
           <div className={styles.masterAttrib}>{data.masterAttrib}</div>
         </div>
 
-        {/* Journey paragraphs */}
-        <div className={styles.container}>
-          <div className={styles.journeyText}>
-            {/* Left: Journey Content */}
-            <div className={styles.journeyContent}>
-              {data.journeyParas.map((para, i) => {
-                const isLast = i === data.journeyParas.length - 1;
-                return (
-                  <div
-                    key={i}
-                    className={
-                      isLast ? `${styles.para} ${styles.namaste}` : styles.para
-                    }
-                    dangerouslySetInnerHTML={{ __html: para.text }}
-                  />
-                );
-              })}
+        {/* ══════════ JOURNEY SECTION — REDESIGNED ══════════ */}
+        {(data.journeyParas.length > 0 || data.namesteText || data.outdoorImage) && (
+          <div className={styles.journeySection}>
+            <div className={styles.journeyInner}>
 
-              {data.namesteText && (
-                <p className={`${styles.para} ${styles.namaste}`}>
-                  {data.namesteText} <strong>Namaste!</strong>
-                </p>
+              {/* Left: decorative vertical accent + paragraphs */}
+              <div className={styles.journeyLeft}>
+                <div className={styles.journeyBadgeWrap}>
+                  <span className={styles.journeyBadge}>✦ Your Journey ✦</span>
+                </div>
+
+                <div className={styles.journeyParasWrap}>
+                  {data.journeyParas.map((para, i) => {
+                    const isLast = i === data.journeyParas.length - 1;
+                    return (
+                      <div
+                        key={i}
+                        className={`${styles.journeyPara} ${isLast ? styles.journeyParaLast : ""}`}
+                        dangerouslySetInnerHTML={{ __html: para.text }}
+                      />
+                    );
+                  })}
+
+                  {data.namesteText && (
+                    <p className={styles.journeyNamaste}>
+                      {data.namesteText} <strong>Namaste!</strong>
+                    </p>
+                  )}
+                </div>
+
+                {/* Om symbol watermark */}
+                <div className={styles.journeyOmMark} aria-hidden="true">ॐ</div>
+              </div>
+
+              {/* Right: image with caption */}
+              {data.outdoorImage && (
+                <div className={styles.journeyRight}>
+                  <div className={styles.journeyImgFrame}>
+                    <div className={styles.journeyImgBorder} />
+                    <div className={styles.journeyImgInner}>
+                      <img
+                        src={data.outdoorImage}
+                        alt={data.outdoorImageAlt || "Yoga Journey"}
+                        className={styles.journeyImg}
+                        loading="lazy"
+                      />
+                      <div className={styles.journeyImgSheen} />
+                    </div>
+                    {data.outdoorCaption && (
+                      <div className={styles.journeyCaption}>
+                        <span className={styles.journeyCaptionLine} />
+                        <span className={styles.journeyCaptionText}>{data.outdoorCaption}</span>
+                        <span className={styles.journeyCaptionLine} />
+                      </div>
+                    )}
+                  </div>
+                </div>
               )}
+
             </div>
 
-            {/* Right: Journey Image */}
-            {data.outdoorImage && (
-              <div className={styles.journeyImage}>
-                <div className={styles.journeyImageWrapper}>
-                  <img
-                    src={data.outdoorImage}
-                    alt={data.outdoorImageAlt || "Yoga Journey"}
-                    loading="lazy"
-                  />
-                </div>
-                {data.outdoorCaption && (
-                  <p className={styles.journeyImageCaption}>
-                    {data.outdoorCaption}
-                  </p>
-                )}
-              </div>
-            )}
+            {/* Bottom decorative lotus divider */}
+            <div className={styles.journeyDivider} aria-hidden="true">
+              <span className={styles.journeyDividerLine} />
+              <span className={styles.journeyDividerSymbol}>✦</span>
+              <span className={styles.journeyDividerLine} />
+            </div>
           </div>
-        </div>
+        )}
       </section>
     </div>
   );

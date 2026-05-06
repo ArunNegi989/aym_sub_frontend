@@ -90,14 +90,11 @@ function getLayoutClass(layout: ImageLayout | undefined, count: number): string 
 
 /* ================================================================
    VIDEO URL EMBED HELPER
-   YouTube / Vimeo ko embed URL mein convert karta hai
    ================================================================ */
 function getEmbedUrl(url: string): string {
   if (!url) return "";
-  // YouTube: watch?v= or youtu.be/
   const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/]+)/);
   if (ytMatch) return `https://www.youtube.com/embed/${ytMatch[1]}`;
-  // Vimeo
   const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
   if (vimeoMatch) return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
   return url;
@@ -113,38 +110,6 @@ const CALLOUT_CONFIG: Record<CalloutVariant, { icon: string; label: string }> = 
   warning: { icon: "⚠️", label: "Warning" },
   danger: { icon: "🚨", label: "Important" },
 };
-
-/* ================================================================
-   SVG ORNAMENT
-   ================================================================ */
-const OrnamentTop = () => (
-  <svg
-    className={styles.ornamentTop}
-    viewBox="0 0 400 40"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="none"
-  >
-    <line x1="0" y1="20" x2="155" y2="20" stroke="#F15505" strokeWidth="0.8" />
-    <circle cx="165" cy="20" r="4" fill="none" stroke="#F15505" strokeWidth="0.8" />
-    <text x="200" y="26" textAnchor="middle" fontSize="18" fill="#F15505" fontFamily="serif">ॐ</text>
-    <circle cx="235" cy="20" r="4" fill="none" stroke="#F15505" strokeWidth="0.8" />
-    <line x1="245" y1="20" x2="400" y2="20" stroke="#F15505" strokeWidth="0.8" />
-    <circle cx="165" cy="20" r="8" fill="none" stroke="#F15505" strokeWidth="0.4" opacity="0.4" />
-    <circle cx="235" cy="20" r="8" fill="none" stroke="#F15505" strokeWidth="0.4" opacity="0.4" />
-  </svg>
-);
-
-/* ================================================================
-   OM DIVIDER
-   ================================================================ */
-const OmDivider = () => (
-  <div className={styles.innerDivider}>
-    <span className={styles.innerLine} />
-    <span className={styles.innerOm}>ॐ</span>
-    <span className={styles.innerLine} />
-  </div>
-);
 
 /* ================================================================
    IMAGE GRID BLOCK
@@ -176,7 +141,6 @@ const ArticleImages = ({
                 className={styles.articleImg}
                 unoptimized
               />
-              <div className={styles.articleImgSheen} />
             </div>
             {img.caption && (
               <figcaption className={styles.articleImgCaption}>
@@ -197,7 +161,7 @@ const ListBlock = ({ listType, listItems }: { listType?: ListType; listItems?: s
   if (!listItems || listItems.length === 0) return null;
   if (listType === "ordered") {
     return (
-      <ol className={styles.contentList}>
+      <ol className={`${styles.contentList} ${styles.orderedList}`}>
         {listItems.map((item, i) => (
           <li key={i} className={styles.contentListItem}>{item}</li>
         ))}
@@ -205,7 +169,7 @@ const ListBlock = ({ listType, listItems }: { listType?: ListType; listItems?: s
     );
   }
   return (
-    <ul className={styles.contentList}>
+    <ul className={`${styles.contentList} ${styles.unorderedList}`}>
       {listItems.map((item, i) => (
         <li key={i} className={styles.contentListItem}>{item}</li>
       ))}
@@ -218,7 +182,7 @@ const ListBlock = ({ listType, listItems }: { listType?: ListType; listItems?: s
    ================================================================ */
 const QuoteBlock = ({ text, quoteAuthor }: { text?: string; quoteAuthor?: string }) => (
   <blockquote className={styles.contentQuote}>
-    <span className={styles.quoteIcon}>❝</span>
+    <div className={styles.quoteAccent} />
     <p className={styles.quoteText}>{text}</p>
     {quoteAuthor && <cite className={styles.quoteAuthor}>— {quoteAuthor}</cite>}
   </blockquote>
@@ -331,14 +295,16 @@ const SpacerBlock = ({ spacerHeight = 40 }: { spacerHeight?: number }) => (
    ================================================================ */
 const DividerBlock = () => (
   <div className={styles.contentDivider}>
-    <span className={styles.dividerLeft} />
-    <span className={styles.dividerSymbol}>✦ ॐ ✦</span>
-    <span className={styles.dividerRight} />
+    <span className={styles.dividerLine} />
+    <span className={styles.dividerDot} />
+    <span className={styles.dividerDot} />
+    <span className={styles.dividerDot} />
+    <span className={styles.dividerLine} />
   </div>
 );
 
 /* ================================================================
-   HTML BLOCK — dangerouslySetInnerHTML (safe for trusted admin content)
+   HTML BLOCK
    ================================================================ */
 const HtmlBlock = ({ text }: { text?: string }) => (
   <div
@@ -349,7 +315,6 @@ const HtmlBlock = ({ text }: { text?: string }) => (
 
 /* ================================================================
    PARAGRAPH BLOCK
-   Jodit se aaya HTML safely render hoga — tags UI mein nahi dikhenge
    ================================================================ */
 const ParagraphBlock = ({ text }: { text?: string }) => (
   <div
@@ -359,7 +324,17 @@ const ParagraphBlock = ({ text }: { text?: string }) => (
 );
 
 /* ================================================================
-   MAIN CONTENT RENDERER — Har block type properly render hota hai
+   READING TIME HELPER
+   ================================================================ */
+function calcReadingTime(sections?: BlogSection[]): number {
+  if (!sections) return 1;
+  const text = sections.map(s => s.text || "").join(" ");
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
+/* ================================================================
+   MAIN CONTENT RENDERER
    ================================================================ */
 const RenderSections = ({ sections }: { sections: BlogSection[] }) => (
   <>
@@ -367,33 +342,24 @@ const RenderSections = ({ sections }: { sections: BlogSection[] }) => (
       switch (s.type) {
         case "heading":
           return <h2 key={i} className={styles.contentH2}>{s.text}</h2>;
-
         case "subheading":
           return <h3 key={i} className={styles.contentH3}>{s.text}</h3>;
-
         case "paragraph":
           return <ParagraphBlock key={i} text={s.text} />;
-
         case "images":
           return s.images && s.images.length > 0 ? (
             <ArticleImages key={i} images={s.images} imageLayout={s.imageLayout} />
           ) : null;
-
         case "list":
           return <ListBlock key={i} listType={s.listType} listItems={s.listItems} />;
-
         case "quote":
           return <QuoteBlock key={i} text={s.text} quoteAuthor={s.quoteAuthor} />;
-
         case "code":
           return <CodeBlock key={i} text={s.text} codeLanguage={s.codeLanguage} />;
-
         case "video":
           return <VideoBlock key={i} videoUrl={s.videoUrl} videoCaption={s.videoCaption} />;
-
         case "table":
           return <TableBlock key={i} tableHeaders={s.tableHeaders} tableRows={s.tableRows} />;
-
         case "callout":
           return (
             <CalloutBlock
@@ -403,16 +369,12 @@ const RenderSections = ({ sections }: { sections: BlogSection[] }) => (
               text={s.text}
             />
           );
-
         case "spacer":
           return <SpacerBlock key={i} spacerHeight={s.spacerHeight} />;
-
         case "divider":
           return <DividerBlock key={i} />;
-
         case "html":
           return <HtmlBlock key={i} text={s.text} />;
-
         default:
           return null;
       }
@@ -429,8 +391,8 @@ export default function SingleBlog({
   recentPosts = [],
 }: SingleBlogProps) {
   const heroImage = resolveImg(blog.coverImage || blog.image);
+  const readTime = calcReadingTime(blog.content);
 
-  /* Date formatting */
   const formattedDate = blog.date
     ? new Date(blog.date).toLocaleDateString("en-IN", {
         day: "numeric",
@@ -443,7 +405,7 @@ export default function SingleBlog({
     <div className={styles.pageRoot}>
 
       {/* ══════════════════════════════
-          HERO
+          HERO — Full bleed, cinematic
       ══════════════════════════════ */}
       <div className={styles.hero}>
         <div className={styles.heroImgWrap}>
@@ -459,47 +421,34 @@ export default function SingleBlog({
           <div className={styles.heroOverlay} />
         </div>
 
-        {/* Rotating Mandala */}
-        <svg className={styles.heroMandala} viewBox="0 0 300 300" fill="none" aria-hidden="true">
-          {[0,30,60,90,120,150,180,210,240,270,300,330].map((deg, i) => {
-            const rad = (deg * Math.PI) / 180;
-            return (
-              <line key={i}
-                x1={150 + 35 * Math.cos(rad)} y1={150 + 35 * Math.sin(rad)}
-                x2={150 + 130 * Math.cos(rad)} y2={150 + 130 * Math.sin(rad)}
-                stroke="white" strokeWidth="0.5" opacity="0.25"
-              />
-            );
-          })}
-          {[140,110,80,50,20].map((r, i) => (
-            <circle key={i} cx="150" cy="150" r={r} stroke="white" strokeWidth="0.6"
-              opacity={0.15 + i * 0.03} strokeDasharray={i % 2 === 0 ? "4 3" : "none"} />
-          ))}
-          {[0,45,90,135,180,225,270,315].map((deg, i) => {
-            const rad = (deg * Math.PI) / 180;
-            return (
-              <circle key={i} cx={150 + 90 * Math.cos(rad)} cy={150 + 90 * Math.sin(rad)}
-                r="5" fill="white" opacity="0.2" />
-            );
-          })}
-        </svg>
-
-        {/* Hero Content */}
         <div className={styles.heroContent}>
+          {/* Breadcrumb */}
           <nav className={styles.breadcrumb} aria-label="Breadcrumb">
             <Link href="/" className={styles.breadLink}>Home</Link>
-            <span className={styles.breadSep}>›</span>
+            <span className={styles.breadSep}>/</span>
             <Link href="/blog/aym-yoga-blog" className={styles.breadLink}>Blog</Link>
-            <span className={styles.breadSep}>›</span>
+            <span className={styles.breadSep}>/</span>
             <span className={styles.breadCurrent}>{blog.category}</span>
           </nav>
 
+          {/* Category pill */}
           <span className={styles.heroCategory}>{blog.category}</span>
+
           <h1 className={styles.heroTitle}>{blog.title}</h1>
 
+          {/* Meta row */}
           <div className={styles.heroMeta}>
+            {blog.author && (
+              <div className={styles.authorChip}>
+                <div className={styles.authorAvatar}>
+                  {blog.author.charAt(0).toUpperCase()}
+                </div>
+                <span>{blog.author}</span>
+              </div>
+            )}
+            <span className={styles.metaDivider} />
             <span className={styles.metaItem}>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="3" y="4" width="18" height="18" rx="2" />
                 <line x1="16" y1="2" x2="16" y2="6" />
                 <line x1="8" y1="2" x2="8" y2="6" />
@@ -507,208 +456,172 @@ export default function SingleBlog({
               </svg>
               <time dateTime={blog.date}>{formattedDate}</time>
             </span>
-            {blog.author && (
-              <span className={styles.metaItem}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-                {blog.author}
-              </span>
-            )}
-            {blog.tags && blog.tags.length > 0 && (
-              <span className={styles.metaItem}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
-                  <line x1="7" y1="7" x2="7.01" y2="7" />
-                </svg>
-                {blog.tags[0]}{blog.tags.length > 1 ? ` +${blog.tags.length - 1}` : ""}
-              </span>
-            )}
+            <span className={styles.metaDivider} />
+            <span className={styles.metaItem}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+              </svg>
+              {readTime} min read
+            </span>
           </div>
         </div>
 
-        {/* Wave */}
-        <svg className={styles.heroWave} viewBox="0 0 1440 60" preserveAspectRatio="none" fill="none">
-          <path d="M0,60 L0,30 Q360,0 720,30 Q1080,60 1440,30 L1440,60 Z" fill="#fdf6ec" />
-        </svg>
+        {/* Scroll indicator */}
+        <div className={styles.scrollIndicator}>
+          <div className={styles.scrollLine} />
+        </div>
       </div>
 
       {/* ══════════════════════════════
           BODY
       ══════════════════════════════ */}
-      <div className={styles.layout}>
+      <div className={styles.bodyWrap}>
+        <div className={styles.layout}>
 
-        {/* ── Article ── */}
-        <article className={styles.article}>
-          <OrnamentTop />
+          {/* ── Article ── */}
+          <article className={styles.article}>
 
-          <p className={styles.lead}>{blog.excerpt}</p>
+            {/* Lead excerpt */}
+            <p className={styles.lead}>{blog.excerpt}</p>
 
-          <OmDivider />
+            <div className={styles.leadDivider} />
 
-          <div className={styles.content}>
-            {blog.content && blog.content.length > 0 ? (
-              <RenderSections sections={blog.content} />
-            ) : (
-              <p className={styles.contentPlaceholder}>
-                Content abhi available nahi hai. Please check back soon.
-              </p>
+            {/* Content */}
+            <div className={styles.content}>
+              {blog.content && blog.content.length > 0 ? (
+                <RenderSections sections={blog.content} />
+              ) : (
+                <p className={styles.contentPlaceholder}>
+                  Content abhi available nahi hai. Please check back soon.
+                </p>
+              )}
+            </div>
+
+            {/* Tags */}
+            {blog.tags && blog.tags.length > 0 && (
+              <div className={styles.articleTags}>
+                <span className={styles.tagsLabel}>Tags</span>
+                <div className={styles.tagsList}>
+                  {blog.tags.map((tag) => (
+                    <span key={tag} className={styles.articleTag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
             )}
-          </div>
 
-          <OmDivider />
-
-          {/* Tags */}
-          {blog.tags && blog.tags.length > 0 && (
-            <div className={styles.articleTags}>
-              <span className={styles.tagsLabel}>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
-                  <line x1="7" y1="7" x2="7.01" y2="7" />
+            {/* Back button */}
+            <div className={styles.backRow}>
+              <Link href="/blog/aym-yoga-blog" className={styles.backBtn}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
                 </svg>
-                Topics:
-              </span>
-              {blog.tags.map((tag) => (
-                <span key={tag} className={styles.articleTag}>{tag}</span>
-              ))}
+                Back to Blog
+              </Link>
             </div>
-          )}
+          </article>
 
-          {/* Back button */}
-          <div className={styles.backRow}>
-            <Link href="/blog/aym-yoga-blog" className={styles.backBtn}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-              Back to Blog
-            </Link>
-          </div>
-        </article>
+          {/* ── Sidebar ── */}
+          <aside className={styles.sidebar}>
 
-        {/* ── Sidebar ── */}
-        <aside className={styles.sidebar}>
+            {/* CTA Widget */}
+            <div className={styles.sideCtaWidget}>
+              <div className={styles.ctaInner}>
+                <div className={styles.ctaBadge}>Featured</div>
+                <h4 className={styles.ctaTitle}>Start Your Yoga Journey</h4>
+                <p className={styles.ctaText}>
+                  Join AYM Yoga School's world-class teacher training programs in Rishikesh
+                </p>
+                <Link href="/register" className={styles.ctaBtn}>Enquire Now →</Link>
+              </div>
+            </div>
 
-          {/* Recent Posts */}
-          {recentPosts.length > 0 && (
+            {/* Recent Posts */}
+            {recentPosts.length > 0 && (
+              <div className={styles.sideWidget}>
+                <div className={styles.sideWidgetHeader}>
+                  <h3 className={styles.sideWidgetTitle}>Recent Articles</h3>
+                </div>
+                <ul className={styles.recentList}>
+                  {recentPosts.map((post) => {
+                    const postImg = resolveImg(post.coverImage || post.image);
+                    const postDate = post.date
+                      ? new Date(post.date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
+                      : "";
+                    return (
+                      <li key={post._id || post.id} className={styles.recentItem}>
+                        <Link href={`/blog/aym-yoga-blog/${post.slug}`} className={styles.recentLink}>
+                          <div className={styles.recentImgWrap}>
+                            <Image src={postImg} alt={post.title} fill sizes="64px" className={styles.recentImg} unoptimized />
+                          </div>
+                          <div className={styles.recentInfo}>
+                            <span className={styles.recentCategory}>{post.category}</span>
+                            <p className={styles.recentTitle}>{post.title}</p>
+                            <span className={styles.recentDate}>{postDate}</span>
+                          </div>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <Link href="/blog/aym-yoga-blog" className={styles.viewAllLink}>View All Articles →</Link>
+              </div>
+            )}
+
+            {/* Related Posts */}
+            {relatedPosts.length > 0 && (
+              <div className={styles.sideWidget}>
+                <div className={styles.sideWidgetHeader}>
+                  <h3 className={styles.sideWidgetTitle}>In This Category</h3>
+                </div>
+                <ul className={styles.relatedList}>
+                  {relatedPosts.map((post) => {
+                    const relImg = resolveImg(post.coverImage || post.image);
+                    const relDate = post.date
+                      ? new Date(post.date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
+                      : "";
+                    return (
+                      <li key={post._id || post.id} className={styles.relatedItem}>
+                        <Link href={`/blog/aym-yoga-blog/${post.slug}`} className={styles.relatedLink}>
+                          <div className={styles.relatedImgWrap}>
+                            <Image src={relImg} alt={post.title} fill sizes="56px" className={styles.relatedImg} unoptimized />
+                          </div>
+                          <div className={styles.relatedInfo}>
+                            <p className={styles.relatedTitle}>{post.title}</p>
+                            <span className={styles.relatedDate}>{relDate}</span>
+                          </div>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+
+            {/* Upcoming Batches */}
             <div className={styles.sideWidget}>
               <div className={styles.sideWidgetHeader}>
-                <span className={styles.sideOm}>ॐ</span>
-                <h3 className={styles.sideWidgetTitle}>Recent Posts</h3>
+                <h3 className={styles.sideWidgetTitle}>Upcoming Batches</h3>
               </div>
-              <ul className={styles.recentList}>
-                {recentPosts.map((post) => {
-                  const postImg = resolveImg(post.coverImage || post.image);
-                  const postDate = post.date
-                    ? new Date(post.date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
-                    : "";
-                  return (
-                    <li key={post._id || post.id} className={styles.recentItem}>
-                      <Link href={`/blog/aym-yoga-blog/${post.slug}`} className={styles.recentLink}>
-                        <div className={styles.recentImgWrap}>
-                          <Image src={postImg} alt={post.title} fill sizes="72px" className={styles.recentImg} unoptimized />
-                          <div className={styles.recentImgSheen} />
-                        </div>
-                        <div className={styles.recentInfo}>
-                          <span className={styles.recentCategory}>{post.category}</span>
-                          <p className={styles.recentTitle}>{post.title}</p>
-                          <span className={styles.recentDate}>
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <rect x="3" y="4" width="18" height="18" rx="2" />
-                              <line x1="16" y1="2" x2="16" y2="6" />
-                              <line x1="8" y1="2" x2="8" y2="6" />
-                              <line x1="3" y1="10" x2="21" y2="10" />
-                            </svg>
-                            {postDate}
-                          </span>
-                        </div>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className={styles.recentViewAll}>
-                <Link href="/blog/aym-yoga-blog" className={styles.recentViewAllLink}>View All Articles →</Link>
-              </div>
-            </div>
-          )}
-
-          {/* Related Posts */}
-          {relatedPosts.length > 0 && (
-            <div className={styles.sideWidget}>
-              <div className={styles.sideWidgetHeader}>
-                <span className={styles.sideOm}>ॐ</span>
-                <h3 className={styles.sideWidgetTitle}>In This Category</h3>
-              </div>
-              <ul className={styles.relatedList}>
-                {relatedPosts.map((post) => {
-                  const relImg = resolveImg(post.coverImage || post.image);
-                  const relDate = post.date
-                    ? new Date(post.date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
-                    : "";
-                  return (
-                    <li key={post._id || post.id} className={styles.relatedItem}>
-                      <Link href={`/blog/aym-yoga-blog/${post.slug}`} className={styles.relatedLink}>
-                        <div className={styles.relatedImgWrap}>
-                          <Image src={relImg} alt={post.title} fill sizes="56px" className={styles.relatedImg} unoptimized />
-                        </div>
-                        <div className={styles.relatedInfo}>
-                          <p className={styles.relatedTitle}>{post.title}</p>
-                          <span className={styles.relatedDate}>{relDate}</span>
-                        </div>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          )}
-
-          {/* CTA Widget */}
-          <div className={styles.sideCtaWidget}>
-            <div className={styles.ctaMandalaBg} aria-hidden="true">
-              <svg viewBox="0 0 200 200" fill="none" width="100%" height="100%">
-                {[95,75,55,35].map((r, i) => (
-                  <circle key={i} cx="100" cy="100" r={r}
-                    stroke="rgba(255,255,255,0.15)" strokeWidth="0.8"
-                    strokeDasharray={i % 2 === 0 ? "3 3" : "none"} />
+              <div className={styles.batchList}>
+                {[
+                  { label: "200 Hour YTT", href: "/200-hour-ytt", dates: "Aug – Nov 2025", price: "₹21,000" },
+                  { label: "300 Hour YTT", href: "/300-hour-ytt", dates: "Aug – Nov 2025", price: "₹25,000" },
+                  { label: "500 Hour YTT", href: "/500-hour-ytt", dates: "Aug – Dec 2025", price: "₹45,000" },
+                ].map((batch) => (
+                  <Link href={batch.href} key={batch.label} className={styles.batchItem}>
+                    <div>
+                      <p className={styles.batchLabel}>{batch.label}</p>
+                      <p className={styles.batchDates}>{batch.dates}</p>
+                    </div>
+                    <span className={styles.batchPrice}>{batch.price}</span>
+                  </Link>
                 ))}
-                <text x="100" y="110" textAnchor="middle" fontSize="36"
-                  fill="rgba(255,255,255,0.25)" fontFamily="serif">ॐ</text>
-              </svg>
-            </div>
-            <div className={styles.ctaContent}>
-              <h4 className={styles.ctaTitle}>Start Your Yoga Journey</h4>
-              <p className={styles.ctaText}>Join AYM Yoga School's world-class teacher training programs</p>
-              <Link href="/register" className={styles.ctaBtn}>Enquire Now</Link>
-            </div>
-          </div>
-
-          {/* Upcoming Batches */}
-          <div className={styles.sideWidget}>
-            <div className={styles.sideWidgetHeader}>
-              <span className={styles.sideOm}>ॐ</span>
-              <h3 className={styles.sideWidgetTitle}>Upcoming Batches</h3>
-            </div>
-            <div className={styles.batchList}>
-              {[
-                { label: "200 Hour YTT", href: "/200-hour-ytt", dates: "Aug – Nov 2025", price: "₹21,000" },
-                { label: "300 Hour YTT", href: "/300-hour-ytt", dates: "Aug – Nov 2025", price: "₹25,000" },
-                { label: "500 Hour YTT", href: "/500-hour-ytt", dates: "Aug – Dec 2025", price: "₹45,000" },
-              ].map((batch) => (
-                <Link href={batch.href} key={batch.label} className={styles.batchItem}>
-                  <div>
-                    <p className={styles.batchLabel}>{batch.label}</p>
-                    <p className={styles.batchDates}>{batch.dates}</p>
-                  </div>
-                  <span className={styles.batchPrice}>{batch.price}</span>
-                </Link>
-              ))}
+              </div>
               <Link href="/register" className={styles.batchRegister}>Register Now →</Link>
             </div>
-          </div>
 
-        </aside>
+          </aside>
+        </div>
       </div>
     </div>
   );

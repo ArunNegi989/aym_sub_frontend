@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../../assets/style/Home/Classcampusamenities.module.css";
 import api from "@/lib/api";
+
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 function getImageUrl(path: string): string {
@@ -69,7 +70,7 @@ export const ClassCampusAmenities: React.FC = () => {
           if (e.isIntersecting) e.target.classList.add(styles.revealed);
         });
       },
-      { threshold: 0.08 },
+      { threshold: 0.06, rootMargin: "0px 0px -50px 0px" }
     );
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
@@ -80,95 +81,124 @@ export const ClassCampusAmenities: React.FC = () => {
 
   return (
     <section className={styles.section} ref={sectionRef}>
-    
+
+      {/* Atmospheric background elements */}
+      <div className={styles.grain} aria-hidden="true" />
+      <div className={styles.blob1} aria-hidden="true" />
+      <div className={styles.blob2} aria-hidden="true" />
 
       <div className={styles.container}>
-        {/* ══ TOP ROW — Class Size + Campus ══ */}
-        <div className={styles.topRow}>
-          {/* ── AYM CLASS SIZE ── */}
-          <div className={`${styles.classBlock} ${styles.reveal}`}>
-            <div className={styles.blockHeader}>
-              <p className={styles.superLabel}>{data.classSizeSuperLabel}</p>
-              <h2 className={styles.blockTitle}>{data.classSizeTitle}</h2>
-              <div className={styles.titleBar} />
-            </div>
 
-            <div className={styles.classImgWrap}>
-              <div className={styles.classImgFrame}>
-                {/* FIX: wrap with getImageUrl() — backend returns /uploads/... relative path */}
-                <img
-                  src={getImageUrl(data.classSizeImage)}
-                  alt="AYM Yoga Class Group"
-                  className={styles.classImg}
-                />
-                <div className={styles.classImgOverlay}>
-                  <span className={styles.welcomeScript}>
-                    {data.classSizeWelcomeText}
-                  </span>
-                </div>
-                <span className={styles.cornerTL} aria-hidden="true" />
-                <span className={styles.cornerBR} aria-hidden="true" />
+        {/* ══════════════════════════════
+            EYEBROW
+        ══════════════════════════════ */}
+        <div className={`${styles.eyebrow} ${styles.reveal}`}>
+          <span className={styles.eyebrowRule} />
+          <span className={styles.eyebrowText}>What Sets Us Apart</span>
+          <span className={styles.eyebrowRule} />
+        </div>
+
+        {/* ══════════════════════════════
+            TOP ROW — Class Size + Campus
+        ══════════════════════════════ */}
+        <div className={styles.topRow}>
+
+          {/* ── CLASS SIZE ── */}
+          <article className={`${styles.card} ${styles.reveal}`}>
+            <header className={styles.cardHeader}>
+              <span className={styles.superLabel}>{data.classSizeSuperLabel}</span>
+              <h2 className={styles.cardTitle}>{data.classSizeTitle}</h2>
+              <div className={styles.titleRule} />
+            </header>
+
+            <div className={styles.imgWrap}>
+              <img
+                src={getImageUrl(data.classSizeImage)}
+                alt="AYM Yoga intimate class"
+                className={styles.cardImg}
+              />
+              <div className={styles.imgScrim}>
+                <span className={styles.scrimLabel}>{data.classSizeWelcomeText}</span>
               </div>
             </div>
 
             <div
-              className={styles.blockPara}
+              className={styles.cardBody}
               dangerouslySetInnerHTML={{ __html: data.classSizePara }}
             />
-          </div>
+          </article>
 
-          {/* ── Vertical divider ── */}
+          {/* ── VERTICAL DIVIDER ── */}
           <div className={styles.vertDivider} aria-hidden="true">
-            <span className={styles.vertLine} />
-            <span className={styles.vertOm}>ॐ</span>
-            <span className={styles.vertLine} />
+            <div className={styles.dividerLine} />
+            <span className={styles.dividerGlyph}>ॐ</span>
+            <div className={styles.dividerLine} />
           </div>
 
-          {/* ── AYM YOGA CAMPUS ── */}
-          <div
-            className={`${styles.campusBlock} ${styles.reveal}`}
-            style={{ "--d": "0.15s" } as React.CSSProperties}
+          {/* ── CAMPUS ── */}
+          <article
+            className={`${styles.card} ${styles.reveal}`}
+            style={{ "--d": "0.14s" } as React.CSSProperties}
           >
-            <div className={styles.blockHeader}>
-              <p className={styles.superLabel}>{data.campusSuperLabel}</p>
-              <h2 className={styles.blockTitle}>{data.campusTitle}</h2>
-              <div className={styles.titleBar} />
-            </div>
+            <header className={styles.cardHeader}>
+              <span className={styles.superLabel}>{data.campusSuperLabel}</span>
+              <h2 className={styles.cardTitle}>{data.campusTitle}</h2>
+              <div className={styles.titleRule} />
+            </header>
 
-            {/* FIX: campusImages is array, use [0], wrap with getImageUrl() */}
+            {/* Campus primary image — full-width, consistent with class size card */}
             {data.campusImages?.[0] && (
-              <div className={styles.campusThumb}>
+              <div className={styles.imgWrap}>
                 <img
                   src={getImageUrl(data.campusImages[0])}
                   alt="AYM Yoga Campus"
-                  className={styles.campusThumbImg}
+                  className={styles.cardImg}
                 />
+                <div className={styles.imgScrim}>
+                  <span className={styles.scrimLabel}>AYM Yoga Campus</span>
+                </div>
+              </div>
+            )}
+
+            {/* Optional: small strip of extra campus images if more than 1 exist */}
+            {data.campusImages?.length > 1 && (
+              <div className={styles.campusStrip}>
+                {data.campusImages.slice(1, 4).map((img, idx) => (
+                  <div key={idx} className={styles.stripCell}>
+                    <img
+                      src={getImageUrl(img)}
+                      alt={`Campus view ${idx + 2}`}
+                      className={styles.stripImg}
+                    />
+                  </div>
+                ))}
               </div>
             )}
 
             <div
-              className={styles.blockPara}
+              className={styles.cardBody}
               dangerouslySetInnerHTML={{ __html: data.campusPara }}
             />
-          </div>
+          </article>
         </div>
 
         {/* ── Mid ornament ── */}
-        <div className={styles.midOrnament}>
-          <span className={styles.ornLine} />
-          <span className={styles.ornPattern}>✦ 卐 ✦ ॐ ✦ 卐 ✦</span>
-          <span className={styles.ornLine} />
+        <div className={styles.ornament} aria-hidden="true">
+          <span className={styles.ornRule} />
+          <span className={styles.ornGlyphs}>✦ &nbsp; ॐ &nbsp; ✦</span>
+          <span className={styles.ornRule} />
         </div>
 
-        {/* ══ AMENITIES ROW ══ */}
-        <div className={styles.amenitiesRow}>
+        {/* ══════════════════════════════
+            AMENITIES ROW
+        ══════════════════════════════ */}
+        <div className={styles.amenRow}>
+
           {/* Left — text */}
-          <div className={`${styles.amenitiesLeft} ${styles.reveal}`}>
-            <div className={styles.blockHeader}>
-              <p className={styles.superLabel}>{data.amenitiesSuperLabel}</p>
-              <h2 className={styles.amenitiesTitle}>{data.amenitiesTitle}</h2>
-              <div className={styles.titleBar} />
-            </div>
+          <div className={`${styles.amenText} ${styles.reveal}`}>
+            <span className={styles.superLabel}>{data.amenitiesSuperLabel}</span>
+            <h2 className={styles.amenTitle}>{data.amenitiesTitle}</h2>
+            <div className={styles.titleRule} />
 
             <div
               className={styles.amenPara}
@@ -176,50 +206,58 @@ export const ClassCampusAmenities: React.FC = () => {
             />
 
             {data.amenitiesSubLabel && (
-              <p className={styles.blockParaSm}>{data.amenitiesSubLabel}</p>
+              <p className={styles.amenSub}>{data.amenitiesSubLabel}</p>
             )}
 
-            <ul className={styles.amenityList}>
+            <ul className={styles.amenList}>
               {data.amenities?.map((item, i) => (
                 <li
                   key={i}
-                  className={`${styles.amenityItem} ${styles.reveal}`}
-                  style={{ "--d": `${i * 0.08}s` } as React.CSSProperties}
+                  className={`${styles.amenItem} ${styles.reveal}`}
+                  style={{ "--d": `${i * 0.055}s` } as React.CSSProperties}
                 >
-                  <span className={styles.bullet} aria-hidden="true">
-                    🔆
-                  </span>
+                  <span className={styles.amenDot} aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Right — room image */}
+          {/* Right — image */}
           <div
-            className={`${styles.amenitiesRight} ${styles.reveal}`}
-            style={{ "--d": "0.12s" } as React.CSSProperties}
+            className={`${styles.amenMedia} ${styles.reveal}`}
+            style={{ "--d": "0.18s" } as React.CSSProperties}
           >
-            <div className={styles.amenityMosaic}>
-              {/* FIX: wrap with getImageUrl() */}
+            <div className={styles.featureImgWrap}>
               <img
                 src={getImageUrl(data.amenityImage)}
-                alt="Furnished Room"
-                className={styles.mosaicImg}
+                alt="Yoga studio interior"
+                className={styles.featureImg}
               />
               {data.amenityMosaicTag && (
-                <div className={styles.mosaicMainOverlay}>
-                  <span className={styles.mosaicTag}>
-                    {data.amenityMosaicTag}
-                  </span>
+                <div className={styles.featureOverlay}>
+                  <span className={styles.featureTag}>{data.amenityMosaicTag}</span>
                 </div>
               )}
             </div>
+
+            <div className={styles.featureFooter}>
+              <div className={styles.footerChip}>
+                <span>🧘</span>
+                <span>Sacred Space</span>
+              </div>
+              <span className={styles.footerSep}>·</span>
+              <div className={styles.footerChip}>
+                <span>🌿</span>
+                <span>Pure Vibe</span>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
 
-     
+      <div className={styles.bottomBar} aria-hidden="true" />
     </section>
   );
 };
