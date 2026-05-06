@@ -567,6 +567,7 @@ export default function SingleBlog({
               </div>
             )}
 
+
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
               <div className={styles.sideWidget}>
