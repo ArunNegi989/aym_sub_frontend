@@ -141,10 +141,11 @@ const ArticleImages = ({
                 className={styles.articleImg}
                 unoptimized
               />
+              <div className={styles.imgOverlay} />
             </div>
             {img.caption && (
               <figcaption className={styles.articleImgCaption}>
-                {img.caption}
+                <span className={styles.captionNum}>↑</span> {img.caption}
               </figcaption>
             )}
           </figure>
@@ -163,7 +164,10 @@ const ListBlock = ({ listType, listItems }: { listType?: ListType; listItems?: s
     return (
       <ol className={`${styles.contentList} ${styles.orderedList}`}>
         {listItems.map((item, i) => (
-          <li key={i} className={styles.contentListItem}>{item}</li>
+          <li key={i} className={styles.contentListItem}>
+            <span className={styles.listNum}>{String(i + 1).padStart(2, "0")}</span>
+            <span>{item}</span>
+          </li>
         ))}
       </ol>
     );
@@ -171,7 +175,10 @@ const ListBlock = ({ listType, listItems }: { listType?: ListType; listItems?: s
   return (
     <ul className={`${styles.contentList} ${styles.unorderedList}`}>
       {listItems.map((item, i) => (
-        <li key={i} className={styles.contentListItem}>{item}</li>
+        <li key={i} className={styles.contentListItem}>
+          <span className={styles.listBullet} />
+          <span>{item}</span>
+        </li>
       ))}
     </ul>
   );
@@ -182,9 +189,14 @@ const ListBlock = ({ listType, listItems }: { listType?: ListType; listItems?: s
    ================================================================ */
 const QuoteBlock = ({ text, quoteAuthor }: { text?: string; quoteAuthor?: string }) => (
   <blockquote className={styles.contentQuote}>
-    <div className={styles.quoteAccent} />
+    <span className={styles.quoteMark}>"</span>
     <p className={styles.quoteText}>{text}</p>
-    {quoteAuthor && <cite className={styles.quoteAuthor}>— {quoteAuthor}</cite>}
+    {quoteAuthor && (
+      <cite className={styles.quoteAuthor}>
+        <span className={styles.quoteAuthorLine} />
+        {quoteAuthor}
+      </cite>
+    )}
   </blockquote>
 );
 
@@ -193,9 +205,14 @@ const QuoteBlock = ({ text, quoteAuthor }: { text?: string; quoteAuthor?: string
    ================================================================ */
 const CodeBlock = ({ text, codeLanguage }: { text?: string; codeLanguage?: string }) => (
   <div className={styles.contentCodeWrap}>
-    {codeLanguage && codeLanguage !== "plaintext" && (
-      <div className={styles.codeLangBadge}>{codeLanguage}</div>
-    )}
+    <div className={styles.codeHeader}>
+      <div className={styles.codeDots}>
+        <span /><span /><span />
+      </div>
+      {codeLanguage && codeLanguage !== "plaintext" && (
+        <div className={styles.codeLangBadge}>{codeLanguage}</div>
+      )}
+    </div>
     <pre className={styles.contentCode}>
       <code>{text}</code>
     </pre>
@@ -274,11 +291,14 @@ const CalloutBlock = ({
   const config = CALLOUT_CONFIG[calloutVariant];
   return (
     <div className={`${styles.contentCallout} ${styles[`callout${calloutVariant.charAt(0).toUpperCase() + calloutVariant.slice(1)}`]}`}>
-      <div className={styles.calloutHeader}>
-        <span className={styles.calloutIcon}>{config.icon}</span>
-        <span className={styles.calloutTitle}>{calloutTitle || config.label}</span>
+      <div className={styles.calloutAccent} />
+      <div className={styles.calloutBody}>
+        <div className={styles.calloutHeader}>
+          <span className={styles.calloutIcon}>{config.icon}</span>
+          <span className={styles.calloutTitle}>{calloutTitle || config.label}</span>
+        </div>
+        {text && <p className={styles.calloutText}>{text}</p>}
       </div>
-      {text && <p className={styles.calloutText}>{text}</p>}
     </div>
   );
 };
@@ -295,11 +315,7 @@ const SpacerBlock = ({ spacerHeight = 40 }: { spacerHeight?: number }) => (
    ================================================================ */
 const DividerBlock = () => (
   <div className={styles.contentDivider}>
-    <span className={styles.dividerLine} />
-    <span className={styles.dividerDot} />
-    <span className={styles.dividerDot} />
-    <span className={styles.dividerDot} />
-    <span className={styles.dividerLine} />
+    <span className={styles.dividerText}>✦</span>
   </div>
 );
 
@@ -341,7 +357,7 @@ const RenderSections = ({ sections }: { sections: BlogSection[] }) => (
     {sections.map((s, i) => {
       switch (s.type) {
         case "heading":
-          return <h2 key={i} className={styles.contentH2}>{s.text}</h2>;
+          return <h2 key={i} className={styles.contentH2}><span className={styles.headingNum}></span>{s.text}</h2>;
         case "subheading":
           return <h3 key={i} className={styles.contentH3}>{s.text}</h3>;
         case "paragraph":
@@ -425,44 +441,44 @@ export default function SingleBlog({
           {/* Breadcrumb */}
           <nav className={styles.breadcrumb} aria-label="Breadcrumb">
             <Link href="/" className={styles.breadLink}>Home</Link>
-            <span className={styles.breadSep}>/</span>
+            <span className={styles.breadSep}>—</span>
             <Link href="/blog/aym-yoga-blog" className={styles.breadLink}>Blog</Link>
-            <span className={styles.breadSep}>/</span>
+            <span className={styles.breadSep}>—</span>
             <span className={styles.breadCurrent}>{blog.category}</span>
           </nav>
 
-          {/* Category pill */}
-          <span className={styles.heroCategory}>{blog.category}</span>
+          <div className={styles.heroCategoryRow}>
+            <span className={styles.heroCategory}>{blog.category}</span>
+            <span className={styles.heroCategoryLine} />
+          </div>
 
           <h1 className={styles.heroTitle}>{blog.title}</h1>
 
-          {/* Meta row */}
+          <p className={styles.heroExcerpt}>{blog.excerpt}</p>
+
           <div className={styles.heroMeta}>
             {blog.author && (
               <div className={styles.authorChip}>
                 <div className={styles.authorAvatar}>
                   {blog.author.charAt(0).toUpperCase()}
                 </div>
-                <span>{blog.author}</span>
+                <div className={styles.authorInfo}>
+                  <span className={styles.authorLabel}>Written by</span>
+                  <span className={styles.authorName}>{blog.author}</span>
+                </div>
               </div>
             )}
-            <span className={styles.metaDivider} />
-            <span className={styles.metaItem}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="4" width="18" height="18" rx="2" />
-                <line x1="16" y1="2" x2="16" y2="6" />
-                <line x1="8" y1="2" x2="8" y2="6" />
-                <line x1="3" y1="10" x2="21" y2="10" />
-              </svg>
-              <time dateTime={blog.date}>{formattedDate}</time>
-            </span>
-            <span className={styles.metaDivider} />
-            <span className={styles.metaItem}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-              </svg>
-              {readTime} min read
-            </span>
+            <div className={styles.metaStats}>
+              <div className={styles.metaStat}>
+                <span className={styles.metaStatLabel}>Published</span>
+                <time className={styles.metaStatVal} dateTime={blog.date}>{formattedDate}</time>
+              </div>
+              <div className={styles.metaStatDivider} />
+              <div className={styles.metaStat}>
+                <span className={styles.metaStatLabel}>Read time</span>
+                <span className={styles.metaStatVal}>{readTime} min</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -476,17 +492,19 @@ export default function SingleBlog({
           BODY
       ══════════════════════════════ */}
       <div className={styles.bodyWrap}>
+
+        {/* Top rule */}
+        <div className={styles.bodyRule}>
+          <span className={styles.bodyRuleLeft} />
+          <span className={styles.bodyRuleLabel}>Article</span>
+          <span className={styles.bodyRuleRight} />
+        </div>
+
         <div className={styles.layout}>
 
           {/* ── Article ── */}
           <article className={styles.article}>
 
-            {/* Lead excerpt */}
-            <p className={styles.lead}>{blog.excerpt}</p>
-
-            <div className={styles.leadDivider} />
-
-            {/* Content */}
             <div className={styles.content}>
               {blog.content && blog.content.length > 0 ? (
                 <RenderSections sections={blog.content} />
@@ -500,10 +518,10 @@ export default function SingleBlog({
             {/* Tags */}
             {blog.tags && blog.tags.length > 0 && (
               <div className={styles.articleTags}>
-                <span className={styles.tagsLabel}>Tags</span>
+                <span className={styles.tagsLabel}>Filed under</span>
                 <div className={styles.tagsList}>
                   {blog.tags.map((tag) => (
-                    <span key={tag} className={styles.articleTag}>{tag}</span>
+                    <span key={tag} className={styles.articleTag}># {tag}</span>
                   ))}
                 </div>
               </div>
@@ -512,10 +530,10 @@ export default function SingleBlog({
             {/* Back button */}
             <div className={styles.backRow}>
               <Link href="/blog/aym-yoga-blog" className={styles.backBtn}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M19 12H5M12 19l-7-7 7-7" />
                 </svg>
-                Back to Blog
+                <span>Back to all articles</span>
               </Link>
             </div>
           </article>
@@ -525,13 +543,19 @@ export default function SingleBlog({
 
             {/* CTA Widget */}
             <div className={styles.sideCtaWidget}>
+              <div className={styles.ctaPattern} />
               <div className={styles.ctaInner}>
-                <div className={styles.ctaBadge}>Featured</div>
-                <h4 className={styles.ctaTitle}>Start Your Yoga Journey</h4>
+                <p className={styles.ctaEyebrow}>Featured Program</p>
+                <h4 className={styles.ctaTitle}>Begin Your Yoga Journey</h4>
                 <p className={styles.ctaText}>
-                  Join AYM Yoga School's world-class teacher training programs in Rishikesh
+                  World-class teacher training at AYM Yoga School, Rishikesh — where tradition meets transformation.
                 </p>
-                <Link href="/register" className={styles.ctaBtn}>Enquire Now →</Link>
+                <Link href="/register" className={styles.ctaBtn}>
+                  Enquire Now
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
               </div>
             </div>
 
@@ -540,15 +564,17 @@ export default function SingleBlog({
               <div className={styles.sideWidget}>
                 <div className={styles.sideWidgetHeader}>
                   <h3 className={styles.sideWidgetTitle}>Recent Articles</h3>
+                  <Link href="/blog/aym-yoga-blog" className={styles.sideWidgetLink}>View all</Link>
                 </div>
                 <ul className={styles.recentList}>
-                  {recentPosts.map((post) => {
+                  {recentPosts.map((post, idx) => {
                     const postImg = resolveImg(post.coverImage || post.image);
                     const postDate = post.date
                       ? new Date(post.date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
                       : "";
                     return (
                       <li key={post._id || post.id} className={styles.recentItem}>
+                        <span className={styles.recentIdx}>{String(idx + 1).padStart(2, "0")}</span>
                         <Link href={`/blog/aym-yoga-blog/${post.slug}`} className={styles.recentLink}>
                           <div className={styles.recentImgWrap}>
                             <Image src={postImg} alt={post.title} fill sizes="64px" className={styles.recentImg} unoptimized />
@@ -563,10 +589,8 @@ export default function SingleBlog({
                     );
                   })}
                 </ul>
-                <Link href="/blog/aym-yoga-blog" className={styles.viewAllLink}>View All Articles →</Link>
               </div>
             )}
-
 
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
@@ -608,9 +632,10 @@ export default function SingleBlog({
                   { label: "200 Hour YTT", href: "/200-hour-ytt", dates: "Aug – Nov 2025", price: "₹21,000" },
                   { label: "300 Hour YTT", href: "/300-hour-ytt", dates: "Aug – Nov 2025", price: "₹25,000" },
                   { label: "500 Hour YTT", href: "/500-hour-ytt", dates: "Aug – Dec 2025", price: "₹45,000" },
-                ].map((batch) => (
+                ].map((batch, i) => (
                   <Link href={batch.href} key={batch.label} className={styles.batchItem}>
-                    <div>
+                    <span className={styles.batchNum}>{String(i + 1).padStart(2, "0")}</span>
+                    <div className={styles.batchInfo}>
                       <p className={styles.batchLabel}>{batch.label}</p>
                       <p className={styles.batchDates}>{batch.dates}</p>
                     </div>
