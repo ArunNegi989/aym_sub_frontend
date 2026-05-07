@@ -20,7 +20,7 @@
   --font-script: 'Poppins', Arial, sans-serif;
   --font-menu: 'Montserrat', Arial, sans-serif;
   --font-playfair: 'Montserrat', Arial, sans-serif;
-  --font-cormorant:'Montserrat', Arial, sans-serif;
+  --font-cormorant: 'Montserrat', Arial, sans-serif;
   --font-lato: 'Montserrat', Arial, sans-serif;
 }
 
@@ -35,14 +35,12 @@
 
 .bottomBorder {
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--saffron) 20%,
-    var(--saffron-light) 50%,
-    var(--saffron) 80%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      var(--saffron) 20%,
+      var(--saffron-light) 50%,
+      var(--saffron) 80%,
+      transparent 100%);
 }
 
 /* ─── Shared header ─── */
@@ -78,7 +76,9 @@
   margin-bottom: 1.1rem;
 }
 
-.para:last-child { margin-bottom: 0; }
+.para:last-child {
+  margin-bottom: 0;
+}
 
 /* ════════════════════════════════════════════════
    AUTHENTIC SECTION
@@ -153,10 +153,29 @@
   z-index: 2;
 }
 
-.frameCornerTL { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
-.frameCornerTR { top: 6px; right: 6px; border-width: 2px 2px 0 0; }
-.frameCornerBL { bottom: 6px; left: 6px; border-width: 0 0 2px 2px; }
-.frameCornerBR { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
+.frameCornerTL {
+  top: 6px;
+  left: 6px;
+  border-width: 2px 0 0 2px;
+}
+
+.frameCornerTR {
+  top: 6px;
+  right: 6px;
+  border-width: 2px 2px 0 0;
+}
+
+.frameCornerBL {
+  bottom: 6px;
+  left: 6px;
+  border-width: 0 0 2px 2px;
+}
+
+.frameCornerBR {
+  bottom: 6px;
+  right: 6px;
+  border-width: 0 2px 2px 0;
+}
 
 .authImageInner {
   display: flex;
@@ -251,7 +270,10 @@
   transform: translateX(5px);
 }
 
-.videoBlock { display: flex; flex-direction: column; }
+.videoBlock {
+  display: flex;
+  flex-direction: column;
+}
 
 .videoPlaceholder {
   position: relative;
@@ -741,8 +763,13 @@
     gap: 2rem;
   }
 
-  .immerseBlock { order: 1; }
-  .videoBlock   { order: 2; }
+  .immerseBlock {
+    order: 1;
+  }
+
+  .videoBlock {
+    order: 2;
+  }
 
   /* Award: stack portrait above main */
   .awardBody {
@@ -789,7 +816,7 @@
     gap: 0.9rem;
   }
 
-  
+
 
   .authImageFrame {
     min-height: 260px;
@@ -937,7 +964,7 @@
     gap: 0.8rem;
   }
 
-  
+
   .certsBlockTitle {
     font-size: 0.95rem;
   }

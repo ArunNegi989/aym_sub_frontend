@@ -147,7 +147,11 @@ function TeacherModal({
   return (
     <div className={styles.modalBackdrop} onClick={handleBackdrop}>
       <div className={styles.modalCard}>
-        <button className={styles.modalClose} onClick={onClose} aria-label="Close">
+        <button
+          className={styles.modalClose}
+          onClick={onClose}
+          aria-label="Close"
+        >
           ✕
         </button>
         <div className={styles.modalOmBg}>ॐ</div>
@@ -224,7 +228,8 @@ function CourseSlider({
 
   const loopCourses = [...courses, ...courses];
 
-  const prev = () => setCurrentIndex((i) => (i === 0 ? courses.length - 1 : i - 1));
+  const prev = () =>
+    setCurrentIndex((i) => (i === 0 ? courses.length - 1 : i - 1));
   const next = () => setCurrentIndex((i) => i + 1);
 
   useEffect(() => {
@@ -243,11 +248,18 @@ function CourseSlider({
     }
   }, [currentIndex, courses.length]);
 
-  const handleTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
-  const handleTouchMove = (e: React.TouchEvent) => { touchEndX.current = e.touches[0].clientX; };
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
   const handleTouchEnd = () => {
     const diff = touchStartX.current - touchEndX.current;
-    if (Math.abs(diff) > 40) { if (diff > 0) next(); else prev(); }
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) next();
+      else prev();
+    }
   };
 
   if (!mounted) return null;
@@ -256,13 +268,26 @@ function CourseSlider({
   return (
     <div className={styles.sliderWrapper} style={{ marginTop: "2.5rem" }}>
       {slidesToShow > 1 && (
-        <button className={`${styles.sliderArrow} ${styles.sliderArrowPrev}`} onClick={prev} aria-label="Previous">‹</button>
+        <button
+          className={`${styles.sliderArrow} ${styles.sliderArrowPrev}`}
+          onClick={prev}
+          aria-label="Previous"
+        >
+          ‹
+        </button>
       )}
-      <div style={{ overflow: "hidden" }} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+      <div
+        style={{ overflow: "hidden" }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div
           style={{
             display: "flex",
-            transition: isTransitioning ? "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)" : "none",
+            transition: isTransitioning
+              ? "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)"
+              : "none",
             transform: `translateX(-${currentIndex * slideWidthPercent}%)`,
             willChange: "transform",
           }}
@@ -270,11 +295,21 @@ function CourseSlider({
           {loopCourses.map((course, i) => (
             <div
               key={`${course._id}-${i}`}
-              style={{ minWidth: `${slideWidthPercent}%`, maxWidth: `${slideWidthPercent}%`, padding: "0 12px", boxSizing: "border-box" }}
+              style={{
+                minWidth: `${slideWidthPercent}%`,
+                maxWidth: `${slideWidthPercent}%`,
+                padding: "0 12px",
+                boxSizing: "border-box",
+              }}
             >
               <div
                 className={styles.courseCard}
-                style={{ "--card-color": course.color, "--delay": `${i * 0.08}s` } as React.CSSProperties}
+                style={
+                  {
+                    "--card-color": course.color,
+                    "--delay": `${i * 0.08}s`,
+                  } as React.CSSProperties
+                }
                 onMouseEnter={() => setHoveredCard(course._id)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
@@ -282,8 +317,18 @@ function CourseSlider({
                 <div className={styles.cardBadge}>{course.days}</div>
 
                 <div className={styles.cardImgWrap}>
-                  <img src={getImageUrl(course.imgUrl)} alt={course.name} className={styles.cardImg} loading="lazy" />
-                  <div className={styles.cardImgOverlay} style={{ background: `linear-gradient(to top, ${course.color}f0 0%, ${course.color}60 45%, transparent 75%)` }} />
+                  <img
+                    src={getImageUrl(course.imgUrl)}
+                    alt={course.name}
+                    className={styles.cardImg}
+                    loading="lazy"
+                  />
+                  <div
+                    className={styles.cardImgOverlay}
+                    style={{
+                      background: `linear-gradient(to top, ${course.color}f0 0%, ${course.color}60 45%, transparent 75%)`,
+                    }}
+                  />
                   <div className={styles.cardHoursBadge}>
                     <span className={styles.cardHoursNum}>{course.hours}</span>
                   </div>
@@ -292,7 +337,9 @@ function CourseSlider({
                 <div className={styles.cardBody}>
                   <h3 className={styles.cardName}>{course.name}</h3>
                   <div className={styles.cardDivider}>
-                    <span /><span className={styles.cardDividerDot} /><span />
+                    <span />
+                    <span className={styles.cardDividerDot} />
+                    <span />
                   </div>
 
                   <div className={styles.cardMeta}>
@@ -306,17 +353,29 @@ function CourseSlider({
                     </div>
                     <div className={styles.metaRow}>
                       <span className={styles.metaKey}>Certificate</span>
-                      <span className={styles.metaVal}>{course.certificate}</span>
+                      <span className={styles.metaVal}>
+                        {course.certificate}
+                      </span>
                     </div>
                     <div className={styles.metaRowFee}>
                       <span className={styles.metaFeeLabel}>Course Fee</span>
-                      <span className={styles.metaFeeVal}>{course.feeShared} <em>/</em> {course.feePrivate} <small>USD</small></span>
+                      <span className={styles.metaFeeVal}>
+                        {course.feeShared} <em>/</em> {course.feePrivate}{" "}
+                        <small>USD</small>
+                      </span>
                     </div>
                   </div>
 
                   <div className={styles.cardActions}>
-                    <a href={course.detailsLink || "#"} className={styles.detailsBtn}>Details</a>
-                    <a href={course.bookLink || "#"} className={styles.bookBtn}>Book Now →</a>
+                    <a
+                      href={course.detailsLink || "#"}
+                      className={styles.detailsBtn}
+                    >
+                      Details
+                    </a>
+                    <a href={course.bookLink || "#"} className={styles.bookBtn}>
+                      Book Now →
+                    </a>
                   </div>
                 </div>
               </div>
@@ -325,13 +384,40 @@ function CourseSlider({
         </div>
       </div>
       {slidesToShow > 1 && (
-        <button className={`${styles.sliderArrow} ${styles.sliderArrowNext}`} onClick={next} aria-label="Next">›</button>
+        <button
+          className={`${styles.sliderArrow} ${styles.sliderArrowNext}`}
+          onClick={next}
+          aria-label="Next"
+        >
+          ›
+        </button>
       )}
       {slidesToShow === 1 && (
-        <div style={{ display: "flex", justifyContent: "center", gap: "6px", marginTop: "16px" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "6px",
+            marginTop: "16px",
+          }}
+        >
           {courses.map((_, i) => (
-            <button key={i} onClick={() => setCurrentIndex(i)}
-              style={{ width: i === currentIndex % courses.length ? "24px" : "8px", height: "8px", borderRadius: "4px", background: i === currentIndex % courses.length ? "var(--saffron)" : "var(--gold-border)", border: "none", cursor: "pointer", padding: 0, transition: "all 0.3s ease" }}
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              style={{
+                width: i === currentIndex % courses.length ? "24px" : "8px",
+                height: "8px",
+                borderRadius: "4px",
+                background:
+                  i === currentIndex % courses.length
+                    ? "var(--saffron)"
+                    : "var(--gold-border)",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+                transition: "all 0.3s ease",
+              }}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}
@@ -344,7 +430,13 @@ function CourseSlider({
 /* ══════════════════════════════════════════════════════
    TEACHER SLIDER
 ══════════════════════════════════════════════════════ */
-function TeacherSlider({ teachers, onSelect }: { teachers: TeacherItem[]; onSelect: (t: TeacherItem) => void }) {
+function TeacherSlider({
+  teachers,
+  onSelect,
+}: {
+  teachers: TeacherItem[];
+  onSelect: (t: TeacherItem) => void;
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(4);
   const [mounted, setMounted] = useState(false);
@@ -367,7 +459,8 @@ function TeacherSlider({ teachers, onSelect }: { teachers: TeacherItem[]; onSele
   }, []);
 
   const loopTeachers = [...teachers, ...teachers];
-  const prev = () => setCurrentIndex((i) => (i === 0 ? teachers.length - 1 : i - 1));
+  const prev = () =>
+    setCurrentIndex((i) => (i === 0 ? teachers.length - 1 : i - 1));
   const next = () => setCurrentIndex((i) => i + 1);
 
   useEffect(() => {
@@ -386,11 +479,18 @@ function TeacherSlider({ teachers, onSelect }: { teachers: TeacherItem[]; onSele
     }
   }, [currentIndex, teachers.length]);
 
-  const handleTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
-  const handleTouchMove = (e: React.TouchEvent) => { touchEndX.current = e.touches[0].clientX; };
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
   const handleTouchEnd = () => {
     const diff = touchStartX.current - touchEndX.current;
-    if (Math.abs(diff) > 40) { if (diff > 0) next(); else prev(); }
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) next();
+      else prev();
+    }
   };
 
   if (!mounted) return null;
@@ -399,19 +499,40 @@ function TeacherSlider({ teachers, onSelect }: { teachers: TeacherItem[]; onSele
   return (
     <div className={styles.sliderWrapper}>
       {slidesToShow > 1 && (
-        <button className={`${styles.sliderArrow} ${styles.sliderArrowPrev}`} onClick={prev} aria-label="Previous">‹</button>
+        <button
+          className={`${styles.sliderArrow} ${styles.sliderArrowPrev}`}
+          onClick={prev}
+          aria-label="Previous"
+        >
+          ‹
+        </button>
       )}
-      <div style={{ overflow: "hidden" }} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+      <div
+        style={{ overflow: "hidden" }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div
           style={{
             display: "flex",
-            transition: isTransitioning ? "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)" : "none",
+            transition: isTransitioning
+              ? "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)"
+              : "none",
             transform: `translateX(-${currentIndex * slideWidthPercent}%)`,
             willChange: "transform",
           }}
         >
           {loopTeachers.map((t, i) => (
-            <div key={`${t._id}-${i}`} style={{ minWidth: `${slideWidthPercent}%`, maxWidth: `${slideWidthPercent}%`, padding: "0 10px", boxSizing: "border-box" }}>
+            <div
+              key={`${t._id}-${i}`}
+              style={{
+                minWidth: `${slideWidthPercent}%`,
+                maxWidth: `${slideWidthPercent}%`,
+                padding: "0 10px",
+                boxSizing: "border-box",
+              }}
+            >
               <div
                 className={styles.teacherCard}
                 style={{ "--delay": `${i * 0.08}s` } as React.CSSProperties}
@@ -422,7 +543,11 @@ function TeacherSlider({ teachers, onSelect }: { teachers: TeacherItem[]; onSele
               >
                 <div className={styles.teacherImgWrap}>
                   {getImageUrl(t.imgUrl) ? (
-                    <img src={getImageUrl(t.imgUrl)} alt={`${t.name} ${t.surname}`} className={styles.teacherImg} />
+                    <img
+                      src={getImageUrl(t.imgUrl)}
+                      alt={`${t.name} ${t.surname}`}
+                      className={styles.teacherImg}
+                    />
                   ) : (
                     <div className={styles.teacherImgPlaceholder}>🧘</div>
                   )}
@@ -441,13 +566,38 @@ function TeacherSlider({ teachers, onSelect }: { teachers: TeacherItem[]; onSele
         </div>
       </div>
       {slidesToShow > 1 && (
-        <button className={`${styles.sliderArrow} ${styles.sliderArrowNext}`} onClick={next} aria-label="Next">›</button>
+        <button
+          className={`${styles.sliderArrow} ${styles.sliderArrowNext}`}
+          onClick={next}
+          aria-label="Next"
+        >
+          ›
+        </button>
       )}
       {slidesToShow === 1 && (
-        <div style={{ display: "flex", justifyContent: "center", gap: "6px", marginTop: "16px" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "6px",
+            marginTop: "16px",
+          }}
+        >
           {teachers.map((_, i) => (
-            <button key={i} onClick={() => setCurrentIndex(i)}
-              style={{ width: i === currentIndex ? "24px" : "8px", height: "8px", borderRadius: "4px", background: i === currentIndex ? "var(--saffron)" : "var(--gold-border)", border: "none", cursor: "pointer", padding: 0, transition: "all 0.3s ease" }}
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              style={{
+                width: i === currentIndex ? "24px" : "8px",
+                height: "8px",
+                borderRadius: "4px",
+                background:
+                  i === currentIndex ? "var(--saffron)" : "var(--gold-border)",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+                transition: "all 0.3s ease",
+              }}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}
@@ -464,7 +614,9 @@ export const YogaCoursesTeachers: React.FC = () => {
   const [data, setData] = useState<PageData | null>(null);
   const [loading, setLoading] = useState(true);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-  const [selectedTeacher, setSelectedTeacher] = useState<TeacherItem | null>(null);
+  const [selectedTeacher, setSelectedTeacher] = useState<TeacherItem | null>(
+    null,
+  );
 
   useEffect(() => {
     (async () => {
@@ -485,8 +637,24 @@ export const YogaCoursesTeachers: React.FC = () => {
         <section className={styles.coursesSection}>
           <div className={styles.topBorder} />
           <div className={styles.container}>
-            <div style={{ minHeight: 400, display: "flex", alignItems: "center", justifyContent: "center", opacity: 0.4 }}>
-              <span style={{ fontFamily: "serif", fontSize: "3rem", animation: "spin 3s linear infinite" }}>ॐ</span>
+            <div
+              style={{
+                minHeight: 400,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                opacity: 0.4,
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "serif",
+                  fontSize: "3rem",
+                  animation: "spin 3s linear infinite",
+                }}
+              >
+                ॐ
+              </span>
             </div>
           </div>
           <div className={styles.bottomBorder} />
@@ -497,18 +665,20 @@ export const YogaCoursesTeachers: React.FC = () => {
 
   if (!data) return null;
 
-  const { sectionHeader, courses, who, teachersHeader, founder, teachers } = data;
+  const { sectionHeader, courses, who, teachersHeader, founder, teachers } =
+    data;
 
   return (
     <div className={styles.wrapper}>
-
       {/* ══ COURSES SECTION ══ */}
       <section className={styles.coursesSection}>
         <div className={styles.topBorder} />
 
         {/* Decorative side text */}
         <div className={styles.sideTextLeft}>YOGA · RISHIKESH · INDIA</div>
-        <div className={styles.sideTextRight}>CERTIFIED · AUTHENTIC · TRANSFORMATIVE</div>
+        <div className={styles.sideTextRight}>
+          CERTIFIED · AUTHENTIC · TRANSFORMATIVE
+        </div>
 
         <div className={styles.container}>
           <div className={styles.sectionHead}>
@@ -517,7 +687,9 @@ export const YogaCoursesTeachers: React.FC = () => {
               <p className={styles.eyebrow}>{sectionHeader.eyebrow}</p>
               <span className={styles.eyebrowLine} />
             </div>
-            <h2 className={styles.sectionTitle}>{sectionHeader.sectionTitle}</h2>
+            <h2 className={styles.sectionTitle}>
+              {sectionHeader.sectionTitle}
+            </h2>
             <div className={styles.omDivider}>
               <span className={styles.divLine} />
               <span className={styles.divOm}>ॐ</span>
@@ -526,7 +698,11 @@ export const YogaCoursesTeachers: React.FC = () => {
             <p className={styles.sectionDesc}>{sectionHeader.sectionDesc}</p>
           </div>
 
-          <CourseSlider courses={courses} hoveredCard={hoveredCard} setHoveredCard={setHoveredCard} />
+          <CourseSlider
+            courses={courses}
+            hoveredCard={hoveredCard}
+            setHoveredCard={setHoveredCard}
+          />
         </div>
         <div className={styles.bottomBorder} />
       </section>
@@ -535,7 +711,6 @@ export const YogaCoursesTeachers: React.FC = () => {
       <section className={styles.whoSection}>
         <div className={styles.container}>
           <div className={styles.whoHero}>
-
             {/* LEFT */}
             <div className={styles.whoLeft}>
               <div className={styles.whoEyebrow}>
@@ -544,31 +719,50 @@ export const YogaCoursesTeachers: React.FC = () => {
               </div>
               <h2 className={styles.whoH2}>{who.sectionTitle}</h2>
 
-              {[who.para1, who.para2, who.para3, who.para4, who.para5].map((para, i) => {
-                if (!para) return null;
-                return (
-                  <React.Fragment key={i}>
-                    {i === 2 && (
-                      <div className={styles.whoPull}>
-                        <div className={styles.whoPullQuoteMark}>"</div>
-                        <p>The mat holds space for the curious, the exhausted, the broken, and the whole.</p>
-                        <span>— Ancient Yoga Teaching</span>
-                      </div>
-                    )}
-                    <p className={i === 0 ? styles.whoParaFirst : styles.whoPara}>{para}</p>
-                  </React.Fragment>
-                );
-              })}
+              {[who.para1, who.para2, who.para3, who.para4, who.para5].map(
+                (para, i) => {
+                  if (!para) return null;
+                  return (
+                    <React.Fragment key={i}>
+                      {i === 2 && (
+                        <div className={styles.whoPull}>
+                          <div className={styles.whoPullQuoteMark}>"</div>
+                          <p>
+                            The mat holds space for the curious, the exhausted,
+                            the broken, and the whole.
+                          </p>
+                          <span>— Ancient Yoga Teaching</span>
+                        </div>
+                      )}
+                      <p
+                        className={
+                          i === 0 ? styles.whoParaFirst : styles.whoPara
+                        }
+                      >
+                        {para}
+                      </p>
+                    </React.Fragment>
+                  );
+                },
+              )}
             </div>
 
             {/* RIGHT */}
             <div className={styles.whoRight}>
               <div className={styles.whoRightInner}>
-                <p className={styles.whoPanelLbl}>You belong here if you are —</p>
+                <p className={styles.whoPanelLbl}>
+                  You belong here if you are —
+                </p>
                 <div className={styles.whoChipList}>
                   {who.chips.map((item, i) => (
-                    <div key={i} className={styles.whoChip} style={{ animationDelay: `${i * 0.07}s` }}>
-                      <span className={styles.whoChipN}>{String(i + 1).padStart(2, "0")}</span>
+                    <div
+                      key={i}
+                      className={styles.whoChip}
+                      style={{ animationDelay: `${i * 0.07}s` }}
+                    >
+                      <span className={styles.whoChipN}>
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                       <span className={styles.whoChipT}>{item}</span>
                       <span className={styles.whoChipArrow}>›</span>
                     </div>
@@ -592,14 +786,15 @@ export const YogaCoursesTeachers: React.FC = () => {
       <section className={styles.teachersSection}>
         <div className={styles.topBorder} />
         <div className={styles.container}>
-
           <div className={styles.sectionHead}>
             <div className={styles.eyebrowWrap}>
               <span className={styles.eyebrowLine} />
               <p className={styles.eyebrow}>{teachersHeader.eyebrow}</p>
               <span className={styles.eyebrowLine} />
             </div>
-            <h2 className={styles.sectionTitle}>{teachersHeader.sectionTitle}</h2>
+            <h2 className={styles.sectionTitle}>
+              {teachersHeader.sectionTitle}
+            </h2>
             <div className={styles.omDivider}>
               <span className={styles.divLine} />
               <span className={styles.divOm}>ॐ</span>
@@ -608,8 +803,16 @@ export const YogaCoursesTeachers: React.FC = () => {
           </div>
 
           <div className={styles.teachersIntro}>
-            <HighlightedPara text={teachersHeader.introPara1} highlight={teachersHeader.introPara1Highlight} className={styles.para} />
-            <HighlightedPara text={teachersHeader.introPara2} highlight={teachersHeader.introPara2Highlight} className={styles.para} />
+            <HighlightedPara
+              text={teachersHeader.introPara1}
+              highlight={teachersHeader.introPara1Highlight}
+              className={styles.para}
+            />
+            <HighlightedPara
+              text={teachersHeader.introPara2}
+              highlight={teachersHeader.introPara2Highlight}
+              className={styles.para}
+            />
           </div>
 
           {/* Founder Block */}
@@ -617,15 +820,35 @@ export const YogaCoursesTeachers: React.FC = () => {
             <div className={styles.founderImgCol}>
               <div className={styles.founderImgFrame}>
                 {getImageUrl(founder.imgUrl) ? (
-                  <img src={getImageUrl(founder.imgUrl)} alt={founder.imgAlt} className={styles.founderImg} />
+                  <img
+                    src={getImageUrl(founder.imgUrl)}
+                    alt={founder.imgAlt}
+                    className={styles.founderImg}
+                  />
                 ) : (
-                  <div style={{ width: "100%", height: "100%", minHeight: 360, background: "linear-gradient(135deg,#fdf6ec,#e8d5b5)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "3rem", opacity: 0.4 }}>🧘</div>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      minHeight: 360,
+                      background: "linear-gradient(135deg,#fdf6ec,#e8d5b5)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "3rem",
+                      opacity: 0.4,
+                    }}
+                  >
+                    🧘
+                  </div>
                 )}
                 <div className={styles.founderImgOverlay}>
                   <span className={styles.founderImgName}>{founder.name}</span>
                 </div>
-                <div className={styles.fCornerTL} /><div className={styles.fCornerTR} />
-                <div className={styles.fCornerBL} /><div className={styles.fCornerBR} />
+                <div className={styles.fCornerTL} />
+                <div className={styles.fCornerTR} />
+                <div className={styles.fCornerBL} />
+                <div className={styles.fCornerBR} />
               </div>
             </div>
 
@@ -635,10 +858,21 @@ export const YogaCoursesTeachers: React.FC = () => {
               <div className={styles.founderNameUnderline} />
               <p className={styles.para}>{founder.para1}</p>
               <p className={styles.para}>{founder.para2}</p>
-              <HighlightedPara text={founder.para3} highlight={founder.para3Highlight} className={styles.para} />
+              <HighlightedPara
+                text={founder.para3}
+                highlight={founder.para3Highlight}
+                className={styles.para}
+              />
               <div className={styles.founderActions}>
-                <a href={founder.detailsBtnLink || "#"} className={styles.detailsBtn}>{founder.detailsBtnText}</a>
-                <a href={founder.bookBtnLink || "#"} className={styles.bookBtn}>{founder.bookBtnText} →</a>
+                <a
+                  href={founder.detailsBtnLink || "#"}
+                  className={styles.detailsBtn}
+                >
+                  {founder.detailsBtnText}
+                </a>
+                <a href={founder.bookBtnLink || "#"} className={styles.bookBtn}>
+                  {founder.bookBtnText} →
+                </a>
               </div>
             </div>
           </div>
@@ -651,13 +885,20 @@ export const YogaCoursesTeachers: React.FC = () => {
                 <span className={styles.teamDividerTxt}>Meet the Team</span>
                 <span className={styles.divLine} />
               </div>
-              <TeacherSlider teachers={teachers} onSelect={setSelectedTeacher} />
+              <TeacherSlider
+                teachers={teachers}
+                onSelect={setSelectedTeacher}
+              />
             </>
           )}
 
           <div className={styles.teachersCta}>
-            <a href={teachersHeader.ctaBtnLink || "#"} className={styles.teachersCtaBtn}>
-              {teachersHeader.ctaBtnText} <span className={styles.ctaArrow}>→</span>
+            <a
+              href={teachersHeader.ctaBtnLink || "#"}
+              className={styles.teachersCtaBtn}
+            >
+              {teachersHeader.ctaBtnText}{" "}
+              <span className={styles.ctaArrow}>→</span>
             </a>
           </div>
         </div>
@@ -665,7 +906,10 @@ export const YogaCoursesTeachers: React.FC = () => {
       </section>
 
       {selectedTeacher && (
-        <TeacherModal teacher={selectedTeacher} onClose={() => setSelectedTeacher(null)} />
+        <TeacherModal
+          teacher={selectedTeacher}
+          onClose={() => setSelectedTeacher(null)}
+        />
       )}
     </div>
   );

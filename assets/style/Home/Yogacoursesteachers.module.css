@@ -45,12 +45,12 @@
 .bottomBorder {
   height: 3px;
   background: linear-gradient(90deg,
-    transparent 0%,
-    var(--saffron-light) 15%,
-    var(--saffron) 40%,
-    var(--saffron-light) 60%,
-    var(--saffron) 85%,
-    transparent 100%);
+      transparent 0%,
+      var(--saffron-light) 15%,
+      var(--saffron) 40%,
+      var(--saffron-light) 60%,
+      var(--saffron) 85%,
+      transparent 100%);
 }
 
 /* ── Side Rotated Text ── */
@@ -69,8 +69,16 @@
   pointer-events: none;
   user-select: none;
 }
-.sideTextLeft  { left: 12px;  transform: translateY(-50%) rotate(180deg); }
-.sideTextRight { right: 12px; transform: translateY(-50%); }
+
+.sideTextLeft {
+  left: 12px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.sideTextRight {
+  right: 12px;
+  transform: translateY(-50%);
+}
 
 /* ── Section Heading ── */
 .sectionHead {
@@ -93,6 +101,7 @@
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--saffron));
 }
+
 .eyebrowWrap .eyebrowLine:last-child {
   background: linear-gradient(90deg, var(--saffron), transparent);
 }
@@ -143,8 +152,18 @@
 }
 
 @keyframes omPulse {
-  0%, 100% { transform: scale(1); opacity: 0.85; }
-  50% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 16px rgba(241, 85, 5, 0.7)); }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+    filter: drop-shadow(0 0 16px rgba(241, 85, 5, 0.7));
+  }
 }
 
 .sectionDesc {
@@ -195,8 +214,17 @@
 }
 
 @keyframes bgOmBreath {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.025; }
-  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.05; }
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.025;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.05;
+  }
 }
 
 /* ── Course Card ── */
@@ -217,8 +245,15 @@
 }
 
 @keyframes cardReveal {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .courseCard:hover {
@@ -286,7 +321,7 @@
   font-weight: 900;
   color: #fff;
   letter-spacing: 0.1em;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
   text-transform: uppercase;
 }
 
@@ -389,8 +424,17 @@
   color: var(--saffron-deep);
 }
 
-.metaFeeVal em { font-style: normal; opacity: 0.4; margin: 0 2px; }
-.metaFeeVal small { font-size: 0.65rem; opacity: 0.6; font-weight: 600; }
+.metaFeeVal em {
+  font-style: normal;
+  opacity: 0.4;
+  margin: 0 2px;
+}
+
+.metaFeeVal small {
+  font-size: 0.65rem;
+  opacity: 0.6;
+  font-weight: 600;
+}
 
 .cardActions {
   display: flex;
@@ -478,8 +522,13 @@
   transform: translateY(-50%) scale(1.08);
 }
 
-.sliderArrowPrev { left: -6px; }
-.sliderArrowNext { right: -6px; }
+.sliderArrowPrev {
+  left: -6px;
+}
+
+.sliderArrowNext {
+  right: -6px;
+}
 
 /* ══════════════════════════════════════════════════════
    SECTION 2 — WHO CAN JOIN
@@ -699,8 +748,15 @@
 }
 
 @keyframes whoChipIn {
-  from { opacity: 0; transform: translateX(16px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .whoChipN {
@@ -891,7 +947,10 @@
   letter-spacing: 0.03em;
 }
 
-.fCornerTL, .fCornerTR, .fCornerBL, .fCornerBR {
+.fCornerTL,
+.fCornerTR,
+.fCornerBL,
+.fCornerBR {
   position: absolute;
   width: 18px;
   height: 18px;
@@ -900,15 +959,50 @@
   z-index: 2;
   transition: all 0.3s ease;
 }
-.fCornerTL { top: 7px;    left: 7px;    border-width: 2px 0 0 2px; }
-.fCornerTR { top: 7px;    right: 7px;   border-width: 2px 2px 0 0; }
-.fCornerBL { bottom: 7px; left: 7px;    border-width: 0 0 2px 2px; }
-.fCornerBR { bottom: 7px; right: 7px;   border-width: 0 2px 2px 0; }
 
-.founderImgFrame:hover .fCornerTL { top: 4px;    left: 4px; }
-.founderImgFrame:hover .fCornerTR { top: 4px;    right: 4px; }
-.founderImgFrame:hover .fCornerBL { bottom: 4px; left: 4px; }
-.founderImgFrame:hover .fCornerBR { bottom: 4px; right: 4px; }
+.fCornerTL {
+  top: 7px;
+  left: 7px;
+  border-width: 2px 0 0 2px;
+}
+
+.fCornerTR {
+  top: 7px;
+  right: 7px;
+  border-width: 2px 2px 0 0;
+}
+
+.fCornerBL {
+  bottom: 7px;
+  left: 7px;
+  border-width: 0 0 2px 2px;
+}
+
+.fCornerBR {
+  bottom: 7px;
+  right: 7px;
+  border-width: 0 2px 2px 0;
+}
+
+.founderImgFrame:hover .fCornerTL {
+  top: 4px;
+  left: 4px;
+}
+
+.founderImgFrame:hover .fCornerTR {
+  top: 4px;
+  right: 4px;
+}
+
+.founderImgFrame:hover .fCornerBL {
+  bottom: 4px;
+  left: 4px;
+}
+
+.founderImgFrame:hover .fCornerBR {
+  bottom: 4px;
+  right: 4px;
+}
 
 .founderTag {
   display: inline-flex;
@@ -1154,8 +1248,13 @@
 }
 
 @keyframes backdropIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .modalCard {
@@ -1172,8 +1271,15 @@
 }
 
 @keyframes modalIn {
-  from { opacity: 0; transform: scale(0.88) translateY(28px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .modalOmBg {
@@ -1190,7 +1296,10 @@
   animation: bgOmBreath 6s ease-in-out infinite;
 }
 
-.mCornerTL, .mCornerTR, .mCornerBL, .mCornerBR {
+.mCornerTL,
+.mCornerTR,
+.mCornerBL,
+.mCornerBR {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -1198,10 +1307,30 @@
   border-style: solid;
   z-index: 2;
 }
-.mCornerTL { top: 10px;    left: 10px;   border-width: 2px 0 0 2px; }
-.mCornerTR { top: 10px;    right: 10px;  border-width: 2px 2px 0 0; }
-.mCornerBL { bottom: 10px; left: 10px;   border-width: 0 0 2px 2px; }
-.mCornerBR { bottom: 10px; right: 10px;  border-width: 0 2px 2px 0; }
+
+.mCornerTL {
+  top: 10px;
+  left: 10px;
+  border-width: 2px 0 0 2px;
+}
+
+.mCornerTR {
+  top: 10px;
+  right: 10px;
+  border-width: 2px 2px 0 0;
+}
+
+.mCornerBL {
+  bottom: 10px;
+  left: 10px;
+  border-width: 0 0 2px 2px;
+}
+
+.mCornerBR {
+  bottom: 10px;
+  right: 10px;
+  border-width: 0 2px 2px 0;
+}
 
 .modalClose {
   position: absolute;
@@ -1354,6 +1483,7 @@
   .sliderWrapper {
     padding: 0 48px;
   }
+
   .whoHero {
     grid-template-columns: 1fr 360px;
   }
@@ -1371,7 +1501,9 @@
     border-bottom: 1px solid var(--gold-border);
   }
 
-  .whoLeft::after { display: none; }
+  .whoLeft::after {
+    display: none;
+  }
 
   .whoRightInner {
     padding: 2.5rem 1.8rem;
@@ -1388,7 +1520,9 @@
     margin: 0 auto;
   }
 
-  .founderBlock::after { display: none; }
+  .founderBlock::after {
+    display: none;
+  }
 
   .sliderWrapper {
     padding: 0 44px;
@@ -1401,7 +1535,9 @@
   }
 
   .sideTextLeft,
-  .sideTextRight { display: none; }
+  .sideTextRight {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1411,18 +1547,26 @@
 }
 
 @media (max-width: 600px) {
-  .cardImgWrap { aspect-ratio: 16 / 9; }
+  .cardImgWrap {
+    aspect-ratio: 16 / 9;
+  }
 
-  .sectionTitle { font-size: 1.4rem; }
+  .sectionTitle {
+    font-size: 1.4rem;
+  }
 
   .founderBlock {
     padding: 1.4rem 1.1rem;
     border-radius: 12px;
   }
 
-  .founderImg { object-position: center; }
+  .founderImg {
+    object-position: center;
+  }
 
-  .founderActions { flex-direction: column; }
+  .founderActions {
+    flex-direction: column;
+  }
 
   .founderActions .detailsBtn,
   .founderActions .bookBtn {
@@ -1430,8 +1574,13 @@
     justify-content: center;
   }
 
-  .sliderWrapper { padding: 0 6px; }
-  .sliderArrow { display: none; }
+  .sliderWrapper {
+    padding: 0 6px;
+  }
+
+  .sliderArrow {
+    display: none;
+  }
 
   .modalCard {
     padding: 1.8rem 1.2rem;
@@ -1441,15 +1590,38 @@
 }
 
 @media (max-width: 480px) {
-  .sliderWrapper { padding: 0; }
-  .teacherName { font-size: 0.82rem; }
-  .teacherSurname { font-size: 0.76rem; }
-  .whoH2 { font-size: 1.8rem; }
-  .cardActions { flex-direction: column; }
+  .sliderWrapper {
+    padding: 0;
+  }
+
+  .teacherName {
+    font-size: 0.82rem;
+  }
+
+  .teacherSurname {
+    font-size: 0.76rem;
+  }
+
+  .whoH2 {
+    font-size: 1.8rem;
+  }
+
+  .cardActions {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 380px) {
-  .teacherInfo { padding: 0.65rem 0.5rem 0.75rem; }
-  .teachersCtaBtn { font-size: 0.66rem; padding: 0.85rem 1.5rem; }
-  .modalCard { padding: 1.5rem 1rem; }
+  .teacherInfo {
+    padding: 0.65rem 0.5rem 0.75rem;
+  }
+
+  .teachersCtaBtn {
+    font-size: 0.66rem;
+    padding: 0.85rem 1.5rem;
+  }
+
+  .modalCard {
+    padding: 1.5rem 1rem;
+  }
 }

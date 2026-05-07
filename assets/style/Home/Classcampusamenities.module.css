@@ -7,21 +7,21 @@
 
 /* ── CSS TOKENS ─────────────────────────────────────────────── */
 .section {
-  --clr-bg:        #faf6ef;
-  --clr-surface:   #fff9f2;
-  --clr-border:    rgba(193, 140, 60, 0.18);
-  --clr-saffron:   #e8530a;
-  --clr-gold:      #c07c1a;
-  --clr-gold-lt:   #f0b429;
-  --clr-ink:       #1e0f00;
-  --clr-ink-mid:   #4a2f0e;
-  --clr-ink-lt:    #8a6435;
-  --clr-divider:   rgba(193, 140, 60, 0.22);
-  --radius-card:   24px;
-  --radius-img:    16px;
-  --shadow-card:   0 8px 32px -6px rgba(30, 15, 0, 0.1);
-  --shadow-hover:  0 20px 48px -10px rgba(30, 15, 0, 0.15);
-  --shadow-img:    0 6px 24px rgba(30, 15, 0, 0.12);
+  --clr-bg: #faf6ef;
+  --clr-surface: #fff9f2;
+  --clr-border: rgba(193, 140, 60, 0.18);
+  --clr-saffron: #e8530a;
+  --clr-gold: #c07c1a;
+  --clr-gold-lt: #f0b429;
+  --clr-ink: #1e0f00;
+  --clr-ink-mid: #4a2f0e;
+  --clr-ink-lt: #8a6435;
+  --clr-divider: rgba(193, 140, 60, 0.22);
+  --radius-card: 24px;
+  --radius-img: 16px;
+  --shadow-card: 0 8px 32px -6px rgba(30, 15, 0, 0.1);
+  --shadow-hover: 0 20px 48px -10px rgba(30, 15, 0, 0.15);
+  --shadow-img: 0 6px 24px rgba(30, 15, 0, 0.12);
 
   position: relative;
   overflow: hidden;
@@ -73,8 +73,13 @@
 }
 
 @keyframes blobDrift {
-  0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(30px, -20px) scale(1.08); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(30px, -20px) scale(1.08);
+  }
 }
 
 /* ── CONTAINER ──────────────────────────────────────────────── */
@@ -91,8 +96,8 @@
   opacity: 0;
   transform: translateY(26px);
   transition:
-    opacity  0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s),
-    transform 0.6s  cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s);
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s);
 }
 
 .revealed {
@@ -168,7 +173,9 @@
   margin: 0;
 }
 
-.cardBody { margin-top: 1.2rem; }
+.cardBody {
+  margin-top: 1.2rem;
+}
 
 /* ── TOP ROW LAYOUT ─────────────────────────────────────────── */
 .topRow {
@@ -186,7 +193,7 @@
   padding: clamp(1.6rem, 3vw, 2.4rem);
   box-shadow: var(--shadow-card);
   transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.38s ease;
+    box-shadow 0.38s ease;
 }
 
 .card:hover {
@@ -222,12 +229,10 @@
 .imgScrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    160deg,
-    rgba(10, 4, 0, 0.58) 0%,
-    rgba(10, 4, 0, 0.12) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(160deg,
+      rgba(10, 4, 0, 0.58) 0%,
+      rgba(10, 4, 0, 0.12) 50%,
+      transparent 100%);
   display: flex;
   align-items: flex-start;
   padding: 1.2rem 1.4rem;
@@ -260,13 +265,11 @@
   flex: 1;
   width: 1px;
   min-height: 60px;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    var(--clr-saffron) 35%,
-    var(--clr-gold)    65%,
-    transparent 100%
-  );
+  background: linear-gradient(180deg,
+      transparent 0%,
+      var(--clr-saffron) 35%,
+      var(--clr-gold) 65%,
+      transparent 100%);
   opacity: 0.5;
 }
 
@@ -280,8 +283,17 @@
 }
 
 @keyframes omPulse {
-  0%, 100% { opacity: 0.55; transform: scale(1); }
-  50%       { opacity: 0.9;  transform: scale(1.1); }
+
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
 }
 
 /* ── CAMPUS IMAGE STRIP ─────────────────────────────────────── */
@@ -480,14 +492,12 @@
   position: relative;
   z-index: 1;
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--clr-saffron) 25%,
-    var(--clr-gold-lt) 50%,
-    var(--clr-saffron) 75%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      var(--clr-saffron) 25%,
+      var(--clr-gold-lt) 50%,
+      var(--clr-saffron) 75%,
+      transparent 100%);
 }
 
 /* ================================================================
@@ -575,7 +585,8 @@
     margin: 2.5rem 0;
   }
 
-  .blob1, .blob2 {
+  .blob1,
+  .blob2 {
     opacity: 0.07;
   }
 }
