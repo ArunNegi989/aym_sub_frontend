@@ -22,7 +22,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: clamp(16rem, 30vw, 28rem);
+  font-size: clamp(8rem, 30vw, 28rem);
   color: rgba(224, 123, 0, 0.03);
   font-family: var(--font-display), serif;
   pointer-events: none;
@@ -50,9 +50,9 @@
 .container {
   position: relative;
   z-index: 1;
-  max-width: 1300px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 4rem clamp(1.5rem, 5vw, 3rem);
+  padding: 4rem clamp(1rem, 5vw, 3rem);
 }
 
 /* ─── Header ─── */
@@ -77,7 +77,7 @@
 
 .superTitle {
   font-family: var(--font-body), sans-serif;
-  font-size: clamp(0.88rem, 2vw, 1rem);
+  font-size: clamp(0.82rem, 2vw, 1rem);
   font-style: italic;
   color: #7a5c2e;
   letter-spacing: 0.05em;
@@ -86,10 +86,10 @@
 
 .mainTitle {
   font-family: var(--font-display), serif;
-  font-size: clamp(1.25rem, 3vw, 1.9rem);
+  font-size: clamp(1.1rem, 3vw, 1.9rem);
   font-weight: 700;
   color: #3d1d00;
-  line-height: 1.3;
+  line-height: 1.35;
   max-width: 760px;
   margin: 0 auto 1rem;
 }
@@ -145,15 +145,12 @@
   font-size: 1.05rem;
 }
 
-/* ─── Course Card ───────────────────────────────────────
-   [CONTENT flex-1 | IMAGE 300px]
-   Left: leftColumn (text content + CTA strip pinned bottom)
-   Right: imageWrapper (fills full card height via align-items stretch)
-──────────────────────────────────────────────────────── */
+/* ─── Course Card — CSS GRID ─── */
 .courseCard {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;        /* both children fill card height */
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  grid-template-rows: 1fr;
+  align-items: stretch;
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
@@ -173,13 +170,13 @@
 
 /* ─── LEFT: text content + CTA ─── */
 .leftColumn {
-  flex: 1;
-  min-width: 0;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  grid-column: 1;
+  grid-row: 1;
 }
 
-/* Text content — grows to fill */
 .content {
   flex: 1;
   padding: 1.75rem 2rem 1.25rem;
@@ -195,10 +192,10 @@
 
 .courseTitle {
   font-family: var(--font-display), serif;
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   font-weight: 700;
   color: #3d1d00;
-  line-height: 1.3;
+  line-height: 1.35;
   margin: 0 0 0.45rem;
 }
 
@@ -213,7 +210,7 @@
 .courseMeta {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
@@ -231,7 +228,7 @@
 
 .description {
   font-family: var(--font-body), sans-serif;
-  font-size: 0.875rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.875rem);
   line-height: 1.7;
   color: #4a3520;
   margin: 0;
@@ -241,7 +238,7 @@
 .description p:last-child { margin-bottom: 0; }
 .description strong       { color: #f15505; }
 
-/* Link pills */
+/* ─── Link pills ─── */
 .linkGrid {
   display: flex;
   flex-wrap: wrap;
@@ -284,19 +281,21 @@
   transform: translateX(0);
 }
 
-/* ─── CTA Strip — pinned to bottom of leftColumn ─── */
+/* ─── CTA Strip — CSS GRID ─── */
 .ctaStrip {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "price seats buttons";
   align-items: center;
   gap: 1rem;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, #fff9f0 0%, #fff4e5 100%);
   border-top: 1px solid rgba(224, 123, 0, 0.13);
-  flex-wrap: nowrap;
 }
 
 /* Price pair */
 .priceCards {
+  grid-area: price;
   display: flex;
   gap: 0.55rem;
   flex-shrink: 0;
@@ -310,7 +309,7 @@
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  min-width: 72px;
+  min-width: 68px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -347,7 +346,7 @@
 
 /* Seats block */
 .seatsBlock {
-  flex: 1;
+  grid-area: seats;
   min-width: 0;
   background: #fff;
   border-radius: 10px;
@@ -358,8 +357,9 @@
 .seatsInfo {
   display: flex;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.5rem;
   margin-bottom: 0.45rem;
+  flex-wrap: wrap;
 }
 
 .seatsItem {
@@ -406,6 +406,7 @@
 
 /* Buttons */
 .buttonGroup {
+  grid-area: buttons;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -486,12 +487,12 @@
 
 /* ─── RIGHT: Image panel ─── */
 .imageWrapper {
+  grid-column: 2;
+  grid-row: 1;
   position: relative;
-  width: 300px;
-  flex-shrink: 0;
   overflow: hidden;
-  /* fallback bg if image fails */
-  background: linear-gradient(135deg, #fdf0dc 0%, #ffe8c2 100%);
+  /* Stretch to full card height via grid */
+  align-self: stretch;
 }
 
 .courseImage {
@@ -499,13 +500,15 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;   /* ← fully visible at every breakpoint */
   display: block;
   transition: transform 0.5s ease;
+  padding: 0.5rem;       /* small breathing room so image isn't edge-to-edge */
+  box-sizing: border-box;
 }
 
 .courseCard:hover .courseImage {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .imageOverlay {
@@ -514,7 +517,7 @@
   background: linear-gradient(
     to left,
     transparent 60%,
-    rgba(255, 255, 255, 0.08) 100%
+    rgba(255, 255, 255, 0.06) 100%
   );
   pointer-events: none;
   z-index: 1;
@@ -536,47 +539,150 @@
   z-index: 2;
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 1100px) {
-  .imageWrapper { width: 260px; }
+/* ════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+════════════════════════════════════════ */
+
+/* ─── ≤ 1400px ─── */
+@media (max-width: 1400px) {
+  .courseCard {
+    grid-template-columns: 1fr 300px;
+  }
 }
 
-@media (max-width: 900px) {
-  .imageWrapper { width: 220px; }
-  .content { padding: 1.4rem 1.5rem 1rem; }
-  .ctaStrip { padding: 0.9rem 1.5rem; gap: 0.75rem; }
-  .courseTitle { font-size: 1.15rem; }
-}
-
-@media (max-width: 720px) {
-  /* Stack vertically: content on top, image below */
-  .courseCard { flex-direction: column; }
-
-  .imageWrapper {
-    width: 100%;
-    height: 220px;
-    position: relative; /* override absolute for stacking */
-    flex-shrink: unset;
-    order: 2;
+/* ─── ≤ 1200px ─── */
+@media (max-width: 1200px) {
+  .courseCard {
+    grid-template-columns: 1fr 280px;
   }
 
-  .leftColumn { order: 1; }
+  .content  { padding: 1.6rem 1.75rem 1.1rem; }
+  .ctaStrip { padding: 0.95rem 1.75rem; }
+}
+
+/* ─── ≤ 1024px ─── */
+@media (max-width: 1024px) {
+  .courseCard {
+    grid-template-columns: 1fr 260px;
+  }
+
+  .content  { padding: 1.4rem 1.5rem 1rem; }
+  .ctaStrip {
+    padding: 0.9rem 1.5rem;
+    gap: 0.75rem;
+    /* stack price+seats on one row, buttons below */
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "price seats"
+      "buttons buttons";
+  }
+
+  .buttonGroup {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .btnEnroll,
+  .btnExplore {
+    flex: 1 1 auto;
+    justify-content: center;
+    font-size: 0.78rem;
+    padding: 0.56rem 0.9rem;
+  }
+
+  .courseTitle { font-size: 1.15rem; }
+
+  .priceINR { font-size: 0.9rem; }
+  .priceUSD { font-size: 0.8rem; }
+}
+
+/* ─── ≤ 860px ─── */
+@media (max-width: 860px) {
+  .courseCard {
+    grid-template-columns: 1fr 220px;
+  }
+
+  .content { padding: 1.25rem 1.25rem 0.9rem; }
+  .ctaStrip {
+    padding: 0.85rem 1.25rem;
+    gap: 0.65rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "price buttons"
+      "seats seats";
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .btnEnroll,
+  .btnExplore {
+    flex: unset;
+    justify-content: space-between;
+    font-size: 0.76rem;
+    padding: 0.52rem 0.8rem;
+  }
+
+  .courseTitle { font-size: 1.08rem; }
+}
+
+/* ─── ≤ 720px — Stack card vertically ─── */
+@media (max-width: 720px) {
+  .courseCard {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: unset;
+  }
+
+  /* Text left-column → row 1 */
+  .leftColumn {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* Image → row 2, full width, proper aspect ratio so image is fully visible */
+  .imageWrapper {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    align-self: auto;
+    /* ensure wrapper has height so absolute image can fill it */
+    min-height: 200px;
+  }
 
   .courseImage {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.75rem;
   }
 
   .levelBadge {
-    top: 0.85rem;
-    right: 0.85rem;
-    left: auto;
+    top: 0.75rem;
+    right: 0.75rem;
   }
 
-  .ctaStrip { flex-wrap: wrap; }
+  .content { padding: 1.25rem 1.25rem 0.9rem; gap: 0.75rem; }
+
+  .ctaStrip {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "price seats"
+      "buttons buttons";
+    padding: 0.85rem 1.25rem;
+    gap: 0.65rem;
+  }
 
   .buttonGroup {
     flex-direction: row;
+    gap: 0.45rem;
     width: 100%;
   }
 
@@ -584,26 +690,114 @@
   .btnExplore {
     flex: 1;
     justify-content: center;
+    font-size: 0.76rem;
+  }
+
+  /* Hover lift removed on touch — avoids stuck state */
+  .courseCard:hover {
+    transform: none;
+    box-shadow: 0 6px 28px rgba(92, 45, 0, 0.09);
   }
 }
 
+/* ─── ≤ 560px ─── */
 @media (max-width: 560px) {
-  .container  { padding: 2rem 1rem; }
-  .content    { padding: 1.1rem 1.1rem 0.85rem; }
-  .ctaStrip   { padding: 0.85rem 1.1rem; gap: 0.65rem; flex-wrap: wrap; }
+  .container { padding: 2.5rem 1rem; }
 
-  .seatsBlock  { width: 100%; order: 3; }
-  .priceCards  { order: 1; }
-  .buttonGroup { order: 2; flex-direction: row; width: 100%; }
+  .header { margin-bottom: 2rem; }
+
+  .dividerLine { width: 55px; }
+
+  .courseList { gap: 1.25rem; }
+
+  .content {
+    padding: 1rem 1rem 0.8rem;
+    gap: 0.65rem;
+  }
+
+  .courseTitle { font-size: 1rem; }
+  .description { font-size: 0.82rem; line-height: 1.65; }
+
+  .courseMeta { gap: 0.55rem; }
+  .metaItem   { font-size: 0.78rem; }
+
+  .ctaStrip {
+    padding: 0.8rem 1rem;
+    gap: 0.55rem;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "price seats"
+      "buttons buttons";
+  }
+
+  .imageWrapper {
+    aspect-ratio: 4 / 3;
+    min-height: 180px;
+  }
+
+  .priceCard { min-width: 60px; padding: 0.45rem 0.65rem; }
+  .priceINR  { font-size: 0.88rem; }
+  .priceUSD  { font-size: 0.78rem; }
+
+  .seatsItem  { font-size: 0.72rem; }
+
+  .btnEnroll,
+  .btnExplore {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.7rem;
+    gap: 0.4rem;
+  }
+}
+
+/* ─── ≤ 400px ─── */
+@media (max-width: 400px) {
+  .container { padding: 2rem 0.75rem; }
+
+  .content  { padding: 0.9rem 0.85rem 0.7rem; }
+  .ctaStrip {
+    padding: 0.75rem 0.85rem;
+    gap: 0.5rem;
+    /* At very small screens stack everything */
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "price"
+      "seats"
+      "buttons";
+  }
+
+  .priceCards {
+    gap: 0.4rem;
+    justify-content: flex-start;
+  }
+
+  .courseTitle { font-size: 0.95rem; }
+  .description { font-size: 0.8rem; }
+
+  .priceCard { min-width: 56px; padding: 0.4rem 0.55rem; }
+  .priceLabel { font-size: 0.55rem; }
+  .priceINR   { font-size: 0.82rem; }
+  .priceUSD   { font-size: 0.74rem; }
+
+  .buttonGroup {
+    flex-direction: row;
+    gap: 0.4rem;
+  }
 
   .btnEnroll,
   .btnExplore {
     flex: 1;
     justify-content: center;
-    font-size: 0.78rem;
-    padding: 0.58rem 0.8rem;
+    font-size: 0.72rem;
+    padding: 0.46rem 0.6rem;
+    border-radius: 8px;
   }
 
-  .courseTitle { font-size: 1.05rem; }
-  .description { font-size: 0.83rem; }
+  .linkCard { font-size: 0.75rem; padding: 0.38rem 0.7rem; }
+
+  .imageWrapper {
+    aspect-ratio: 3 / 2;
+    min-height: 160px;
+  }
+
+  .levelBadge { font-size: 0.6rem; padding: 0.22rem 0.65rem; }
 }

@@ -69,7 +69,7 @@
   pointer-events: none;
   user-select: none;
 }
-.sideTextLeft { left: 12px; transform: translateY(-50%) rotate(180deg); }
+.sideTextLeft  { left: 12px;  transform: translateY(-50%) rotate(180deg); }
 .sideTextRight { right: 12px; transform: translateY(-50%); }
 
 /* ── Section Heading ── */
@@ -153,7 +153,6 @@
   line-height: 1.9;
   max-width: 800px;
   margin: 0 auto;
-  font-style: italic;
 }
 
 .para {
@@ -300,7 +299,6 @@
   font-family: var(--font-display), serif;
   font-size: clamp(0.9rem, 1.3vw, 1.05rem);
   font-weight: 700;
-  font-style: italic;
   color: var(--earth);
   text-align: center;
   margin: 0 0 0.6rem;
@@ -505,7 +503,6 @@
   display: grid;
   grid-template-columns: 1fr 420px;
   min-height: 580px;
-  overflow: hidden;
   position: relative;
   z-index: 1;
   border-radius: 16px;
@@ -573,7 +570,6 @@
 }
 
 .whoH2 em {
-  font-style: italic;
   color: var(--saffron);
 }
 
@@ -620,7 +616,6 @@
 .whoPull p {
   font-family: var(--font-display), serif;
   font-size: clamp(1rem, 1.6vw, 1.18rem);
-  font-style: italic;
   color: var(--earth);
   line-height: 1.55;
   margin-bottom: 0.55rem;
@@ -756,7 +751,6 @@
 .whoQText {
   font-family: var(--font-display), serif;
   font-size: clamp(0.9rem, 1.4vw, 1.1rem);
-  font-style: italic;
   color: rgba(253, 246, 236, 0.78);
   line-height: 1.7;
   margin-bottom: 0.85rem;
@@ -835,7 +829,6 @@
   overflow: hidden;
 }
 
-/* Saffron left accent */
 .founderBlock::before {
   content: '';
   position: absolute;
@@ -847,7 +840,6 @@
   border-radius: 5px 0 0 5px;
 }
 
-/* Decorative corner ॐ */
 .founderBlock::after {
   content: 'ॐ';
   position: absolute;
@@ -908,13 +900,13 @@
   z-index: 2;
   transition: all 0.3s ease;
 }
-.fCornerTL { top: 7px; left: 7px; border-width: 2px 0 0 2px; }
-.fCornerTR { top: 7px; right: 7px; border-width: 2px 2px 0 0; }
-.fCornerBL { bottom: 7px; left: 7px; border-width: 0 0 2px 2px; }
-.fCornerBR { bottom: 7px; right: 7px; border-width: 0 2px 2px 0; }
+.fCornerTL { top: 7px;    left: 7px;    border-width: 2px 0 0 2px; }
+.fCornerTR { top: 7px;    right: 7px;   border-width: 2px 2px 0 0; }
+.fCornerBL { bottom: 7px; left: 7px;    border-width: 0 0 2px 2px; }
+.fCornerBR { bottom: 7px; right: 7px;   border-width: 0 2px 2px 0; }
 
-.founderImgFrame:hover .fCornerTL { top: 4px; left: 4px; }
-.founderImgFrame:hover .fCornerTR { top: 4px; right: 4px; }
+.founderImgFrame:hover .fCornerTL { top: 4px;    left: 4px; }
+.founderImgFrame:hover .fCornerTR { top: 4px;    right: 4px; }
 .founderImgFrame:hover .fCornerBL { bottom: 4px; left: 4px; }
 .founderImgFrame:hover .fCornerBR { bottom: 4px; right: 4px; }
 
@@ -1104,7 +1096,6 @@
   font-size: clamp(0.72rem, 1vw, 0.82rem);
   color: var(--earth-muted);
   font-weight: 500;
-  font-style: italic;
 }
 
 /* CTA */
@@ -1207,10 +1198,10 @@
   border-style: solid;
   z-index: 2;
 }
-.mCornerTL { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
-.mCornerTR { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
-.mCornerBL { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
-.mCornerBR { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+.mCornerTL { top: 10px;    left: 10px;   border-width: 2px 0 0 2px; }
+.mCornerTR { top: 10px;    right: 10px;  border-width: 2px 2px 0 0; }
+.mCornerBL { bottom: 10px; left: 10px;   border-width: 0 0 2px 2px; }
+.mCornerBR { bottom: 10px; right: 10px;  border-width: 0 2px 2px 0; }
 
 .modalClose {
   position: absolute;
@@ -1323,7 +1314,6 @@
   display: block;
   font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   font-weight: 400;
-  font-style: italic;
   color: var(--earth-muted);
   letter-spacing: 0.02em;
 }

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../assets/style/Home/Homeaboutsection.module.css";
 import api from "@/lib/api";
+import Link from "next/link";
 
 interface Stat {
   value: string;
@@ -130,8 +131,9 @@ export const HomeaboutSection = () => {
       {/* ═══════════════════════════════════════════════════
           CONTENT SECTION
       ════════════════════════════════════════════════════ */}
+      
       <div className={styles.contentSection}>
-
+<div className={styles.container}>
         {/* ── ROW A: paraOne (left) + pullQuote (right) ── */}
         <div className={styles.rowA}>
           <div className={styles.rowALeft}>
@@ -192,6 +194,7 @@ export const HomeaboutSection = () => {
             )}
 
       </div>
+      </div>
 
       {/* ═══════════════════════════════════════════════════
           CTA BAND
@@ -204,10 +207,10 @@ export const HomeaboutSection = () => {
               <div className={styles.ctaText} dangerouslySetInnerHTML={{ __html: data.ctaText }} />
             )}
             {data.ctaLink && (
-              <a href={data.ctaLink} className={styles.ctaBtn}>
+              <Link href={data.ctaLink} className={styles.ctaBtn}>
                 Explore All Courses
                 <span className={styles.ctaArrow}>→</span>
-              </a>
+              </Link>
             )}
           </div>
         </div>
