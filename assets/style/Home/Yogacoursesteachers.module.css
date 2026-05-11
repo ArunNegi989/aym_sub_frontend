@@ -877,7 +877,7 @@
   align-items: center;
   margin-bottom: 4rem;
   padding: 2.5rem 2.8rem;
-  background: var(--cream-white);
+  background: white;
   border: 1px solid var(--gold-border);
   border-radius: 18px;
   box-shadow: 0 10px 50px var(--shadow-warm);

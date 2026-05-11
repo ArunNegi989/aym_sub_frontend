@@ -187,7 +187,7 @@
 
 /* ── CARDS ──────────────────────────────────────────────────── */
 .card {
-  background: var(--clr-surface);
+  background: white;
   border: 1px solid var(--clr-border);
   border-radius: var(--radius-card);
   padding: clamp(1.6rem, 3vw, 2.4rem);
