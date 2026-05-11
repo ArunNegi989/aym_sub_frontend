@@ -62,48 +62,27 @@ function normalise(raw: any): Blog {
   };
 }
 
-const MandalaDecor = () => (
-  <svg
-    className={styles.mandala}
-    viewBox="0 0 200 200"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    <circle cx="100" cy="100" r="95" stroke="#F15505" strokeWidth="0.6" strokeDasharray="4 3" opacity="0.35" />
-    <circle cx="100" cy="100" r="78" stroke="#F15505" strokeWidth="0.4" opacity="0.25" />
-    <circle cx="100" cy="100" r="60" stroke="#F15505" strokeWidth="0.6" strokeDasharray="2 4" opacity="0.3" />
-    <circle cx="100" cy="100" r="42" stroke="#f15505" strokeWidth="0.5" opacity="0.35" />
-    <circle cx="100" cy="100" r="24" stroke="#F15505" strokeWidth="0.8" opacity="0.4" />
-    {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg, i) => {
-      const rad = (deg * Math.PI) / 180;
-      const x1 = 100 + 24 * Math.cos(rad);
-      const y1 = 100 + 24 * Math.sin(rad);
-      const x2 = 100 + 78 * Math.cos(rad);
-      const y2 = 100 + 78 * Math.sin(rad);
-      return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#F15505" strokeWidth="0.4" opacity="0.2" />;
-    })}
-    {[0, 45, 90, 135, 180, 225, 270, 315].map((deg, i) => {
-      const rad = (deg * Math.PI) / 180;
-      const cx2 = 100 + 60 * Math.cos(rad);
-      const cy2 = 100 + 60 * Math.sin(rad);
-      return <circle key={i} cx={cx2} cy={cy2} r="3.5" fill="#F15505" opacity="0.25" />;
-    })}
-    <text x="100" y="107" textAnchor="middle" fontSize="18" fill="#F15505" opacity="0.5" fontFamily="serif">ॐ</text>
+const OmSymbol = ({ size = 24, opacity = 0.4 }: { size?: number; opacity?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <text x="12" y="18" textAnchor="middle" fontSize="18" fill={`rgba(224,100,0,${opacity})`} fontFamily="serif">ॐ</text>
   </svg>
 );
 
 const SearchIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="11" cy="11" r="8" />
-    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
   </svg>
 );
 
 const ClearIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-    <line x1="18" y1="6" x2="6" y2="18" />
-    <line x1="6" y1="6" x2="18" y2="18" />
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
+
+const ArrowRight = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+    <path d="M5 12h14M12 5l7 7-7 7" />
   </svg>
 );
 
@@ -117,7 +96,6 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
 
   useEffect(() => {
     if (propBlogs && propBlogs.length > 0) return;
-
     const load = async () => {
       try {
         setIsLoading(true);
@@ -132,34 +110,25 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
         setIsLoading(false);
       }
     };
-
     load();
   }, []);
 
-  useEffect(() => {
-    setPage(1);
-  }, [searchQuery, sortOrder, activeCategory]);
+  useEffect(() => { setPage(1); }, [searchQuery, sortOrder, activeCategory]);
 
   const filteredBlogs = useMemo(() => {
     let result = [...blogList];
-
     if (searchQuery.trim()) {
       const q = searchQuery.trim().toLowerCase();
       result = result.filter((b) => b.title.toLowerCase().includes(q));
     }
-
     if (activeCategory !== "All") {
-      result = result.filter(
-        (b) => b.category?.toLowerCase() === activeCategory.toLowerCase()
-      );
+      result = result.filter((b) => b.category?.toLowerCase() === activeCategory.toLowerCase());
     }
-
     result.sort((a, b) => {
       const dateA = a.rawDate ? new Date(a.rawDate).getTime() : 0;
       const dateB = b.rawDate ? new Date(b.rawDate).getTime() : 0;
       return sortOrder === "latest" ? dateB - dateA : dateA - dateB;
     });
-
     return result;
   }, [blogList, searchQuery, sortOrder, activeCategory]);
 
@@ -175,38 +144,31 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
 
   const isFiltered = searchQuery.trim() !== "" || activeCategory !== "All";
 
+  // Featured post = first in list
+  const featuredBlog = visibleBlogs[0] ?? null;
+  const gridBlogs = visibleBlogs.slice(1);
+
   if (isLoading) {
     return (
       <div className={styles.pageRoot}>
-        <div className={styles.pageHeader}>
-          <MandalaDecor />
-          <div className={styles.headerInner}>
-            <p className={styles.headerSuper}>AYM Yoga School</p>
-            <h1 className={styles.headerTitle}>Yoga Blog & Insights</h1>
-            <div className={styles.omDivider}>
-              <span className={styles.divLine} />
-              <span className={styles.omSym}>ॐ</span>
-              <span className={styles.divLine} />
-            </div>
-            <p className={styles.headerSub}>Ancient wisdom • Modern practice • Timeless transformation</p>
+        <div className={styles.hero}>
+          <div className={styles.heroInner}>
+            <p className={styles.heroEyebrow}>AYM Yoga School · Rishikesh</p>
+            <h1 className={styles.heroTitle}>Yoga Blog<br /><em>&amp; Insights</em></h1>
+            <p className={styles.heroSub}>Ancient wisdom · Modern practice · Timeless transformation</p>
           </div>
-          <MandalaDecor />
+          <div className={styles.heroRule}><span /><OmSymbol size={28} opacity={0.5} /><span /></div>
         </div>
         <div className={styles.layout}>
           <main className={styles.main}>
+            <div className={styles.skeletonFeatured} />
             <div className={styles.grid}>
               {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className={styles.card} style={{ pointerEvents: "none" }}>
-                  <div className={styles.cardImgWrap} style={{ background: "rgba(224,123,0,0.08)" }} />
-                  <div className={styles.cardBody}>
-                    <div style={{ height: 10, width: "40%", background: "rgba(160,120,64,0.15)", borderRadius: 4, marginBottom: 10 }} />
-                    <div style={{ height: 16, width: "90%", background: "rgba(160,120,64,0.15)", borderRadius: 4, marginBottom: 8 }} />
-                    <div style={{ height: 10, width: "60%", background: "rgba(160,120,64,0.10)", borderRadius: 4 }} />
-                  </div>
-                </div>
+                <div key={i} className={styles.skeletonCard} style={{ animationDelay: `${i * 0.1}s` }} />
               ))}
             </div>
           </main>
+          <aside className={styles.sidebar}><div className={styles.skeletonSide} /></aside>
         </div>
       </div>
     );
@@ -214,137 +176,152 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
 
   return (
     <div className={styles.pageRoot}>
-      {/* ── Page Header ── */}
-      <div className={styles.pageHeader}>
-        <MandalaDecor />
-        <div className={styles.headerInner}>
-          <p className={styles.headerSuper}>AYM Yoga School</p>
-          <h1 className={styles.headerTitle}>Yoga Blog & Insights</h1>
-          <div className={styles.omDivider}>
-            <span className={styles.divLine} />
-            <span className={styles.omSym}>ॐ</span>
-            <span className={styles.divLine} />
-          </div>
-          <p className={styles.headerSub}>Ancient wisdom • Modern practice • Timeless transformation</p>
-        </div>
-        <MandalaDecor />
-      </div>
 
+      {/* ══════════ HERO HEADER ══════════ */}
+      <header className={styles.hero}>
+        <div className={styles.heroBg} aria-hidden="true">
+          <div className={styles.heroBgCircle1} />
+          <div className={styles.heroBgCircle2} />
+          <div className={styles.heroBgLines} />
+        </div>
+        <div className={styles.heroInner}>
+          <p className={styles.heroEyebrow}>
+            <span className={styles.eyebrowDot} />
+            AYM Yoga School · Rishikesh
+            <span className={styles.eyebrowDot} />
+          </p>
+          <h1 className={styles.heroTitle}>
+            Yoga Blog<br /><em>&amp; Insights</em>
+          </h1>
+          <p className={styles.heroSub}>Ancient wisdom · Modern practice · Timeless transformation</p>
+        </div>
+        <div className={styles.heroRule}>
+          <span className={styles.ruleLine} />
+          <span className={styles.ruleOm}>ॐ</span>
+          <span className={styles.ruleLine} />
+        </div>
+      </header>
+
+      {/* ══════════ MAIN LAYOUT ══════════ */}
       <div className={styles.layout}>
-        {/* ── Main Blog Grid ── */}
+
+        {/* ── MAIN CONTENT ── */}
         <main className={styles.main}>
 
-          {/* ── Search & Filter Bar ── */}
-          <div className={styles.filterBar}>
-            <div className={styles.searchWrap}>
-              <span className={styles.searchIcon}><SearchIcon /></span>
+          {/* ── Controls Row ── */}
+          <div className={styles.controlsRow}>
+            {/* Search */}
+            <div className={styles.searchBox}>
+              <span className={styles.searchIconWrap}><SearchIcon /></span>
               <input
                 type="text"
                 className={styles.searchInput}
-                placeholder="Search articles by title…"
+                placeholder="Search articles…"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 aria-label="Search blogs"
               />
               {searchQuery && (
-                <button
-                  className={styles.searchClear}
-                  onClick={() => setSearchQuery("")}
-                  aria-label="Clear search"
-                >
+                <button className={styles.clearBtn} onClick={() => setSearchQuery("")} aria-label="Clear">
                   <ClearIcon />
                 </button>
               )}
             </div>
 
-            <div className={styles.sortWrap}>
+            {/* Sort */}
+            <div className={styles.sortGroup}>
               <button
-                className={`${styles.sortBtn} ${sortOrder === "latest" ? styles.sortBtnActive : ""}`}
+                className={`${styles.sortPill} ${sortOrder === "latest" ? styles.sortPillOn : ""}`}
                 onClick={() => setSortOrder("latest")}
-              >
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M12 19V5M5 12l7-7 7 7" />
-                </svg>
-                Latest
-              </button>
+              >Newest</button>
               <button
-                className={`${styles.sortBtn} ${sortOrder === "oldest" ? styles.sortBtnActive : ""}`}
+                className={`${styles.sortPill} ${sortOrder === "oldest" ? styles.sortPillOn : ""}`}
                 onClick={() => setSortOrder("oldest")}
-              >
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M12 5v14M5 12l7 7 7-7" />
-                </svg>
-                Oldest
-              </button>
+              >Oldest</button>
             </div>
           </div>
 
-          {/* ── Category Filter Chips ── */}
-          <div className={styles.categoryBar}>
+          {/* ── Category Tabs ── */}
+          <div className={styles.catStrip}>
             {CATEGORY_OPTIONS.map((cat) => (
               <button
                 key={cat}
-                className={`${styles.catChip} ${activeCategory === cat ? styles.catChipActive : ""}`}
+                className={`${styles.catTab} ${activeCategory === cat ? styles.catTabOn : ""}`}
                 onClick={() => setActiveCategory(cat)}
                 aria-pressed={activeCategory === cat}
-              >
-                {cat}
-              </button>
+              >{cat}</button>
             ))}
           </div>
 
-          {/* ── Results Count ── */}
+          {/* ── Results Label ── */}
           {isFiltered && (
-            <p className={styles.resultsCount}>
+            <p className={styles.resultsLabel}>
               {filteredBlogs.length === 0
-                ? `No articles found${searchQuery ? ` for "${searchQuery}"` : ""}${activeCategory !== "All" ? ` in "${activeCategory}"` : ""}`
-                : `${filteredBlogs.length} article${filteredBlogs.length !== 1 ? "s" : ""} found${searchQuery ? ` for "${searchQuery}"` : ""}${activeCategory !== "All" ? ` in "${activeCategory}"` : ""}`}
+                ? `No results${searchQuery ? ` for "${searchQuery}"` : ""}${activeCategory !== "All" ? ` in "${activeCategory}"` : ""}`
+                : `${filteredBlogs.length} article${filteredBlogs.length !== 1 ? "s" : ""}${searchQuery ? ` for "${searchQuery}"` : ""}${activeCategory !== "All" ? ` in "${activeCategory}"` : ""}`}
+              {isFiltered && (
+                <button className={styles.clearAllBtn} onClick={() => { setSearchQuery(""); setActiveCategory("All"); }}>
+                  Clear filters
+                </button>
+              )}
             </p>
           )}
 
           {filteredBlogs.length === 0 ? (
-            <div style={{ textAlign: "center", padding: "4rem 0", color: "#a07840", fontFamily: "'Cormorant Garamond', serif" }}>
-              <p style={{ fontSize: "2rem" }}>ॐ</p>
-              <p>{isFiltered ? "No articles match your current filters." : "No articles published yet. Check back soon."}</p>
-              {isFiltered && (
-                <button
-                  onClick={() => { setSearchQuery(""); setActiveCategory("All"); }}
-                  style={{
-                    marginTop: "1rem",
-                    background: "none",
-                    border: "1px solid #F15505",
-                    color: "#F15505",
-                    padding: "0.5rem 1.2rem",
-                    borderRadius: 2,
-                    cursor: "pointer",
-                    fontFamily: "Montserrat, Arial, sans-serif",
-                    fontSize: "0.75rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Clear All Filters
-                </button>
-              )}
+            <div className={styles.emptyState}>
+              <span className={styles.emptyOm}>ॐ</span>
+              <p className={styles.emptyMsg}>{isFiltered ? "No articles match your filters." : "No articles yet. Check back soon."}</p>
             </div>
           ) : (
             <>
+              {/* ── Featured Card (first post, full-width) ── */}
+              {featuredBlog && !isFiltered && (
+                <Link href={`/blog/aym-yoga-blog/${featuredBlog.slug}`} className={styles.featured}>
+                  <div className={styles.featuredImgWrap}>
+                    <Image
+                      src={featuredBlog.image}
+                      alt={featuredBlog.title}
+                      fill
+                      priority
+                      sizes="(max-width: 860px) 100vw, 65vw"
+                      className={styles.featuredImg}
+                      unoptimized={featuredBlog.image.includes("localhost")}
+                    />
+                    <div className={styles.featuredOverlay} />
+                    <span className={styles.featuredBadge}>Featured</span>
+                  </div>
+                  <div className={styles.featuredBody}>
+                    <span className={styles.featuredCat}>{featuredBlog.category}</span>
+                    <h2 className={styles.featuredTitle}>{featuredBlog.title}</h2>
+                    <p className={styles.featuredExcerpt}>{featuredBlog.excerpt}</p>
+                    <div className={styles.featuredMeta}>
+                      <span className={styles.featuredDate}>{featuredBlog.date}</span>
+                      {featuredBlog.author && <span className={styles.featuredAuthor}>· {featuredBlog.author}</span>}
+                    </div>
+                    <span className={styles.featuredReadMore}>Read Article <ArrowRight /></span>
+                  </div>
+                </Link>
+              )}
+
+              {/* ── Section Label ── */}
+              {!isFiltered && gridBlogs.length > 0 && (
+                <div className={styles.sectionHead}>
+                  <span className={styles.sectionLine} />
+                  <span className={styles.sectionLabel}>All Articles</span>
+                  <span className={styles.sectionLine} />
+                </div>
+              )}
+
+              {/* ── Blog Grid ── */}
               <div className={styles.grid}>
-                {visibleBlogs.map((blog, idx) => (
+                {(isFiltered ? visibleBlogs : gridBlogs).map((blog, idx) => (
                   <Link
                     href={`/blog/aym-yoga-blog/${blog.slug}`}
                     key={blog.id}
                     className={styles.card}
-                    style={{ animationDelay: `${(idx % BLOGS_PER_PAGE) * 0.07}s` }}
+                    style={{ animationDelay: `${(idx % BLOGS_PER_PAGE) * 0.06}s` }}
                   >
-                    <span className={`${styles.corner} ${styles.cornerTL}`} />
-                    <span className={`${styles.corner} ${styles.cornerTR}`} />
-                    <span className={`${styles.corner} ${styles.cornerBL}`} />
-                    <span className={`${styles.corner} ${styles.cornerBR}`} />
-
                     <div className={styles.cardImgWrap}>
-                      <div className={styles.cardImgOverlay} />
                       <Image
                         src={blog.image}
                         alt={blog.title}
@@ -353,116 +330,96 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
                         className={styles.cardImg}
                         unoptimized={blog.image.includes("localhost")}
                       />
-                      <span className={styles.cardCategory}>{blog.category}</span>
+                      <div className={styles.cardOverlay} />
+                      <span className={styles.cardCat}>{blog.category}</span>
                     </div>
-
                     <div className={styles.cardBody}>
                       <div className={styles.cardMeta}>
-                        <span className={styles.cardDate}>
-                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                            <line x1="16" y1="2" x2="16" y2="6" />
-                            <line x1="8" y1="2" x2="8" y2="6" />
-                            <line x1="3" y1="10" x2="21" y2="10" />
-                          </svg>
-                          {blog.date}
-                        </span>
-                        {blog.author && <span className={styles.cardAuthor}>· {blog.author}</span>}
+                        <span className={styles.cardDate}>{blog.date}</span>
+                        {blog.author && <span className={styles.cardAuthor}>{blog.author}</span>}
                       </div>
                       <h3 className={styles.cardTitle}>{blog.title}</h3>
                       <p className={styles.cardExcerpt}>{blog.excerpt}</p>
-                      <div className={styles.cardFooter}>
-                        <span className={styles.readMore}>
-                          Read Article
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                          </svg>
-                        </span>
-                      </div>
+                      <span className={styles.cardArrow}><ArrowRight /></span>
                     </div>
                   </Link>
                 ))}
               </div>
 
+              {/* ── Load More ── */}
               {hasMore && (
-                <div className={styles.loadMoreWrap}>
-                  <div className={styles.loadMoreDivider}>
-                    <span className={styles.divLineGold} />
-                    <span className={styles.loadMoreOm}>ॐ</span>
-                    <span className={styles.divLineGold} />
-                  </div>
+                <div className={styles.loadMore}>
                   <button className={styles.loadMoreBtn} onClick={() => setPage((p) => p + 1)}>
-                    <span className={styles.loadMoreText}>View More Blogs</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    Load More Articles
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path d="M12 5v14M5 12l7 7 7-7" />
                     </svg>
                   </button>
-                  <p className={styles.loadMoreCount}>
-                    Showing {Math.min(page * BLOGS_PER_PAGE, filteredBlogs.length)} of {filteredBlogs.length} articles
-                  </p>
+                  <p className={styles.loadMoreCount}>{Math.min(page * BLOGS_PER_PAGE, filteredBlogs.length)} / {filteredBlogs.length}</p>
                 </div>
               )}
 
-              {!hasMore && (
-                <div className={styles.endMessage}>
-                  <span className={styles.divLineGold} />
-                  <span className={styles.endOm}>ॐ</span>
-                  <span className={styles.divLineGold} />
+              {!hasMore && visibleBlogs.length > 0 && (
+                <div className={styles.endRule}>
+                  <span className={styles.ruleLine} /><span className={styles.ruleOm}>ॐ</span><span className={styles.ruleLine} />
                 </div>
               )}
             </>
           )}
         </main>
 
-        {/* ── Sidebar ── */}
+        {/* ── SIDEBAR ── */}
         <aside className={styles.sidebar}>
-          <div className={styles.sideWidget}>
-            <div className={styles.sideWidgetHeader}>
-              <span className={styles.sideWidgetOm}>ॐ</span>
-              <h3 className={styles.sideWidgetTitle}>Latest Articles</h3>
+
+          {/* CTA */}
+          <div className={styles.ctaCard}>
+            <div className={styles.ctaGlow} />
+            <p className={styles.ctaEye}>Featured Program</p>
+            <h4 className={styles.ctaTitle}>Begin Your<br />Yoga Journey</h4>
+            <p className={styles.ctaText}>World-class teacher training at AYM Yoga School, Rishikesh — where tradition meets transformation.</p>
+            <div className={styles.ctaPrograms}>
+              {[
+                { label: "200 Hr YTT", href: "/200-hour-yoga-teacher-training-rishikesh" },
+                { label: "300 Hr YTT", href: "/300-hours-yoga-teacher-training-rishikesh" },
+                { label: "500 Hr YTT", href: "/500-hour-yoga-teacher-training-india" },
+              ].map(p => (
+                <Link key={p.label} href={p.href} className={styles.ctaProgramBtn}>{p.label}</Link>
+              ))}
             </div>
-            <ul className={styles.sidePostList}>
-              {latestPosts.map((post) => (
-                <li key={post.id} className={styles.sidePostItem}>
-                  <Link href={`/blog/aym-yoga-blog/${post.slug}`} className={styles.sidePostLink}>
-                    <span className={styles.sidePostDot}>›</span>
-                    <span className={styles.sidePostTitle}>{post.title}</span>
+            <Link href="/yoga-registration" className={styles.ctaRegister}>Enquire Now →</Link>
+          </div>
+
+          {/* Latest Articles */}
+          <div className={styles.sidePanel}>
+            <div className={styles.sidePanelHead}>
+              <span className={styles.sidePanelOm}>ॐ</span>
+              <h3 className={styles.sidePanelTitle}>Latest Articles</h3>
+            </div>
+            <ul className={styles.recentList}>
+              {latestPosts.map((post, i) => (
+                <li key={post.id} className={styles.recentItem}>
+                  <Link href={`/blog/aym-yoga-blog/${post.slug}`} className={styles.recentLink}>
+                    <span className={styles.recentNum}>{String(i + 1).padStart(2, "0")}</span>
+                    <span className={styles.recentTitle}>{post.title}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className={styles.sideCtaWidget}>
-            <div className={styles.sideCtaMandala}>
-              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
-                <circle cx="60" cy="60" r="55" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" strokeDasharray="3 3" />
-                <circle cx="60" cy="60" r="40" stroke="rgba(255,255,255,0.2)" strokeWidth="0.6" />
-                <circle cx="60" cy="60" r="22" stroke="rgba(255,255,255,0.25)" strokeWidth="0.8" />
-                <text x="60" y="67" textAnchor="middle" fontSize="22" fill="rgba(255,255,255,0.6)" fontFamily="serif">ॐ</text>
-              </svg>
-            </div>
-            <h4 className={styles.sideCtaTitle}>Begin Your Yoga Journey</h4>
-            <p className={styles.sideCtaText}>Join our certified Yoga Teacher Training programs in Rishikesh</p>
-            <div className={styles.sideCtaBtns}>
-              <Link href="/200-hour-yoga-teacher-training-rishikesh" className={styles.sideCtaBtn}>200 Hour YTT</Link>
-              <Link href="/300-hours-yoga-teacher-training-rishikesh" className={styles.sideCtaBtn}>300 Hour YTT</Link>
-              <Link href="/500-hour-yoga-teacher-training-india" className={styles.sideCtaBtn}>500 Hour YTT</Link>
-            </div>
-            <Link href="/yoga-registration" className={styles.sideCtaRegister}>Register Now →</Link>
-          </div>
-
-          <div className={styles.sideWidget}>
-            <div className={styles.sideWidgetHeader}>
-              <span className={styles.sideWidgetOm}>ॐ</span>
-              <h3 className={styles.sideWidgetTitle}>Explore Topics</h3>
+          {/* Tags */}
+          <div className={styles.sidePanel}>
+            <div className={styles.sidePanelHead}>
+              <span className={styles.sidePanelOm}>ॐ</span>
+              <h3 className={styles.sidePanelTitle}>Explore Topics</h3>
             </div>
             <div className={styles.tagCloud}>
-              {["Yoga", "Ayurveda", "Rishikesh", "Meditation", "Pranayama", "Health", "Lifestyle", "Fitness", "Yoga Teacher Training", "Retreat", "International", "National"].map((tag) => (
+              {["Yoga", "Ayurveda", "Rishikesh", "Meditation", "Pranayama", "Health", "Lifestyle", "Fitness", "Yoga Teacher Training", "Retreat", "International"].map((tag) => (
                 <span key={tag} className={styles.tag}>{tag}</span>
               ))}
             </div>
           </div>
+
         </aside>
       </div>
 

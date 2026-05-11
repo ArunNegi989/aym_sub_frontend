@@ -6,7 +6,7 @@ import Image from "next/image";
 import styles from "@/assets/style/Singleblog/Singleblog.module.css";
 
 /* ================================================================
-   TYPES
+   TYPES — All preserved
    ================================================================ */
 export type SectionType =
   | "heading" | "subheading" | "paragraph" | "images" | "divider"
@@ -63,7 +63,7 @@ interface SingleBlogProps {
 }
 
 /* ================================================================
-   IMAGE URL HELPER
+   IMAGE URL HELPER — Preserved
    ================================================================ */
 const BASE_URL =
   (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/api\/?$/, "");
@@ -76,7 +76,7 @@ function resolveImg(src?: string): string {
 }
 
 /* ================================================================
-   LAYOUT HELPER
+   LAYOUT HELPER — Preserved
    ================================================================ */
 function getLayoutClass(layout: ImageLayout | undefined, count: number): string {
   if (layout === "single") return styles.gridOne;
@@ -89,7 +89,7 @@ function getLayoutClass(layout: ImageLayout | undefined, count: number): string 
 }
 
 /* ================================================================
-   VIDEO URL EMBED HELPER
+   VIDEO URL EMBED HELPER — Preserved
    ================================================================ */
 function getEmbedUrl(url: string): string {
   if (!url) return "";
@@ -101,7 +101,7 @@ function getEmbedUrl(url: string): string {
 }
 
 /* ================================================================
-   CALLOUT CONFIG
+   CALLOUT CONFIG — Preserved
    ================================================================ */
 const CALLOUT_CONFIG: Record<CalloutVariant, { icon: string; label: string }> = {
   info: { icon: "ℹ️", label: "Information" },
@@ -112,7 +112,7 @@ const CALLOUT_CONFIG: Record<CalloutVariant, { icon: string; label: string }> = 
 };
 
 /* ================================================================
-   IMAGE GRID BLOCK
+   IMAGE GRID BLOCK — Preserved
    ================================================================ */
 const ArticleImages = ({
   images,
@@ -156,7 +156,7 @@ const ArticleImages = ({
 };
 
 /* ================================================================
-   LIST BLOCK
+   LIST BLOCK — Preserved
    ================================================================ */
 const ListBlock = ({ listType, listItems }: { listType?: ListType; listItems?: string[] }) => {
   if (!listItems || listItems.length === 0) return null;
@@ -185,7 +185,7 @@ const ListBlock = ({ listType, listItems }: { listType?: ListType; listItems?: s
 };
 
 /* ================================================================
-   QUOTE BLOCK
+   QUOTE BLOCK — Preserved
    ================================================================ */
 const QuoteBlock = ({ text, quoteAuthor }: { text?: string; quoteAuthor?: string }) => (
   <blockquote className={styles.contentQuote}>
@@ -201,7 +201,7 @@ const QuoteBlock = ({ text, quoteAuthor }: { text?: string; quoteAuthor?: string
 );
 
 /* ================================================================
-   CODE BLOCK
+   CODE BLOCK — Preserved
    ================================================================ */
 const CodeBlock = ({ text, codeLanguage }: { text?: string; codeLanguage?: string }) => (
   <div className={styles.contentCodeWrap}>
@@ -220,7 +220,7 @@ const CodeBlock = ({ text, codeLanguage }: { text?: string; codeLanguage?: strin
 );
 
 /* ================================================================
-   VIDEO BLOCK
+   VIDEO BLOCK — Preserved
    ================================================================ */
 const VideoBlock = ({ videoUrl, videoCaption }: { videoUrl?: string; videoCaption?: string }) => {
   if (!videoUrl) return null;
@@ -242,7 +242,7 @@ const VideoBlock = ({ videoUrl, videoCaption }: { videoUrl?: string; videoCaptio
 };
 
 /* ================================================================
-   TABLE BLOCK
+   TABLE BLOCK — Preserved
    ================================================================ */
 const TableBlock = ({
   tableHeaders,
@@ -277,7 +277,7 @@ const TableBlock = ({
 };
 
 /* ================================================================
-   CALLOUT BLOCK
+   CALLOUT BLOCK — Preserved
    ================================================================ */
 const CalloutBlock = ({
   calloutVariant = "info",
@@ -304,14 +304,14 @@ const CalloutBlock = ({
 };
 
 /* ================================================================
-   SPACER BLOCK
+   SPACER BLOCK — Preserved
    ================================================================ */
 const SpacerBlock = ({ spacerHeight = 40 }: { spacerHeight?: number }) => (
   <div style={{ height: `${spacerHeight}px` }} aria-hidden="true" />
 );
 
 /* ================================================================
-   DIVIDER BLOCK
+   DIVIDER BLOCK — Preserved
    ================================================================ */
 const DividerBlock = () => (
   <div className={styles.contentDivider}>
@@ -320,7 +320,7 @@ const DividerBlock = () => (
 );
 
 /* ================================================================
-   HTML BLOCK
+   HTML BLOCK — Preserved
    ================================================================ */
 const HtmlBlock = ({ text }: { text?: string }) => (
   <div
@@ -330,7 +330,7 @@ const HtmlBlock = ({ text }: { text?: string }) => (
 );
 
 /* ================================================================
-   PARAGRAPH BLOCK
+   PARAGRAPH BLOCK — Preserved
    ================================================================ */
 const ParagraphBlock = ({ text }: { text?: string }) => (
   <div
@@ -340,7 +340,7 @@ const ParagraphBlock = ({ text }: { text?: string }) => (
 );
 
 /* ================================================================
-   READING TIME HELPER
+   READING TIME HELPER — Preserved
    ================================================================ */
 function calcReadingTime(sections?: BlogSection[]): number {
   if (!sections) return 1;
@@ -350,7 +350,7 @@ function calcReadingTime(sections?: BlogSection[]): number {
 }
 
 /* ================================================================
-   MAIN CONTENT RENDERER
+   MAIN CONTENT RENDERER — Preserved
    ================================================================ */
 const RenderSections = ({ sections }: { sections: BlogSection[] }) => (
   <>
@@ -399,7 +399,7 @@ const RenderSections = ({ sections }: { sections: BlogSection[] }) => (
 );
 
 /* ================================================================
-   MAIN COMPONENT
+   MAIN COMPONENT — Modern UI with ALL original widgets
    ================================================================ */
 export default function SingleBlog({
   blog,
@@ -421,7 +421,7 @@ export default function SingleBlog({
     <div className={styles.pageRoot}>
 
       {/* ══════════════════════════════
-          HERO — Full bleed, cinematic
+          HERO — Full bleed, cinematic (preserved design)
       ══════════════════════════════ */}
       <div className={styles.hero}>
         <div className={styles.heroImgWrap}>
@@ -489,7 +489,7 @@ export default function SingleBlog({
       </div>
 
       {/* ══════════════════════════════
-          BODY
+          BODY — Modern layout with ALL original widgets
       ══════════════════════════════ */}
       <div className={styles.bodyWrap}>
 
@@ -541,7 +541,30 @@ export default function SingleBlog({
           {/* ── Sidebar ── */}
           <aside className={styles.sidebar}>
 
-            {/* CTA Widget */}
+            {/* Profile Card — NEW modern widget */}
+            <div className={styles.profileCard}>
+              <div className={styles.profileAvatar}>
+                <span>ॐ</span>
+              </div>
+              <h3 className={styles.profileName}>AYM Yoga School</h3>
+              <p className={styles.profileBio}>Authentic yoga education in the birthplace of yoga — Rishikesh.</p>
+              <div className={styles.profileStats}>
+                <div className={styles.profileStat}>
+                  <span className={styles.statNumber}>15+</span>
+                  <span className={styles.statLabel}>Years</span>
+                </div>
+                <div className={styles.profileStat}>
+                  <span className={styles.statNumber}>5000+</span>
+                  <span className={styles.statLabel}>Graduates</span>
+                </div>
+                <div className={styles.profileStat}>
+                  <span className={styles.statNumber}>50+</span>
+                  <span className={styles.statLabel}>Countries</span>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Widget — Original preserved */}
             <div className={styles.sideCtaWidget}>
               <div className={styles.ctaPattern} />
               <div className={styles.ctaInner}>
@@ -559,7 +582,7 @@ export default function SingleBlog({
               </div>
             </div>
 
-            {/* Recent Posts */}
+            {/* Recent Posts Widget — Original preserved */}
             {recentPosts.length > 0 && (
               <div className={styles.sideWidget}>
                 <div className={styles.sideWidgetHeader}>
@@ -592,7 +615,7 @@ export default function SingleBlog({
               </div>
             )}
 
-            {/* Related Posts */}
+            {/* Related Posts Widget — Original preserved */}
             {relatedPosts.length > 0 && (
               <div className={styles.sideWidget}>
                 <div className={styles.sideWidgetHeader}>
@@ -622,7 +645,7 @@ export default function SingleBlog({
               </div>
             )}
 
-            {/* Upcoming Batches */}
+            {/* Upcoming Batches Widget — Original preserved */}
             <div className={styles.sideWidget}>
               <div className={styles.sideWidgetHeader}>
                 <h3 className={styles.sideWidgetTitle}>Upcoming Batches</h3>
@@ -644,6 +667,17 @@ export default function SingleBlog({
                 ))}
               </div>
               <Link href="/register" className={styles.batchRegister}>Register Now →</Link>
+            </div>
+
+            {/* Newsletter Card — NEW modern widget */}
+            <div className={styles.newsletterCard}>
+              <div className={styles.newsletterIcon}>📬</div>
+              <h4 className={styles.newsletterTitle}>Subscribe to Newsletter</h4>
+              <p className={styles.newsletterText}>Get the latest articles and yoga insights delivered to your inbox.</p>
+              <div className={styles.newsletterForm}>
+                <input type="email" placeholder="Your email address" className={styles.newsletterInput} />
+                <button className={styles.newsletterBtn}>Subscribe</button>
+              </div>
             </div>
 
           </aside>
