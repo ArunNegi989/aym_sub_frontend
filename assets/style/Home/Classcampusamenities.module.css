@@ -86,7 +86,7 @@
 .container {
   position: relative;
   z-index: 1;
-  max-width: 1480px;
+  max-width: 1620px;
   margin: 0 auto;
   padding: clamp(3.5rem, 7vw, 7rem) clamp(1.4rem, 5vw, 4rem);
 }

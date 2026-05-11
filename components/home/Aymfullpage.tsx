@@ -3,8 +3,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../assets/style/Home/Aymfullpage.module.css";
 import api from "@/lib/api";
-import Image1 from "../../assets/images/_DSC5018.JPG.jpeg";
 import Image from "next/image";
+import Image1 from "../../assets/images/_DSC5018.JPG.jpeg";
+import Image2 from "../../assets/images/mainimages/44085500051_9ba329c355_b.jpg";
 
 /* ══════════════════════════════════════════════
    TYPES
@@ -298,7 +299,7 @@ const AYMFullPage: React.FC = () => {
                 <a href={data.promoCard2.link} className={styles.promoLink}>More information →</a>
               </div>
               <div className={styles.promoImageWrap}>
-                <Image src={Image1} alt="image" className={styles.promoImage} width={300} height={250} />
+                <Image src={Image2} alt="image" className={styles.promoImage} width={300} height={250} />
               </div>
             </div>
           </div>

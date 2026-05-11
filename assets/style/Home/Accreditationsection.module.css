@@ -374,7 +374,7 @@
 .certImageWrap {
   position: relative;
   /* Taller image: 3/2 ratio instead of 4/3 */
-  aspect-ratio: 1.5 / 2;
+  aspect-ratio: 2.5 / 2;
   background: linear-gradient(135deg, #fff8f2 0%, #ffecd8 100%);
   overflow: hidden;
 }

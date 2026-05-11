@@ -279,7 +279,7 @@
 /* Mission Body */
 .missionBody {
   text-align: left;
-  max-width: 920px;
+  /* max-width: 920px; */
   margin: 0 auto;
 }
 
@@ -412,7 +412,7 @@
 /* Why Body */
 .whyBody {
   text-align: left;
-  max-width: 920px;
+  /* max-width: 920px; */
   margin: 0 auto;
 }
 
@@ -425,7 +425,7 @@
 }
 
 .leadBold {
-  font-family: 'Playfair Display', serif;
+  /* font-family: 'Playfair Display', serif; */
   font-size: 1.05em;
   font-weight: 800;
   color: var(--saffron);
