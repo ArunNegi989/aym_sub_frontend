@@ -481,6 +481,7 @@ export default function SingleBlog({
             </div>
           </div>
         </div>
+        
 
         {/* Scroll indicator */}
         <div className={styles.scrollIndicator}>
