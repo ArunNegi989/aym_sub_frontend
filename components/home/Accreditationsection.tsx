@@ -74,7 +74,12 @@ function SmartVideo({ src, poster }: { src: string; poster?: string }) {
           title="AYM Yoga School, Rishikesh"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-          style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+          style={{
+            width: "100%",
+            height: "100%",
+            border: "none",
+            display: "block",
+          }}
         />
       </div>
     );
@@ -96,12 +101,19 @@ function SmartVideo({ src, poster }: { src: string; poster?: string }) {
         loop
         playsInline
         poster={poster}
-        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", cursor: "pointer" }}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          display: "block",
+          cursor: "pointer",
+        }}
       >
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
+      {/* Overlay controls */}
       <div
         style={{
           position: "absolute",
@@ -126,18 +138,36 @@ function SmartVideo({ src, poster }: { src: string; poster?: string }) {
             v.paused ? v.play() : v.pause();
             showControls();
           }}
-          style={{ background: "none", border: "none", cursor: "pointer", color: "#fff", fontSize: "20px", padding: "2px" }}
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            color: "#fff",
+            fontSize: "20px",
+            padding: "2px",
+          }}
         >
           ⏯
         </button>
         <button
           onClick={toggleMute}
-          style={{ background: "none", border: "none", cursor: "pointer", color: "#fff", fontSize: "18px", padding: "2px" }}
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            color: "#fff",
+            fontSize: "18px",
+            padding: "2px",
+          }}
         >
           {isMuted ? "🔇" : "🔊"}
         </button>
         <input
-          type="range" min={0} max={1} step={0.05} defaultValue={0}
+          type="range"
+          min={0}
+          max={1}
+          step={0.05}
+          defaultValue={0}
           onClick={(e) => e.stopPropagation()}
           onChange={(e) => {
             const v = videoRef.current;
@@ -151,7 +181,10 @@ function SmartVideo({ src, poster }: { src: string; poster?: string }) {
           style={{ width: "70px", accentColor: "#fff", cursor: "pointer" }}
         />
         <input
-          type="range" min={0} max={100} defaultValue={0}
+          type="range"
+          min={0}
+          max={100}
+          defaultValue={0}
           onClick={(e) => e.stopPropagation()}
           onChange={(e) => {
             const v = videoRef.current;
@@ -213,8 +246,20 @@ interface AwardCert {
 
 function CheckIcon() {
   return (
-    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 4.5L4 6.5L7.5 3" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg
+      width="9"
+      height="9"
+      viewBox="0 0 9 9"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2 4.5L4 6.5L7.5 3"
+        stroke="#fff"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -238,7 +283,7 @@ function AwardRow({ cert }: { cert: AwardCert }) {
         <span className={styles.awardBannerBadge}>✦ {cert.tag} ✦</span>
       </div>
 
-      {/* ── BODY ── */}
+      {/* ── BODY — grid: portrait-col | main-col ── */}
       <div className={styles.awardBody}>
 
         {/* LEFT: portrait + stats */}
@@ -248,7 +293,7 @@ function AwardRow({ cert }: { cert: AwardCert }) {
               src={getImageUrl(cert.image)}
               alt={cert.alt || cert.label}
               fill
-              sizes="(max-width: 768px) 100vw, 280px"
+              sizes="(max-width: 640px) 100vw, (max-width: 860px) 240px, 380px"
               style={{ objectFit: "contain" }}
               priority
             />
@@ -273,14 +318,18 @@ function AwardRow({ cert }: { cert: AwardCert }) {
         {/* RIGHT: description + courses */}
         <div className={styles.awardMainCol}>
 
-          {/* Description area */}
+          {/* Description */}
           <div className={styles.awardDescArea}>
             <h3 className={styles.awardDescTitle}>
               Ministry of AYUSH Recognition — Government of India
             </h3>
 
-            {cert.descPara1 && <p className={styles.para}>{cert.descPara1}</p>}
-            {cert.descPara2 && <p className={styles.para}>{cert.descPara2}</p>}
+            {cert.descPara1 && (
+              <p className={styles.para}>{cert.descPara1}</p>
+            )}
+            {cert.descPara2 && (
+              <p className={styles.para}>{cert.descPara2}</p>
+            )}
 
             {metaPoints.length > 0 && (
               <ul className={styles.bulletList}>
@@ -302,19 +351,28 @@ function AwardRow({ cert }: { cert: AwardCert }) {
             )}
           </div>
 
-          {/* Courses area */}
+          {/* Courses */}
           {ayushCourses.length > 0 && (
             <div className={styles.awardCoursesArea}>
               <div className={styles.coursesHeader}>
-                <span className={styles.coursesPill}>✦ AYUSH Certified Courses ✦</span>
+                <span className={styles.coursesPill}>
+                  ✦ AYUSH Certified Courses ✦
+                </span>
                 {cert.ayushSubtitle && (
-                  <span className={styles.coursesSubtitle}>{cert.ayushSubtitle}</span>
+                  <span className={styles.coursesSubtitle}>
+                    {cert.ayushSubtitle}
+                  </span>
                 )}
               </div>
               <div className={styles.courseChipTrack}>
                 {ayushCourses.map((course, i) => (
-                  <div className={styles.courseChip} key={course._id || i}>
-                    <div className={styles.chipNum}>{String(i + 1).padStart(2, "0")}</div>
+                  <div
+                    className={styles.courseChip}
+                    key={course._id || i}
+                  >
+                    <div className={styles.chipNum}>
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
                     <div className={styles.chipName}>{course.name}</div>
                   </div>
                 ))}
@@ -341,6 +399,9 @@ function AwardRow({ cert }: { cert: AwardCert }) {
   );
 }
 
+/* ════════════════════════════════════════════════
+   MAIN COMPONENT
+════════════════════════════════════════════════ */
 export const AccreditationSection: React.FC = () => {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -359,33 +420,40 @@ export const AccreditationSection: React.FC = () => {
     fetchData();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (!data) return <p>No data found</p>;
+  if (loading) return <p>Loading…</p>;
+  if (!data)   return <p>No data found</p>;
 
-  const courseCerts: any[] = data.courseCerts || [];
-  const awardCerts: AwardCert[] = data.awardCerts || [];
+  const courseCerts: any[]       = data.courseCerts || [];
+  const awardCerts: AwardCert[]  = data.awardCerts  || [];
 
   return (
     <>
       {/* ══════════════ AUTHENTIC SECTION ══════════════ */}
       <section className={styles.authenticSection}>
         <div className={styles.container}>
+
+          {/* Header */}
           <div className={styles.sectionHeaderCenter}>
             <h2 className={styles.sectionTitle}>{data.sectionTitle}</h2>
             <div className={styles.titleUnderline} />
           </div>
 
+          {/* Auth grid: image LEFT | text RIGHT */}
           <div className={styles.authGrid}>
-            {/* Image — LEFT */}
             <div className={styles.authImageCol}>
               <div className={styles.authImageFrame}>
                 <div className={styles.authImageInner}>
                   <Image
                     src={getImageUrl(data.mainImage)}
                     alt={data.imageCaption}
-                    width={420}
-                    height={300}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "4px" }}
+                    width={500}
+                    height={380}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "4px",
+                    }}
                     priority
                   />
                   <p className={styles.imageCaption}>{data.imageCaption}</p>
@@ -403,7 +471,6 @@ export const AccreditationSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Text — RIGHT */}
             <div className={styles.authText}>
               <p className={styles.para}>{data.authPara1}</p>
               <p className={styles.para}>{data.authPara2}</p>
@@ -412,8 +479,8 @@ export const AccreditationSection: React.FC = () => {
             </div>
           </div>
 
+          {/* Video immerse: text LEFT | video RIGHT */}
           <div className={styles.videoImmerse}>
-            {/* Text — LEFT */}
             <div className={styles.immerseBlock}>
               <h3 className={styles.immerseTitle}>{data.immerseTitle}</h3>
               <div className={styles.immerseDivider} />
@@ -425,7 +492,6 @@ export const AccreditationSection: React.FC = () => {
               </a>
             </div>
 
-            {/* Video — RIGHT */}
             <div className={styles.videoBlock}>
               <div className={styles.videoPlaceholder}>
                 <SmartVideo
@@ -435,6 +501,7 @@ export const AccreditationSection: React.FC = () => {
               </div>
             </div>
           </div>
+
         </div>
         <div className={styles.bottomBorder} />
       </section>
@@ -442,6 +509,7 @@ export const AccreditationSection: React.FC = () => {
       {/* ══════════════ RECOGNITION SECTION ══════════════ */}
       <section className={styles.recognitionSection}>
         <div className={styles.container}>
+
           <div className={styles.sectionHeaderCenter}>
             <h2 className={styles.sectionTitle}>{data.recognitionTitle}</h2>
             <div className={styles.titleUnderline} />
@@ -469,6 +537,7 @@ export const AccreditationSection: React.FC = () => {
                         src={getImageUrl(cert.image)}
                         alt={cert.alt || cert.label}
                         fill
+                        sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         style={{ objectFit: "cover" }}
                       />
                     </div>
@@ -498,6 +567,7 @@ export const AccreditationSection: React.FC = () => {
               </div>
             </div>
           )}
+
         </div>
       </section>
     </>

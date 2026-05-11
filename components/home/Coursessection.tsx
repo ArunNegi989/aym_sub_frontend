@@ -44,7 +44,7 @@ export const CoursesSection: React.FC = () => {
         const res = await api.get("/courses-section");
         console.log("API Response:", res.data);
 
-        let coursesData = [];
+        let coursesData: Course[] = [];
         if (res.data?.data && Array.isArray(res.data.data)) {
           coursesData = res.data.data;
         } else if (Array.isArray(res.data)) {
@@ -63,6 +63,7 @@ export const CoursesSection: React.FC = () => {
     fetchCourses();
   }, []);
 
+  /* ── Loading skeleton ── */
   if (loading) {
     return (
       <section className={styles.section}>
@@ -79,6 +80,7 @@ export const CoursesSection: React.FC = () => {
     );
   }
 
+  /* ── Empty state ── */
   if (!courses.length) {
     return (
       <section className={styles.section}>
@@ -96,8 +98,9 @@ export const CoursesSection: React.FC = () => {
   return (
     <section className={styles.section}>
       <div className={styles.topBorder} />
+
       <div className={styles.container}>
-        {/* Header */}
+        {/* ── Header ── */}
         <div className={styles.header}>
           <span className={styles.badge}>Since 2005</span>
           <p className={styles.superTitle}>Authentic Yoga Education Since 2005</p>
@@ -111,12 +114,14 @@ export const CoursesSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Cards */}
+        {/* ── Course Cards ── */}
         <div className={styles.courseList}>
           {courses.map((course, idx) => {
             const filled = course.totalSeats - course.availableSeats;
             const pct =
-              course.totalSeats > 0 ? (filled / course.totalSeats) * 100 : 0;
+              course.totalSeats > 0
+                ? Math.min((filled / course.totalSeats) * 100, 100)
+                : 0;
             const isFull = course.availableSeats <= 0;
 
             return (
@@ -126,8 +131,9 @@ export const CoursesSection: React.FC = () => {
                   idx % 2 === 1 ? styles.cardAlt : ""
                 }`}
               >
-                {/* LEFT — text content + CTA strip */}
+                {/* ══ LEFT — text content + CTA strip ══ */}
                 <div className={styles.leftColumn}>
+                  {/* Content area */}
                   <div className={styles.content}>
                     <div className={styles.titleBlock}>
                       <h3 className={styles.courseTitle}>{course.title}</h3>
@@ -159,8 +165,9 @@ export const CoursesSection: React.FC = () => {
                     )}
                   </div>
 
-                  {/* CTA strip — pinned to bottom */}
+                  {/* CTA strip — pinned to bottom of left column */}
                   <div className={styles.ctaStrip}>
+                    {/* Price cards */}
                     <div className={styles.priceCards}>
                       <div className={styles.priceCard}>
                         <span className={styles.priceLabel}>INR</span>
@@ -172,6 +179,7 @@ export const CoursesSection: React.FC = () => {
                       </div>
                     </div>
 
+                    {/* Seats */}
                     <div className={styles.seatsBlock}>
                       <div className={styles.seatsInfo}>
                         <div className={styles.seatsItem}>
@@ -199,9 +207,12 @@ export const CoursesSection: React.FC = () => {
                       </div>
                     </div>
 
+                    {/* Buttons */}
                     <div className={styles.buttonGroup}>
                       {isFull ? (
-                        <span className={`${styles.btnEnroll} ${styles.btnEnrollDisabled}`}>
+                        <span
+                          className={`${styles.btnEnroll} ${styles.btnEnrollDisabled}`}
+                        >
                           Fully Booked
                         </span>
                       ) : (
@@ -221,7 +232,7 @@ export const CoursesSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* RIGHT — image panel, fills full card height */}
+                {/* ══ RIGHT — image panel, fills full card height via grid ══ */}
                 <div className={styles.imageWrapper}>
                   <img
                     src={getImageUrl(course.image)}
@@ -242,6 +253,7 @@ export const CoursesSection: React.FC = () => {
           })}
         </div>
       </div>
+
       <div className={styles.bottomBorder} />
     </section>
   );
