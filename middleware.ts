@@ -23,8 +23,5 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // ✅ redirect to .html
-  return NextResponse.redirect(
-    new URL(`${url.pathname}.html`, request.url)
-  );
+ 
 }

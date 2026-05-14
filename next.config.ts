@@ -16,14 +16,7 @@ const nextConfig: NextConfig = {
 
   reactStrictMode: false,
 
-  async rewrites() {
-    return [
-      {
-        source: "/:path*.html",
-        destination: "/:path*",
-      },
-    ];
-  },
+ 
 };
 
 export default nextConfig;
