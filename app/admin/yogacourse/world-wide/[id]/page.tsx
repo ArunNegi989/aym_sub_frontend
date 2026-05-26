@@ -234,13 +234,14 @@ function SingleImg({ preview, badge, hint, error, onSelect, onRemove, existingUr
 }
 
 /* ════════════════════════════════════════
-   SLIDER IMAGES MANAGER
+   SLIDER IMAGES MANAGER - UPDATED
 ════════════════════════════════════════ */
 interface SliderImageItem {
   id: string;
   file: File | null;
   preview: string;
   existingUrl?: string;
+  isDeleted?: boolean; // Track if image should be deleted
 }
 
 function SliderImagesManager({
@@ -252,15 +253,33 @@ function SliderImagesManager({
   const handleAdd = () => {
     onChange([...items, { id: `sl-${Date.now()}`, file: null, preview: "" }]);
   };
+  
   const handleRemove = (id: string) => {
     if (items.length <= 1) return;
-    onChange(items.filter((i) => i.id !== id));
+    const itemToRemove = items.find(i => i.id === id);
+    // Mark as deleted if it has an existing URL
+    if (itemToRemove?.existingUrl) {
+      onChange(items.map(i => 
+        i.id === id ? { ...i, isDeleted: true, preview: "", existingUrl: "" } : i
+      ).filter(i => !i.isDeleted));
+    } else {
+      onChange(items.filter((i) => i.id !== id));
+    }
   };
+  
   const handleSelect = (id: string, file: File, preview: string) => {
-    onChange(items.map((i) => (i.id === id ? { ...i, file, preview } : i)));
+    onChange(items.map((i) => (i.id === id ? { ...i, file, preview, isDeleted: false } : i)));
   };
+  
   const handleClearPreview = (id: string) => {
-    onChange(items.map((i) => (i.id === id ? { ...i, file: null, preview: "", existingUrl: "" } : i)));
+    const itemToClear = items.find(i => i.id === id);
+    if (itemToClear?.existingUrl) {
+      onChange(items.map(i => 
+        i.id === id ? { ...i, isDeleted: true, file: null, preview: "", existingUrl: "" } : i
+      ).filter(i => !i.isDeleted));
+    } else {
+      onChange(items.map((i) => (i.id === id ? { ...i, file: null, preview: "" } : i)));
+    }
   };
 
   return (
@@ -270,13 +289,13 @@ function SliderImagesManager({
         Existing images neeche preview mein dikh rahe hain. Naye upload karne par replace ho jayenge.
       </p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "1rem" }}>
-        {items.map((item, i) => {
+        {items.filter(i => !i.isDeleted).map((item, i) => {
           const displayPreview = item.preview || item.existingUrl || "";
           return (
             <div key={item.id} className={styles.nestedCard} style={{ padding: "0.8rem" }}>
               <div className={styles.nestedCardHeader}>
                 <span className={styles.nestedCardNum}>Slide {i + 1}</span>
-                {items.length > 1 && (
+                {items.filter(i => !i.isDeleted).length > 1 && (
                   <button type="button" className={styles.removeNestedBtn} onClick={() => handleRemove(item.id)}>
                     ✕
                   </button>
@@ -318,7 +337,7 @@ function SliderImagesManager({
           );
         })}
       </div>
-      {items.length < 10 && (
+      {items.filter(i => !i.isDeleted).length < 10 && (
         <button type="button" className={styles.addItemBtn} onClick={handleAdd} style={{ marginTop: "0.8rem" }}>
           ＋ Add Slider Image
         </button>
@@ -592,10 +611,9 @@ export default function EditWorldwidePage() {
   const [teacherTeamLeftImagePrev, setTeacherTeamLeftImagePrev] = useState("");
   const [existingTeacherImageUrl, setExistingTeacherImageUrl] = useState("");
 
-  /* Slider images */
-  const [sliderImages, setSliderImages] = useState<SliderImageItem[]>([
-    { id: "sl1", file: null, preview: "" },
-  ]);
+  /* Slider images - Updated to track deleted images */
+  const [sliderImages, setSliderImages] = useState<SliderImageItem[]>([]);
+  const [deletedSliderImages, setDeletedSliderImages] = useState<string[]>([]);
 
   /* Rich text refs */
   const curriculumIntroRef = useRef("");
@@ -767,7 +785,7 @@ export default function EditWorldwidePage() {
             })));
           }
 
-          /* Nav items — backend stores { label, id } → map to { id_field, label, sectionId } */
+          /* Nav items */
           if (data.navItems?.length) {
             setNavItems(data.navItems.map((n: any, idx: number) => ({
               id_field: `n-${Date.now()}-${idx}`,
@@ -778,7 +796,7 @@ export default function EditWorldwidePage() {
             setNavItems([{ id_field: "n1", label: "", sectionId: "" }]);
           }
 
-          /* Community slider images — load existing URLs */
+          /* Community slider images - track existing URLs */
           if (data.communitySliderImages?.length) {
             setSliderImages(
               data.communitySliderImages.map((imgPath: string, idx: number) => ({
@@ -786,8 +804,11 @@ export default function EditWorldwidePage() {
                 file: null,
                 preview: "",
                 existingUrl: resolveImg(imgPath),
+                isDeleted: false,
               }))
             );
+          } else {
+            setSliderImages([{ id: `sl-${Date.now()}`, file: null, preview: "", isDeleted: false }]);
           }
         }
       } catch (error: any) {
@@ -865,8 +886,28 @@ export default function EditWorldwidePage() {
       if (curriculumRightImageFile) fd.append("curriculumRightImage", curriculumRightImageFile);
       if (teacherTeamLeftImageFile) fd.append("teacherTeamLeftImage", teacherTeamLeftImageFile);
 
-      /* Slider images — only newly selected files */
-      sliderImages.forEach((item) => { if (item.file) fd.append("communitySliderImages", item.file); });
+      /* Slider images — track deleted and new files */
+      const activeSliderImages = sliderImages.filter(img => !img.isDeleted);
+      const deletedImageUrls = sliderImages
+        .filter(img => img.isDeleted && img.existingUrl)
+        .map(img => img.existingUrl?.replace(BASE_URL, ""));
+      
+      if (deletedImageUrls.length) {
+        fd.append("deletedSliderImages", JSON.stringify(deletedImageUrls));
+      }
+      
+      activeSliderImages.forEach((item) => { 
+        if (item.file) fd.append("communitySliderImages", item.file); 
+      });
+      
+      // Also send the list of remaining existing images (without new files)
+      const remainingExistingImages = activeSliderImages
+        .filter(img => img.existingUrl && !img.file)
+        .map(img => img.existingUrl?.replace(BASE_URL, ""));
+      
+      if (remainingExistingImages.length) {
+        fd.append("existingSliderImages", JSON.stringify(remainingExistingImages));
+      }
 
       await api.put("/worldwide/content/update", fd, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -1125,7 +1166,6 @@ export default function EditWorldwidePage() {
               ph="Whether you want to deepen your knowledge of yoga or take a step towards a new career..." h={200}
               initialValue={richInitials.communityDescription} />
           </F>
-          {/* ✅ Slider Images — with existing images pre-loaded */}
           <F label="Community Slider Images" hint="Existing images are shown below. Upload new ones to replace them (max 10 total).">
             <SliderImagesManager items={sliderImages} onChange={setSliderImages} />
           </F>
