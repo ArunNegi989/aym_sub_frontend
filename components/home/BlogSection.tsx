@@ -132,7 +132,7 @@ export const BlogSection: React.FC = () => {
 
                 <p className={styles.excerpt}>{blog.excerpt}</p>
 
-                <Link href={`/blog/${blog.slug}`} className={styles.readMore}>
+                <Link href={`/blog/aym-yoga-blog/${blog.slug}`} className={styles.readMore}>
                   Read More
                   <span className={styles.arrow}>→</span>
                 </Link>
