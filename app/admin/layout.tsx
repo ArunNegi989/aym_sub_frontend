@@ -185,12 +185,21 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname                      = usePathname();
 
   // ✅ Redirect if not authenticated
-  useEffect(() => {
-    if (!loading && !user) {
-      router.replace("/auth/login");
-    }
-  }, [user, loading, router]);
+ useEffect(() => {
+  if (loading) return;
 
+  // Login nahi hai
+  if (!user) {
+    router.replace("/auth/login");
+    return;
+  }
+
+  // Admin nahi hai
+  if (user.role !== "admin") {
+    router.replace("/");
+    return;
+  }
+}, [user, loading, router]);
   // Close profile on outside click
   useEffect(() => {
     function handler(e: MouseEvent) {
@@ -238,8 +247,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   // ✅ Show nothing while redirect is in progress
-  if (!user) return null;
-
+  if (!user || user.role !== "admin") {
+  return null;
+}
   return (
     <div className={styles.adminShell}>
       <Toaster
@@ -411,9 +421,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
                 <div className={styles.profileDropdownDivider} />
 
-                <Link href="/admin/profile"         className={styles.profileDropdownItem} onClick={() => setProfileOpen(false)}><span className={styles.profileDropdownIcon}>◉</span>My Profile</Link>
-                <Link href="/admin/settings"        className={styles.profileDropdownItem} onClick={() => setProfileOpen(false)}><span className={styles.profileDropdownIcon}>⚙</span>Settings</Link>
-                <Link href="/admin/change-password" className={styles.profileDropdownItem} onClick={() => setProfileOpen(false)}><span className={styles.profileDropdownIcon}>🔑</span>Change Password</Link>
+                
+                <Link href="/auth/change-password" className={styles.profileDropdownItem} onClick={() => setProfileOpen(false)}><span className={styles.profileDropdownIcon}>🔑</span>Change Password</Link>
 
                 <div className={styles.profileDropdownDivider} />
 
