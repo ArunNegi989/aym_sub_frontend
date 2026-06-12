@@ -433,7 +433,7 @@ export default function YogaRetreatPage() {
       </h2>
       <OmDivider />
       <p className={styles.bodyPara}>
-        <Link href="/yoga-teacher-training-in-rishikesh" className={styles.infoLink}>
+        <Link href="/best-yoga-teacher-training-course-in-rishikesh" className={styles.infoLink}>
           AYM&apos;s yoga ashram in Rishikesh
         </Link>{" "}
         tends to fill up quickly, with bookings made one to two months in

@@ -4284,7 +4284,7 @@ export default function Yoga200HourCombinedForm() {
                 >
                   <input
                     className={`${styles.input} ${styles.inputNoCount}`}
-                    placeholder="200-hour-yoga-teacher-training-rishikesh"
+                    placeholder="200-hour-yoga-ttc-in-rishikesh"
                     {...register("slug", { required: "Required" })}
                   />
                 </div>

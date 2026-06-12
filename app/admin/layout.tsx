@@ -119,10 +119,10 @@ const navItems: NavItem[] = [
       {
         label: "Yoga GOA in India", icon: "🌴",
         children: [
-          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-200hr-seats", label: "200hr Seats in Goa" },
-          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-300hr-seats", label: "300hr Seats in Goa" },
-          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-500hr-seats", label: "500hr Seats in Goa" },
-          { href: "/admin/yogacourse/yoga-goa-in-india/yoga-goa-content",     label: "Content in Goa" },
+          { href: "/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-200hr-seats", label: "200hr Seats in Goa" },
+          { href: "/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-300hr-seats", label: "300hr Seats in Goa" },
+          { href: "/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-500hr-seats", label: "500hr Seats in Goa" },
+          { href: "/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-content",     label: "Content in Goa" },
         ],
       },
       {
@@ -140,7 +140,7 @@ const navItems: NavItem[] = [
       {
         label: "World Wide", icon: "🌍",
         children: [
-          { href: "/admin/yogacourse/world-wide", label: "World Wide" },
+          { href: "/admin/yogacourse/yoga-world-wide", label: "World Wide" },
         ],
       },
     ],

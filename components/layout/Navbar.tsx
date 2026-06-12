@@ -67,54 +67,54 @@ export const navLinks: NavLink[] = [
     children: [
       {
         label: "100 Hour Yoga Teacher Training",
-        href: "/100-hour-yoga-teacher-training-in-rishikesh",
+        href: "/100-hour-yoga-ttc-in-rishikesh",
       },
       {
         label: "200 Hour Yoga Teacher Training",
-        href: "/200-hour-yoga-teacher-training-rishikesh",
+        href: "/200-hour-yoga-ttc-in-rishikesh",
       },
       {
         label: "300 Hour Yoga Teacher Training",
-        href: "/300-hours-yoga-teacher-training-rishikesh",
+        href: "/300-hour-yoga-ttc-in-rishikesh",
       },
       {
         label: "500 Hour Yoga Teacher Training",
-        href: "/500-hour-yoga-teacher-training-india",
+        href: "/500-hour-yoga-ttc-in-rishikesh",
       },
       {
         label: "Kundalini Yoga Teacher Training",
-        href: "/kundalini-yoga-teacher-training-in-rishikesh",
+        href: "/best-kundalini-yoga-course",
       },
       {
         label: "Yoga Teacher Training Rishikesh",
-        href: "/yoga-teacher-training-in-rishikesh",
+        href: "/best-yoga-teacher-training-course-in-rishikesh",
       },
       {
         label: "Prenatal Yoga Teacher Training",
-        href: "/prenatal-yoga-teacher-training-course",
+        href: "/prenatal-yoga-ttc",
       },
       {
         label: "Vinyasa Yoga Teacher Training",
-        href: "/vinyasa-teacher-training-india",
+        href: "/vinyasa-ttc-in-india",
       },
       {
         label: "Yoga Teacher Training in India",
-        href: "/yoga-teacher-training-in-india",
+        href: "/yoga-ttc-in-india",
       },
       {
         label: "Hatha Yoga Teacher Training",
-        href: "/hatha-yoga-teacher-training-Rishikesh",
+        href: "/hatha-yoga-ttc-in-rishikesh",
       },
-      { label: "Yoga Teacher Training Goa", href: "/yoga-goa-in-india" },
+      { label: "Yoga Teacher Training Goa", href: "/best-yoga-goa-in-india" },
       {
         label: "Yoga Teacher Training Bali",
-        href: "/yoga-teacher-training-course-bali",
+        href: "/yoga-ttc-in-bali",
       },
       {
         label: "Ayurveda & Yoga TTC",
-        href: "/yoga-ayurveda-teacher-training-rishikesh",
+        href: "/yoga-ayurveda-ttc-in-rishikesh",
       },
-      { label: "Yoga Teacher Training World Wide", href: "/world-wide" },
+      { label: "Yoga Teacher Training World Wide", href: "/yoga-world-wide" },
     ],
   },
   {

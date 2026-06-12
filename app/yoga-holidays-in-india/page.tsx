@@ -103,7 +103,7 @@ const YogaHolidays: React.FC = () => {
       Ayurveda. Yoga and Ayurveda Spa will enhance your well-being — stimulating
       your mind and transforming your body. Meditation will calm your mind and
       body, reducing anxiety and tension. Practising{" "}
-      <Link href="/yoga-ayurveda-teacher-training-rishikesh" className={styles.link}>Yoga with Ayurveda</Link>{" "}
+      <Link href="/yoga-ayurveda-ttc-in-rishikesh" className={styles.link}>Yoga with Ayurveda</Link>{" "}
       will restore your inner vitality and give you a healthy mind, body and soul.
     </p>
   </div>

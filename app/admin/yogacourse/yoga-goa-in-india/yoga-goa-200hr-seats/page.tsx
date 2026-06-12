@@ -69,7 +69,7 @@ export default function Goa200hrSeatsListPage() {
           <h1 className={styles.pageTitle}>200 Hour Yoga TTC in GOA — Seats & Dates</h1>
           <p className={styles.pageSubtitle}>Manage 2025 & 2026 batch dates, fees and seat availability</p>
         </div>
-        <Link href="/admin/yogacourse/yoga-goa-in-india/yoga-goa-200hr-seats/add-new" className={styles.addBtn}>
+        <Link href="/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-200hr-seats/add-new" className={styles.addBtn}>
           <span className={styles.addPlus}>+</span>
           <span className={styles.addLabel}>Add Batch</span>
         </Link>
@@ -130,7 +130,7 @@ export default function Goa200hrSeatsListPage() {
                   <td>
                     <div className={styles.actionBtns}>
                       <Link
-                        href={`/admin/yogacourse/yoga-goa-in-india/yoga-goa-200hr-seats/${row._id}`}
+                        href={`/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-200hr-seats/${row._id}`}
                         className={styles.editBtn}
                       >
                         ✎ Edit

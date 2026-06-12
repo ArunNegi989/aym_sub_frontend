@@ -441,9 +441,9 @@ interface LocationItem {
 }
 
 const INIT_LOCATIONS: LocationItem[] = [
-  { id: "l1", name: "Yoga Teacher Training In Germany", flag: "🇩🇪", href: "/world-wide/yoga-teacher-training-in-germany", region: "Europe" },
-  { id: "l2", name: "Yoga Teacher Training In Italy", flag: "🇮🇹", href: "/world-wide/yoga-teacher-training-in-italy", region: "Europe" },
-  { id: "l3", name: "Yoga Teacher Training In Switzerland", flag: "🇨🇭", href: "/world-wide/yoga-teacher-training-in-switzerland", region: "Europe" },
+  { id: "l1", name: "Yoga Teacher Training In Germany", flag: "🇩🇪", href: "/yoga-world-wide/yoga-teacher-training-in-germany", region: "Europe" },
+  { id: "l2", name: "Yoga Teacher Training In Italy", flag: "🇮🇹", href: "/yoga-world-wide/yoga-teacher-training-in-italy", region: "Europe" },
+  { id: "l3", name: "Yoga Teacher Training In Switzerland", flag: "🇨🇭", href: "/yoga-world-wide/yoga-teacher-training-in-switzerland", region: "Europe" },
 ];
 
 function LocationsManager({ items, onChange }: { items: LocationItem[]; onChange: (items: LocationItem[]) => void }) {
@@ -480,7 +480,7 @@ function LocationsManager({ items, onChange }: { items: LocationItem[]; onChange
               <div className={styles.fieldGroup}>
                 <label className={styles.label} style={{ fontSize: "0.8rem" }}>URL Slug / Path</label>
                 <div className={styles.inputWrap}>
-                  <input className={styles.input} value={item.href} placeholder="/world-wide/yoga-teacher-training-in-bali"
+                  <input className={styles.input} value={item.href} placeholder="/yoga-world-wide/yoga-teacher-training-in-bali"
                     onChange={(e) => update(item.id, "href", e.target.value)} />
                 </div>
               </div>
@@ -725,7 +725,7 @@ export default function AddWorldwidePage() {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setSubmitted(true);
-      setTimeout(() => router.push("/admin/yogacourse/world-wide"), 1500);
+      setTimeout(() => router.push("/admin/yogacourse/yoga-world-wide"), 1500);
     } catch (e: any) {
       alert(e?.response?.data?.message || e?.message || "Something went wrong");
     } finally {
@@ -748,7 +748,7 @@ export default function AddWorldwidePage() {
   return (
     <div className={styles.formPage}>
       <div className={styles.breadcrumb}>
-        <button className={styles.breadcrumbLink} onClick={() => router.push("/admin/yogacourse/world-wide")}>
+        <button className={styles.breadcrumbLink} onClick={() => router.push("/admin/yogacourse/yoga-world-wide")}>
           Worldwide Content
         </button>
         <span className={styles.breadcrumbSep}>›</span>
@@ -999,7 +999,7 @@ export default function AddWorldwidePage() {
       </div>{/* /formCard */}
 
       <div className={styles.formActions}>
-        <Link href="/admin/yogacourse/world-wide" className={styles.cancelBtn}>← Cancel</Link>
+        <Link href="/admin/yogacourse/yoga-world-wide" className={styles.cancelBtn}>← Cancel</Link>
         <button type="button"
           className={`${styles.submitBtn} ${isSubmitting ? styles.submitBtnLoading : ""}`}
           onClick={handleSubmit(onSubmit)} disabled={isSubmitting}>

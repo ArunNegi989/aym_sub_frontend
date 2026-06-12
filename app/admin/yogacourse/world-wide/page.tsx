@@ -86,7 +86,7 @@ setRows(res.data?.data ? [res.data.data] : []);
           </button>
         ) : (
           <Link
-            href="/admin/yogacourse/world-wide/add-new"
+            href="/admin/yogacourse/yoga-world-wide/add-new"
             className={styles.addNewBtn}
           >
             ＋ Add New
@@ -126,7 +126,7 @@ setRows(res.data?.data ? [res.data.data] : []);
           </p>
           {!hasAnyRecords && (
             <Link
-              href="/admin/yogacourse/world-wide/add-new"
+              href="/admin/yogacourse/yoga-world-wide/add-new"
               className={styles.addNewBtn}
             >
               ＋ Create First Page
@@ -211,7 +211,7 @@ setRows(res.data?.data ? [res.data.data] : []);
                     <div className={styles.actionBtns}>
                       <Link
                         className={styles.editBtn}
-                        href={`/admin/yogacourse/world-wide/${row._id}`}
+                        href={`/admin/yogacourse/yoga-world-wide/${row._id}`}
                       >
                         ✎ Edit
                       </Link>

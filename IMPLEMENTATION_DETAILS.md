@@ -3,14 +3,14 @@
 ## 📋 Files Modified
 
 ### Primary File
-- **`assets/style/hatha-yoga-teacher-training-Rishikesh/Hathayogapage.module.css`**
+- **`assets/style/hatha-yoga-ttc-in-rishikesh/Hathayogapage.module.css`**
   - Enhanced Benefits section styling
   - Enhanced Ashram section styling
   - Completely redesigned Curriculum section
   - Added 11 comprehensive media queries (1920px to 360px)
 
 ### No Changes Required
-- `app/hatha-yoga-teacher-training-Rishikesh/page.tsx` - No modifications needed
+- `app/hatha-yoga-ttc-in-rishikesh/page.tsx` - No modifications needed
 - HTML structure remains unchanged
 - All enhancements are CSS-only
 

@@ -880,7 +880,7 @@ export default function Add300hrContent1() {
             <F label="Slug" req>
               <div className={`${styles.inputWrap} ${errors.slug ? styles.inputError : ""}`}>
                 <input className={`${styles.input} ${styles.inputNoCount}`}
-                  placeholder="300-hour-yoga-teacher-training-rishikesh"
+                  placeholder="300-hour-yoga-ttc-in-rishikesh"
                   {...register("slug", { required: "Required" })} />
               </div>
               {errors.slug && <p className={styles.errorMsg}>⚠ {errors.slug.message}</p>}

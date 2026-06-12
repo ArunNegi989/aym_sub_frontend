@@ -1104,7 +1104,7 @@ export default function GoaYogaAdminForm() {
         toast.success("Goa page created successfully!");
       }
       setSubmitted(true);
-      setTimeout(() => router.push("/admin/yogacourse/yoga-goa-in-india/yoga-goa-content"), 1500);
+      setTimeout(() => router.push("/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-content"), 1500);
     } catch (e: any) {
       toast.error(e?.response?.data?.message || e?.message || "Something went wrong");
     } finally {
@@ -1134,7 +1134,7 @@ export default function GoaYogaAdminForm() {
     <div className={styles.formPage}>
       {/* Breadcrumb */}
       <div className={styles.breadcrumb}>
-        <button className={styles.breadcrumbLink} onClick={() => router.push("/admin/yogacourse/yoga-goa-in-india/yoga-goa-content")}>
+        <button className={styles.breadcrumbLink} onClick={() => router.push("/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-content")}>
           Goa Yoga Page
         </button>
         <span className={styles.breadcrumbSep}>›</span>
@@ -1472,7 +1472,7 @@ export default function GoaYogaAdminForm() {
 
       {/* Form Actions */}
       <div className={styles.formActions}>
-        <Link href="/admin/yogacourse/yoga-goa-in-india/yoga-goa-content" className={styles.cancelBtn}>
+        <Link href="/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-content" className={styles.cancelBtn}>
           ← Cancel
         </Link>
         <button

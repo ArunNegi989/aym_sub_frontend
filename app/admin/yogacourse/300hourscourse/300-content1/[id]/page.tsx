@@ -1182,7 +1182,7 @@ export default function Edit300hrContent1({ params }: { params: Promise<{ id: st
             <F label="Slug" req>
               <div className={`${styles.inputWrap} ${errors.slug ? styles.inputError : ""}`}>
                 <input className={`${styles.input} ${styles.inputNoCount}`}
-                  placeholder="300-hour-yoga-teacher-training-rishikesh"
+                  placeholder="300-hour-yoga-ttc-in-rishikesh"
                   {...register("slug", { required: "Required" })} />
               </div>
               {errors.slug && <p className={styles.errorMsg}>⚠ {errors.slug.message}</p>}

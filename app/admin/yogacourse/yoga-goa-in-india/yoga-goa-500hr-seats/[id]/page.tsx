@@ -72,7 +72,7 @@ export default function Goa500hrSeatsEditPage() {
         });
       } catch {
         toast.error("Failed to fetch batch");
-        router.replace("/admin/yogacourse/yoga-goa-in-india/yoga-goa-500hr-seats");
+        router.replace("/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-500hr-seats");
       } finally {
         setLoading(false);
       }
@@ -131,7 +131,7 @@ export default function Goa500hrSeatsEditPage() {
         note:         form.note,
       });
       setSubmitted(true);
-      setTimeout(() => router.push("/admin/yogacourse/yoga-goa-in-india/yoga-goa-500hr-seats"), 1500);
+      setTimeout(() => router.push("/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-500hr-seats"), 1500);
     } catch (err: any) {
       alert(err?.response?.data?.message || "Failed to update");
     } finally {
@@ -169,7 +169,7 @@ export default function Goa500hrSeatsEditPage() {
   return (
     <div className={styles.formPage}>
       <div className={styles.breadcrumb}>
-        <Link href="/admin/yogacourse/yoga-goa-in-india/yoga-goa-500hr-seats" className={styles.breadcrumbLink}>
+        <Link href="/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-500hr-seats" className={styles.breadcrumbLink}>
           GOA 500hr — Seats & Dates
         </Link>
         <span className={styles.breadcrumbSep}>›</span>
@@ -396,7 +396,7 @@ export default function Goa500hrSeatsEditPage() {
 
         {/* Actions */}
         <div className={styles.formActions}>
-          <Link href="/admin/yogacourse/yoga-goa-in-india/yoga-goa-500hr-seats" className={styles.cancelBtn}>
+          <Link href="/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-500hr-seats" className={styles.cancelBtn}>
             ← Cancel
           </Link>
           <button

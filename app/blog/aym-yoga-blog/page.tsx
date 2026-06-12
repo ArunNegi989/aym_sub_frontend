@@ -379,9 +379,9 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
             <p className={styles.ctaText}>World-class teacher training at AYM Yoga School, Rishikesh — where tradition meets transformation.</p>
             <div className={styles.ctaPrograms}>
               {[
-                { label: "200 Hr YTT", href: "/200-hour-yoga-teacher-training-rishikesh" },
-                { label: "300 Hr YTT", href: "/300-hours-yoga-teacher-training-rishikesh" },
-                { label: "500 Hr YTT", href: "/500-hour-yoga-teacher-training-india" },
+                { label: "200 Hr YTT", href: "/200-hour-yoga-ttc-in-rishikesh" },
+                { label: "300 Hr YTT", href: "/300-hour-yoga-ttc-in-rishikesh" },
+                { label: "500 Hr YTT", href: "/500-hour-yoga-ttc-in-rishikesh" },
               ].map(p => (
                 <Link key={p.label} href={p.href} className={styles.ctaProgramBtn}>{p.label}</Link>
               ))}

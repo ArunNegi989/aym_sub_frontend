@@ -20,31 +20,31 @@ const quickLinks = [
 const courseLinks = [
   {
     label: "100 Hour Yoga Teacher Training",
-    href: "/100-hour-yoga-teacher-training-in-rishikesh",
+    href: "/100-hour-best-yoga-teacher-training-course-in-rishikesh",
   },
   {
     label: "200 Hour Yoga Teacher Training",
-    href: "/200-hour-yoga-teacher-training-rishikesh",
+    href: "/200-hour-yoga-ttc-in-rishikesh",
   },
   {
     label: "300 Hour Yoga Teacher Training",
-    href: "/300-hours-yoga-teacher-training-rishikesh",
+    href: "/300-hour-yoga-ttc-in-rishikesh",
   },
   {
     label: "500 Hour Yoga Teacher Training",
-    href: "/500-hour-yoga-teacher-training-india",
+    href: "/500-hour-yoga-ttc-in-rishikesh",
   },
   {
     label: "Kundalini Yoga",
-    href: "/kundalini-yoga-teacher-training-in-rishikesh",
+    href: "/best-kundalini-yoga-course",
   },
   {
     label: "Yoga Teacher In Rishikesh",
-    href: "/yoga-teacher-training-in-rishikesh",
+    href: "/best-yoga-teacher-training-course-in-rishikesh",
   },
   {
     label: "Prenatal Yoga Teacher Training",
-    href: "/prenatal-yoga-teacher-training-course",
+    href: "/prenatal-yoga-ttc",
   },
 ];
 

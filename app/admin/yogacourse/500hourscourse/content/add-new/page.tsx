@@ -516,7 +516,7 @@ export default function AddEdit500HrPage() {
       courseInfoInrPrice: 135000,
       courseInfoOriginalUsdPrice: 2950,
       courseInfoOriginalInrPrice: 240000,
-      slug: "500-hour-yoga-teacher-training-india", 
+      slug: "500-hour-yoga-ttc-in-rishikesh", 
       status: "Active",
       pageMainH1: "500 Hour Yoga Teacher Training Course in Rishikesh", 
       heroImgAlt: "Yoga Students Group",

@@ -1111,7 +1111,7 @@ export default function AddEditYogaTTCIndiaPage() {
 
         <Section title="Page Settings" badge="SEO & Status">
           <div className={styles.grid2}>
-            <Field label="Slug" req><div className={`${styles.inputWrap} ${errors.slug ? styles.inputError : ""}`}><input className={`${styles.input} ${styles.inputNoCount}`} placeholder="yoga-teacher-training-in-india" {...register("slug", { required: "Slug is required" })} /></div>{errors.slug && <p className={styles.errorMsg}>⚠ {errors.slug.message}</p>}</Field>
+            <Field label="Slug" req><div className={`${styles.inputWrap} ${errors.slug ? styles.inputError : ""}`}><input className={`${styles.input} ${styles.inputNoCount}`} placeholder="yoga-ttc-in-india" {...register("slug", { required: "Slug is required" })} /></div>{errors.slug && <p className={styles.errorMsg}>⚠ {errors.slug.message}</p>}</Field>
             <Field label="Status"><div className={styles.selectWrap}><select className={styles.select} {...register("status")}><option value="Active">Active</option><option value="Inactive">Inactive</option></select><span className={styles.selectArrow}>▾</span></div></Field>
           </div>
         </Section>
