@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "@/assets/style/world-wide/Worldwidepage.module.css";
+import styles from "@/assets/style/yoga-world-wide/Worldwidepage.module.css";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImgFallback from "@/assets/images/18.webp";
 import api from "@/lib/api";
