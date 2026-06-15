@@ -133,7 +133,7 @@
 }
 
 .heroTitle {
-  font-family: var(--font-disp);
+    
   font-size: clamp(2.6rem, 7vw, 5.2rem);
   font-weight: 900;
   color: #FFF8EE;
@@ -174,7 +174,7 @@
 }
 
 .ruleOm {
-  font-family: var(--font-disp);
+    
   font-size: 1.3rem;
   color: var(--saf);
   opacity: 0.7;
@@ -440,7 +440,7 @@
 }
 
 .featuredTitle {
-  font-family: var(--font-disp);
+  /*    */
   font-size: clamp(1.3rem, 2.4vw, 1.9rem);
   font-weight: 700;
   color: var(--bark);
@@ -621,7 +621,7 @@
 }
 
 .cardTitle {
-  font-family: var(--font-disp);
+    
   font-size: clamp(0.88rem, 1.3vw, 1rem);
   font-weight: 700;
   color: var(--bark);
@@ -769,7 +769,7 @@
 }
 
 .emptyOm {
-  font-family: var(--font-disp);
+    
   font-size: 3rem;
   color: rgba(242,100,25,0.25);
   line-height: 1;
@@ -824,7 +824,7 @@
 }
 
 .ctaTitle {
-  font-family: var(--font-disp);
+    
   font-size: 1.5rem;
   font-weight: 700;
   font-style: italic;
@@ -918,7 +918,7 @@
 }
 
 .sidePanelOm {
-  font-family: var(--font-disp);
+    
   font-size: 1.05rem;
   color: var(--gold);
   line-height: 1;
