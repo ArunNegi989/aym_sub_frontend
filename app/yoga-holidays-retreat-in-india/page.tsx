@@ -136,7 +136,7 @@ const YogaHolidays: React.FC = () => {
     <p className={styles.ctaText}>
       For more detail about yoga holiday packages / vacations in Rishikesh, India.
     </p>
-    <Link href="/yoga-retreats-in-rishikesh" className={styles.ctaButton}>
+    <Link href="/best-yoga-retreats-in-rishikesh" className={styles.ctaButton}>
       Click Here to See Yoga Holidays Packages
     </Link>
   </div>
