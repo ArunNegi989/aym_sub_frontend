@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "@/assets/style/Auth/login.module.css";
 import api from "@/lib/api";
 import { setAccessToken } from "@/lib/auth";
@@ -10,7 +10,14 @@ import Link from "next/link";
 export default function LoginPage() {
   const [isActive, setIsActive] = useState(false);
   const { setUser } = useAuth();
+const [adminExists, setAdminExists] = useState(false);
 
+  useEffect(() => {
+    api
+      .get("/auth/check-admin")
+      .then((res) => setAdminExists(res.data.adminExists))
+      .catch(() => setAdminExists(false));
+  }, []);
   // ── Modals ──────────────────────────────────────────────────
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showAccessModal, setShowAccessModal] = useState(false);
@@ -258,22 +265,25 @@ export default function LoginPage() {
                 Sign In
               </button>
             </div>
-            <div
-              className={`${styles.panelContent} ${styles.panelContentRight}`}
-            >
-              <h1>Namaste!</h1>
-              <p>
-                Begin your amazing yoga journey by creating an account with us
-                today
-              </p>
-              <button
-                className={styles.transparentBtn}
-                type="button"
-                onClick={() => setIsActive(true)}
-              >
-                Sign Up
-              </button>
-            </div>
+           <div className={`${styles.panelContent} ${styles.panelContentRight}`}>
+  <h1>Namaste!</h1>
+  <p>
+    "Yoga is not about touching your toes,
+    it is about what you learn on the way down.
+    It is the art of living — breathing, moving,
+    and awakening the soul within."
+  </p>
+  {/* ✅ Admin hai to button hide, nahi hai to show */}
+  {!adminExists && (
+    <button
+      className={styles.transparentBtn}
+      type="button"
+      onClick={() => setIsActive(true)}
+    >
+      Sign Up
+    </button>
+  )}
+</div>
           </div>
         </div>
       </div>
