@@ -265,7 +265,7 @@ const [adminExists, setAdminExists] = useState(false);
                 Sign In
               </button>
             </div>
-           <div className={`${styles.panelContent} ${styles.panelContentRight}`}>
+            <div className={`${styles.panelContent} ${styles.panelContentRight}`}>
   <h1>Namaste!</h1>
   <p>
     "Yoga is not about touching your toes,
