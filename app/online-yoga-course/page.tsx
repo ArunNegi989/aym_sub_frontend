@@ -10,6 +10,11 @@ import chakra5 from "@/assets/images/heart-chakra.png";
 import chakra6 from "@/assets/images/throat-chakra.png";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/30.webp";
+import Link from "next/link";
+import herosectionimage from "@/assets/images/mainimages/32079071288_8bed34eecd_b.jpg";
+import cardimg1 from "@/assets/images/mainimages/28531495457_bfb39bbd82_b.jpg";
+import cardimg2 from "@/assets/images/mainimages/29510046748_6eb605450d_b.jpg";
+import cardimg3 from "@/assets/images/mainimages/30736248347_790050d8b3_b.jpg";
 
 /* ── Video embed ── */
 const HERO_VIDEO_URL =
@@ -17,14 +22,11 @@ const HERO_VIDEO_URL =
 
 /* ── Other course images ── */
 const otherCourseImages = [
-  "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80",
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80",
-  "https://images.unsplash.com/photo-1558017487-06bf9f82613a?w=600&q=80",
+  cardimg1,
+  cardimg2,
+  cardimg3,
 ];
 
-/* ── Why Choose image ── */
-const WHY_IMAGE =
-  "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=80";
 
 /* ─────────────────────────────────────────────
    DATA
@@ -436,8 +438,8 @@ function CourseCard({ title, duration, style, sessions, cert, fee, benefits }: {
             </li>
           </ul>
           <div className={styles.courseActions}>
-            <a href="#" className={styles.btnPrimary}>Apply Now</a>
-            <a href="#" className={styles.btnOutline}>Book Now</a>
+            <Link href="/yoga-registration" className={styles.btnPrimary}>Apply Now</Link>
+            <Link href="/yoga-registration" className={styles.btnOutline}>Book Now</Link>
           </div>
         </div>
         <div className={styles.courseCardRight}>
@@ -559,7 +561,7 @@ export default function OnlineYogaCourse() {
             {/* Right: image stacked with video */}
             <div className={styles.whyRight}>
               <div className={styles.whyImageBox}>
-                <img src={WHY_IMAGE} alt="Online yoga practice" />
+                <Image src={herosectionimage} alt="Online yoga practice" />
                 <div className={styles.whyCornerTl} />
                 <div className={styles.whyCornerBr} />
                 <div className={styles.whyImageBadge}>Since 2010 · Rishikesh</div>
@@ -753,12 +755,12 @@ export default function OnlineYogaCourse() {
                       </li>
                     ))}
                   </ul>
-                  <a href="#" className={styles.recordedApplyBtn}>
+                  <Link href="/yoga-registration" className={styles.recordedApplyBtn}>
                     Apply Now
                     <svg viewBox="0 0 16 16" fill="none" style={{ width: 14, height: 14 }}>
                       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -818,7 +820,7 @@ export default function OnlineYogaCourse() {
                 style={{ "--oi": i } as React.CSSProperties}
               >
                 <div className={styles.otherCardImage}>
-                  <img
+                  <Image
                     src={otherCourseImages[i]}
                     alt={oc.title}
                   />
@@ -827,12 +829,12 @@ export default function OnlineYogaCourse() {
                 <div className={styles.otherCardBody}>
                   <h4 className={styles.otherTitle}>{oc.title}</h4>
                   <p className={styles.otherMeta}>{oc.hours} · {oc.price}</p>
-                  <a href="#" className={styles.otherCardBtn}>
+                  <Link href="/yoga-registration" className={styles.otherCardBtn}>
                     Enquire Now
                     <svg viewBox="0 0 16 16" fill="none" style={{ width: 12, height: 12 }}>
                       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
