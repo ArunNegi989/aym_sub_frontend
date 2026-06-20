@@ -829,7 +829,7 @@ export default function OnlineYogaCourse() {
                 <div className={styles.otherCardBody}>
                   <h4 className={styles.otherTitle}>{oc.title}</h4>
                   <p className={styles.otherMeta}>{oc.hours} · {oc.price}</p>
-                  <Link href="/yoga-registration" className={styles.otherCardBtn}>
+                  <Link href="/contact" className={styles.otherCardBtn}>
                     Enquire Now
                     <svg viewBox="0 0 16 16" fill="none" style={{ width: 12, height: 12 }}>
                       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
