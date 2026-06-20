@@ -913,7 +913,7 @@ function PremiumSeatBooking() {
               )}
             </div>
             {selected ? (
-              <a
+              <Link
                 href={`/yoga-registration?batchId=${selected._id}&type=${activeTab}`}
                 className={styles.psbBookBtn}
               >
@@ -932,7 +932,7 @@ function PremiumSeatBooking() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </Link>
             ) : (
               <span className={`${styles.psbBookBtn} ${styles.psbBookBtnDis}`}>
                 Book Now

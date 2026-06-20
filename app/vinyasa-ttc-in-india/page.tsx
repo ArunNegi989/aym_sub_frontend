@@ -7,6 +7,7 @@ import api from "@/lib/api";
 import ReviewSection from "@/components/common/Reviewsection";
 import RatingsSummarySection from "@/components/home/RatingsSummarySection";
 import PremiumGallerySection from "@/components/PremiumGallerySection";
+import Link from "next/link";
 
 /* ─────────────────────────────────────────
    TYPES
@@ -1347,12 +1348,12 @@ function PremiumSeatBooking({
                 )}
               </div>
               {selected ? (
-                <a href={`/yoga-registration?batchId=${selected._id}&type=vinyasa`} className={styles.psbBookBtn}>
+                <Link href={`/yoga-registration?batchId=${selected._id}&type=vinyasa`} className={styles.psbBookBtn}>
                   Book Now — {fmtPrice(selected).amount} {currency}
                   <svg className={styles.psbArrowIcon} viewBox="0 0 16 16" fill="none">
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff3d2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </a>
+                </Link>
               ) : (
                 <span className={`${styles.psbBookBtn} ${styles.psbBookBtnDis}`}>Book Now</span>
               )}

@@ -6,6 +6,7 @@ import api from "@/lib/api";
 import PremiumGallerySection from "@/components/PremiumGallerySection";
 import ReviewSection from "@/components/common/Reviewsection";
 import RatingsSummarySection from "@/components/home/RatingsSummarySection";
+import Link from "next/link";
 
 /* ══════════════════════════════════════
    TYPES
@@ -1075,7 +1076,7 @@ export function PremiumSeatBooking({
               )}
             </div>
             {selected ? (
-              <a
+              <Link
                 href={`/yoga-registration?batchId=${selected._id}&type=hatha`}
                 className={styles.psbBookBtn}
               >
@@ -1093,7 +1094,7 @@ export function PremiumSeatBooking({
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </Link>
             ) : (
               <span className={`${styles.psbBookBtn} ${styles.psbBookBtnDis}`}>
                 Book Now

@@ -2373,7 +2373,7 @@
   gap: 8px;
   width: 100%;
   background: linear-gradient(135deg, var(--saffron-bright) 0%, #a85800 100%);
-  color: #fff3d2;
+  color: #f7f2e2;
   font-family: var(--font-menu);
   font-size: 0.7rem;
   font-weight: 700;
@@ -2386,6 +2386,10 @@
   text-decoration: none;
   transition: opacity 0.18s, transform 0.15s;
   text-align: center;
+}
+
+.psbBookBtn:hover{
+  color: #ffffff !important;
 }
 
 .psbBookBtn:hover:not(.psbBookBtnDis) {

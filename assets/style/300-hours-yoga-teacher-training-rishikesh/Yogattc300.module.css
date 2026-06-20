@@ -2078,7 +2078,9 @@
   transition: opacity 0.18s, transform 0.15s;
   text-align: center;
 }
-
+.psbBookBtn:hover{
+  color: #ffffff;
+}
 .psbBookBtn:hover:not(.psbBookBtnDis) { opacity: 0.88; transform: translateY(-1px); color: #fff3d2; }
 .psbBookBtnDis { background: rgba(184, 134, 11, 0.15) !important; color: rgba(184, 134, 11, 0.45) !important; border: 1px dashed rgba(184, 134, 11, 0.3) !important; cursor: not-allowed !important; }
 .psbArrowIcon { width: 14px; height: 14px; flex-shrink: 0; }
