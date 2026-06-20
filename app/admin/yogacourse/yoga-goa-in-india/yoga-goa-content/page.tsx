@@ -90,7 +90,7 @@ export default function GoaYogaListPage() {
           </p>
         </div>
        <Link
-  href={rows.length === 0 ? "/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-content/add-new" : "#"}
+  href={rows.length === 0 ? "/admin/yogacourse/yoga-goa-in-india/yoga-goa-content/add-new" : "#"}
   className={styles.addNewBtn}
   onClick={(e) => {
     if (rows.length > 0) {
@@ -128,7 +128,7 @@ export default function GoaYogaListPage() {
           <p className={styles.emptyText}>
             Create your Goa Yoga Teacher Training page with programs, schedule, campus gallery, and batch booking details.
           </p>
-          <Link href="/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-content/add-new" className={styles.addNewBtn}>
+          <Link href="/admin/yogacourse/yoga-goa-in-india/yoga-goa-content/add-new" className={styles.addNewBtn}>
             ＋ Create First Page
           </Link>
         </div>
@@ -218,7 +218,7 @@ export default function GoaYogaListPage() {
                     <div className={styles.actionBtns}>
                       <Link
                         className={styles.editBtn}
-                        href={`/admin/yogacourse/best-yoga-goa-in-india/yoga-goa-content/${row._id}`}
+                        href={`/admin/yogacourse/yoga-goa-in-india/yoga-goa-content/${row._id}`}
                       >
                         ✎ Edit
                       </Link>
