@@ -145,6 +145,8 @@ const navItems: NavItem[] = [
       },
     ],
   },
+  
+   { href: "/admin/yogacourse/online-yogacourse-seatbooking", label: "Online Yoga Course Seatbooking",icon: "🖼" },
   {
     label: "Teachers", icon: "🧘",
     children: [

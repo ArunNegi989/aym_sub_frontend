@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import api from "@/lib/api";
 import styles from "@/assets/style/online-yoga-course/Onlineyogacourse.module.css";
 import Image from "next/image";
 import chakra1 from "@/assets/images/root-chakra.png";
@@ -16,17 +17,28 @@ import cardimg1 from "@/assets/images/mainimages/28531495457_bfb39bbd82_b.jpg";
 import cardimg2 from "@/assets/images/mainimages/29510046748_6eb605450d_b.jpg";
 import cardimg3 from "@/assets/images/mainimages/30736248347_790050d8b3_b.jpg";
 
-/* ── Video embed ── */
-const HERO_VIDEO_URL =
-  "https://www.youtube.com/embed/EJ6K-rhqevE?autoplay=1&mute=1&loop=1&playlist=EJ6K-rhqevE&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&playsinline=1";
+/* ─────────────────────────────────────────────
+   OTHER COURSE IMAGES
+───────────────────────────────────────────── */
+const otherCourseImages = [cardimg1, cardimg2, cardimg3];
 
-/* ── Other course images ── */
-const otherCourseImages = [
-  cardimg1,
-  cardimg2,
-  cardimg3,
-];
+/* ═══════════════════════════════════════════
+   SEAT BOOKING TYPES
+═══════════════════════════════════════════ */
+type Currency = "USD" | "INR";
 
+interface BatchRow {
+  _id: string;
+  startDate: string;
+  endDate: string;
+  usd200: string;
+  usd300: string;
+  inr200?: string;
+  inr300?: string;
+  totalSeats: number;
+  bookedSeats: number;
+  note?: string;
+}
 
 /* ─────────────────────────────────────────────
    DATA
@@ -85,15 +97,7 @@ const prenatalCourse = {
   ],
 };
 
-const scheduleData = [
-  { date: "01st Jun – 28th Jun 2025", h200: "20000 INR / 399 USD", h300: "25000 INR / 499 USD" },
-  { date: "01st Jul – 28th July 2025", h200: "20000 INR / 399 USD", h300: "25000 INR / 499 USD" },
-  { date: "01st Aug – 28th Aug 2025", h200: "20000 INR / 399 USD", h300: "25000 INR / 499 USD" },
-  { date: "01st Sep – 28th Sep 2025", h200: "20000 INR / 399 USD", h300: "25000 INR / 499 USD" },
-  { date: "01st Oct – 28th Oct 2025", h200: "20000 INR / 399 USD", h300: "25000 INR / 499 USD" },
-  { date: "01st Nov – 28th Nov 2025", h200: "20000 INR / 399 USD", h300: "25000 INR / 499 USD" },
-  { date: "01st Dec – 28th Dec 2025", h200: "20000 INR / 399 USD", h300: "25000 INR / 499 USD" },
-];
+
 
 const curriculumAreas = [
   {
@@ -247,7 +251,6 @@ const whyReasons = [
       </svg>
     ),
   },
-  // ── 5 new entries ──
   {
     title: "Lifetime Access to Recordings",
     desc: "Every live session is recorded and made available to you forever — revisit any class, any time, at your own pace.",
@@ -338,6 +341,401 @@ const keyBenefits = [
   },
 ];
 
+/* ═══════════════════════════════════════════
+   SEAT BOOKING HELPERS
+═══════════════════════════════════════════ */
+const shortDateRange = (start: string, end: string) => {
+  const s = new Date(start);
+  const e = new Date(end);
+  const d = (dt: Date) =>
+    dt.toLocaleDateString("en-IN", { day: "2-digit", month: "short" });
+  return `${d(s)} – ${d(e)}`;
+};
+
+const monthYear = (start: string) =>
+  new Date(start).toLocaleDateString("en-IN", { month: "short", year: "numeric" });
+
+function useCurrencyRate() {
+  const [rate, setRate] = useState<number>(83);
+  useEffect(() => {
+    fetch(
+      "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json"
+    )
+      .then((r) => r.json())
+      .then((data) => { if (data?.usd?.inr) setRate(data.usd.inr); })
+      .catch(() => {});
+  }, []);
+  return rate;
+}
+
+/* ═══════════════════════════════════════════
+   CURRENCY DROPDOWN
+═══════════════════════════════════════════ */
+function CurrencyDropdown({
+  currency,
+  onChange,
+}: {
+  currency: Currency;
+  onChange: (c: Currency) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  return (
+    <div className={styles.sbCurrDrop} ref={ref}>
+      <button
+        className={styles.sbCurrDropBtn}
+        onClick={() => setOpen((p) => !p)}
+        type="button"
+      >
+        <span>{currency === "USD" ? "🇺🇸" : "🇮🇳"}</span>
+        <span>{currency === "USD" ? "English" : "हिन्दी"}</span>
+        <svg
+          className={`${styles.sbCurrDropArrow} ${open ? styles.sbCurrDropArrowOpen : ""}`}
+          viewBox="0 0 12 8"
+          fill="none"
+        >
+          <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {open && (
+        <div className={styles.sbCurrDropMenu}>
+          {(["USD", "INR"] as Currency[]).map((c) => (
+            <button
+              key={c}
+              className={`${styles.sbCurrDropItem} ${currency === c ? styles.sbCurrDropItemActive : ""}`}
+              onClick={() => { onChange(c); setOpen(false); }}
+              type="button"
+            >
+              <span>{c === "USD" ? "🇺🇸" : "🇮🇳"}</span>
+              <div>
+                <span>{c === "USD" ? "English" : "हिन्दी"}</span>
+                <span>{c === "USD" ? "US Dollar" : "Indian Rupee"}</span>
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════
+   SEAT BOOKING COMPONENT (inline)
+═══════════════════════════════════════════ */
+function OnlineSeatBooking({ batches }: { batches: BatchRow[] }) {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [currency, setCurrency] = useState<Currency>("USD");
+  const [courseTab, setCourseTab] = useState<"200" | "300">("200");
+  const rate = useCurrencyRate();
+ 
+
+
+
+
+  useEffect(() => {
+    if (!batches.length) return;
+    const first = batches.find((b) => b.totalSeats - b.bookedSeats > 0);
+    if (first) setSelectedId(first._id);
+  }, [batches]);
+
+  const selected = batches.find((b) => b._id === selectedId) ?? null;
+
+  /* ── USD → INR conversion fixed to match the 100hr page pattern:
+     always derive INR from the live rate (Math.round(usd * rate)),
+     no static/hardcoded INR override that can drift from the real rate. */
+  const fmtPrice = (batch: BatchRow | null, course: "200" | "300"): string => {
+    if (!batch) return "—";
+    const usdVal = course === "200" ? batch.usd200 : batch.usd300;
+    const usdNum = parseFloat(usdVal.replace(/[$,]/g, ""));
+    if (currency === "INR") {
+      return `₹${Math.round(usdNum * rate).toLocaleString("en-IN")}`;
+    }
+    const raw = usdVal.trim();
+    return raw.startsWith("$") ? raw : `$${raw}`;
+  };
+
+  return (
+    <section className={styles.sbSection} id="seat-booking">
+
+      {/* Eyebrow + heading */}
+      <span className={styles.sectionEyebrow}>Upcoming Batches</span>
+      <div className={styles.vintageHeadingWrap} style={{ textAlign: "center" }}>
+        <h2 className={styles.vintageHeading}>Live Online Yoga Teacher Training Schedule</h2>
+        <div className={styles.headingUnderline} style={{ justifyContent: "center" }}>
+          <div className={styles.headingDiamond} />
+        </div>
+      </div>
+      <p className={styles.sbSecSub}>
+        Choose your batch &amp; preferred course — prices include full live training access
+      </p>
+      <div className={styles.sbOrnLine}>
+        <div className={styles.sbOrnL} />
+        <div className={styles.sbOrnDiamond} />
+        <div className={styles.sbOrnR} />
+      </div>
+
+      {/* Main layout */}
+      <div className={styles.sbLayout}>
+
+        {/* ── LEFT PANEL ── */}
+        <div className={styles.sbLeftPanel}>
+          <div className={styles.sbLph}>
+            <span className={styles.sbLphTitle}>Select Your Batch</span>
+            <div className={styles.sbLphRight}>
+              <CurrencyDropdown currency={currency} onChange={setCurrency} />
+              <div className={styles.sbLegend}>
+                <div className={styles.sbLegItem}>
+                  <div className={`${styles.sbLegDot} ${styles.sbDGreen}`} />
+                  Available
+                </div>
+                <div className={styles.sbLegItem}>
+                  <div className={`${styles.sbLegDot} ${styles.sbDOrange}`} />
+                  Limited
+                </div>
+                <div className={styles.sbLegItem}>
+                  <div className={`${styles.sbLegDot} ${styles.sbDRed}`} />
+                  Full
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {batches.length === 0 ? (
+            <p className={styles.sbNoBatches}>No upcoming batches available.</p>
+          ) : (
+            <div className={styles.sbBatchGrid}>
+              {batches.map((batch) => {
+                const rem = batch.totalSeats - batch.bookedSeats;
+                const full = rem <= 0;
+                const low = !full && rem <= 3;
+                const dotCls = full ? styles.sbDRed : low ? styles.sbDOrange : styles.sbDGreen;
+                const txtCls = full ? styles.sbSRed : low ? styles.sbSOrange : styles.sbSGreen;
+                const statusTxt = full ? "Fully Booked" : low ? "Limited" : "Available";
+                const isSelected = selectedId === batch._id;
+
+                return (
+                  <div
+                    key={batch._id}
+                    className={[
+                      styles.sbBc,
+                      full ? styles.sbBcFull : "",
+                      isSelected ? styles.sbBcSel : "",
+                    ].filter(Boolean).join(" ")}
+                    onClick={() => { if (!full) setSelectedId(batch._id); }}
+                  >
+                    <div className={styles.sbBcTick}>
+                      <svg viewBox="0 0 10 10" fill="none">
+                        <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                    <div className={styles.sbBcMonth}>{monthYear(batch.startDate)}</div>
+                    <div className={styles.sbBcDates}>{shortDateRange(batch.startDate, batch.endDate)}</div>
+
+                    {/* Both course prices */}
+                    <div className={styles.sbBcPrices}>
+                      <div className={styles.sbBcPriceRow}>
+                        <span className={styles.sbBcCourseLabel}>200 Hr</span>
+                        <span className={styles.sbBcPriceAmt}>
+                          {fmtPrice(batch, "200")} <span className={styles.sbBcPriceCur}>{currency}</span>
+                        </span>
+                      </div>
+                      <div className={styles.sbBcPriceRow}>
+                        <span className={styles.sbBcCourseLabel}>300 Hr</span>
+                        <span className={styles.sbBcPriceAmt}>
+                          {fmtPrice(batch, "300")} <span className={styles.sbBcPriceCur}>{currency}</span>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className={styles.sbBcStatus}>
+                      <div className={`${styles.sbBcDot} ${dotCls}`} />
+                      <span className={`${styles.sbBcStxt} ${txtCls}`}>{statusTxt}</span>
+                    </div>
+
+                    {!full && (
+                      <>
+                        <div className={styles.sbBcSeatsBar}>
+                          <div
+                            className={styles.sbBcSeatsBarFill}
+                            style={{
+                              width: `${Math.max(5, (rem / batch.totalSeats) * 100)}%`,
+                              background: low
+                                ? "linear-gradient(90deg,#c8700a,#e09030)"
+                                : "linear-gradient(90deg,#3d6000,#6aa000)",
+                            }}
+                          />
+                        </div>
+                        <span
+                          className={styles.sbBcSeatsBadge}
+                          style={{ color: low ? "#c8700a" : "#3d6000" }}
+                        >
+                          {rem} / {batch.totalSeats} seats left
+                        </span>
+                      </>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* ── RIGHT PANEL ── */}
+        <div className={styles.sbRightPanel}>
+          <div className={styles.sbRpHead}>
+            <div className={styles.sbRpEyebrow}>Course Overview</div>
+            <div className={styles.sbRpCourse}>Live Online Yoga Teacher Training</div>
+            <div className={styles.sbRpDur}>
+              <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
+                <circle cx="8" cy="8" r="7" stroke="rgba(255,243,210,0.8)" strokeWidth="1.2" />
+                <path d="M8 4.5V8.5L10.5 10" stroke="rgba(255,243,210,0.8)" strokeWidth="1.2" strokeLinecap="round" />
+              </svg>
+              <span className={styles.sbRpDurTxt}>24–28 Days · Online · Rishikesh Tradition</span>
+            </div>
+            <div className={styles.sbCurrBadge}>
+              {currency === "USD" ? "🇺🇸 Prices in USD" : "🇮🇳 Prices in INR"}
+            </div>
+          </div>
+
+          <div className={styles.sbRpBody}>
+
+            {/* Course tabs */}
+            <div className={styles.sbCourseTabs}>
+              <button
+                className={`${styles.sbCourseTab} ${courseTab === "200" ? styles.sbCourseTabActive : ""}`}
+                onClick={() => setCourseTab("200")}
+                type="button"
+              >
+                200 Hour
+              </button>
+              <button
+                className={`${styles.sbCourseTab} ${courseTab === "300" ? styles.sbCourseTabActive : ""}`}
+                onClick={() => setCourseTab("300")}
+                type="button"
+              >
+                300 Hour
+              </button>
+            </div>
+
+            {/* Course detail */}
+            <div className={styles.sbCourseDetail}>
+              <div className={styles.sbCourseDetailRow}>
+                <span className={styles.sbCdLabel}>Duration</span>
+                <span className={styles.sbCdVal}>{courseTab === "200" ? "24 Days" : "28 Days"}</span>
+              </div>
+              <div className={styles.sbCourseDetailRow}>
+                <span className={styles.sbCdLabel}>Style</span>
+                <span className={styles.sbCdVal}>
+                  {courseTab === "200" ? "Hatha + Ashtanga" : "Hatha + Multi-Style"}
+                </span>
+              </div>
+              <div className={styles.sbCourseDetailRow}>
+                <span className={styles.sbCdLabel}>Sessions</span>
+                <span className={styles.sbCdVal}>15 Days · 2 Classes/Day</span>
+              </div>
+              <div className={styles.sbCourseDetailRow}>
+                <span className={styles.sbCdLabel}>Certificate</span>
+                <span className={styles.sbCdVal}>Yoga Alliance, USA</span>
+              </div>
+            </div>
+
+            {/* Price */}
+            <div className={styles.sbPriceLbl}>Course Fee</div>
+            <div className={styles.sbPriceBlock}>
+              <div className={styles.sbPriceAmt}>{selected ? fmtPrice(selected, courseTab) : "—"}</div>
+              <div className={styles.sbPriceCur}>{currency}</div>
+            </div>
+
+            <div className={styles.sbDivider} />
+
+            {/* Seats availability */}
+            {selected && (() => {
+              const rem = selected.totalSeats - selected.bookedSeats;
+              const full = rem <= 0;
+              const low = !full && rem <= 3;
+              const pct = full ? 100 : Math.round((selected.bookedSeats / selected.totalSeats) * 100);
+              return (
+                <div className={styles.sbRpSeatsWrap}>
+                  <div className={styles.sbRpSeatsRow}>
+                    <span className={styles.sbRpSeatsLbl}>Seats Availability</span>
+                    <span
+                      className={styles.sbRpSeatsBadge}
+                      style={{
+                        color: full ? "#8a2c00" : low ? "#c8700a" : "#3d6000",
+                        borderColor: full ? "#8a2c00" : low ? "#c8700a" : "#3d6000",
+                      }}
+                    >
+                      {full ? "Fully Booked" : `${rem} of ${selected.totalSeats} left`}
+                    </span>
+                  </div>
+                  <div className={styles.sbRpSeatsBar}>
+                    <div
+                      className={styles.sbRpSeatsBarFill}
+                      style={{
+                        width: `${pct}%`,
+                        background: full
+                          ? "#8a2c00"
+                          : low
+                          ? "linear-gradient(90deg,#c8700a,#e09030)"
+                          : "linear-gradient(90deg,#3d6000,#6aa000)",
+                      }}
+                    />
+                  </div>
+                </div>
+              );
+            })()}
+
+            {/* Selected batch */}
+            <div className={styles.sbSelDisplay}>
+              {selected ? (
+                <>
+                  <div className={styles.sbSelLabel}>Selected Batch</div>
+                  <div className={styles.sbSelDate}>
+                    {shortDateRange(selected.startDate, selected.endDate)},{" "}
+                    {monthYear(selected.startDate)}
+                  </div>
+                </>
+              ) : (
+                <span className={styles.sbSelHint}>← Select a batch to continue</span>
+              )}
+            </div>
+
+            {/* Book Now */}
+            {selected ? (
+              <a
+                href={`/yoga-registration?batchId=${selected._id}&type=${courseTab}hr-online`}
+                className={styles.sbBookBtn}
+              >
+                Book Now — {fmtPrice(selected, courseTab)} {currency}
+                <svg className={styles.sbArrowIcon} viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff3d2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            ) : (
+              <span className={`${styles.sbBookBtn} ${styles.sbBookBtnDis}`}>Book Now</span>
+            )}
+
+            {selected?.note && (
+              <p className={styles.sbNote}>
+                <strong>Note:</strong> {selected.note}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─────────────────────────────────────────────
    SHARED UI COMPONENTS
 ───────────────────────────────────────────── */
@@ -362,7 +760,6 @@ function OmDivider() {
   );
 }
 
-/* Course detail icon helpers */
 const CalendarIcon = () => (
   <svg viewBox="0 0 16 16" fill="none">
     <rect x="1" y="2" width="14" height="13" rx="2" stroke="currentColor" strokeWidth="1.4" />
@@ -466,8 +863,31 @@ function CourseCard({ title, duration, style, sessions, cert, fee, benefits }: {
    PAGE COMPONENT
 ───────────────────────────────────────────── */
 export default function OnlineYogaCourse() {
+  const [batches, setBatches] = useState<BatchRow[]>([]);
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  fetchBatches();
+}, []);
+
+const fetchBatches = async () => {
+  try {
+    const response = await api.get(
+      "/online-seats/get-all-batches"
+    );
+
+    if (response.data.success) {
+      setBatches(response.data.data);
+    }
+  } catch (error) {
+    console.log(error);
+  } finally {
+    setLoading(false);
+  }
+};
   return (
     <div className={styles.page}>
+
       {/* Mandala watermark */}
       <div className={styles.mandalaWatermark} aria-hidden="true">
         <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
@@ -494,9 +914,7 @@ export default function OnlineYogaCourse() {
         </svg>
       </div>
 
-      {/* ══════════════════════════════════════
-          HERO IMAGE
-      ══════════════════════════════════════ */}
+      {/* ══ HERO IMAGE ══ */}
       <section className={styles.heroSection}>
         <Image
           src={heroImg}
@@ -508,9 +926,7 @@ export default function OnlineYogaCourse() {
         />
       </section>
 
-      {/* ══════════════════════════════════════
-          INTRO
-      ══════════════════════════════════════ */}
+      {/* ══ INTRO ══ */}
       <section className={`${styles.section} ${styles.introSection}`}>
         <div className={styles.container}>
           <div className={styles.introText}>
@@ -521,25 +937,21 @@ export default function OnlineYogaCourse() {
             <p className={styles.bodyPara}>
               At AYM Yoga School, Rishikesh, we bring you a professionally curated{" "}
               <strong>online Yoga Teacher Training Course</strong> designed for
-              yoga enthusiasts worldwide. Whether you're a beginner or an
+              yoga enthusiasts worldwide. Whether you&apos;re a beginner or an
               experienced practitioner, our online yoga course offers the same
               depth and authenticity as our in-person training in Rishikesh, the{" "}
               <strong>Yoga Capital of the World</strong>.
             </p>
           </div>
-      
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          WHY CHOOSE — with image & video on right
-      ══════════════════════════════════════ */}
+      {/* ══ WHY CHOOSE ══ */}
       <section className={styles.whySection}>
         <div className={styles.container}>
           <span className={styles.sectionEyebrow}>Why Choose Us</span>
-          <VintageHeading>Why Choose AYM Yoga School's Online Yoga Teacher Training Course?</VintageHeading>
+          <VintageHeading>Why Choose AYM Yoga School&apos;s Online Yoga Teacher Training Course?</VintageHeading>
           <div className={styles.whySplit}>
-            {/* Left: reason cards */}
             <div className={styles.whyLeft}>
               <div className={styles.whyGrid}>
                 {whyReasons.map((item, i) => (
@@ -558,7 +970,6 @@ export default function OnlineYogaCourse() {
                 ))}
               </div>
             </div>
-            {/* Right: image stacked with video */}
             <div className={styles.whyRight}>
               <div className={styles.whyImageBox}>
                 <Image src={herosectionimage} alt="Online yoga practice" />
@@ -567,12 +978,12 @@ export default function OnlineYogaCourse() {
                 <div className={styles.whyImageBadge}>Since 2010 · Rishikesh</div>
               </div>
               <div className={styles.whyVideoBox}>
-               <iframe
-  src="https://www.youtube.com/embed/EJ6K-rhqevE?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=EJ6K-rhqevE"
-  title="AYM Yoga School"
-  allow="autoplay"
-  allowFullScreen
-/>
+                <iframe
+                  src="https://www.youtube.com/embed/EJ6K-rhqevE?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=EJ6K-rhqevE"
+                  title="AYM Yoga School"
+                  allow="autoplay"
+                  allowFullScreen
+                />
                 <div className={styles.whyVideoBadge}>
                   <span className={styles.pulseDot} /> Live Classes
                 </div>
@@ -582,9 +993,7 @@ export default function OnlineYogaCourse() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          KEY BENEFITS
-      ══════════════════════════════════════ */}
+      {/* ══ KEY BENEFITS ══ */}
       <section className={styles.benefitsSection}>
         <div className={styles.container}>
           <span className={styles.sectionEyebrow}>Key Benefits</span>
@@ -606,9 +1015,7 @@ export default function OnlineYogaCourse() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          LIVE COURSES (200hr, 300hr, Prenatal)
-      ══════════════════════════════════════ */}
+      {/* ══ LIVE COURSES (200hr, 300hr, Prenatal) ══ */}
       <section className={styles.coursesSection}>
         <div className={styles.container}>
           <span className={styles.sectionEyebrow}>Live Online Courses</span>
@@ -628,45 +1035,18 @@ export default function OnlineYogaCourse() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          SCHEDULE TABLE
-      ══════════════════════════════════════ */}
+      {/* ══ SEAT BOOKING (replaces static schedule table) ══ */}
       <section className={styles.scheduleSection}>
         <div className={styles.container}>
-          <span className={styles.sectionEyebrow}>Upcoming Batches</span>
-          <VintageHeading>Live Online Yoga Teacher Training Schedule</VintageHeading>
-          <div className={styles.tableWrapper}>
-            <table className={styles.scheduleTable}>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>200 Hour</th>
-                  <th>300 Hour</th>
-                  <th>Enroll</th>
-                </tr>
-              </thead>
-              <tbody>
-                {scheduleData.map((row, i) => (
-                  <tr key={i}>
-                    <td><span className={styles.tableDate}>{row.date}</span></td>
-                    <td><span className={styles.tablePrice}>{row.h200}</span></td>
-                    <td><span className={styles.tablePrice}>{row.h300}</span></td>
-                    <td>
-                      <a href="#" className={styles.tableApplyBtn}>
-                        Open for Registration
-                      </a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+         {loading ? (
+  <p>Loading...</p>
+) : (
+  <OnlineSeatBooking batches={batches} />
+)}
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          NOTE + FAQ
-      ══════════════════════════════════════ */}
+      {/* ══ NOTE + FAQ ══ */}
       <section className={styles.aboutSection}>
         <div className={styles.container}>
           <div className={styles.noteBox}>
@@ -691,9 +1071,7 @@ export default function OnlineYogaCourse() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          CURRICULUM
-      ══════════════════════════════════════ */}
+      {/* ══ CURRICULUM ══ */}
       <section className={styles.curriculumSection}>
         <div className={styles.container}>
           <span className={styles.sectionEyebrow}>Curriculum</span>
@@ -728,9 +1106,7 @@ export default function OnlineYogaCourse() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          RECORDED COURSES
-      ══════════════════════════════════════ */}
+      {/* ══ RECORDED COURSES ══ */}
       <section className={styles.recordedSection}>
         <div className={styles.container}>
           <span className={styles.sectionEyebrow}>Self-Paced Learning</span>
@@ -766,12 +1142,11 @@ export default function OnlineYogaCourse() {
             ))}
           </div>
 
-          {/* Info / Advantages box */}
           <div className={styles.infoBox}>
             <h4 className={styles.infoBoxTitle}>The Advantages of Fully Online Courses</h4>
             <p className={styles.infoBoxText}>
-              In addition to the above courses, we have fully recorded online teachers' training
-              courses for 200 hours yoga teachers' training as well as for 300 hours training program.
+              In addition to the above courses, we have fully recorded online teachers&apos; training
+              courses for 200 hours yoga teachers&apos; training as well as for 300 hours training program.
             </p>
             <ol className={styles.advantageList}>
               <li>You can start the course any time.</li>
@@ -805,9 +1180,7 @@ export default function OnlineYogaCourse() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          OTHER LIVE COURSES
-      ══════════════════════════════════════ */}
+      {/* ══ OTHER LIVE COURSES ══ */}
       <section className={styles.otherSection}>
         <div className={styles.container}>
           <span className={styles.sectionEyebrow}>Specialised Programs</span>
@@ -820,10 +1193,7 @@ export default function OnlineYogaCourse() {
                 style={{ "--oi": i } as React.CSSProperties}
               >
                 <div className={styles.otherCardImage}>
-                  <Image
-                    src={otherCourseImages[i]}
-                    alt={oc.title}
-                  />
+                  <Image src={otherCourseImages[i]} alt={oc.title} />
                   <div className={styles.otherCardImageOverlay} />
                 </div>
                 <div className={styles.otherCardBody}>

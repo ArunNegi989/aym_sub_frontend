@@ -307,7 +307,7 @@ export default function Seats500EditPage() {
                 {dateRangePreview}
               </span>
               <span className={styles.datePreviewNote}>
-                — Frontend pe aisa dikhega
+                — It will be displayed like this on the frontend
               </span>
             </div>
           )}

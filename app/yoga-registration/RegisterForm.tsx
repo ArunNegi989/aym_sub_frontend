@@ -193,27 +193,53 @@ export default function RegisterForm() {
   const batchId  = searchParams.get("batchId");   // 100hr/200hr/300hr flow
   const courseId = searchParams.get("courseId");  // CoursesSection flow ✅
 
-  type CourseType = "100hr" | "200hr" | "300hr";
+  type CourseType =
+  | "100hr"
+  | "200hr"
+  | "300hr"
+  | "200hr-online"
+  | "300hr-online";
   const rawType = searchParams.get("type");
   const type = rawType as CourseType;
 
-  const API_MAP: Record<CourseType, { getBatch: string; bookSeat: string; courseName: string }> = {
-    "100hr": {
-      getBatch:   "/100hr-seats/get-batch",
-      bookSeat:   "/100hr-seats/book-seat",
-      courseName: "100 Hour Yoga TTC",
-    },
-    "200hr": {
-      getBatch:   "/200hr-seats/getBatch",
-      bookSeat:   "/200hr-seats/bookSeat",
-      courseName: "200 Hour Yoga TTC",
-    },
-    "300hr": {
-      getBatch:   "/300hr-seats/getBatch",
-      bookSeat:   "/300hr-seats/bookSeat",
-      courseName: "300 Hour Yoga TTC",
-    },
-  };
+  const API_MAP: Record<
+  CourseType,
+  {
+    getBatch: string;
+    bookSeat: string;
+    courseName: string;
+  }
+> = {
+  "100hr": {
+    getBatch: "/100hr-seats/get-batch",
+    bookSeat: "/100hr-seats/book-seat",
+    courseName: "100 Hour Yoga TTC",
+  },
+
+  "200hr": {
+    getBatch: "/200hr-seats/getBatch",
+    bookSeat: "/200hr-seats/bookSeat",
+    courseName: "200 Hour Yoga TTC",
+  },
+
+  "300hr": {
+    getBatch: "/300hr-seats/getBatch",
+    bookSeat: "/300hr-seats/bookSeat",
+    courseName: "300 Hour Yoga TTC",
+  },
+
+  "200hr-online": {
+    getBatch: "/online-seats/get-batch",
+    bookSeat: "/online-seats/book-seat",
+    courseName: "200 Hour Live Online",
+  },
+
+  "300hr-online": {
+    getBatch: "/online-seats/get-batch",
+    bookSeat: "/online-seats/book-seat",
+    courseName: "300 Hour Live Online",
+  },
+};
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
