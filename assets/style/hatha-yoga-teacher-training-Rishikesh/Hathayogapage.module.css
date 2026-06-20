@@ -990,6 +990,9 @@
   transition: opacity 0.18s, transform 0.15s, box-shadow 0.2s;
   box-shadow: 0 4px 16px rgba(224, 123, 0, 0.3);
 }
+.psbBookBtn:hover{
+  color: #ffffff;
+}
 
 .psbBookBtn:hover:not(.psbBookBtnDis) { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(224, 123, 0, 0.4); }
 

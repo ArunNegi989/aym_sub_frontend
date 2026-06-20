@@ -1305,6 +1305,10 @@
   text-align: center;
 }
 
+.psbBookBtn:hover{
+  color: #ffffff;
+}
+
 .psbBookBtn:hover:not(.psbBookBtnDis) { opacity: 0.88; transform: translateY(-1px); }
 
 .psbBookBtnDis {

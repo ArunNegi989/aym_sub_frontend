@@ -189,7 +189,7 @@ export default function KundaliniSeatsAddPage() {
             <div className={styles.datePreview}>
               <span className={styles.datePreviewIcon}>📅</span>
               <span className={styles.datePreviewText}>{dateRangePreview}</span>
-              <span className={styles.datePreviewNote}>— Frontend pe aisa dikhega</span>
+              <span className={styles.datePreviewNote}>— It will be displayed like this on the frontend</span>
             </div>
           )}
         </div>
@@ -324,7 +324,7 @@ export default function KundaliniSeatsAddPage() {
                 {form.totalSeats} / {form.totalSeats} Seats Available
               </span>
               <span className={styles.seatsPreviewNote}>
-                (registrations aane par automatically kam hoga)
+                (It will automatically be reduced whenever a new registration is received)
               </span>
             </div>
           )}

@@ -8,6 +8,7 @@ import ReviewSection from "@/components/common/Reviewsection";
 import RatingsSummarySection from "@/components/home/RatingsSummarySection";
 import PremiumGallerySection from "@/components/PremiumGallerySection";
 import StickySectionNav from "@/components/common/StickySectionNav";
+import Link from "next/link";
 
 /* ─────────────────────────────────────────
    TYPES
@@ -902,7 +903,7 @@ function PremiumSeatBooking({
               )}
             </div>
             {selected ? (
-              <a
+              <Link
               href={`/yoga-registration?batchId=${selected._id}&type=500hr`}
               className={styles.psbBookBtn}
             >
@@ -920,7 +921,7 @@ function PremiumSeatBooking({
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </Link>
             ) : (
               <span className={`${styles.psbBookBtn} ${styles.psbBookBtnDis}`}>
                 Book Now
