@@ -324,7 +324,7 @@ const YogaAshrams: React.FC = () => {
       Various yoga courses offered by AYM yoga ashram in Rishikesh:
     </p>
     <ul className={styles.coursesList}>
-      <li><Link href="/100-hour-best-yoga-teacher-training-course-in-rishikesh">100 Hour Yoga Teacher Training in Rishikesh</Link></li>
+      <li><Link href="/100-hour-yoga-ttc-in-rishikesh">100 Hour Yoga Teacher Training in Rishikesh</Link></li>
       <li><Link href="/200-hour-yoga-ttc-in-rishikesh">200 Hour Yoga Teacher Training in Rishikesh</Link></li>
       <li><Link href="/300-hour-yoga-ttc-in-rishikesh">300 Hour Yoga Teacher Training in Rishikesh</Link></li>
       <li><Link href="/500-hour-yoga-ttc-in-rishikesh">500 Hour Yoga Teacher Training in Rishikesh</Link></li>

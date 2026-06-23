@@ -2275,7 +2275,7 @@ export default function TwoHundredHourYoga() {
                       </strong>
                     </div>
                   </div>
-                  <Link href="#dates-fees" className={styles.learnMoreBtn}>
+                  <Link href="/200-hour-yoga-ttc-in-rishikesh" className={styles.learnMoreBtn}>
                     Learn More →
                   </Link>
                 </div>
