@@ -50,7 +50,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9S9H4M3CHH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-9S9H4M3CHH');
+</script>
       <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];
