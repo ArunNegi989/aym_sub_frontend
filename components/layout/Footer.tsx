@@ -15,6 +15,7 @@ const quickLinks = [
   { label: "How to Reach", href: "/how-to-reach-rishikesh-from-delhi" },
   { label: "Contact", href: "/contact" },
   { label: "Yoga Teacher Training", href: "/yoga-teacher-training" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
 ];
 
 const courseLinks = [
