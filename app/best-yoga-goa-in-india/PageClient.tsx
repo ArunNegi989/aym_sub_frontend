@@ -1542,7 +1542,7 @@ export default function GoaYogaPage() {
               <span className={styles.superLabel}>
                 {pageData.introSuperLabel}
               </span>
-              <h2 className={styles.sectionTitle}>{pageData.introHeading}</h2>
+              <h1 className={styles.sectionTitle}>{pageData.introHeading}</h1>
               <OmDivider align="left" />
               {pageData.introParagraphs?.map((para, i) => (
                 <p key={i} className={styles.para}>

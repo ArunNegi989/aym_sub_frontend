@@ -22,7 +22,7 @@ const DetoxRetreat: React.FC = () => {
       </section>
       <section className={styles.section}>
   <h1 className={styles.mainTitle}>
-    DETOXIFICATION RETREAT THROUGH HERBS, YOGA, AYURVEDA, AND NUTRITION
+  Ayurveda & Detox Retreat in Rishikesh: Cleanse, Heal, Restore
   </h1>
 
   <div className={styles.twoColumnLayout}>

@@ -25,8 +25,7 @@ const YogaHolidays: React.FC = () => {
      {/* ===== SECTION 1 — WHITE BG ===== */}
 <section className={styles.whiteSection}>
   <h1 className={styles.mainTitle}>
-    Yoga Holidays in India / Yoga Vacations in India, Rishikesh at AYM
-    Yoga Holiday Retreats
+  Yoga Holidays & Wellness Camps Across India
   </h1>
 
   {/* Two-column split: text left, media right */}

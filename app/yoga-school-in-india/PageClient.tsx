@@ -121,7 +121,7 @@ const AboutUs: React.FC = () => {
             {/* Left: Content */}
             <div className={styles.schoolContentLeft}>
               <header className={styles.blockHeader}>
-                <h1 className={styles.blockTitle}>Yoga School in India</h1>
+                <h1 className={styles.blockTitle}>About AYM Yoga School: Our Story, Mission & Philosophy</h1>
                 <OmDivider />
               </header>
 

@@ -243,7 +243,7 @@ const AccreditationSection: React.FC = () => {
         {/* PART 1 - MAIN INTRO */}
         <div className={styles.container}>
           <h1 className={styles.mainTitle}>
-            Registered Yoga School in Rishikesh
+          Yoga Alliance USA & AYUSH-Certified Yoga School
           </h1>
 
           <div className={styles.introCard}>

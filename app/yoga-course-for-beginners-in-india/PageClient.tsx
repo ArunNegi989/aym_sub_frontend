@@ -89,7 +89,7 @@ const YogaBeginners: React.FC = () => {
       <section className={styles.contentSection}>
         <div className={styles.contentContainer}>
           <h1 className={styles.mainTitle}>
-            Yoga Teacher Training Course for Beginners in Rishikesh
+          Yoga Teacher Training Course for Beginners in India: Start Your Practice Here
           </h1>
           <div className={styles.contentBlock}>
             <p className={styles.questionText}>

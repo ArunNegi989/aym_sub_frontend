@@ -473,7 +473,7 @@ export default function RegisterForm() {
                 </svg>
               </div>
 
-              <h1 className={styles.formTitle}>Yoga Teacher Training Courses - Join Now!</h1>
+              <h1 className={styles.formTitle}>Register for Your Yoga Teacher Training at AYM Yoga School</h1>
               <div className={styles.formTitleUnderline} />
               <p className={styles.formSubtitle}>
                 Secure your spot in our invigorating yoga classes today! Join our vibrant community

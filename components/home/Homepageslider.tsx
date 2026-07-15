@@ -132,7 +132,7 @@ const HomepageSlider = () => {
           <div className={styles.slideOverlay} />
 
           <div className={styles.slideContent}>
-            <h2 className={styles.slideTitle}>{slide.bannerName}</h2>
+            <h1 className={styles.slideTitle}>{slide.bannerName}</h1>
 
             <Link href={slide.link} className={styles.slideCta}>
               Explore

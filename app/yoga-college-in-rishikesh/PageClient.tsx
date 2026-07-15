@@ -809,7 +809,7 @@ export default function YogaCollegeRishikesh() {
       {/* ── HERO TITLE ── */}
       <section className={styles.heroTitleSection}>
         <div className={styles.container}>
-          <h1 className={styles.heroTitle}>Yoga College in Rishikesh</h1>
+          <h1 className={styles.heroTitle}>AYUSH-Recognized Yoga College Courses in Rishikesh</h1>
           <div className={styles.heroUnderline} />
           <p className={styles.heroSubtitle}>
             AYM Yoga School — Ministry of AYUSH Certified Programs

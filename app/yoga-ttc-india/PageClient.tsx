@@ -445,8 +445,7 @@ const RulesPage: React.FC = () => {
         <div className={styles.headerWrap}>
           <div className={styles.outerPad}>
             <h1 className={styles.pageTitle}>
-              Association for Yoga and Meditation's ( AYM Yoga School ) Rules
-              for Students
+            Yoga Teacher Training Rules & Code of Conduct at AYM
             </h1>
             <OmDivider />
           </div>

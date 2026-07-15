@@ -191,7 +191,7 @@ const YogaTraining: React.FC = () => {
       <div className={styles.container}>
         {/* ── PAGE TITLE ── */}
         <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>Yoga Teacher Training in India</h1>
+          <h1 className={styles.pageTitle}>Yoga Teacher Training Programs at AYM: 100-Hour to 500-Hour Courses</h1>
           <div className={styles.titleUnderline}>
             <div className={styles.underlineLine} />
           </div>

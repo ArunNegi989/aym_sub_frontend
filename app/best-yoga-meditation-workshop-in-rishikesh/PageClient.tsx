@@ -526,7 +526,7 @@ const MeditationPage: React.FC = () => {
       <section className={styles.heroSection1}>
         <div className={styles.container}>
           <h1 className={styles.pageTitle}>
-            Meditation Yoga Teacher Training Course in Rishikesh India
+          Yoga & Meditation Workshops in Rishikesh
           </h1>
           <OmDivider />
           {/* <div className={styles.bannerWrap}>

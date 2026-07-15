@@ -84,7 +84,7 @@ const PaymentSection = () => {
           <header className={styles.header}>
             <p className={styles.superTitle}>Reserve Your Sacred Journey</p>
             <h1 className={styles.mainTitle}>
-              Yoga Teacher Training — Payment Options
+            Secure Payment Options
             </h1>
             <div className={styles.omDivider}>
               <span className={styles.dividerLine} />

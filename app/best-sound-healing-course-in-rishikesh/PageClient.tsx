@@ -601,9 +601,9 @@ export default function SoundHealingPage() {
                 <span className={styles.introDecorDot}>✧</span>
                 <span className={styles.introDecorLine}></span>
               </div>
-              <h2 className={styles.secTitleOrange}>
-                Best Sound Healing Therapy Training Courses in Rishikesh, India
-              </h2>
+              <h1 className={styles.secTitleOrange}>
+              Sound Healing Course in Rishikesh: Himalayan Bowls & Chakra Therapy
+              </h1>
               <div className={styles.omDivider}>
                 <span className={styles.divLine} />
                 <span className={styles.omGlyph}>ॐ</span>

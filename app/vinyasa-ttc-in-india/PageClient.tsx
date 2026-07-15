@@ -1582,7 +1582,7 @@ export default function AshtangaVinyasaTTC() {
         rate={rate}
         rateLoading={rateLoading}
       />
-
+f
       <PremiumGallerySection type="both" backgroundColor="warm" />
       <ReviewSection  courseType="vinyasa-yoga-teacher-training" RatingsSummaryComponent={<RatingsSummarySection />} />
       <HowToReach />

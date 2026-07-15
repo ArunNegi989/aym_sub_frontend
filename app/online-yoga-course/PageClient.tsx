@@ -932,7 +932,7 @@ const fetchBatches = async () => {
           <div className={styles.introText}>
             <span className={styles.sectionEyebrow}>Rishikesh, India · Online</span>
             <VintageHeading>
-              Online Yoga Teacher Training Course — Rishikesh, India
+            Online Yoga Teacher Training Course: Certify From Anywhere
             </VintageHeading>
             <p className={styles.bodyPara}>
               At AYM Yoga School, Rishikesh, we bring you a professionally curated{" "}

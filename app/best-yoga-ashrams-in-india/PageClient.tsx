@@ -53,7 +53,7 @@ const YogaAshrams: React.FC = () => {
 {/* ===== TITLE SECTION - SEPARATE ===== */}
 <section className={styles.titleSection}>
   <div className={styles.titleContainer}>
-    <h1 className={styles.mainTitle}>Yoga Ashrams in India</h1>
+    <h1 className={styles.mainTitle}>Best Rishikesh Yoga Ashram: Traditional Ashram Stays & Retreats</h1>
     
   </div>
 </section>

@@ -62,7 +62,7 @@ const InnerTransformation: React.FC = () => {
     <div className={styles.heroBadge}>
       <span>Inner Awakening</span>
     </div>
-    <h1 className={styles.mainTitle}>Inner Transformation Retreat</h1>
+    <h1 className={styles.mainTitle}>Inner Awakening Retreat: A Journey of Self-Discovery in Rishikesh</h1>
     {/* <Divider /> */}
     
     <div className={styles.subTitleWrapper}>

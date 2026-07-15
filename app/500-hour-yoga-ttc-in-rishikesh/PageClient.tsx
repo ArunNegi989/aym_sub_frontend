@@ -949,7 +949,7 @@ function EnhancedIntroSection({ items }: { items: IntroItem[] }) {
     <section className={styles.enhancedIntroSection}>
       <div className={`container px-3 px-md-4 ${styles.enhancedIntroContainer}`}>
         <h1 className={styles.heroTitle}>
-          500 Hour Yoga Teacher Training Course in Rishikesh
+        500-Hour Yoga Teacher Training in Rishikesh: Complete RYS 500 Program
         </h1>
         <div className={styles.omDiv}>
           <span className={styles.divLine} />
@@ -1597,7 +1597,7 @@ export default function YogaTTC500() {
         <section className={styles.heroSection2}>
           <div className={`container px-3 px-md-4 ${styles.enhancedIntroContainer}`}>
             {content.pageMainH1 && (
-              <h1
+              <h2
                 className={styles.heroTitle}
                 dangerouslySetInnerHTML={{ __html: content.pageMainH1 }}
               />
