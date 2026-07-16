@@ -307,7 +307,7 @@ export default function TestimonialsSection() {
         <header className={styles.pageHeader}>
           <p className={styles.superTitle}>Sacred Stories of Transformation</p>
           <h1 className={styles.mainTitle}>
-            Yoga Teacher Training — Testimonials
+          Student Testimonials: Real Reviews of Our Yoga Teacher Training
           </h1>
           <OmDivider />
         </header>

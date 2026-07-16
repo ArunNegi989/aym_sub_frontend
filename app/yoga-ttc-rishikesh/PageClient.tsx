@@ -318,8 +318,8 @@ const YogaFAQ: React.FC = () => {
             <span className={styles.heroEyebrowLine} />
           </div>
           <h1 className={styles.heroTitle}>
-            Yoga Teacher Training{" "}
-            <span className={styles.heroTitleAccent}>FAQ</span>
+          Yoga Teacher Training FAQs: Your Questions Answered
+            
           </h1>
           <p className={styles.heroSub}>
             Everything you need to know before joining our certified yoga teacher

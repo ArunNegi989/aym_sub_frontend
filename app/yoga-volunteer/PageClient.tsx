@@ -165,12 +165,12 @@ export default function PostYTTCPage() {
           <p className={styles.superTitle}>AYM Yogic Lineage</p>
 
           <h1 className={styles.heroTitle}>
-            Welcome to AYM Yogic Lineage:
+          Yoga Volunteer Program:
             <br />
-            <em>Post YTTC Course at AYM Yoga</em>
+            <em>Give Back After Your Teacher Training</em>
           </h1>
 
-
+           
           <div className={styles.heroContent}>
             <p className={styles.heroPara}>
               Recently there are ample of yoga schools has opened in Rishikesh for various reasons.

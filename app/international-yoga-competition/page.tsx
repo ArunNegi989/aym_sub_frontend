@@ -113,7 +113,7 @@ const YogaCompetition: React.FC = () => {
         {/* ── PAGE HEADER ── */}
         <div className={styles.pageHeader}>
           <h1 className={styles.pageTitle}>
-            7th International Yoga Competition
+            International Yoga Competition Hosted by AYM Yoga School
           </h1>
           <div className={styles.titleUnderline}>
             <div className={styles.underlineLine} />

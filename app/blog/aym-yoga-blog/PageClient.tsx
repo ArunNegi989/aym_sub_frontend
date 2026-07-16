@@ -154,7 +154,7 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
         <div className={styles.hero}>
           <div className={styles.heroInner}>
             <p className={styles.heroEyebrow}>AYM Yoga School · Rishikesh</p>
-            <h1 className={styles.heroTitle}>Yoga Blog<br /><em>&amp; Insights</em></h1>
+            {/* <h1 className={styles.heroTitle}>AYM Yoga Blog: Tips, Guides & Stories for Yoga Teachers</h1> */}
             <p className={styles.heroSub}>Ancient wisdom · Modern practice · Timeless transformation</p>
           </div>
           <div className={styles.heroRule}><span /><OmSymbol size={28} opacity={0.5} /><span /></div>
@@ -191,7 +191,7 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
             <span className={styles.eyebrowDot} />
           </p>
           <h1 className={styles.heroTitle}>
-            Yoga Blog<br /><em>&amp; Insights</em>
+          AYM Yoga Blog: Tips, Guides & Stories for Yoga Teachers
           </h1>
           <p className={styles.heroSub}>Ancient wisdom · Modern practice · Timeless transformation</p>
         </div>

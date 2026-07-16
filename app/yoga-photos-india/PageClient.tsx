@@ -121,7 +121,7 @@ export default function GalleryPage() {
       <section className={styles.pageHeader}>
         <div className={styles.container}>
           <h1 className={styles.pageTitle}>
-            Explore Life at AYM Yoga School – Through the Lens
+          AYM Yoga School Photo Gallery: Life at Our Rishikesh Campus
           </h1>
           <div className={styles.titleRule} />
           <p className={styles.headerPara}>

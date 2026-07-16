@@ -189,7 +189,7 @@ const YogaGlossary: React.FC = () => {
             <span className={styles.heroEyebrowLine} />
           </div>
           <h1 className={styles.heroTitle}>
-            Yoga Terms &amp; <span className={styles.heroTitleAccent}>Sanskrit</span> Glossary
+          Yoga Sanskrit Glossary: Key Terms Every Yogi Should Know
           </h1>
           <p className={styles.heroSubtitle}>
             A comprehensive reference guide to essential Sanskrit terms, concepts, and practices
