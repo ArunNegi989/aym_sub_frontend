@@ -71,7 +71,7 @@ export const navLinks: NavLink[] = [
       },
       {
         label: "200 Hour Yoga Teacher Training",
-        href: "/200-hour-yoga-ttc-in-rishikesh",
+        href: "/200-hour-yoga-teacher-training-in-rishikesh",
       },
       {
         label: "300 Hour Yoga Teacher Training",
