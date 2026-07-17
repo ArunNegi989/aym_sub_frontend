@@ -950,7 +950,7 @@ function PremiumSeatBooking({
             {/* ✅ Book Now button uses fmtPriceAdvanced(selected) — same as Kundalini */}
             {selected ? (
               <Link
-                href={`/yoga-registration?batchId=${selected._id}&type=prenatal`}
+                href={`/registration?batchId=${selected._id}&type=prenatal`}
                 className={styles.psbBookBtn}
               >
                 Book Now — {fmtPriceAdvanced(selected).amount} {currency}

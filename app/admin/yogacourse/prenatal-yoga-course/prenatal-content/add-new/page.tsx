@@ -1453,7 +1453,7 @@ export default function AddEditPrenatalYogaTTCPage() {
             <F label="Join Button URL">
               <div className={styles.inputWrap}>
                 <input className={`${styles.input} ${styles.inputNoCount}`} {...register("joinBtnUrl")}
-                  placeholder="/yoga-registration or #apply" />
+                  placeholder="/registration or #apply" />
               </div>
             </F>
           </div>

@@ -466,7 +466,7 @@ function PremiumSeatBookingMeditation({
               )}
             </div>
             {selected && !(selected.bookedSeats >= selected.totalSeats) ? (
-              <Link href={selected.applyLink ?? "/yoga-registration?type=meditation"} className={styles.psbBookBtn}>
+              <Link href={selected.applyLink ?? "/registration?type=meditation"} className={styles.psbBookBtn}>
                 Book Now — {fmtPrice(selected.dormPrice).amount} {currency}
                 <svg className={styles.psbArrowIcon} viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff3d2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -872,7 +872,7 @@ const MeditationPage: React.FC = () => {
         </p>
         
         <div className={styles.ctaButtonGroup}>
-          <Link href="/yoga-registration" className={styles.ctaButton}>
+          <Link href="/registration" className={styles.ctaButton}>
             Enroll Now
             <svg className={styles.ctaButtonIcon} viewBox="0 0 20 20" fill="none">
               <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

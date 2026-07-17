@@ -250,7 +250,7 @@ export default function YogaRetreatPage() {
           </div>
 
           <div className={styles.applyWrap}>
-            <Link href="/yoga-registration" className={styles.applyBtn}>
+            <Link href="/registration" className={styles.applyBtn}>
               Apply Now
             </Link>
           </div>
@@ -440,7 +440,7 @@ export default function YogaRetreatPage() {
       </h2>
       <OmDivider />
       <p className={styles.bodyPara}>
-        <Link href="/best-yoga-teacher-training-course-in-rishikesh" className={styles.infoLink}>
+        <Link href="/yoga-teacher-training-in-rishikesh" className={styles.infoLink}>
           AYM&apos;s yoga ashram in Rishikesh
         </Link>{" "}
         tends to fill up quickly, with bookings made one to two months in
@@ -459,7 +459,7 @@ export default function YogaRetreatPage() {
       </p>
       <p className={styles.bodyPara}>
         <strong>For more details, check out our </strong>
-        <Link href="/yoga-ttc-india" className={styles.infoLink}>
+        <Link href="/aym-yoga-school-rules" className={styles.infoLink}>
           Rule and Regulation - AYM YOGA SCHOOL
         </Link>
       </p>
@@ -558,10 +558,10 @@ export default function YogaRetreatPage() {
               </p>
 
               <div className={styles.bookBtnGroup}>
-                <Link href="/yoga-registration" className={styles.bookNowBtn}>
+                <Link href="/registration" className={styles.bookNowBtn}>
                   Yoga Retreats — Book Now
                 </Link>
-                <Link href="/200-hour-yoga-ttc-fees" className={styles.paypalBtn}>
+                <Link href="/payment-options" className={styles.paypalBtn}>
                   <span className={styles.paypalText}>PayPal</span>
                 </Link>
               </div>

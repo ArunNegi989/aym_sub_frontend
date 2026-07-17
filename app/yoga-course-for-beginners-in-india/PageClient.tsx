@@ -375,7 +375,7 @@ const YogaBeginners: React.FC = () => {
                         <strong>Book Your Spot</strong>
                         <span>Register your spot by paying $110 only</span>
                       </div>
-                      <Link href="/200-hour-yoga-ttc-fees" className={styles.paymentsBtn}>
+                      <Link href="/payment-options" className={styles.paymentsBtn}>
                         Payments Page
                       </Link>
                     </div>

@@ -217,7 +217,7 @@ export const CoursesSection: React.FC = () => {
                         </span>
                       ) : (
                         <Link
-                          href={`/yoga-registration?courseId=${course._id}`}
+                          href={`/registration?courseId=${course._id}`}
                           className={styles.btnEnroll}
                         >
                           <span>Enroll Now</span>

@@ -332,7 +332,7 @@
 git revert <commit-hash>
 
 # Or restore from backup
-cp backup/Hathayogapage.module.css assets/style/hatha-yoga-ttc-in-rishikesh/
+cp backup/Hathayogapage.module.css assets/style/hatha-yoga-teacher-training/
 ```
 
 ---

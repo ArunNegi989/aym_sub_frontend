@@ -32,7 +32,7 @@ export default function YogaTTCIndiaListPage() {
     try {
       setLoading(true);
       setError("");
-      const res = await api.get("/yoga-ttc-india");
+      const res = await api.get("/aym-yoga-school-rules");
      const data = res.data?.data;
 
 if (data) {
@@ -53,7 +53,7 @@ if (data) {
     if (!confirm(`Delete "${title}"?\nThis cannot be undone.`)) return;
     try {
       setDeleting(id);
-      await api.delete(`/yoga-ttc-india/delete`);
+      await api.delete(`/aym-yoga-school-rules/delete`);
 setRows([]);
       setRows((prev) => prev.filter((r) => r._id !== id));
       toast.success("Page deleted successfully");
@@ -67,7 +67,7 @@ setRows([]);
   const toggleStatus = async (id: string, current: "Active" | "Inactive") => {
     const next = current === "Active" ? "Inactive" : "Active";
     try {
-     await api.put(`/yoga-ttc-india/update`, { status: next });
+     await api.put(`/aym-yoga-school-rules/update`, { status: next });
 
 setRows((prev) =>
   prev.map((r) => ({

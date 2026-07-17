@@ -174,7 +174,7 @@ const YogaAshrams: React.FC = () => {
         <Link href="/international-yoga-competition">"International Yoga Hub"</Link>. People who wish to
         rediscover themselves visit Rishikesh AYM Yoga Ashram. There are many{" "}
         <em>yoga ashrams in Rishikesh</em> offering styles such as{" "}
-        <Link href="/hatha-yoga-ttc-in-rishikesh">Hatha Yoga</Link>, <Link href="/vinyasa-ttc-in-india">Ashtanga</Link>, Vinyasa,
+        <Link href="/hatha-yoga-teacher-training">Hatha Yoga</Link>, <Link href="/ashtanga-vinyasa-yoga-course">Ashtanga</Link>, Vinyasa,
         Vinyasa Flow, Iyengar, Kundalini and Power Yoga.
       </p>
       <div className={styles.certBadges}>
@@ -188,7 +188,7 @@ const YogaAshrams: React.FC = () => {
       Different yoga ashrams offer different courses of various durations, affording variety and choice. The courses offered include 200 hours teacher training, 300 hour teacher training and 500 hours teacher training and span from 25 days to 1 month to about two months. All of the previous activities you will find at one home known as AYM Yoga Ashram in rishikesh. Once you have completed your course, you receive certificates which are verified and recognized by Yoga Alliance USA and International Yoga Federation.
       </p>
       <div className={styles.coursePills}>
-        <Link href="/200-hour-yoga-ttc-in-rishikesh" className={styles.pillLink}>200 Hours Teacher Training <span className={styles.pillArrow}>›</span></Link>
+        <Link href="/200-hour-yoga-teacher-training-in-rishikesh" className={styles.pillLink}>200 Hours Teacher Training <span className={styles.pillArrow}>›</span></Link>
         <Link href="/300-hour-yoga-ttc-in-rishikesh" className={styles.pillLink}>300 Hours Teacher Training <span className={styles.pillArrow}>›</span></Link>
         <Link href="/500-hour-yoga-ttc-in-rishikesh" className={styles.pillLink}>500 Hours Teacher Training <span className={styles.pillArrow}>›</span></Link>
       </div>
@@ -317,7 +317,7 @@ const YogaAshrams: React.FC = () => {
   <p className={styles.bodyText}>
     At AYM, you have a lot to learn. Don&apos;t wait — come and learn the
     nuances of yoga and meditation at AYM{" "}
-    <Link href="/best-yoga-teacher-training-course-in-rishikesh"><em>Yoga School in Rishikesh</em></Link>, India.
+    <Link href="/yoga-teacher-training-in-rishikesh"><em>Yoga School in Rishikesh</em></Link>, India.
   </p>
   <div className={styles.coursesBlock}>
     <p className={styles.coursesHeading}>
@@ -325,7 +325,7 @@ const YogaAshrams: React.FC = () => {
     </p>
     <ul className={styles.coursesList}>
       <li><Link href="/100-hour-yoga-ttc-in-rishikesh">100 Hour Yoga Teacher Training in Rishikesh</Link></li>
-      <li><Link href="/200-hour-yoga-ttc-in-rishikesh">200 Hour Yoga Teacher Training in Rishikesh</Link></li>
+      <li><Link href="/200-hour-yoga-teacher-training-in-rishikesh">200 Hour Yoga Teacher Training in Rishikesh</Link></li>
       <li><Link href="/300-hour-yoga-ttc-in-rishikesh">300 Hour Yoga Teacher Training in Rishikesh</Link></li>
       <li><Link href="/500-hour-yoga-ttc-in-rishikesh">500 Hour Yoga Teacher Training in Rishikesh</Link></li>
     </ul>

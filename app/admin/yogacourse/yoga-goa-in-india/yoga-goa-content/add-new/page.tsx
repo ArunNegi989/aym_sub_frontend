@@ -418,7 +418,7 @@ function CoreProgramManager({ items, onChange }: { items: CoreProgram[]; onChang
               <F label="Link Button Text" hint="e.g. View Dates & Fees →">
                 <div className={styles.inputWrap}><input className={`${styles.input} ${styles.inputNoCount}`} value={item.linkText} placeholder="View Dates & Fees →" onChange={(e) => update(item.id, "linkText", e.target.value)} /></div>
               </F>
-              <F label="Link Button URL (href)" hint="e.g. #dates or /yoga-registration">
+              <F label="Link Button URL (href)" hint="e.g. #dates or /registration">
                 <div className={styles.inputWrap}><input className={`${styles.input} ${styles.inputNoCount}`} value={item.linkHref} placeholder="#dates" onChange={(e) => update(item.id, "linkHref", e.target.value)} /></div>
               </F>
             </div>

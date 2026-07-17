@@ -14,7 +14,7 @@ All changes are **CSS-only** with comprehensive responsive design from **360px t
 ## ✅ Deliverables
 
 ### 1. Enhanced CSS Styling
-- **File:** `assets/style/hatha-yoga-ttc-in-rishikesh/Hathayogapage.module.css`
+- **File:** `assets/style/hatha-yoga-teacher-training/Hathayogapage.module.css`
 - **Changes:** ~500+ lines of new CSS
 - **Breakpoints:** 11 comprehensive media queries
 - **Status:** ✅ Complete

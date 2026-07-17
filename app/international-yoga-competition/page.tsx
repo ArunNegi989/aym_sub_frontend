@@ -219,7 +219,7 @@ const YogaCompetition: React.FC = () => {
         <div className={styles.bookRow}>
   {[0, 1, 2].map((i) => (
     <div className={styles.bookCard} key={i}>
-      <Link href="/yoga-registration">
+      <Link href="/registration">
         <OrangeBtn>Book Your Spot</OrangeBtn>
       </Link>
     </div>
@@ -363,7 +363,7 @@ const YogaCompetition: React.FC = () => {
         <SectionHeading>Registration Form</SectionHeading>
 
         <div className={styles.submitRow}>
-          <Link href="/yoga-registration">
+          <Link href="/registration">
             <button className={styles.btnOrange}>Submit Registration</button>
           </Link>
         </div>
@@ -379,7 +379,7 @@ const YogaCompetition: React.FC = () => {
             </div>
             <div className={styles.paymentSubLabel}>For Indian Students</div>
            <div className={styles.btnCenter} style={{ marginBottom: "1rem" }}>
-  <Link href="/yoga-registration">
+  <Link href="/registration">
     <OrangeBtn>Book Now</OrangeBtn>
   </Link>
 </div>
@@ -389,7 +389,7 @@ const YogaCompetition: React.FC = () => {
 </div>
 
 <div className={styles.btnCenter}>
-  <Link href="/yoga-registration">
+  <Link href="/registration">
     <OrangeBtn>Book Now</OrangeBtn>
   </Link>
 </div>

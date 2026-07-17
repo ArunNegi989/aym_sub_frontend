@@ -747,7 +747,7 @@ export default function AddEditYogaTTCIndiaPage() {
     const fetchData = async () => {
       setLoadingData(true);
       try {
-        const res = await api.get("/yoga-ttc-india");
+        const res = await api.get("/aym-yoga-school-rules");
         const d = res.data.data;
         if (!d) { setIsEdit(false); return; }
         setIsEdit(true);
@@ -844,8 +844,8 @@ export default function AddEditYogaTTCIndiaPage() {
       if (goaImageFile) fd.append("goaImage", goaImageFile);
       if (whyAYMImageFile) fd.append("whyAYMImage", whyAYMImageFile);
       
-      if (isEdit) { await api.put("/yoga-ttc-india/update", fd, { headers: { "Content-Type": "multipart/form-data" } }); toast.success("Page updated successfully"); }
-      else { await api.post("/yoga-ttc-india/create", fd, { headers: { "Content-Type": "multipart/form-data" } }); toast.success("Page created successfully"); }
+      if (isEdit) { await api.put("/aym-yoga-school-rules/update", fd, { headers: { "Content-Type": "multipart/form-data" } }); toast.success("Page updated successfully"); }
+      else { await api.post("/aym-yoga-school-rules/create", fd, { headers: { "Content-Type": "multipart/form-data" } }); toast.success("Page created successfully"); }
       setSubmitted(true);
       setTimeout(() => router.push("/admin/yogacourse/yoga-teacher-in-india"), 1500);
     } catch (e: any) { toast.error(e?.response?.data?.message || e?.message || "Something went wrong"); } finally { setIsSubmitting(false); }

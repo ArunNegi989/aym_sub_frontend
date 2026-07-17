@@ -1228,7 +1228,7 @@ function PremiumSeatBooking({
             </div>
             {selected ? (
               <Link
-                href={`/yoga-registration?batchId=${selected._id}&type=200hr`}
+                href={`/registration?batchId=${selected._id}&type=200hr`}
                 className={styles.psbBookBtn}
               >
                 Book Now — {fmtPrice(selected).amount} {currency}
@@ -1401,7 +1401,7 @@ export default function TwoHundredHourYoga() {
   const ctaSubtitle =
     content?.ctaSubtitle ||
     "Join us & become part of the 5000+ international yoga teachers who are proud alumni of the AYM School.";
-  const ctaApplyUrl = content?.ctaApplyUrl || "/yoga-registration?type=200hr";
+  const ctaApplyUrl = content?.ctaApplyUrl || "/registration?type=200hr";
   const ctaApplyBtnText = content?.ctaApplyBtnText || "Apply Now";
   const whatsappBtnText = content?.whatsappBtnText || "💬 WhatsApp Us";
 

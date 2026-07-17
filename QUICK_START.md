@@ -97,7 +97,7 @@ AFTER:
 ## 📋 Files Modified
 
 ### Only 1 File Changed:
-- `assets/style/hatha-yoga-ttc-in-rishikesh/Hathayogapage.module.css`
+- `assets/style/hatha-yoga-teacher-training/Hathayogapage.module.css`
 
 ### No Changes Needed:
 - ✅ HTML structure (unchanged)

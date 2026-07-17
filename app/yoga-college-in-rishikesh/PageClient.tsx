@@ -700,7 +700,7 @@ function TabContent({ tab }: { tab: (typeof tabs)[0] }) {
         </div>
       ))}
 
-      <Link href="/yoga-registration" className={styles.applyBtn}>
+      <Link href="/registration" className={styles.applyBtn}>
         Apply Now →
       </Link>
     </div>
@@ -764,7 +764,7 @@ function CourseCard({
           ))}
         </div>
         <Link
-          href="/yoga-registration"
+          href="/registration"
           className={styles.bookSpotBtn}
           style={{
             background: `linear-gradient(135deg, ${course.color}, #f15505)`,
@@ -891,7 +891,7 @@ export default function YogaCollegeRishikesh() {
                   <a href="/" className={styles.certBtnOutline}>
                     More Details
                   </a>
-                  <Link href="/yoga-registration" className={styles.certBtnFill}>
+                  <Link href="/registration" className={styles.certBtnFill}>
                     Book Now
                   </Link>
                 </div>

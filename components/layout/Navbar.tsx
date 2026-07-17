@@ -34,8 +34,8 @@ export const navLinks: NavLink[] = [
     href: "/",
     children: [
       { label: "Affiliation", href: "/yoga-alliance-yoga-school" },
-      { label: "About AYM", href: "/yoga-school-in-india" },
-      { label: "Yoga Rules", href: "/yoga-ttc-india" },
+      { label: "About AYM", href: "/about-aym-yoga-school-india" },
+      { label: "Yoga Rules", href: "/aym-yoga-school-rules" },
       { label: "Our Teachers", href: "/yoga-teacher-in-rishikesh" },
     ],
   },
@@ -45,9 +45,9 @@ export const navLinks: NavLink[] = [
     clickable: false,
     children: [
       { label: "Yoga Retreats", href: "/best-yoga-retreats-in-rishikesh" },
-      { label: "Sound Healing Course", href: "/best-sound-healing-course-in-rishikesh" },
+      { label: "Sound Healing Course", href: "/best-sound-healing-course" },
       { label: "Yoga Workshop", href: "/best-yoga-meditation-workshop-in-rishikesh" },
-      { label: "Yoga Ashrams in India", href: "/best-yoga-ashrams-in-india" },
+      { label: "Yoga Ashrams in India", href: "/rishikesh-yoga-ashram" },
       { label: "Yoga Holidays & Camps", href: "/yoga-holidays-retreat-in-india" },
       { label: "Inner Awakening Retreat", href: "/inner-awakening-retreat" },
       {
@@ -87,28 +87,28 @@ export const navLinks: NavLink[] = [
       },
       {
         label: "Yoga Teacher Training Rishikesh",
-        href: "/best-yoga-teacher-training-course-in-rishikesh",
+        href: "/yoga-teacher-training-in-rishikesh",
       },
       {
         label: "Prenatal Yoga Teacher Training",
-        href: "/prenatal-yoga-ttc",
+        href: "/prenatal-yoga-course",
       },
       {
         label: "Vinyasa Yoga Teacher Training",
-        href: "/vinyasa-ttc-in-india",
+        href: "/ashtanga-vinyasa-yoga-course",
       },
       {
         label: "Yoga Teacher Training in India",
-        href: "/yoga-ttc-in-india",
+        href: "/yoga-teacher-training-in-india",
       },
       {
         label: "Hatha Yoga Teacher Training",
-        href: "/hatha-yoga-ttc-in-rishikesh",
+        href: "/hatha-yoga-teacher-training",
       },
-      { label: "Yoga Teacher Training Goa", href: "/best-yoga-goa-in-india" },
+      { label: "Yoga Teacher Training Goa", href: "/yoga-teacher-training-goa" },
       {
         label: "Yoga Teacher Training Bali",
-        href: "/yoga-ttc-in-bali",
+        href: "/yoga-teacher-training-bali",
       },
       {
         label: "Ayurveda & Yoga TTC",
@@ -125,17 +125,17 @@ export const navLinks: NavLink[] = [
     label: "AYUSH Courses",
     href: "/yoga-college-in-rishikesh",
   },
- { label: "Register", href: "/yoga-registration", className: "navRegister" },
-{ label: "Payment", href: "/200-hour-yoga-ttc-fees", className: "navPayment" },
+ { label: "Register", href: "/registration", className: "navRegister" },
+{ label: "Payment", href: "/payment-options", className: "navPayment" },
   {
     label: "Resource",
     href: "/resource",
     clickable: false,
     dropdownAlign: "right",
     children: [
-      { label: "Gallery", href: "/yoga-photos-india" },
+      { label: "Gallery", href: "/aym-yoga-gallery" },
       { label: "Glossary", href: "/yoga-sanskrit-glossary" },
-      { label: "Yoga FAQ", href: "/yoga-ttc-rishikesh" },
+      { label: "Yoga FAQ", href: "/yoga-faq" },
       { label: "YTTC Reviews", href: "/testimonials" },
       { label: "AYM Yoga Blog", href: "/blog/aym-yoga-blog" },
       { label: "Post TTC Yoga Volunteer", href: "/yoga-volunteer" },

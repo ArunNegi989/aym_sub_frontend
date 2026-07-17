@@ -1133,7 +1133,7 @@ export default function Yoga200HourCombinedForm() {
       ctaSubtitle:
         "Join us & become part of the 5000+ international yoga teachers who are proud alumni of the AYM School.",
       ctaApplyBtnText: "Apply Now",
-      ctaApplyUrl: "/yoga-registration?type=200hr",
+      ctaApplyUrl: "/registration?type=200hr",
       ctaPhone: "919528023390",
       whatsappNumber: "919528023390",
       whatsappBtnText: "💬 WhatsApp Us",
@@ -4284,7 +4284,7 @@ export default function Yoga200HourCombinedForm() {
                 >
                   <input
                     className={`${styles.input} ${styles.inputNoCount}`}
-                    placeholder="200-hour-yoga-ttc-in-rishikesh"
+                    placeholder="200-hour-yoga-teacher-training-in-rishikesh"
                     {...register("slug", { required: "Required" })}
                   />
                 </div>

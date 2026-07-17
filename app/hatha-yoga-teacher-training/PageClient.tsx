@@ -1077,7 +1077,7 @@ export function PremiumSeatBooking({
             </div>
             {selected ? (
               <Link
-                href={`/yoga-registration?batchId=${selected._id}&type=hatha`}
+                href={`/registration?batchId=${selected._id}&type=hatha`}
                 className={styles.psbBookBtn}
               >
                 Book Now — {fmtPriceAdvanced(selected).amount} {currency}

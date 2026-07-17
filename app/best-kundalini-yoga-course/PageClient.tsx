@@ -1245,7 +1245,7 @@ function PremiumSeatBooking({
             {/* ✅ Book Now button uses fmtPrice(selected) — same as 500hr */}
             {selected ? (
               <Link
-                href={`/yoga-registration?type=kundalini-200hr&batchId=${selected._id}`}
+                href={`/registration?type=kundalini-200hr&batchId=${selected._id}`}
                 className={styles.psbBookBtn}
               >
                 Book Now — {fmtPrice(selected).amount} {currency}

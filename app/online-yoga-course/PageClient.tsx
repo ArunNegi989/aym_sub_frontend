@@ -712,7 +712,7 @@ function OnlineSeatBooking({ batches }: { batches: BatchRow[] }) {
             {/* Book Now */}
             {selected ? (
               <a
-                href={`/yoga-registration?batchId=${selected._id}&type=${courseTab}hr-online`}
+                href={`/registration?batchId=${selected._id}&type=${courseTab}hr-online`}
                 className={styles.sbBookBtn}
               >
                 Book Now — {fmtPrice(selected, courseTab)} {currency}
@@ -835,8 +835,8 @@ function CourseCard({ title, duration, style, sessions, cert, fee, benefits }: {
             </li>
           </ul>
           <div className={styles.courseActions}>
-            <Link href="/yoga-registration" className={styles.btnPrimary}>Apply Now</Link>
-            <Link href="/yoga-registration" className={styles.btnOutline}>Book Now</Link>
+            <Link href="/registration" className={styles.btnPrimary}>Apply Now</Link>
+            <Link href="/registration" className={styles.btnOutline}>Book Now</Link>
           </div>
         </div>
         <div className={styles.courseCardRight}>
@@ -1131,7 +1131,7 @@ const fetchBatches = async () => {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/yoga-registration" className={styles.recordedApplyBtn}>
+                  <Link href="/registration" className={styles.recordedApplyBtn}>
                     Apply Now
                     <svg viewBox="0 0 16 16" fill="none" style={{ width: 14, height: 14 }}>
                       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />

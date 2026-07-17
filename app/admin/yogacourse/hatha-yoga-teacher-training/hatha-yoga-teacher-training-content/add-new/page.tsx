@@ -1902,7 +1902,7 @@ export default function AddEditHathaYogaPage() {
               <div className={styles.inputWrap}>
                 <input
                   className={`${styles.input} ${styles.inputNoCount}`}
-                  placeholder="/yoga-registration?type=hatha"
+                  placeholder="/registration?type=hatha"
                   {...register("registrationFormLink")}
                 />
               </div>

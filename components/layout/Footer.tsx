@@ -8,10 +8,10 @@ const quickLinks = [
   { label: "Online Yoga Course", href: "/online-yoga-course" },
   { label: "AYUSH Course", href: "/yoga-college-in-rishikesh" },
   { label: "Student Reviews", href: "/testimonials" },
-  { label: "FAQ", href: "/yoga-ttc-rishikesh" },
+  { label: "FAQ", href: "/yoga-faq" },
   { label: "Yoga Competition", href: "/international-yoga-competition" },
   { label: "Blog", href: "/blog/aym-yoga-blog" },
-  { label: "Payment", href: "/200-hour-yoga-ttc-fees" },
+  { label: "Payment", href: "/payment-options" },
   { label: "How to Reach", href: "/how-to-reach-rishikesh-from-delhi" },
   { label: "Contact", href: "/contact" },
   { label: "Yoga Teacher Training", href: "/yoga-teacher-training" },
@@ -21,11 +21,11 @@ const quickLinks = [
 const courseLinks = [
   {
     label: "100 Hour Yoga Teacher Training",
-    href: "/100-hour-best-yoga-teacher-training-course-in-rishikesh",
+    href: "/100-hour-yoga-teacher-training-in-rishikesh",
   },
   {
     label: "200 Hour Yoga Teacher Training",
-    href: "/200-hour-yoga-ttc-in-rishikesh",
+    href: "/200-hour-yoga-teacher-training-in-rishikesh",
   },
   {
     label: "300 Hour Yoga Teacher Training",
@@ -41,11 +41,11 @@ const courseLinks = [
   },
   {
     label: "Yoga Teacher In Rishikesh",
-    href: "/best-yoga-teacher-training-course-in-rishikesh",
+    href: "/yoga-teacher-training-in-rishikesh",
   },
   {
     label: "Prenatal Yoga Teacher Training",
-    href: "/prenatal-yoga-ttc",
+    href: "/prenatal-yoga-course",
   },
 ];
 
