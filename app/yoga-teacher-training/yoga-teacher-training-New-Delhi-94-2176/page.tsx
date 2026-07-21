@@ -41,7 +41,7 @@ const cityLinks: { name: string; href: string }[] = [
   },
   {
     name: "Tamil Nadu",
-    href: "/yoga-teacher-training/yoga-teacher-training-Tamil%20Nadu-94-2187",
+    href: "/yoga-teacher-training/yoga-teacher-training-Tamil-Nadu-94-2187",
   },
   { name: "Goa", href: "/yoga-teacher-training/yoga-teacher-training-Goa-94-2167" },
   { name: "Kochi", href: "/yoga-teacher-training/yoga-teacher-training-Kochi-94-2190" },
@@ -59,7 +59,7 @@ const cityLinks: { name: string; href: string }[] = [
   },
   {
     name: "New Delhi",
-    href: "/yoga-teacher-training/yoga-teacher-training-New%20Delhi-94-2176",
+    href: "/yoga-teacher-training/yoga-teacher-training-New-Delhi-94-2176",
   },
   {
     name: "Kerala",
@@ -112,7 +112,7 @@ const cityLinks: { name: string; href: string }[] = [
   },
   {
     name: "Himachal Pradesh",
-    href: "/yoga-teacher-training/yoga-teacher-training-Himachal%20Pradesh-94-2178",
+    href: "/yoga-teacher-training/yoga-teacher-training-Himachal-Pradesh-94-2178",
   },
   
   {
@@ -128,7 +128,7 @@ const cityLinks: { name: string; href: string }[] = [
 /* ─────────────────────────────────────────────
    MAIN COMPONENT
 ───────────────────────────────────────────── */
-const YogaTrainingTamilNadu: React.FC = () => {
+const YogaTrainingNewDelhi: React.FC = () => {
   return (
     <div className={styles.page}>
       {/* Top border */}
@@ -140,7 +140,7 @@ const YogaTrainingTamilNadu: React.FC = () => {
         ══════════════════════════════════════ */}
         <div className={styles.pageHeader}>
           <h1 className={styles.pageTitle}>
-            Yoga Teacher Training in Tamil Nadu
+            Get Started With A Career In Yoga - Yoga Teacher Training in Delhi
           </h1>
           <div className={styles.titleUnderline}>
             <div className={styles.underlineLine} />
@@ -149,20 +149,20 @@ const YogaTrainingTamilNadu: React.FC = () => {
 
         {/* ══════════════════════════════════════
             SECTION 1 — Image Left
-            "Best Yoga School in Tamil Nadu"
+            "Professional Yoga Training in Delhi"
         ══════════════════════════════════════ */}
         <div className={`${styles.section} ${styles.sectionImageLeft}`}>
           <div className={styles.imgWrap}>
             <img
-              src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=700&q=80&fit=crop"
-              alt="Best Yoga School in Tamil Nadu"
+              src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=700&q=80&fit=crop"
+              alt="Professional Yoga Training in Delhi"
               className={styles.sectionImg}
               loading="lazy"
             />
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Best Yoga School in Tamil Nadu
+              Professional Yoga Training in Delhi
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,30 +171,39 @@ const YogaTrainingTamilNadu: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              The city of Mahabalipuram is famous for its ancient temples and
-              beaches. These temples and beaches are carved with intricate
-              carvings that date back thousands of years. In addition, the hills
-              of Nilgiri are home to 2,000 wild animals.
+              We always believe that when it comes to training students, it is
+              essential to first learn from professionals and then implement the
+              same. If you are looking for the best course for{" "}
+              <strong className={styles.boldLink}>
+                yoga teacher training in New Delhi
+              </strong>
+              , then the best choice is none other than the Association of Yoga
+              and Meditation. Since its inception, it has been our endeavor that
+              we can provide a world-class training environment to all Yoga
+              aspirants. When it comes to professional yoga therapy teacher
+              training, you do not have to look anywhere else as we fill the
+              void. AYM is your one-stop destination for the most profound
+              training, and we have tried to strive for excellence.
             </p>
           </div>
         </div>
 
         {/* ══════════════════════════════════════
             SECTION 2 — Image Right
-            "Experience the art of yoga and mediatation at AYM Yoga School"
+            "Yoga Classes From Yoga Professional"
         ══════════════════════════════════════ */}
         <div className={`${styles.section} ${styles.sectionImageRight}`}>
           <div className={styles.imgWrap}>
             <img
-              src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=700&q=80&fit=crop"
-              alt="Experience the art of yoga and mediatation at AYM Yoga School"
+              src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=700&q=80&fit=crop"
+              alt="Yoga Classes From Yoga Professional"
               className={styles.sectionImg}
               loading="lazy"
             />
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Experience the art of yoga and mediatation at AYM Yoga School
+              Yoga Classes From Yoga Professional
             </h2>
             <div
               className={styles.headingUnderline}
@@ -203,30 +212,38 @@ const YogaTrainingTamilNadu: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Tamil Nadu is the southernmost state in India and is known for its
-              majestic temples displaying the Dravidian architectural style.
-              Chennai is the capital of Tamil Nadu and it is the center of all
-              commercial, industrial and cultural activities in southern India.
+              We strongly believe that a trained teacher has to be a good
+              student first; hence, if you want to start as a yoga teacher, you
+              have to be a student first. The best thing about our professional
+              course is that we have got it from some of the best experts who
+              have calibrated yoga instructors all around the country and take
+              out that time to train you. One of the major reasons AYM has been
+              able to get such precedence as a good{" "}
+              <strong className={styles.boldLink}>
+                registered yoga training course in New Delhi
+              </strong>{" "}
+              is because of our proficiency in the field. Our team consists of
+              the best teachers who will train you thoroughly.
             </p>
           </div>
         </div>
 
         {/* ══════════════════════════════════════
             SECTION 3 — Image Left
-            "Professional Yoga Teacher Training in Tamil Nadu"
+            "Focus on the Best Of Yoga With World Class Amenities"
         ══════════════════════════════════════ */}
         <div className={`${styles.section} ${styles.sectionImageLeft}`}>
           <div className={styles.imgWrap}>
             <img
-              src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?w=700&q=80&fit=crop"
-              alt="Professional Yoga Teacher Training in Tamil Nadu"
+              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80&fit=crop"
+              alt="Focus on the Best Of Yoga With World Class Amenities"
               className={styles.sectionImg}
               loading="lazy"
             />
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Professional Yoga Teacher Training in Tamil Nadu
+              Focus on the Best Of Yoga With World Class Amenities
             </h2>
             <div
               className={styles.headingUnderline}
@@ -235,37 +252,38 @@ const YogaTrainingTamilNadu: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School, located in Rishikesh and Goa, is a leading{" "}
+              Our{" "}
               <strong className={styles.boldLink}>
-                yoga teacher training school in India
-              </strong>
-              , we are yoga masters in India. We specialize in teacher training
-              and yoga emotion retreat. Our achievements are known for their
-              quality of teaching from beginners to professionals. If you live
-              or plan to visit Tamil Nadu, don't hesitate to discover the 7
-              chakras of yoga, chakra yoga poses, pranayama yoga and yoga mantra
-              with our yoga masters, then our facilities here will also meet
-              your experience and your needs.
+                yoga teacher training program
+              </strong>{" "}
+              is for everyone who aspires to be a professional yoga instructor!
+              There are no two ways that the basic tenet for yoga is using your
+              body lucidly and ensuring that you can develop strength. But in
+              many cases, you do need amenities and resources, and that is what
+              we provide the students during the training sessions. Do not
+              worry. No matter what aid you need, we will ensure that we can
+              arrange the same in an instant surpassing the industry's quality
+              standards.
             </p>
           </div>
         </div>
 
         {/* ══════════════════════════════════════
             SECTION 4 — Image Right
-            "Experience of Yoga at AYM in Tamil Nadu"
+            "Affordable Price Structure to Suit Yoga Enthusiasts"
         ══════════════════════════════════════ */}
         <div className={`${styles.section} ${styles.sectionImageRight}`}>
           <div className={styles.imgWrap}>
             <img
-              src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=700&q=80&fit=crop"
-              alt="Experience of Yoga at AYM in Tamil Nadu"
+              src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?w=700&q=80&fit=crop"
+              alt="Affordable Price Structure to Suit Yoga Enthusiasts"
               className={styles.sectionImg}
               loading="lazy"
             />
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Experience of Yoga at AYM in Tamil Nadu
+              Affordable Price Structure to Suit Yoga Enthusiasts
             </h2>
             <div
               className={styles.headingUnderline}
@@ -274,26 +292,21 @@ const YogaTrainingTamilNadu: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School is a professional yoga and meditation school
-              located in Rishikesh and Goa. Our area of expertise is to provide
-              high-quality{" "}
-              <strong className={styles.boldLink}>yoga teacher training</strong>{" "}
-              and yoga retreat service to anyone willing to enjoy the benefits
-              of yoga in India. Enjoy Mantras, Pranayama, yoga prayer with our
-              yoga teachers. Our outstanding achievements are widely recognized
-              by students and professors all over the world. And if you live in
-              Tamil Nadu or plan to visit, we also provide our facilities and{" "}
-              <strong className={styles.boldLink}>
-                training courses in Tamil Nadu
-              </strong>
-              .
+              Once you start with our journey, you will be able to get the best
+              exposure and transfer the same to your students as you practice!
+              One of the essential factors is that we have tried to keep the
+              price range extremely nominal so that anyone who aspires to be a
+              yoga instructor does not feel restricted because of the
+              investments. However, this does not imply that we tamper with the
+              quality and does not focus on the quality of the{" "}
+              <strong className={styles.boldLink}>certification</strong>.
             </p>
           </div>
         </div>
 
         {/* ══════════════════════════════════════
             SECTION 5 — Image Left
-            "Qualified yoga teacher training in India"
+            "Get Certified, Get Acclaimed"
         ══════════════════════════════════════ */}
         <div
           className={`${styles.section} ${styles.sectionImageLeft}`}
@@ -301,15 +314,15 @@ const YogaTrainingTamilNadu: React.FC = () => {
         >
           <div className={styles.imgWrap}>
             <img
-              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80&fit=crop"
-              alt="Qualified yoga teacher training in India"
+              src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=700&q=80&fit=crop"
+              alt="Get Certified, Get Acclaimed"
               className={styles.sectionImg}
               loading="lazy"
             />
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Qualified yoga teacher training in India
+              Get Certified, Get Acclaimed
             </h2>
             <div
               className={styles.headingUnderline}
@@ -318,16 +331,16 @@ const YogaTrainingTamilNadu: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School is located in Rishikesh and Goa. We are a famous
-              yoga and meditation institution in India, specializing in teacher
-              training, yoga gurus. We are a non-profit organization that aims
-              to teach quality yoga classes to anyone who wants to become a{" "}
+              Most of you would agree that the best thing you can do to add
+              value to your entire forte is to add a certification to the same.
+              When the certification is globally acclaimed, nothing can turn out
+              better. We got you covered with that aspect. For the most
+              professional and reliable{" "}
               <strong className={styles.boldLink}>
-                qualified yoga instructor
+                YTT certification in New Delhi
               </strong>
-              . AYM Yoga School also helps you relieve emotional problems
-              through yoga therapy retreat. In addition, if you are in Tamil
-              Nadu, AYM Yoga School will also fully operate our facilities here.
+              , feel free to contact us at Association for Yoga and Meditation.
+              We will help you proceed further toward a bright career path.
             </p>
           </div>
         </div>
@@ -361,4 +374,4 @@ const YogaTrainingTamilNadu: React.FC = () => {
   );
 };
 
-export default YogaTrainingTamilNadu;
+export default YogaTrainingNewDelhi;

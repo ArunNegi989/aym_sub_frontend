@@ -41,7 +41,7 @@ const cityLinks: { name: string; href: string }[] = [
   },
   {
     name: "Tamil Nadu",
-    href: "/yoga-teacher-training/yoga-teacher-training-Tamil%20Nadu-94-2187",
+    href: "/yoga-teacher-training/yoga-teacher-training-Tamil-Nadu-94-2187",
   },
   { name: "Goa", href: "/yoga-teacher-training/yoga-teacher-training-Goa-94-2167" },
   { name: "Kochi", href: "/yoga-teacher-training/yoga-teacher-training-Kochi-94-2190" },
@@ -59,7 +59,7 @@ const cityLinks: { name: string; href: string }[] = [
   },
   {
     name: "New Delhi",
-    href: "/yoga-teacher-training/yoga-teacher-training-New%20Delhi-94-2176",
+    href: "/yoga-teacher-training/yoga-teacher-training-New-Delhi-94-2176",
   },
   {
     name: "Kerala",
@@ -112,7 +112,7 @@ const cityLinks: { name: string; href: string }[] = [
   },
   {
     name: "Himachal Pradesh",
-    href: "/yoga-teacher-training/yoga-teacher-training-Himachal%20Pradesh-94-2178",
+    href: "/yoga-teacher-training/yoga-teacher-training-Himachal-Pradesh-94-2178",
   },
   
   {
