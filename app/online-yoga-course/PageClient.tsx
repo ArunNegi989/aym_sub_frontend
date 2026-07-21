@@ -738,11 +738,24 @@ function OnlineSeatBooking({ batches }: { batches: BatchRow[] }) {
 
 /* ─────────────────────────────────────────────
    SHARED UI COMPONENTS
+   NOTE: `as` prop controls the rendered heading tag.
+   Defaults to "h2" (used for every section title).
+   Pass as="h1" ONLY on the single page-level heading
+   (the intro section title) so the page has exactly
+   one <h1> for SEO.
 ───────────────────────────────────────────── */
-function VintageHeading({ children, center = true }: { children: React.ReactNode; center?: boolean }) {
+function VintageHeading({
+  children,
+  center = true,
+  as: Tag = "h2",
+}: {
+  children: React.ReactNode;
+  center?: boolean;
+  as?: "h1" | "h2";
+}) {
   return (
     <div className={styles.vintageHeadingWrap} style={{ textAlign: center ? "center" : "left" }}>
-      <h2 className={styles.vintageHeading}>{children}</h2>
+      <Tag className={styles.vintageHeading}>{children}</Tag>
       <div className={styles.headingUnderline} style={{ justifyContent: center ? "center" : "flex-start" }}>
         <div className={styles.headingDiamond} />
       </div>
@@ -931,7 +944,8 @@ const fetchBatches = async () => {
         <div className={styles.container}>
           <div className={styles.introText}>
             <span className={styles.sectionEyebrow}>Rishikesh, India · Online</span>
-            <VintageHeading>
+            {/* ── SINGLE H1 ON THE PAGE (SEO) ── */}
+            <VintageHeading as="h1">
             Online Yoga Teacher Training Course: Certify From Anywhere
             </VintageHeading>
             <p className={styles.bodyPara}>

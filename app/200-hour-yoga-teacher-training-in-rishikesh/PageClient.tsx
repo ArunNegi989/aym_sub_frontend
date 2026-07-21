@@ -464,19 +464,26 @@ function CornerOrnament({ pos }: { pos: "tl" | "tr" | "bl" | "br" }) {
 
 /* ══════════════════════════════
    VINTAGE HEADING
+   NOTE: `as` prop controls the rendered heading tag.
+   Defaults to "h2" (used for all section titles).
+   Pass as="h1" ONLY for the single page-level heading
+   (the hero title built from `pageMainH1`) so the page
+   has exactly one <h1> for SEO.
 ══════════════════════════════ */
 function VintageHeading({
   children,
   para,
+  as: Tag = "h2",
 }: {
   children: React.ReactNode;
   para?: React.ReactNode;
+  as?: "h1" | "h2";
 }) {
   if (para) {
     return (
       <div className={styles.vintageHeadingWrap}>
         <div className={styles.vintageHeadingLeft}>
-          <h2 className={styles.vintageHeading}>{children}</h2>
+          <Tag className={styles.vintageHeading}>{children}</Tag>
           <div className={styles.omDivider}>
             <span className={styles.dividerLine} />
             <span className={styles.omSymbol}>ॐ</span>
@@ -489,7 +496,7 @@ function VintageHeading({
   }
   return (
     <div className={styles.vintageHeadingWrap}>
-      <h2 className={styles.vintageHeading}>{children}</h2>
+      <Tag className={styles.vintageHeading}>{children}</Tag>
       <div className={styles.omDivider}>
         <span className={styles.dividerLine} />
         <span className={styles.omSymbol}>ॐ</span>
@@ -1454,7 +1461,9 @@ export default function TwoHundredHourYoga() {
 
       {/* ════ HERO TEXT + VIDEO + STATS ════ */}
       <section className={styles.heroSection2}>
+        {/* ── SINGLE H1 ON THE PAGE (SEO) ── */}
         <VintageHeading
+          as="h1"
           para={
             introParas[0] ? (
               <span

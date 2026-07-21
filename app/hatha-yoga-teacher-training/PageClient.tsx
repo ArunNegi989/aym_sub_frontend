@@ -1254,7 +1254,10 @@ export default function HathaYogaPage() {
           <div className={`${styles.reveal} ${styles.introGrid}`}>
             <div className={styles.introText}>
               {d.introSectionTitle && (
-                <h2 className={styles.sectionTitle}>{d.introSectionTitle}</h2>
+                /* ── SINGLE H1 ON THE PAGE (SEO) ──
+                   Only this tag changed from h2 to h1; same class,
+                   nothing else in the file was touched. */
+                <h1 className={styles.sectionTitle}>{d.introSectionTitle}</h1>
               )}
               <OrnamentDivider />
               {d.introParagraphs && d.introParagraphs.length > 0
