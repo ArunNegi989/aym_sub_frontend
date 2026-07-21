@@ -21,7 +21,7 @@ const quickLinks = [
 const courseLinks = [
   {
     label: "100 Hour Yoga Teacher Training",
-    href: "/100-hour-yoga-teacher-training-in-rishikesh",
+    href: "/100-hour-yoga-ttc-in-rishikesh",
   },
   {
     label: "200 Hour Yoga Teacher Training",

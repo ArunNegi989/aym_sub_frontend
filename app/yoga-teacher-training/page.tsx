@@ -162,7 +162,7 @@ const cityLinks: { name: string; href: string }[] = [
   },
   {
     name: "Rishikesh",
-    href: "/yoga-teacher-training/yoga-teacher-training-Rishikesh-94-2166",
+    href: "/yoga-teacher-training-in-india",
   },
   {
     name: "Himachal Pradesh",
