@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: "Kundalini Yoga Teacher Training | AYM Yoga School",
   description:
     " Experience authentic Kundalini Yoga Teacher Training at AYM Yoga School in Rishikesh. Learn kriyas, meditation, and awaken your true potential.",
+
+    alternates: {
+      canonical: "https://aymyogaschool.com/best-kundalini-yoga-course",
+    },
 };
 
 export default function Page() {

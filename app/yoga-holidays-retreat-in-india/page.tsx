@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: "Best Yoga Holiday Retreats in India | AYM Yoga School ",
   description:
     "Enjoy the best Yoga Holiday Retreats in India with AYM Yoga School. Experience daily yoga, meditation, healthy meals, and peaceful accommodation.",
+
+    alternates: {
+      canonical: "https://aymyogaschool.com/yoga-holidays-retreat-in-india",
+    },
 };
 
 export default function Page() {

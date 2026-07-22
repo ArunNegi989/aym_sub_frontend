@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Yoga Retreat Rishikesh | Wellness & Meditation | AYM Yoga",
   description:
     "Discover the best yoga retreat in Rishikesh at AYM Yoga School. Reconnect through yoga, meditation, pranayama, healthy meals, and serene surroundings.",
+
+    alternates: {
+      canonical: "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh",
+    },
 };
 
 const IMAGES = {
