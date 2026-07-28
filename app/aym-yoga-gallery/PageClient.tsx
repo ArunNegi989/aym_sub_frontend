@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import styles from "@/assets/style/gallery/Gallerypage.module.css";
 import HowToReach from "@/components/home/Howtoreach";
+import Script from "next/script";
 import api from "@/lib/api";
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
@@ -18,6 +19,33 @@ interface ApiResponse {
   success: boolean;
   data: GallerySection[];
 }
+
+//schema
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/aym-yoga-gallery#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aymyogaschool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Gallery", "item": "https://aymyogaschool.com/aym-yoga-gallery" }
+      ]
+    },
+    {
+      "@type": "ImageGallery",
+      "@id": "https://aymyogaschool.com/aym-yoga-gallery#webpage",
+      "url": "https://aymyogaschool.com/aym-yoga-gallery",
+      "name": "AYM Yoga School Gallery | Photos & Student Life",
+      "description": "Take a look inside AYM Yoga School through our gallery featuring yoga classes, retreats, meditation, events, and memorable student experiences.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/aym-yoga-gallery#breadcrumb" },
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" },
+      "inLanguage": "en-IN"
+    }
+  ]
+}
+
+
 
 export default function GalleryPage() {
   const [activeTab, setActiveTab] = useState("all");
@@ -114,6 +142,15 @@ export default function GalleryPage() {
     return <div style={{ padding: "40px" }}>Loading gallery...</div>;
   }
   return (
+<>
+<Script
+        id="gallery-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
     <div className={styles.page}>
       {/* ══════════════════════════════════
           PAGE HEADER
@@ -293,5 +330,6 @@ export default function GalleryPage() {
 
       <HowToReach />
     </div>
+    </>
   );
 }

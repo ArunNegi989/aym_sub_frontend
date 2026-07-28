@@ -6,9 +6,147 @@ import detoxHero from "@/assets/images/Ayurvea-and-detox.jpg";
 import faceMassage from "@/assets/images/Massage.jpg";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/39.png";
+import Script from "next/script";
+
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Yoga Retreats",
+          "item": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ayurveda and Detox Retreat",
+          "item": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh#webpage",
+      "url": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh",
+      "name": "Best Yoga and Ayurveda Detox Retreat in Rishikesh",
+      "description": "Experience a Yoga and Ayurveda Detox Retreat in Rishikesh at AYM Yoga School. Restore your health through yoga, Ayurvedic therapies, and wellness.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh#breadcrumb" },
+      "about": { "@id": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh#service" },
+      "inLanguage": "en-IN",
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh#service",
+      "serviceType": "Ayurveda Detox Retreat",
+      "name": "Yoga and Ayurveda Detox Retreat",
+      "description": "A holistic detoxification program in Rishikesh combining yoga, Ayurveda, and diet to cleanse the body of accumulated toxins, offered as both an in-person retreat at AYM's Panchakarma treatment centre and a guided at-home program with doctor consultation and delivered herbal treatment kits.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "@id": "https://aymyogaschool.com/#organization",
+        "name": "AYM Yoga School"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Rishikesh, Uttarakhand, India"
+      },
+      "availableChannel": [
+        {
+          "@type": "ServiceChannel",
+          "name": "In-Person Panchakarma Retreat",
+          "description": "Personal consultation with an Ayurveda doctor, a customised detox plan, daily herbal treatments, oil therapies, Panchakarma sessions, guided yoga and pranayama, and Ayurvedic meals, all at the AYM centre in Rishikesh."
+        },
+        {
+          "@type": "ServiceChannel",
+          "name": "At-Home Guided Detox Program",
+          "description": "Phone consultation and guidance, a herbal medicine and oil kit delivered by post, live or video demonstration by a therapist, and ongoing monitoring and feedback during the detox process."
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Detox Retreat Durations",
+        "itemListElement": [
+          { "@type": "Offer", "name": "3 Day Detox Program", "description": "Price provided after consultation with AYM's Ayurveda doctor via email.", "url": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh" },
+          { "@type": "Offer", "name": "7 Day Detox Program", "description": "Price provided after consultation with AYM's Ayurveda doctor via email.", "url": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh" },
+          { "@type": "Offer", "name": "10 Day Detox Program", "description": "Price provided after consultation with AYM's Ayurveda doctor via email.", "url": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh" },
+          { "@type": "Offer", "name": "15 Day Detox Program", "description": "Price provided after consultation with AYM's Ayurveda doctor via email.", "url": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh" }
+        ]
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh#howto",
+      "name": "Complete Method to Detoxification Through Yoga, Ayurveda, and Diet",
+      "description": "AYM Yoga School's seven-step approach to full-body detoxification combining Ayurvedic therapies, yoga, and lifestyle changes.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Digestive Detox",
+          "text": "Activate the digestive system to improve metabolism through herbs, therapies, and metabolic changes."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Gut Detox",
+          "text": "Cleanse the rectum and large intestine through herbal oils and enema therapies."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Breathing & Lungs Detox",
+          "text": "Carried out through medicated oil or steam treatments and deep yoga breathing techniques."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Muscles, Bones & Skin Detox",
+          "text": "Achieved through herbal lepana, oil massage, steam therapy, and yoga practice."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Blood Purification",
+          "text": "Deep cleansing of the blood through Ayurvedic herbs and purification rituals."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Digital Detox",
+          "text": "Step away entirely from mobile phones, laptops, games, and social media."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Complete Detox",
+          "text": "Full integration of the six steps above for a total transformation of body, mind, and spirit through Ayurveda, yoga, and nutrition."
+        }
+      ]
+    }
+  ]
+}
+
 // ===================== MAIN COMPONENT =====================
 const DetoxRetreat: React.FC = () => {
+
+
+   
   return (
+    <>
+     <Script
+        id="detox-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
+    
     <div className={styles.pageWrapper}>
       <section className={styles.heroSection}>
         <Image
@@ -287,6 +425,7 @@ const DetoxRetreat: React.FC = () => {
 </section>
       <HowToReach />
     </div>
+    </>
   );
 };
 

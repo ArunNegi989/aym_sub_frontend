@@ -9,6 +9,7 @@ import image3 from "@/assets/images/800-hour-yoga.jpg";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/31.webp";
 import Link from "next/link";
+import Script from "next/script";
 
 /* ══════════════════════════════════════
    PLACEHOLDER IMAGES & VIDEOS
@@ -777,6 +778,278 @@ function CourseCard({
   );
 }
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AYUSH Courses",
+          "item": "https://aymyogaschool.com/yoga-college-in-rishikesh"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#webpage",
+      "url": "https://aymyogaschool.com/yoga-college-in-rishikesh",
+      "name": "Yoga College in Rishikesh | Ministry of AYUSH Programs",
+      "description": "Join AYM Yoga College in Rishikesh for Ministry of AYUSH Certified Programs. Explore AYUSH courses, yoga teacher training, and traditional yoga education.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#breadcrumb" },
+      "about": { "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#college" },
+      "inLanguage": "en-IN",
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" }
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#college",
+      "name": "AYM Yoga College",
+      "alternateName": "AYM Yoga Mahavidhyalaya",
+      "description": "AYM Yoga College, established on 21 June 2016 in Rishikesh, India, offers Ministry of AYUSH certified yoga education, including Yoga Protocol Instructor, Yoga Wellness Instructor, Yoga Teacher & Evaluator, and Yoga Master certifications, along with a Certificate Course, PG Diploma, and Master of Arts (M.A.) in Yoga, focused on quality teaching, research-oriented education, and job placement support.",
+      "foundingDate": "2016-06-21",
+      "parentOrganization": { "@id": "https://aymyogaschool.com/#organization" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Upper Tapovan",
+        "addressLocality": "Rishikesh",
+        "addressRegion": "Uttarakhand",
+        "postalCode": "249192",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-7500277709",
+      "email": "aymindia@gmail.com",
+      "accreditedBy": [
+        { "@type": "Organization", "name": "Ministry of AYUSH, Government of India" },
+        { "@type": "Organization", "name": "Yoga Certification Board (YCB)" },
+        { "@type": "Organization", "name": "Uttarakhand Sanskrit University" }
+      ],
+      "hasCourse": [
+        {
+          "@type": "Course",
+          "name": "24 Days — 200 Hour Yoga Course (Yoga Protocol Instructor, Level 1)",
+          "description": "A foundational Ministry of AYUSH certified yoga course covering yoga theory, yogic practices, yoga texts, health promotion, teaching skills, and field experience. Open to applicants of any age who have passed at least 10th standard from a recognized board. Medium of instruction: English and Hindi.",
+          "provider": { "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#college" },
+          "educationalCredentialAwarded": "Yoga Certification Board (YCB), Ministry of AYUSH, Government of India",
+          "coursePrerequisites": "Minimum 10th standard pass from a recognized board. No age limit.",
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "onsite",
+            "duration": "P24D",
+            "location": {
+              "@type": "Place",
+              "name": "AYM Yoga School",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Upper Tapovan",
+                "addressLocality": "Rishikesh",
+                "addressRegion": "Uttarakhand",
+                "postalCode": "249192",
+                "addressCountry": "IN"
+              }
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "35000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/registration",
+            "description": "Includes dormitory accommodation, food, and course materials."
+          }
+        },
+        {
+          "@type": "Course",
+          "name": "28 Days — 400 Hour Yoga Course (Yoga Wellness Instructor, Level 2)",
+          "description": "A Ministry of AYUSH certified intermediate-level yoga wellness instructor course in Rishikesh.",
+          "provider": { "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#college" },
+          "educationalCredentialAwarded": "Yoga Certification Board (YCB), Ministry of AYUSH, Government of India",
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "onsite",
+            "duration": "P28D",
+            "location": {
+              "@type": "Place",
+              "name": "AYM Yoga School",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Upper Tapovan",
+                "addressLocality": "Rishikesh",
+                "addressRegion": "Uttarakhand",
+                "postalCode": "249192",
+                "addressCountry": "IN"
+              }
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "45000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/registration",
+            "description": "Includes dormitory accommodation, food, and course materials."
+          }
+        },
+        {
+          "@type": "Course",
+          "name": "90 Days — 800 Hour Yoga Course (Yoga Teacher & Evaluator, Level 3)",
+          "description": "A Ministry of AYUSH certified advanced-level yoga teacher and evaluator course in Rishikesh.",
+          "provider": { "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#college" },
+          "educationalCredentialAwarded": "Yoga Certification Board (YCB), Ministry of AYUSH, Government of India",
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "onsite",
+            "duration": "P90D",
+            "location": {
+              "@type": "Place",
+              "name": "AYM Yoga School",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Upper Tapovan",
+                "addressLocality": "Rishikesh",
+                "addressRegion": "Uttarakhand",
+                "postalCode": "249192",
+                "addressCountry": "IN"
+              }
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "120000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/registration",
+            "description": "Includes private accommodation, food, and course materials."
+          }
+        },
+        {
+          "@type": "Course",
+          "name": "Certificate Course in Yoga",
+          "description": "A 6-month certificate-level academic program in Yoga offered by AYM Yoga College.",
+          "provider": { "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#college" },
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "onsite",
+            "duration": "P6M"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "15000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/registration"
+          }
+        },
+        {
+          "@type": "Course",
+          "name": "PG Diploma in Yoga",
+          "description": "A 1-year postgraduate diploma program in Yoga offered by AYM Yoga College, open to applicants with a Bachelor's degree from any university in any subject. Admission follows Uttarakhand Sanskrit University norms.",
+          "provider": { "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#college" },
+          "coursePrerequisites": "Bachelor's degree from any university in any subject.",
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "onsite",
+            "duration": "P1Y"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "25000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/registration",
+            "description": "Fee per year."
+          }
+        },
+        {
+          "@type": "Course",
+          "name": "M.A. in Yoga (Master of Yoga)",
+          "description": "A 2-year Master of Arts program in Yoga offered by AYM Yoga College, covering research-based yoga, yoga therapy for healing, and in-depth study of the Yoga Sutras of Patanjali, the Bhagavad Gita, Hatha Yoga Pradipika, and the Gheranda Samhita. Prepares students for higher research, including Ph.D. study, or to open their own yoga centers. Open to applicants with a Bachelor's degree from any university in any subject. Admission follows Uttarakhand Sanskrit University norms.",
+          "provider": { "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#college" },
+          "coursePrerequisites": "Bachelor's degree from any university in any subject.",
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "onsite",
+            "duration": "P2Y",
+            "location": {
+              "@type": "Place",
+              "name": "AYM Yoga College",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Upper Tapovan",
+                "addressLocality": "Rishikesh",
+                "addressRegion": "Uttarakhand",
+                "postalCode": "249192",
+                "addressCountry": "IN"
+              }
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "25000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/registration",
+            "description": "Fee per year."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#exams",
+      "serviceType": "Yoga Certification Examination",
+      "name": "Yoga Certification Exams",
+      "provider": { "@id": "https://aymyogaschool.com/yoga-college-in-rishikesh#college" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Yoga Certification Exam Fees",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Yoga Master Exam",
+            "description": "Available online or offline.",
+            "priceSpecification": [
+              { "@type": "UnitPriceSpecification", "name": "Online", "price": "8500", "priceCurrency": "INR" },
+              { "@type": "UnitPriceSpecification", "name": "Offline", "price": "10500", "priceCurrency": "INR" }
+            ],
+            "url": "https://aymyogaschool.com/registration"
+          },
+          {
+            "@type": "Offer",
+            "name": "Assistant Yoga Therapist Exam",
+            "description": "Available online or offline.",
+            "priceSpecification": [
+              { "@type": "UnitPriceSpecification", "name": "Online", "price": "7500", "priceCurrency": "INR" },
+              { "@type": "UnitPriceSpecification", "name": "Offline", "price": "9500", "priceCurrency": "INR" }
+            ],
+            "url": "https://aymyogaschool.com/registration"
+          },
+          {
+            "@type": "Offer",
+            "name": "Yoga Therapist Exam",
+            "description": "Available online or offline.",
+            "priceSpecification": [
+              { "@type": "UnitPriceSpecification", "name": "Online", "price": "10500", "priceCurrency": "INR" },
+              { "@type": "UnitPriceSpecification", "name": "Offline", "price": "12500", "priceCurrency": "INR" }
+            ],
+            "url": "https://aymyogaschool.com/registration"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+
 /* ══════════════════════════════════════
    MAIN COMPONENT
 ══════════════════════════════════════ */
@@ -784,6 +1057,17 @@ export default function YogaCollegeRishikesh() {
   const [activeTab, setActiveTab] = useState("protocol");
 
   return (
+
+    <>
+     <Script
+        id="college-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
+    
     <div className={styles.page}>
       {/* Mandalas */}
       <div className={styles.mandalaTL} aria-hidden="true">
@@ -1089,5 +1373,6 @@ export default function YogaCollegeRishikesh() {
 
       <HowToReach />
     </div>
+    </>
   );
 }

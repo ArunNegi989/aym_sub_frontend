@@ -16,7 +16,7 @@ import herosectionimage from "@/assets/images/mainimages/32079071288_8bed34eecd_
 import cardimg1 from "@/assets/images/mainimages/28531495457_bfb39bbd82_b.jpg";
 import cardimg2 from "@/assets/images/mainimages/29510046748_6eb605450d_b.jpg";
 import cardimg3 from "@/assets/images/mainimages/30736248347_790050d8b3_b.jpg";
-
+import Script from "next/script";
 /* ─────────────────────────────────────────────
    OTHER COURSE IMAGES
 ───────────────────────────────────────────── */
@@ -872,6 +872,269 @@ function CourseCard({ title, duration, style, sessions, cert, fee, benefits }: {
   );
 }
 
+//schema
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/online-yoga-course#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Online Yoga Course",
+          "item": "https://aymyogaschool.com/online-yoga-course"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/online-yoga-course#webpage",
+      "url": "https://aymyogaschool.com/online-yoga-course",
+      "name": "Online Yoga Teacher Training Course | AYM Yoga School",
+      "description": "Enroll in AYM Yoga School's yoga instructor course online. Learn Hatha, Ashtanga, anatomy, meditation, and teaching skills from experienced instructors.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/online-yoga-course#breadcrumb" },
+      "about": { "@id": "https://aymyogaschool.com/online-yoga-course#course" },
+      "mainEntity": { "@id": "https://aymyogaschool.com/online-yoga-course#faq" },
+      "inLanguage": "en-IN",
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://aymyogaschool.com/online-yoga-course#course",
+      "name": "Online Yoga Teacher Training Course",
+      "description": "A live and self-paced online Yoga Teacher Training program from AYM Yoga School, Rishikesh, covering yoga philosophy, yogic anatomy, pranayama and meditation, adjusting and assisting techniques, asana practice in Hatha and Ashtanga styles, and teaching methodology. Delivered via interactive live sessions with lifetime access to recordings, in batches of 5-7 students, taught in English and Hindi.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "@id": "https://aymyogaschool.com/#organization",
+        "name": "AYM Yoga School"
+      },
+      "educationalCredentialAwarded": "Yoga Alliance, USA Certificate",
+      "coursePrerequisites": "Open to beginners and experienced practitioners in reasonably good physical health. No prior yoga experience required.",
+      "inLanguage": ["en", "hi"],
+      "teaches": [
+        "Philosophy of Yoga",
+        "Introduction to Yogic Anatomy",
+        "Pranayama and Meditation (mudra, bandha, pranayama, meditation)",
+        "Adjusting and Assisting techniques",
+        "Asana Practice (Hatha and Ashtanga Yoga)",
+        "Teaching Methodology"
+      ],
+      "syllabusSections": [
+        { "@type": "Syllabus", "name": "Philosophy of Yoga", "description": "20 hours live classes, 5 hours e-books and assignments." },
+        { "@type": "Syllabus", "name": "Introduction to Yogic Anatomy", "description": "20 hours anatomy live lectures, 5 hours e-book self-study." },
+        { "@type": "Syllabus", "name": "Pranayama and Meditation", "description": "30 hours live lecture and practice covering mudra, bandha, pranayama, and meditation." },
+        { "@type": "Syllabus", "name": "Adjusting and Assisting Tips", "description": "10 hours with Hatha yoga and alignment, the art of adjustment through guidance." },
+        { "@type": "Syllabus", "name": "Asana Practice", "description": "35 hours Hatha yoga live classes and 35 hours Ashtanga yoga live classes." },
+        { "@type": "Syllabus", "name": "Teaching Methodology", "description": "10 hours lecture on teaching practice, 30 hours teaching practice, and 10 hours feedback." }
+      ],
+      "hasCourseInstance": [
+        {
+          "@type": "CourseInstance",
+          "name": "200 Hour Live Online Yoga Teacher Training",
+          "courseMode": "online",
+          "duration": "P24D",
+          "description": "Hatha Yoga and Ashtanga Yoga. 15 days of live interactive sessions, 2 classes daily."
+        },
+        {
+          "@type": "CourseInstance",
+          "name": "300 Hour Live Online Yoga Teacher Training",
+          "courseMode": "online",
+          "duration": "P28D",
+          "description": "Hatha Yoga and Multi-Style. 15 days of live interactive sessions, 2 classes daily."
+        },
+        {
+          "@type": "CourseInstance",
+          "name": "Prenatal Live Online Yoga Teacher Training",
+          "courseMode": "online",
+          "duration": "P7D",
+          "description": "Multi-Style: gentle Hatha, restorative, breathwork, and more. 7 days of live interactive sessions, 2 classes daily."
+        },
+        {
+          "@type": "CourseInstance",
+          "name": "200 Hour Recorded Online Yoga Course",
+          "courseMode": "online",
+          "description": "Self-paced course with a yoga manual, recorded philosophy lectures, e-books, a few live classes, Hatha/Ashtanga yoga, and a live exam."
+        },
+        {
+          "@type": "CourseInstance",
+          "name": "300 Hour Recorded Online Yoga Course",
+          "courseMode": "online",
+          "description": "Self-paced course with a yoga manual, recorded philosophy lectures, e-books, a few live classes, multi-style yoga, and a live exam."
+        }
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "200 Hour Live Online",
+          "price": "20000",
+          "priceCurrency": "INR",
+          "priceSpecification": [
+            { "@type": "UnitPriceSpecification", "price": "20000", "priceCurrency": "INR" },
+            { "@type": "UnitPriceSpecification", "price": "399", "priceCurrency": "USD" }
+          ],
+          "availability": "https://schema.org/InStock",
+          "url": "https://aymyogaschool.com/registration"
+        },
+        {
+          "@type": "Offer",
+          "name": "300 Hour Live Online",
+          "price": "25000",
+          "priceCurrency": "INR",
+          "priceSpecification": [
+            { "@type": "UnitPriceSpecification", "price": "25000", "priceCurrency": "INR" },
+            { "@type": "UnitPriceSpecification", "price": "499", "priceCurrency": "USD" }
+          ],
+          "availability": "https://schema.org/InStock",
+          "url": "https://aymyogaschool.com/registration"
+        },
+        {
+          "@type": "Offer",
+          "name": "Prenatal Live Online",
+          "price": "20000",
+          "priceCurrency": "INR",
+          "priceSpecification": [
+            { "@type": "UnitPriceSpecification", "price": "20000", "priceCurrency": "INR" },
+            { "@type": "UnitPriceSpecification", "price": "399", "priceCurrency": "USD" }
+          ],
+          "availability": "https://schema.org/InStock",
+          "url": "https://aymyogaschool.com/registration"
+        },
+        {
+          "@type": "Offer",
+          "name": "200 Hour Recorded Online",
+          "price": "299",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://aymyogaschool.com/registration"
+        },
+        {
+          "@type": "Offer",
+          "name": "300 Hour Recorded Online",
+          "price": "399",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://aymyogaschool.com/registration"
+        }
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://aymyogaschool.com/online-yoga-course#hatha-alignment",
+      "name": "Hatha Yoga Alignment (Online)",
+      "description": "A specialized 35-hour online course focused on Hatha yoga alignment.",
+      "provider": { "@id": "https://aymyogaschool.com/#organization" },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT35H"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "299",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://aymyogaschool.com/contact"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://aymyogaschool.com/online-yoga-course#pranayama-meditation",
+      "name": "Pranayama and Meditation (Online)",
+      "description": "A specialized 20-hour online course focused on pranayama and meditation techniques.",
+      "provider": { "@id": "https://aymyogaschool.com/#organization" },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT20H"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "349",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://aymyogaschool.com/contact"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://aymyogaschool.com/online-yoga-course#ashtanga-primary",
+      "name": "Ashtanga Vinyasa Primary Series (Online)",
+      "description": "A specialized 35-hour online course covering the Ashtanga Vinyasa Primary Series.",
+      "provider": { "@id": "https://aymyogaschool.com/#organization" },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT35H"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "299",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://aymyogaschool.com/contact"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aymyogaschool.com/online-yoga-course#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are the eligibility criteria for joining this course?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anyone with a sincere interest in learning yoga and who is in reasonably good physical health is welcome to apply. Whether you are a beginner or have some prior experience, you can choose a course that suits your goals and level."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I register for these courses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An advance payment of USD 200 is required, along with a transaction fee of USD 15 (totaling USD 215). The remaining course fee can be paid within the first two weeks of enrollment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get the certification?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Upon successful completion of the course and final assessments, a recognized certification is awarded. The certificate is shipped to the participant's postal address, with shipping charges borne by the participant."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the group size of each class?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each online training batch is intentionally limited to 5 to 7 participants, allowing instructors to focus on alignment, posture corrections, and individual progress."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are the courses designed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Programs include 2 to 4 live online classes per day, depending on time zone, location, and batch size. After enrollment, the team connects with each student to finalize a suitable class schedule."
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
 /* ─────────────────────────────────────────────
    PAGE COMPONENT
 ───────────────────────────────────────────── */
@@ -899,6 +1162,17 @@ const fetchBatches = async () => {
   }
 };
   return (
+
+    <>
+     <Script
+        id="online-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
+    
     <div className={styles.page}>
 
       {/* Mandala watermark */}
@@ -1228,5 +1502,6 @@ const fetchBatches = async () => {
 
       <HowToReach />
     </div>
+    </>
   );
 }

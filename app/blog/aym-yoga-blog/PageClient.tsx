@@ -7,6 +7,7 @@ import styles from "@/assets/style/aym-yoga-blog/Blogpage.module.css";
 import HowToReach from "@/components/home/Howtoreach";
 import api from "@/lib/api";
 import { resolveImage } from "@/lib/Imageutils";
+import Script from "next/script";
 
 export interface Blog {
   id: string;
@@ -85,6 +86,34 @@ const ArrowRight = () => (
     <path d="M5 12h14M12 5l7 7-7 7" />
   </svg>
 );
+
+//schema
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/blog/aym-yoga-blog#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aymyogaschool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "AYM Yoga Blog", "item": "https://aymyogaschool.com/blog/aym-yoga-blog" }
+      ]
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://aymyogaschool.com/blog/aym-yoga-blog#webpage",
+      "url": "https://aymyogaschool.com/blog/aym-yoga-blog",
+      "name": "AYM Yoga Blog | Yoga Tips, Guides & Wellness",
+      "description": "Read the latest yoga articles from AYM Yoga School. Discover tips on yoga teacher training, meditation, Ayurveda, wellness, and yogic lifestyle.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/blog/aym-yoga-blog#breadcrumb" },
+      "publisher": { "@id": "https://aymyogaschool.com/#organization" },
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" },
+      "inLanguage": "en-IN"
+    }
+  ]
+}
+
+
 
 export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProps) {
   const [blogList, setBlogList] = useState<Blog[]>(propBlogs ?? []);
@@ -175,6 +204,15 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
   }
 
   return (
+    <>
+      <Script
+        id="blog-index-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+   
     <div className={styles.pageRoot}>
 
       {/* ══════════ HERO HEADER ══════════ */}
@@ -425,5 +463,6 @@ export default function BlogPage({ blogs: propBlogs, recentPosts }: BlogPageProp
 
       <HowToReach />
     </div>
+    </>
   );
 }

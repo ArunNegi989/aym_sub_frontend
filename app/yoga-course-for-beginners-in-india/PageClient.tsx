@@ -7,6 +7,7 @@ import yogatecherimage from "@/assets/images/yoga-techer-training-course-for-beg
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/37.png";
 import Link from "next/link";
+import Script from "next/script";
 
 // ---- Om Divider ----
 const OmSVG: React.FC = () => (
@@ -68,9 +69,155 @@ const qaData = [
   },
 ];
 
+//schema
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/yoga-course-for-beginners-in-india#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Yoga Retreats",
+          "item": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Yoga Course for Beginners",
+          "item": "https://aymyogaschool.com/yoga-course-for-beginners-in-india"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/yoga-course-for-beginners-in-india#webpage",
+      "url": "https://aymyogaschool.com/yoga-course-for-beginners-in-india",
+      "name": "Yoga Teacher Training Course for Beginners in India",
+      "description": "Join AYM Yoga School's Yoga Teacher Training Course for Beginners in India. Build a strong foundation with expert guidance and traditional yoga practices.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/yoga-course-for-beginners-in-india#breadcrumb" },
+      "about": { "@id": "https://aymyogaschool.com/yoga-course-for-beginners-in-india#course" },
+      "mainEntity": { "@id": "https://aymyogaschool.com/yoga-course-for-beginners-in-india#faq" },
+      "inLanguage": "en-IN",
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://aymyogaschool.com/yoga-course-for-beginners-in-india#course",
+      "name": "Yoga Course for Beginners in Rishikesh",
+      "description": "A 12-day residential Hatha and Ashtanga yoga course for beginners in Rishikesh, covering asanas, pranayama, meditation, shat kriyas (yogic detox), and mantra chanting, with exposure to Hatha, Iyengar, Vinyasa, and Shivananda yoga styles.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "@id": "https://aymyogaschool.com/#organization",
+        "name": "AYM Yoga School"
+      },
+      "coursePrerequisites": "None. Designed for complete beginners with no prior yoga experience.",
+      "teaches": [
+        "Asanas (yoga postures)",
+        "Pranayama (breath control)",
+        "Meditation and Yoga Nidra",
+        "Shat Kriyas (yogic detox techniques)",
+        "Mantra chanting",
+        "Hatha, Iyengar, Vinyasa, and Shivananda yoga styles"
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "name": "Yoga Course for Beginners",
+        "courseMode": "onsite",
+        "duration": "P12D",
+        "courseSchedule": {
+          "@type": "Schedule",
+          "byDay": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "description": "Classes conducted Monday to Saturday; Sundays off."
+        },
+        "location": {
+          "@type": "Place",
+          "name": "AYM Yoga School",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Upper Tapovan",
+            "addressLocality": "Rishikesh",
+            "addressRegion": "Uttarakhand",
+            "postalCode": "249192",
+            "addressCountry": "IN"
+          }
+        }
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Dormitory",
+          "price": "400",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://aymyogaschool.com/yoga-course-for-beginners-in-india"
+        },
+        {
+          "@type": "Offer",
+          "name": "Shared Room",
+          "price": "500",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://aymyogaschool.com/yoga-course-for-beginners-in-india"
+        },
+        {
+          "@type": "Offer",
+          "name": "Private Room",
+          "price": "550",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://aymyogaschool.com/yoga-course-for-beginners-in-india"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aymyogaschool.com/yoga-course-for-beginners-in-india#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What will be learned in the Yoga Beginners Course at AYM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Students learn yoga postures (asanas), pranayama (yogic breathing exercises), and meditation for a calm state of mind. The course also includes a yogic detox program (shat kriyas) and mantra chanting. Students are introduced to Hatha, Iyengar, Vinyasa, and Shivananda yoga styles, with a focus on alignment correction using props in the Iyengar style. Sessions end with deep relaxation through Yoga Nidra in Shavasana (corpse pose)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I have completed a beginner yoga course in Rishikesh. What should I do to advance my practice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AYM Yoga School offers certification programs including 200-hour, 300-hour, and 500-hour yoga teacher training courses, approved by Yoga Alliance USA and the Yoga Certification Board, Ministry of AYUSH, Government of India. These advanced courses are suited for those wanting to deepen their practice or start a career in yoga teaching."
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
+
 // ===================== MAIN COMPONENT =====================
 const YogaBeginners: React.FC = () => {
   return (
+
+    <>
+      <Script
+        id="sound-healing-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+    
     <div className={styles.pageWrapper}>
 
       {/* ===== TOP HERO IMAGE ===== */}
@@ -389,6 +536,7 @@ const YogaBeginners: React.FC = () => {
 
       <HowToReach />
     </div>
+    </>
   );
 };
 

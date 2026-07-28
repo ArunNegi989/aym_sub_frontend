@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "@/assets/style/sound-healing/Soundhealingpage.module.css";
 import HowToReach from "@/components/home/Howtoreach";
 import Link from "next/link";
+import Script from "next/script";
 
 const IMG = {
   hero: "34.webp",
@@ -570,6 +571,150 @@ function useCurrencyRate() {
   return { rate, loading };
 }
 
+
+//schema
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/best-sound-healing-course#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Yoga Retreats",
+          "item": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Sound Healing Course",
+          "item": "https://aymyogaschool.com/best-sound-healing-course"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/best-sound-healing-course#webpage",
+      "url": "https://aymyogaschool.com/best-sound-healing-course",
+      "name": "Sound Healing Course | Learn Sound Therapy | AYM Yoga",
+      "description": "Experience a certified Sound Healing Course in Rishikesh at AYM Yoga School. Explore sound therapy, chakra healing, meditation, and traditional practices.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/best-sound-healing-course#breadcrumb" },
+      "about": { "@id": "https://aymyogaschool.com/best-sound-healing-course#course" },
+      "inLanguage": "en-IN",
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://aymyogaschool.com/best-sound-healing-course#course",
+      "name": "Sound Healing Course in Rishikesh: Himalayan Bowls & Chakra Therapy",
+      "description": "A certified sound healing teacher training course in Rishikesh covering singing bowls, gong therapy, chakra balancing, Nada Yoga, and vibrational healing techniques, taught across three progressive levels.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "@id": "https://aymyogaschool.com/#organization",
+        "name": "AYM Yoga School",
+        "sameAs": "https://aymyogaschool.com/"
+      },
+      "educationalCredentialAwarded": "Yoga Alliance, USA Certificate",
+      "occupationalCredentialAwarded": "Sound Healing Teacher Certification",
+      "coursePrerequisites": "None. Open to beginners and experienced practitioners.",
+      "teaches": [
+        "Singing bowl therapy",
+        "Gong therapy",
+        "Shamanic drum healing",
+        "Tingsha aura cleansing",
+        "Chakra balancing",
+        "Nada Yoga",
+        "Brain wave theory",
+        "Distance healing",
+        "Sound bath facilitation"
+      ],
+      "hasCourseInstance": [
+        {
+          "@type": "CourseInstance",
+          "name": "Sound Healing Level 1",
+          "description": "Introduction & history of sound healing, playing the bowls, drum sticks, intensity of sound, charged water therapy, Tingsha aura cleansing, bowl and chakra notes, metals used, planet connection.",
+          "courseMode": "onsite",
+          "courseWorkload": "PT6H",
+          "duration": "P2D",
+          "location": {
+            "@type": "Place",
+            "name": "AYM Yoga School",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Upper Tapovan",
+              "addressLocality": "Rishikesh",
+              "addressRegion": "Uttarakhand",
+              "postalCode": "249192",
+              "addressCountry": "IN"
+            }
+          }
+        },
+        {
+          "@type": "CourseInstance",
+          "name": "Sound Healing Level 2",
+          "description": "Understanding signals of the body, sound healing with intensity, group healing sessions, hot water massage, stick massage, sounds on herbs and potli sound therapy.",
+          "courseMode": "onsite",
+          "courseWorkload": "PT9H",
+          "duration": "P3D",
+          "location": {
+            "@type": "Place",
+            "name": "AYM Yoga School",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Upper Tapovan",
+              "addressLocality": "Rishikesh",
+              "addressRegion": "Uttarakhand",
+              "postalCode": "249192",
+              "addressCountry": "IN"
+            }
+          }
+        },
+        {
+          "@type": "CourseInstance",
+          "name": "Sound Healing Level 3",
+          "description": "Chakra theory and the five body elements, chakra balancing, disease therapies, body sound massage, distance healing, gong therapy, Happy Pan, rain stick, shamanic drum, herb information, brain wave theory, Nada Yoga.",
+          "courseMode": "onsite",
+          "courseWorkload": "PT15H",
+          "duration": "P5D",
+          "location": {
+            "@type": "Place",
+            "name": "AYM Yoga School",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Upper Tapovan",
+              "addressLocality": "Rishikesh",
+              "addressRegion": "Uttarakhand",
+              "postalCode": "249192",
+              "addressCountry": "IN"
+            }
+          }
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "6",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://aymyogaschool.com/best-sound-healing-course",
+        "category": "Sound Healing Teacher Training"
+      }
+    }
+  ]
+}
+
+
+
+
+
 /* ══════════════════════════════════════════════════
    PAGE
 ══════════════════════════════════════════════════ */
@@ -578,6 +723,14 @@ export default function SoundHealingPage() {
   const { rate, loading: rateLoading } = useCurrencyRate();
 
   return (
+<>
+    <Script
+    id="schema"
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify(schema),
+    }}
+  />
     <div className={styles.page}>
       {/* ══ HERO BANNER ══ */}
       <section className={styles.heroBanner}>
@@ -897,5 +1050,6 @@ export default function SoundHealingPage() {
       <div className={styles.bottomBorder} />
       <HowToReach />
     </div>
+    </>
   );
 }

@@ -5,6 +5,7 @@ import styles from "@/assets/style/inner-awakening/Innertransformation.module.cs
 import gurujiimage from "@/assets/images/inner-awakening.jpg";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/40.png";
+import Script from "next/script";
 // ---- Om Symbol SVG ----
 const OmSVG: React.FC = () => (
   <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,9 +41,136 @@ const Divider: React.FC = () => (
   </div>
 );
 
+
+//schema
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/inner-awakening-retreat#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Yoga Retreats",
+          "item": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Inner Awakening Retreat",
+          "item": "https://aymyogaschool.com/inner-awakening-retreat"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/inner-awakening-retreat#webpage",
+      "url": "https://aymyogaschool.com/inner-awakening-retreat",
+      "name": "Inner Awakening Retreat | Spiritual Retreat | AYM Yoga",
+      "description": "Join the Inner Awakening Retreat at AYM Yoga School in Rishikesh. Reconnect through yoga, meditation, pranayama, mindfulness, and holistic wellness.",
+      "breadcrumb": {
+        "@id": "https://aymyogaschool.com/inner-awakening-retreat#breadcrumb"
+      },
+      "about": {
+        "@id": "https://aymyogaschool.com/inner-awakening-retreat#course"
+      },
+      "inLanguage": "en-IN",
+      "isPartOf": {
+        "@id": "https://aymyogaschool.com/#website"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://aymyogaschool.com/inner-awakening-retreat#instructor",
+      "name": "Yogiraj Sri Yogi Chetan Maharishi",
+      "alternateName": "Sri Maharishi",
+      "description": "A Himalayan yogi belonging to the Siddha Tradition, with over 30 years spent in meditation and traditional Kriya Yoga practice in the Himalayas.",
+      "jobTitle": "Spiritual Teacher / Kriya Yoga Master"
+    },
+    {
+      "@type": "Course",
+      "@id": "https://aymyogaschool.com/inner-awakening-retreat#course",
+      "name": "Inner Awakening Retreat",
+      "description": "A two-week foundation spiritual retreat in Rishikesh centered on self-inquiry and self-realization, guided by Yogiraj Sri Yogi Chetan Maharishi. The program covers the Seven Points of Inner Transformation: sublimation, culmination, transformation, sadhana, satsang, meditation, and self-realization, with daily meditation, satsang, sadhana, and evening kirtan.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "@id": "https://aymyogaschool.com/#organization",
+        "name": "AYM Yoga School"
+      },
+      "instructor": {
+        "@id": "https://aymyogaschool.com/inner-awakening-retreat#instructor"
+      },
+      "coursePrerequisites": "Ability to sit in continuous meditation practice for a few hours with a calm mind, and completion of at least a 200-hour yoga teacher training or equivalent yoga certification.",
+      "teaches": [
+        "Self-inquiry and self-realization",
+        "Satsang (spiritual gathering)",
+        "Sadhana (spiritual practice)",
+        "Meditation and Kriya Yoga foundations",
+        "Kirtan and chanting"
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "name": "Inner Awakening Foundation Retreat",
+        "courseMode": "onsite",
+        "duration": "P14D",
+        "location": {
+          "@type": "Place",
+          "name": "AYM Yoga School",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Upper Tapovan",
+            "addressLocality": "Rishikesh",
+            "addressRegion": "Uttarakhand",
+            "postalCode": "249192",
+            "addressCountry": "IN"
+          }
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "70000",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/LimitedAvailability",
+        "url": "https://aymyogaschool.com/inner-awakening-retreat",
+        "description": "Includes two weeks of private mountain-view accommodation, three sattvic Indian meals per day, unlimited herbal tea, course certificate and materials, and airport pickup from Dehradun.",
+        "priceSpecification": [
+          {
+            "@type": "UnitPriceSpecification",
+            "price": "70000",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "UnitPriceSpecification",
+            "price": "1000",
+            "priceCurrency": "USD"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+
 // ===================== MAIN COMPONENT =====================
 const InnerTransformation: React.FC = () => {
   return (
+    <>
+    <Script
+        id="sound-healing-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+    
     <div className={styles.pageWrapper}>
 
       <section className={styles.heroSection}>
@@ -532,6 +660,7 @@ const InnerTransformation: React.FC = () => {
 </section>
       <HowToReach />
     </div>
+    </>
   );
 };
 

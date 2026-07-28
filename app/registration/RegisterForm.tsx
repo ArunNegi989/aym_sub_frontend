@@ -4,6 +4,7 @@ import styles from "@/assets/style/yoga-registration/Registerform.module.css";
 import HowToReach from "@/components/home/Howtoreach";
 import api from "@/lib/api";
 import { useSearchParams } from "next/navigation";
+import Script from "next/script";
 
 const howDidYouKnow = [
   "Google / Internet",
@@ -181,6 +182,55 @@ function DummyCaptcha({
   );
 }
 
+//schema
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/registration#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Register",
+          "item": "https://aymyogaschool.com/registration"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/registration#webpage",
+      "url": "https://aymyogaschool.com/registration",
+      "name": "Yoga Registration | Enroll at AYM Yoga School",
+      "description": "Complete your yoga registration at AYM Yoga School. Secure your seat for yoga teacher training, retreats, and wellness programs in Rishikesh.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/registration#breadcrumb" },
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" },
+      "inLanguage": "en-IN",
+      "potentialAction": {
+        "@type": "RegisterAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://aymyogaschool.com/registration",
+          "actionPlatform": [
+            "https://schema.org/DesktopWebPlatform",
+            "https://schema.org/MobileWebPlatform"
+          ]
+        },
+        "agent": { "@id": "https://aymyogaschool.com/#organization" }
+      }
+    }
+  ]
+}
+
+
 // ─── Main RegisterForm ─────────────────────────────────────────────────────────
 export default function RegisterForm() {
   const [gender, setGender]                   = useState("Male");
@@ -348,6 +398,15 @@ export default function RegisterForm() {
 
   return (
     <>
+ <Script
+        id="registration-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
+
       <div className={styles.page}>
         {/* Background mandala */}
         <div className={styles.bgMandala} aria-hidden="true">

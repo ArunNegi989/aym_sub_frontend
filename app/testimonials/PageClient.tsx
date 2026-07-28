@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/assets/style/testimonials/Testimonialssection.module.css";
 import HowToReach from "@/components/home/Howtoreach";
+import Script from "next/script";
 
 /* ═══════════════════════════════════════════
    TYPES
@@ -274,6 +275,134 @@ const reelVideos: VideoItem[] = [
   { id: "ZmvKhQeEbmI", title: "Graduation Day at AYM Yoga School", dur: "6:20" },
 ];
 
+
+// schema
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/testimonials#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aymyogaschool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Student Reviews", "item": "https://aymyogaschool.com/testimonials" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/testimonials#webpage",
+      "url": "https://aymyogaschool.com/testimonials",
+      "name": "AYM Yoga School Reviews & Testimonials",
+      "description": "Explore student reviews and testimonials about AYM Yoga School. Learn why students choose our yoga teacher training, retreats, and wellness programs.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/testimonials#breadcrumb" },
+      "about": { "@id": "https://aymyogaschool.com/#organization" },
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://aymyogaschool.com/#organization",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "reviewCount": "116",
+        "bestRating": "5",
+        "worstRating": "1",
+        "description": "Rating based on Google Reviews. AYM Yoga School also holds a separate 4.8/5 rating based on 90 Facebook reviews."
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "author": { "@type": "Person", "name": "Berenice Rivas Roldan" },
+          "reviewBody": "Life changing experience at AYM's 200-hour yoga teacher training. Came out with a strong base in yoga philosophy and asana alignment. The location is quiet, the food is amazing, and the teachers are among the best in Rishikesh, offering asana, philosophy, anatomy, mantra classes, and kirtan.",
+          "itemReviewed": { "@id": "https://aymyogaschool.com/#organization" }
+        },
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "author": { "@type": "Person", "name": "Alison Alcobia" },
+          "reviewBody": "Completed the 200-hour yoga teacher training with a wonderfully diverse group of 25 students from over 10 countries. The asana teachers were knowledgeable and patient, with Ashtanga Vinyasa building strength quickly and Hatha classes offering individual attention on alignment. Anatomy, philosophy, meditation, and pranayama classes gave a holistic understanding of yoga as a lifestyle. AYM's location on the outskirts of Rishikesh offers peace and stunning mountain views, and the sense of community made it life-changing.",
+          "itemReviewed": { "@id": "https://aymyogaschool.com/#organization" }
+        },
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "author": { "@type": "Person", "name": "Mekonnen Welday" },
+          "reviewBody": "Chose AYM Teachers Training School in Rishikesh despite initial doubts about managing the training at age 62 with an untrained body. The teachers did wonderful work, and now nearly all poses are achievable. A truly transformative experience.",
+          "itemReviewed": { "@id": "https://aymyogaschool.com/#organization" }
+        },
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "author": { "@type": "Person", "name": "Bryan" },
+          "reviewBody": "Took the 500-hour Yoga Teacher Training at AYM Yoga School and was very happy with the course. The Pranayama and Meditation class each morning was refreshing, Ashtanga Vinyasa built strength and flexibility over time, and the Hatha class developed correct alignment awareness. AYM teaches yoga from a traditional, holistic perspective covering the whole practice, not just asana.",
+          "itemReviewed": { "@id": "https://aymyogaschool.com/#organization" }
+        },
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "author": { "@type": "Person", "name": "Didier Van Riet" },
+          "reviewBody": "Began with the 200-hour training in January at AYM's clean and comfortable ashram, with a large, light-filled yoga hall. Enjoyed Pranayama, Meditation, and Ashtanga yoga, plus lectures on yoga philosophy. Decided to extend for the 300-hour course to continue deepening the practice with Yoga Therapy and an Ayurvedic introduction, and strongly recommends the ashram for its teaching quality and setting.",
+          "itemReviewed": { "@id": "https://aymyogaschool.com/#organization" }
+        },
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "author": { "@type": "Person", "name": "Eana" },
+          "reviewBody": "Started the 200-hour Yoga Teacher's Course from Singapore in February. The head teacher was patient, accommodating, and full of personal anecdotes in his lectures. The experience had such a profound impact that a further sign-up for the 300-hour course followed.",
+          "itemReviewed": { "@id": "https://aymyogaschool.com/#organization" }
+        },
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "author": { "@type": "Person", "name": "Siddharth Kothiyal" },
+          "reviewBody": "Completed yoga teacher training at the Association of Yoga and Meditation, Rishikesh, gaining a deeper understanding of yoga's philosophy, science, and way of living. Teachers shared invaluable knowledge on asana, meditation, vedic chanting, and devotion. The beautiful ashram location and hygienic food supported good health throughout, with special personal attention given to each student.",
+          "itemReviewed": { "@id": "https://aymyogaschool.com/#organization" }
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "name": "200 Hour YTT Review — Jessica, England",
+      "description": "Student video testimonial from Jessica, England, reviewing the 200 Hour Yoga Teacher Training at AYM Yoga School.",
+      "thumbnailUrl": "https://img.youtube.com/vi/k5BPMRmOK3E/hqdefault.jpg",
+      "uploadDate": "2019-06-01",
+      "embedUrl": "https://www.youtube.com/embed/k5BPMRmOK3E",
+      "publisher": { "@id": "https://aymyogaschool.com/#organization" }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Student Testimonial — Zois, AYM School",
+      "description": "Student video testimonial from Zois reviewing their experience at AYM Yoga School.",
+      "thumbnailUrl": "https://img.youtube.com/vi/kOPvvbgLPrc/hqdefault.jpg",
+      "uploadDate": "2019-01-01",
+      "embedUrl": "https://www.youtube.com/embed/kOPvvbgLPrc",
+      "publisher": { "@id": "https://aymyogaschool.com/#organization" }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Alexander Shapiro — AYM Yoga Review (300 Hour TTC)",
+      "description": "Student video testimonial from Alexander Shapiro reviewing the 300 Hour Yoga Teacher Training at AYM Yoga School.",
+      "thumbnailUrl": "https://img.youtube.com/vi/pXU4_SXdNdY/hqdefault.jpg",
+      "uploadDate": "2019-01-01",
+      "embedUrl": "https://www.youtube.com/embed/pXU4_SXdNdY",
+      "publisher": { "@id": "https://aymyogaschool.com/#organization" }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Welcome to AYM Yoga School in Rishikesh",
+      "description": "An overview video introducing AYM Yoga School in Rishikesh.",
+      "thumbnailUrl": "https://img.youtube.com/vi/xFMGqECPKPg/hqdefault.jpg",
+      "uploadDate": "2019-01-01",
+      "embedUrl": "https://www.youtube.com/embed/xFMGqECPKPg",
+      "publisher": { "@id": "https://aymyogaschool.com/#organization" }
+    }
+  ]
+}
+
+
 /* ═══════════════════════════════════════════
    MAIN COMPONENT
 ═══════════════════════════════════════════ */
@@ -291,6 +420,16 @@ export default function TestimonialsSection() {
   });
 
   return (
+    <>
+     <Script
+        id="testimonial-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
+    
     <section className={styles.section}>
       {/* Decorative mandala BG */}
       <div className={styles.mandalaTopLeft} aria-hidden="true" />
@@ -589,5 +728,6 @@ THANKING YOU FOR YOUR EFFORTS IN GIVING US THIS DIVINE KNOWLEDGE. HARI OM.`}
 
       <HowToReach />
     </section>
+    </>
   );
 }

@@ -7,9 +7,181 @@ import image2 from "@/assets/images/hday3.jpg";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/36.png";
 import Link from "next/link";
+import Script from "next/script";
+
+
+
+
+//schema
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/yoga-holidays-retreat-in-india#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Yoga Retreats",
+          "item": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Yoga Holidays & Camps",
+          "item": "https://aymyogaschool.com/yoga-holidays-retreat-in-india"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/yoga-holidays-retreat-in-india#webpage",
+      "url": "https://aymyogaschool.com/yoga-holidays-retreat-in-india",
+      "name": "Best Yoga Holiday Retreats in India | AYM Yoga School",
+      "description": "Enjoy the best Yoga Holiday Retreats in India with AYM Yoga School. Experience daily yoga, meditation, healthy meals, and peaceful accommodation.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/yoga-holidays-retreat-in-india#breadcrumb" },
+      "about": { "@id": "https://aymyogaschool.com/yoga-holidays-retreat-in-india#service" },
+      "inLanguage": "en-IN",
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://aymyogaschool.com/yoga-holidays-retreat-in-india#service",
+      "serviceType": "Yoga Holiday Retreat",
+      "name": "Yoga Holidays & Wellness Camps in India",
+      "description": "One-week detoxing and rejuvenating yoga holiday programs at AYM Yoga School, featuring Iyengar, Ashtanga, and Kundalini yoga styles, ranging from 7 to 10 days, combined with meditation and Ayurveda for overall wellness.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "@id": "https://aymyogaschool.com/#organization",
+        "name": "AYM Yoga School"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Rishikesh, Uttarakhand, India"
+      }
+    },
+    {
+      "@type": "EducationalEvent",
+      "@id": "https://aymyogaschool.com/yoga-holidays-retreat-in-india#shivir-may",
+      "name": "Yoga Shivir (Summer Yoga Camp) — Rishikesh",
+      "description": "A residential yoga camp for self-practice and general wellness, not a teacher training course. Includes daily asana practice, pranayama, yoga philosophy, and meditation under the guidance of Yogi Chetan Mahesh. Participants receive a certificate of participation, not a teaching certification.",
+      "startDate": "2026-05-15",
+      "endDate": "2026-06-05",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "AYM Yoga School",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Upper Tapovan",
+          "addressLocality": "Rishikesh",
+          "addressRegion": "Uttarakhand",
+          "postalCode": "249192",
+          "addressCountry": "IN"
+        }
+      },
+      "organizer": { "@id": "https://aymyogaschool.com/#organization" },
+      "typicalAgeRange": "15-60",
+      "offers": {
+        "@type": "Offer",
+        "price": "1700",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://aymyogaschool.com/yoga-holidays-retreat-in-india",
+        "description": "Per day, includes shared accommodation, satvic vegetarian meals, and yoga classes."
+      }
+    },
+    {
+      "@type": "EducationalEvent",
+      "@id": "https://aymyogaschool.com/yoga-holidays-retreat-in-india#shivir-june",
+      "name": "Yoga Shivir (Summer Yoga Camp) — Rishikesh",
+      "description": "A residential yoga camp for self-practice and general wellness, not a teacher training course. Includes daily asana practice, pranayama, yoga philosophy, and meditation under the guidance of Yogi Chetan Mahesh. Participants receive a certificate of participation, not a teaching certification.",
+      "startDate": "2026-06-06",
+      "endDate": "2026-06-27",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "AYM Yoga School",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Upper Tapovan",
+          "addressLocality": "Rishikesh",
+          "addressRegion": "Uttarakhand",
+          "postalCode": "249192",
+          "addressCountry": "IN"
+        }
+      },
+      "organizer": { "@id": "https://aymyogaschool.com/#organization" },
+      "typicalAgeRange": "15-60",
+      "offers": {
+        "@type": "Offer",
+        "price": "1700",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://aymyogaschool.com/yoga-holidays-retreat-in-india",
+        "description": "Per day, includes shared accommodation, satvic vegetarian meals, and yoga classes."
+      }
+    },
+    {
+      "@type": "EducationalEvent",
+      "@id": "https://aymyogaschool.com/yoga-holidays-retreat-in-india#shivir-july",
+      "name": "Yoga Shivir (Summer Yoga Camp) — Rishikesh",
+      "description": "A residential yoga camp for self-practice and general wellness, not a teacher training course. Includes daily asana practice, pranayama, yoga philosophy, and meditation under the guidance of Yogi Chetan Mahesh. Participants receive a certificate of participation, not a teaching certification.",
+      "startDate": "2026-06-30",
+      "endDate": "2026-07-15",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "AYM Yoga School",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Upper Tapovan",
+          "addressLocality": "Rishikesh",
+          "addressRegion": "Uttarakhand",
+          "postalCode": "249192",
+          "addressCountry": "IN"
+        }
+      },
+      "organizer": { "@id": "https://aymyogaschool.com/#organization" },
+      "typicalAgeRange": "15-60",
+      "offers": {
+        "@type": "Offer",
+        "price": "1700",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://aymyogaschool.com/yoga-holidays-retreat-in-india",
+        "description": "Per day, includes shared accommodation, satvic vegetarian meals, and yoga classes."
+      }
+    }
+  ]
+}
+
+
+
+
 // ===================== MAIN COMPONENT =====================
 const YogaHolidays: React.FC = () => {
   return (
+
+<>
+<Script
+        id="sound-healing-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
     <div className={styles.pageWrapper}>
       <section className={styles.heroSection}>
         <Image
@@ -432,6 +604,7 @@ const YogaHolidays: React.FC = () => {
 
       <HowToReach />
     </div>
+    </>
   );
 };
 

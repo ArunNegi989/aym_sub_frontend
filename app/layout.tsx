@@ -47,6 +47,91 @@ export const metadata: Metadata = {
 
 };
 
+//schema
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["EducationalOrganization", "SportsActivityLocation"],
+      "@id": "https://aymyogaschool.com/#organization",
+      "name": "AYM Yoga School",
+      "alternateName": "Association for Yoga & Meditation",
+      "url": "https://aymyogaschool.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aymyogaschool.com/_next/static/media/aym-yoga-school-logo.80503ca5.png"
+      },
+      "image": "https://aymyogaschool.com/_next/static/media/aym-yoga-school-logo.80503ca5.png",
+      "description": "AYM Yoga School offers Yoga Alliance USA and AYUSH Ministry certified Yoga Teacher Training Courses (100, 200, 300, 500 hour), yoga retreats, and meditation programs in Rishikesh, India.",
+      "telephone": "+91-7500277709",
+      "email": "aymindia@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Upper Tapovan",
+        "addressLocality": "Rishikesh",
+        "addressRegion": "Uttarakhand",
+        "postalCode": "249192",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.132348,
+        "longitude": 78.320039
+      },
+      "hasMap": "https://maps.google.com/?q=Indian+Yoga+Association+Rishikesh",
+      "sameAs": [
+        "https://www.facebook.com/aymindia",
+        "https://x.com/aymindia",
+        "https://www.instagram.com/indianyogaassociation/",
+        "https://www.youtube.com/user/aymindia1/"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Yoga Alliance USA Registered School (RYS 200, RYS 300)",
+          "credentialCategory": "Professional Certification"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Yoga Certification Board (YCB), Ministry of AYUSH, Government of India",
+          "credentialCategory": "Government Recognition"
+        }
+      ],
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "100 Hour Yoga Teacher Training", "url": "https://aymyogaschool.com/100-hour-yoga-ttc-in-rishikesh" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "200 Hour Yoga Teacher Training", "url": "https://aymyogaschool.com/200-hour-yoga-teacher-training-in-rishikesh" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "300 Hour Yoga Teacher Training", "url": "https://aymyogaschool.com/300-hour-yoga-ttc-in-rishikesh" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "500 Hour Yoga Teacher Training", "url": "https://aymyogaschool.com/500-hour-yoga-ttc-in-rishikesh" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Kundalini Yoga Teacher Training", "url": "https://aymyogaschool.com/best-kundalini-yoga-course" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Prenatal Yoga Teacher Training", "url": "https://aymyogaschool.com/prenatal-yoga-course" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Ashtanga Vinyasa Yoga Teacher Training", "url": "https://aymyogaschool.com/ashtanga-vinyasa-yoga-course" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Hatha Yoga Teacher Training", "url": "https://aymyogaschool.com/hatha-yoga-teacher-training" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Online Yoga Course", "url": "https://aymyogaschool.com/online-yoga-course" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Yoga and Ayurveda Detox Retreat", "url": "https://aymyogaschool.com/yoga-and-ayurveda-detox-retreat-in-rishikesh" } }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aymyogaschool.com/#website",
+      "url": "https://aymyogaschool.com/",
+      "name": "AYM Yoga School",
+      "publisher": { "@id": "https://aymyogaschool.com/#organization" },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/#webpage",
+      "url": "https://aymyogaschool.com/",
+      "name": "Yoga School in Rishikesh | Certified Courses | AYM Yoga School",
+      "description": "Join AYM yoga school in Rishikesh for authentic Yoga Teacher Training Courses. We offer Yoga Alliance-certified teacher training, yoga retreats, and meditation.",
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" },
+      "about": { "@id": "https://aymyogaschool.com/#organization" },
+      "inLanguage": "en-IN"
+    }
+  ]
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -92,6 +177,16 @@ export default function RootLayout({
           rel="stylesheet"
           crossOrigin="anonymous"
         />
+
+{/* schema */}
+<Script
+  id="schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(schema),
+  }}
+/>
+
       </head>
 
       <body

@@ -8,6 +8,7 @@ import bannerImage from "@/assets/images/meditation.jpg";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/41.png";
 import Link from "next/link";
+import Script from "next/script";
 
 /* ─── Types ─── */
 interface PricingRow {
@@ -502,6 +503,96 @@ function useCurrencyRate() {
 
   return { rate, loading };
 }
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/best-yoga-meditation-workshop-in-rishikesh#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Yoga Retreats",
+          "item": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Yoga Workshop",
+          "item": "https://aymyogaschool.com/best-yoga-meditation-workshop-in-rishikesh"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/best-yoga-meditation-workshop-in-rishikesh#webpage",
+      "url": "https://aymyogaschool.com/best-yoga-meditation-workshop-in-rishikesh",
+      "name": "Best Yoga Workshop in Rishikesh | AYM Yoga School",
+      "description": "Discover the best Yoga Workshop in Rishikesh at AYM Yoga School. Improve your yoga practice through guided meditation, pranayama, and expert instruction.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/best-yoga-meditation-workshop-in-rishikesh#breadcrumb" },
+      "about": { "@id": "https://aymyogaschool.com/best-yoga-meditation-workshop-in-rishikesh#course" },
+      "inLanguage": "en-IN",
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://aymyogaschool.com/best-yoga-meditation-workshop-in-rishikesh#course",
+      "name": "Meditation Yoga Teacher Training",
+      "description": "A 24-day Meditation Yoga Teacher Training program in Rishikesh covering Vipassana, active, and static meditation techniques, yoga philosophy, anatomy, breathwork, and the Eight Limbs of Yoga, designed to prepare students to teach meditation and mindfulness to others.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "@id": "https://aymyogaschool.com/#organization",
+        "name": "AYM Yoga School",
+        "sameAs": "https://aymyogaschool.com/"
+      },
+      "educationalCredentialAwarded": "Yoga Alliance, USA Certificate",
+      "coursePrerequisites": "None. Open to beginners and experienced practitioners.",
+      "teaches": [
+        "Vipassana meditation",
+        "Active meditation",
+        "Static meditation",
+        "Breathwork",
+        "Yoga philosophy",
+        "Anatomy and physiology of meditation",
+        "Eight Limbs of Yoga",
+        "Mindfulness practices"
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "name": "Meditation Yoga Teacher Training",
+        "courseMode": ["onsite", "online"],
+        "duration": "P24D",
+        "location": {
+          "@type": "Place",
+          "name": "AYM Yoga School",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Upper Tapovan",
+            "addressLocality": "Rishikesh",
+            "addressRegion": "Uttarakhand",
+            "postalCode": "249192",
+            "addressCountry": "IN"
+          }
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "799",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://aymyogaschool.com/best-yoga-meditation-workshop-in-rishikesh",
+        "category": "Meditation Yoga Teacher Training"
+      }
+    }
+  ]
+}
 
 /* ─── Component ─── */
 const MeditationPage: React.FC = () => {
@@ -509,6 +600,15 @@ const MeditationPage: React.FC = () => {
   const { rate, loading: rateLoading } = useCurrencyRate();
 
   return (
+    <>
+    <Script
+        id="sound-healing-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+    
     <div className={styles.page}>
       <section className={styles.heroSection}>
         <Image
@@ -900,6 +1000,7 @@ const MeditationPage: React.FC = () => {
 
       <HowToReach />
     </div>
+    </>
   );
 };
 

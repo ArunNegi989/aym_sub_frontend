@@ -5,6 +5,125 @@ import styles from "@/assets/style/ttc-payment/Paymentsection.module.css";
 import HowToReach from "@/components/home/Howtoreach";
 import Image from "next/image";
 import heroImg from "@/assets/images/32.webp";
+import Script from "next/script";
+
+//schema
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/payment-options#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Payment",
+          "item": "https://aymyogaschool.com/payment-options"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/payment-options#webpage",
+      "url": "https://aymyogaschool.com/payment-options",
+      "name": "Secure Payment Options | AYM Yoga School",
+      "description": "Make secure online payments at AYM Yoga School. Review available payment options for yoga courses, teacher training, retreats, and workshops.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/payment-options#breadcrumb" },
+      "about": { "@id": "https://aymyogaschool.com/#organization" },
+      "mainEntity": { "@id": "https://aymyogaschool.com/payment-options#faq" },
+      "inLanguage": "en-IN",
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://aymyogaschool.com/#organization",
+      "paymentAccepted": [
+        "Cash",
+        "PayPal",
+        "UPI",
+        "Credit Card",
+        "Debit Card",
+        "Direct Bank Transfer",
+        "Western Union Money Transfer",
+        "Traveller's Cheques"
+      ],
+      "currenciesAccepted": "INR, USD, EUR, AUD"
+    },
+    {
+      "@type": "Offer",
+      "@id": "https://aymyogaschool.com/payment-options#advance-fee",
+      "name": "Advance Registration Fee (200 / 300 / 500 Hour Yoga TTC)",
+      "description": "Advance payment required to reserve a seat in the 200-hour, 300-hour, or 500-hour Yoga Teacher Training. Deducted from the total course fee; the remaining balance is payable on arrival.",
+      "price": "110",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "110",
+        "priceCurrency": "USD",
+        "description": "USD 100 advance fee plus USD 10 PayPal transaction charge."
+      },
+      "url": "https://aymyogaschool.com/payment-options",
+      "seller": { "@id": "https://aymyogaschool.com/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aymyogaschool.com/payment-options#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much is the advance registration fee for Yoga Teacher Training?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To reserve a seat in the 200-hour, 300-hour, or 500-hour Yoga Teacher Training, students pay a USD 100 advance fee plus a USD 10 PayPal transaction charge, totaling USD 110. A confirmation email is sent after the advance fee is received. This amount is deducted from the total course fee, with the remaining balance payable on arrival."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What payment methods does AYM Yoga School accept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AYM Yoga School accepts PayPal, UPI, direct bank transfer, Western Union money transfer, and on-arrival payment via cash (INR, USD, AUD, EUR), traveller's cheques (USD), PayPal, credit/debit cards, and American Express."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there extra charges for paying by card or PayPal on arrival?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cash and traveller's cheques carry no extra charge. PayPal payments on arrival carry an 8% extra charge, credit/debit cards carry a 3.5% extra charge, and American Express cards carry a 4.5% extra charge. A 5% GST is applicable on any amount paid online or by bank transfer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is AYM Yoga School's cancellation and refund policy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All course payments are pre-contracted and non-refundable in case of cancellation, and fees are non-negotiable. Students must inform the school beforehand via email so the vacated space can be offered to another applicant."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does AYM Yoga School handle my personal information?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Information provided during registration is used solely for school purposes and kept strictly confidential. AYM Yoga School does not share personal information with any third party unless required for contract registration."
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
+
 
 const PaymentSection = () => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
@@ -62,6 +181,14 @@ const PaymentSection = () => {
 
   return (
     <>
+     <Script
+        id="payment-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
       <section className={styles.heroSection}>
         <Image
           src={heroImg}

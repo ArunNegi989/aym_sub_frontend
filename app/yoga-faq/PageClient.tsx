@@ -9,6 +9,7 @@ import yogafood         from "@/assets/images/Yogic-Foood.jpg";
 import certificateimage from "@/assets/images/200-hours-yttc-sept.jpg";
 import travelimage      from "@/assets/images/Delhi-Airport-to-AYM-Yoga-School.jpg";
 import HowToReach       from "@/components/home/Howtoreach";
+import Script from "next/script";
 
 /* ============================================================
    SECTIONS CONFIG
@@ -245,6 +246,152 @@ const MobileNav: React.FC<{ active: string; onNavigate: (id: string) => void }> 
   );
 };
 
+//schema
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/yoga-faq#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aymyogaschool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Yoga FAQ", "item": "https://aymyogaschool.com/yoga-faq" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/yoga-faq#webpage",
+      "url": "https://aymyogaschool.com/yoga-faq",
+      "name": "Frequently Asked Questions | AYM Yoga School",
+      "description": "Get answers to common questions about yoga teacher training, course eligibility, certification, schedules, accommodation, and payments at AYM Yoga School.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/yoga-faq#breadcrumb" },
+      "mainEntity": { "@id": "https://aymyogaschool.com/yoga-faq#faq" },
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aymyogaschool.com/yoga-faq#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is AYM Yoga School and where is it located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AYM Yoga School (Association for Yoga and Meditation) is a non-profit organization registered with the Government of India in 2005. It is located at Upper Tapovan, Laxman Jhulla, Rishikesh, surrounded by the Himalayas, with the holy river Ganga flowing nearby."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does the yoga teacher training tuition cost and what does it include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "200 Hour: USD 749 (dormitory), USD 899 (shared), USD 1099 (private). 300 Hour: USD 849 (dormitory), USD 999 (shared), USD 1199 (private). 500 Hour: USD 1649 (dormitory), USD 1949 (shared), USD 2349 (private). Fees include the course, accommodation, Yoga Alliance certificate, three meals with tea, 24/7 herbal tea, one sightseeing tour, institute t-shirts, study material bag, free Wi-Fi, and self-service washing machine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How experienced in yoga do I need to be to join?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 200-hour course requires only basic yoga knowledge and is beginner-level. The 300-hour course requires completion of the 200-hour course beforehand."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to study anything before joining the course?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reading about basic yoga poses and meditation beforehand is helpful. Recommended books include Light on Yoga, Yoga Sutra, Srimad Bhagavad Gita, and Yoga Anatomy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What exams do I need to pass to graduate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Students must pass a Hatha and Ashtanga Yoga practical exam and a 25-question open book exam."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What accommodation does AYM Yoga School provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both single and shared rooms are available, each with a private bathroom, shower, and geyser. Rooms are clean, airy, and well-lit. Guests can arrive a few nights early for an additional daily charge, and laundry facilities including a washing machine are available. An A/C room or a winter heater is available for USD 100 extra per month each."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What food and meals are provided at AYM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ayurvedic vegetarian Indian food is provided three times a day, cooked with herbal spices like turmeric, coriander, cinnamon, cloves, and ginger. No eggs or non-vegetarian meals are served. The daily plan includes tea, breakfast (a solid item plus fruit salad, juice, or shake), lunch (pulses, vegetables, rice, chapatti, and salad), and a lighter dinner."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What type of visa do I need to attend the course in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Tourist Visa is required, listing travel or meditation as the purpose of visit rather than joining a yoga course. No invitation letter is needed for a tourist visa, though an application letter can be provided by the school on request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Rishikesh safe, and is the water safe to drink?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rishikesh is considered a safe, holy city and popular tourist destination, safe even at night. The water is generally safe to drink, with bottled water also available and purified water provided in the AYM kitchen. No specific vaccines are required to travel to India, though visitors should consult their doctor for personal health concerns and bring any prescribed medicines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the course certified by Yoga Alliance, and how do I register as a teacher afterward?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All courses are certified by and affiliated with Yoga Alliance USA and the International Yoga Federation. After completing the course, graduates receive a Yoga Alliance USA certificate and can register as an RYT on the official Yoga Alliance website to teach yoga worldwide."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I travel to AYM Yoga School in Rishikesh?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fly into IGI Airport, New Delhi (250 km, pickup available) or Jolly Grant Airport, Dehradun (20 km, pickup available). AYM pickup from Delhi costs USD 90 one way or USD 150 return. A taxi from Delhi Airport costs USD 200-250. Alternatively, take a bus from Delhi to Rishikesh, or a train from Delhi to Haridwar followed by a taxi (about USD 20). Arrival should be booked at least one day before the course begins, with departure a day after completion. Course dates can be switched with at least one week's notice, within one year of the original booking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I pack and how much money should I bring?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Light cotton clothes are recommended for summer and warm clothes such as sweaters and woolens for winter. Bring enough money to cover the course fee, travel expenses, and some extra for emergencies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What payment options are available on arrival?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The balance is preferably paid on arrival at the school office. Accepted methods include cash (Indian Rupee, US Dollar, Australian Dollar, or Euro), Transferwise, and credit/debit cards, which carry a 3.5% extra charge."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to become a certified yoga teacher at AYM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 200-hour yoga teacher training program takes 24 days to complete. After completion, graduates are eligible to register as an RYT 200 with Yoga Alliance, USA."
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
+
 /* ============================================================
    PAGE
    ============================================================ */
@@ -280,6 +427,16 @@ const YogaFAQ: React.FC = () => {
   };
 
   return (
+<>
+
+<Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
     <div className={styles.pageWrapper}>
 
       {/* ── HERO ── */}
@@ -653,6 +810,7 @@ const YogaFAQ: React.FC = () => {
 
       <HowToReach />
     </div>
+    </>
   );
 };
 

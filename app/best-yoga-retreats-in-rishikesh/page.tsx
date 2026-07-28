@@ -7,6 +7,7 @@ import heroImg from "@/assets/images/33.webp";
 import PremiumGallerySection from "@/components/PremiumGallerySection";
 import Link from "next/link";
 import { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Yoga Retreat Rishikesh | Wellness & Meditation | AYM Yoga",
@@ -85,8 +86,228 @@ const OmDivider = () => (
   </div>
 );
 
+//schema
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Yoga Retreats",
+          "item": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh#webpage",
+      "url": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh",
+      "name": "Yoga Retreat Rishikesh | Wellness & Meditation | AYM Yoga",
+      "description": "Discover the best yoga retreat in Rishikesh at AYM Yoga School. Reconnect through yoga, meditation, pranayama, healthy meals, and serene surroundings.",
+      "breadcrumb": {
+        "@id": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh#breadcrumb"
+      },
+      "about": {
+        "@id": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh#service"
+      },
+      "inLanguage": "en-IN",
+      "isPartOf": {
+        "@id": "https://aymyogaschool.com/#website"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh#service",
+      "serviceType": "Yoga Retreat",
+      "name": "Yoga Retreats in Rishikesh",
+      "description": "AYM Yoga School offers 3 to 14 day yoga and Ayurveda retreats in Rishikesh, India, guided by experienced teachers, including meditation, Hatha, Ashtanga yoga, and Ayurvedic detox treatments, with accommodation and vegetarian/vegan meals included.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "@id": "https://aymyogaschool.com/#organization",
+        "name": "AYM Yoga School",
+        "telephone": "+91-7500277709",
+        "email": "aymindia@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Upper Tapovan",
+          "addressLocality": "Rishikesh",
+          "addressRegion": "Uttarakhand",
+          "postalCode": "249192",
+          "addressCountry": "IN"
+        },
+        "sameAs": [
+          "https://www.facebook.com/aymindia",
+          "https://x.com/aymindia",
+          "https://www.instagram.com/indianyogaassociation/",
+          "https://www.youtube.com/user/aymindia1/"
+        ]
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Rishikesh, Uttarakhand, India"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Beginner to Advanced"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Yoga & Ayurveda Retreat Packages",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "3 Days Yoga Retreat in Rishikesh",
+            "price": "6000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "6000",
+                "priceCurrency": "INR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "75",
+                "priceCurrency": "USD"
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "3 Days Ayurveda Retreat in Rishikesh",
+            "price": "9000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "9000",
+                "priceCurrency": "INR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "105",
+                "priceCurrency": "USD"
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "7 Days Yoga Retreat in Rishikesh",
+            "price": "14000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "14000",
+                "priceCurrency": "INR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "175",
+                "priceCurrency": "USD"
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "7 Days Ayurveda Retreat in Rishikesh",
+            "price": "21000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "21000",
+                "priceCurrency": "INR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "245",
+                "priceCurrency": "USD"
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "14 Days Yoga Retreat in Rishikesh",
+            "price": "28000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "28000",
+                "priceCurrency": "INR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "350",
+                "priceCurrency": "USD"
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "14 Days Ayurveda Retreat in Rishikesh",
+            "price": "42000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "42000",
+                "priceCurrency": "INR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": "490",
+                "priceCurrency": "USD"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+
+
+
+
+
+
+
+
 export default function YogaRetreatPage() {
   return (
+    <>
+     <Script
+        id="yoga-retreat-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+   
     <div className={styles.page}>
       <section className={styles.heroSection}>
         <Image
@@ -631,5 +852,6 @@ export default function YogaRetreatPage() {
       {/* BOTTOM BORDER */}
       <div className={styles.bottomBorder} />
     </div>
+    </>
   );
 }

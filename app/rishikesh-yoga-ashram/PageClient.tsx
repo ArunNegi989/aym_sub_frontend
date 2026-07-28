@@ -7,6 +7,7 @@ import yogaashramimg2 from "@/assets/images/yoga-ashram-in-rishikesh.jpg";
 import HowToReach from "@/components/home/Howtoreach";
 import heroImg from "@/assets/images/35.png";
 import Link from "next/link";
+import Script from "next/script";
 
 // ---- Om Symbol SVG ----
 const OmSVG: React.FC = () => (
@@ -34,9 +35,101 @@ const OmSVG: React.FC = () => (
 );
 
 
+//schema
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/rishikesh-yoga-ashram#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aymyogaschool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Yoga Retreats",
+          "item": "https://aymyogaschool.com/best-yoga-retreats-in-rishikesh"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Yoga Ashrams in India",
+          "item": "https://aymyogaschool.com/rishikesh-yoga-ashram"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/rishikesh-yoga-ashram#webpage",
+      "url": "https://aymyogaschool.com/rishikesh-yoga-ashram",
+      "name": "Best Rishikesh Yoga Ashram | AYM Yoga School",
+      "description": "Discover AYM Yoga School, a Rishikesh Yoga Ashram offering Yoga Alliance-certified teacher training, yoga retreats, meditation, and wellness programs.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/rishikesh-yoga-ashram#breadcrumb" },
+      "about": { "@id": "https://aymyogaschool.com/rishikesh-yoga-ashram#ashram" },
+      "inLanguage": "en-IN",
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" }
+    },
+    {
+      "@type": ["LodgingBusiness", "TouristAttraction"],
+      "@id": "https://aymyogaschool.com/rishikesh-yoga-ashram#ashram",
+      "name": "AYM Yoga Ashram",
+      "description": "AYM Yoga Ashram is a traditional yoga ashram in Rishikesh offering ashram-style accommodation and an immersive spiritual environment for yoga teacher training, retreats, and meditation, guided by experienced teachers rooted in Vedic tradition.",
+      "url": "https://aymyogaschool.com/rishikesh-yoga-ashram",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Upper Tapovan",
+        "addressLocality": "Rishikesh",
+        "addressRegion": "Uttarakhand",
+        "postalCode": "249192",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.132348,
+        "longitude": 78.320039
+      },
+      "telephone": "+91-7500277709",
+      "email": "aymindia@gmail.com",
+      "parentOrganization": { "@id": "https://aymyogaschool.com/#organization" },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Karma Yoga service activities" },
+        { "@type": "LocationFeatureSpecification", "name": "Keertan (devotional singing) sessions" },
+        { "@type": "LocationFeatureSpecification", "name": "Yoga and meditation film screenings" },
+        { "@type": "LocationFeatureSpecification", "name": "Spiritual site excursion" },
+        { "@type": "LocationFeatureSpecification", "name": "Free Sundays for local exploration" },
+        { "@type": "LocationFeatureSpecification", "name": "Post-class discussions with teachers" }
+      ],
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "100 Hour Yoga Teacher Training", "url": "https://aymyogaschool.com/100-hour-yoga-ttc-in-rishikesh" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "200 Hour Yoga Teacher Training", "url": "https://aymyogaschool.com/200-hour-yoga-teacher-training-in-rishikesh" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "300 Hour Yoga Teacher Training", "url": "https://aymyogaschool.com/300-hour-yoga-ttc-in-rishikesh" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "500 Hour Yoga Teacher Training", "url": "https://aymyogaschool.com/500-hour-yoga-ttc-in-rishikesh" } }
+      ]
+    }
+  ]
+}
+
+
+
+
 // ===================== MAIN COMPONENT =====================
 const YogaAshrams: React.FC = () => {
   return (
+
+    <>
+    <Script
+        id="sound-healing-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+   
     <div className={styles.pageWrapper}>
 {/* ===== HERO SECTION - FIXED ===== */}
 <section className={styles.heroSection}>
@@ -333,6 +426,7 @@ const YogaAshrams: React.FC = () => {
 </section>
       <HowToReach />
     </div>
+    </>
   );
 };
 

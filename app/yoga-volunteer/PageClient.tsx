@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "@/assets/style/yoga-volunteer/Postyttcpage.module.css";
 import HowToReach from "@/components/home/Howtoreach";
+import Script from "next/script";
 
 /* ── Inline SVG Mandala ── */
 const MandalaIcon = ({
@@ -80,6 +81,115 @@ const ChakraRow = () => {
   );
 };
 
+// schema
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aymyogaschool.com/yoga-volunteer#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aymyogaschool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Post TTC Yoga Volunteer", "item": "https://aymyogaschool.com/yoga-volunteer" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aymyogaschool.com/yoga-volunteer#webpage",
+      "url": "https://aymyogaschool.com/yoga-volunteer",
+      "name": "Yoga Volunteer Opportunities | AYM Yoga School",
+      "description": "Apply for the Yoga Volunteer Program at AYM Yoga School. Support yoga events, connect with the community, and grow through authentic yogic experiences.",
+      "breadcrumb": { "@id": "https://aymyogaschool.com/yoga-volunteer#breadcrumb" },
+      "about": { "@id": "https://aymyogaschool.com/yoga-volunteer#program" },
+      "isPartOf": { "@id": "https://aymyogaschool.com/#website" },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://aymyogaschool.com/yoga-volunteer#program",
+      "serviceType": "Post-TTC Yoga Volunteer Program",
+      "name": "Yoga Volunteer Program",
+      "description": "A post-Yoga Teacher Training program at AYM Yoga Ashram in Rishikesh for students wishing to deepen their practice under the guidance of AYM's yoga gurus, following the Guru-parampara tradition. Students provide voluntary service (seva) in exchange for accommodation, food, and drop-off facilities, within a structured spiritual and disciplined ashram environment.",
+      "provider": { "@id": "https://aymyogaschool.com/#organization" },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Rishikesh, Uttarakhand, India"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Post-TTC Yoga Programs",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Yoga Volunteer Program",
+              "description": "Students engage in voluntary service (seva) in exchange for their stay, combining spiritual growth with community contribution."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Yoga Immersion",
+              "description": "Deep immersion into ancient yogic teachings passed down through the Guru-parampara lineage."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Yoga Sadhana",
+              "description": "Independent practice of asanas and meditation to increase personal learning and mastery."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Course",
+              "name": "Advance Yoga Sadhana (Inner Awakening Course)",
+              "description": "An advanced yogic practice program for students ready to transcend ordinary practice, connected to AYM's Inner Awakening Retreat.",
+              "url": "https://aymyogaschool.com/inner-awakening-retreat"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aymyogaschool.com/yoga-volunteer#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I apply for the Post-TTC Yoga Volunteer Program at AYM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Applicants should email aymyogaschool@gmail.com for details of the Post-TTC yoga programs they wish to join. The school is currently welcoming students for volunteering positions, providing accommodation, food, and drop-in facilities in exchange for their services."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What rules must Yoga Volunteer Program participants follow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Volunteers must devote their time to ashram activities, follow karma yoga duties (8 hours), not leave the ashram without permission except on the weekly free day, keep regular waking and sleeping hours, avoid electronic gadgets outside designated times, keep their rooms tidy, and refrain from giving money, clothes, or tips directly to staff (monetary donations should go through the office)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the dress code and behavior policy at AYM Yoga Ashram?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Modest clothing is required at all times, including during yoga classes; shorts, leggings, low-cut or sleeveless tops, and tank tops are prohibited. Smoking, alcohol, non-vegetarian food, onion, and garlic are not allowed. Photography, video, or audio recording during classes or ceremonies requires the director's permission. Public displays of affection and any form of harassment are strictly prohibited, and silence is expected during meals and Satsang, with lights out by 10:30 PM."
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
 export default function PostYTTCPage() {
   const [visible, setVisible] = useState(false);
 
@@ -134,6 +244,18 @@ export default function PostYTTCPage() {
   ];
 
   return (
+
+    <>
+     <Script
+        id="yoga-voulnteer-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
+    
+
     <div className={`${styles.page} ${visible ? styles.visible : ""}`}>
 
       {/* Background Mandalas */}
@@ -404,5 +526,6 @@ export default function PostYTTCPage() {
       <div className={styles.bottomBorder} />
       <HowToReach />
     </div>
+    </>
   );
 }
