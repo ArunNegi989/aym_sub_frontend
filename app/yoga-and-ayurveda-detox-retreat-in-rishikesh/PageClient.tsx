@@ -166,15 +166,8 @@ const DetoxRetreat: React.FC = () => {
   <div className={styles.twoColumnLayout}>
     <div className={styles.textColumn}>
       <p className={styles.bodyText}>
-        We have a responsibility to take care of this body and mind. What do
-        we do to take care of it? Ever thought of it? We buy a car don&apos;t
-        we service it regularly so that it doesn&apos;t break down when we go
-        on a trip. If we own a car for 10 years, how many times would we
-        service our car? Maybe more than 15 times at least? What happens if we
-        don&apos;t? Now how many times we serviced or did maintenance of our
-        body? From the time we were born until now we could have eaten all
-        kinds of food, that may include good healthy food or bad, unhealthy
-        food, chemical preservative, junk food, fast food, etc.
+      It’s your body and mind, and we have a responsibility to care for both of them.What are you doing to care for?Do you even think about it?I know We all are happy to purchase a new car and to regularly check and to do service so that our car does not Breakdown while you were travelling somewhere with it if I know well we buy a new car that would be using that for say about 10 years minimum, have you done maintenance of that car for at least 15 times?
+
       </p>
       <div className={styles.highlightBox}>
         <p className={styles.bodyText}>
@@ -184,11 +177,7 @@ const DetoxRetreat: React.FC = () => {
         </p>
       </div>
       <p className={styles.bodyText}>
-        The toxin is any substance which hurts the body. The toxin can also
-        look like the monster in the body, they are stranger substance in the
-        body, and its presence is not needed for example heavy metals,
-        artificial chemicals, a preservative that found in all the food items
-        we eat from fruits to vegetable.
+      Toxin is defined as a harmful compound that can harm a living creature. The toxin might also look like the monster residing inside your body, which appears in another shape. Heavy metals and synthetic chemicals are some examples of toxic compounds; a preservative is another type of natural substance used in all types of food.
       </p>
     </div>
 
@@ -212,14 +201,7 @@ const DetoxRetreat: React.FC = () => {
   <div className={styles.conclusionBox}>
     <p className={styles.bodyText}>
       <span className={styles.quoteIcon}>"</span>
-      It is said you are, what you eat, but more importantly, you are what
-      you ate. That burger you ate one year ago would still be seating
-      inside you. All the food like sugar, cheese, biscuits, namkeen, tea,
-      coffee, chips all the things which don&apos;t come from mother nature
-      becomes extremely difficult to digest and eliminate. It can stick to
-      the walls of your intestines and forms a thick coating, most diseases
-      like high cholesterol levels, diabetics, high blood pressure originate
-      from here because of the accumulation of toxins in the body.
+      We all say you are what you eat, but you are actually what you eat. The burger you had 1 year ago is still stuck in your system. Every food; sugar, cheese, biscuits, namkeen, tea, coffee, chips-all these kinds of foods that don't come from mother nature are very difficult for us to get rid of and digest.They stick to the inner walls of the intestines, accumulating as a thick coating.Most diseases like diabetics, high cholesterol, blood pressure originates from here due to this toxic body.
       <span className={styles.quoteIcon}>"</span>
     </p>
   </div>
@@ -232,11 +214,7 @@ const DetoxRetreat: React.FC = () => {
     <h2 className={styles.sectionTitle}>HOW TO CORRECT THIS PROBLEM?</h2>
     <div className={styles.titleUnderline} />
     <p className={styles.bodyText}>
-      We will help you get rid of this toxin/waste which gets accumulated
-      inside your system. In other words, bathe your internal system. Once
-      that happens you would automatically lose weight, have clearer skin,
-      greater energy and much more mental clarity leading you towards a
-      happy, healthy life.
+      We will help you clear this toxin/waste out of your system. In other words, wash out your inside system. Upon doing this you will naturally lose weight, achieve clearer skin, increase energy, gain more mental focus and overall attain a happier, healthier life.
     </p>
     <div className={styles.benefitGrid}>
       {[
@@ -263,16 +241,13 @@ const DetoxRetreat: React.FC = () => {
     </h2>
     <div className={styles.titleUnderline} />
     <p className={styles.bodyText}>
-      It&apos;s a known fact that the body can heal itself if toxins are
-      removed. As toxins leave the body, the immune system strengthens and
-      fast healing begins. We bring out complete detoxification through the
-      following steps.
+    As all of us may know; if we take off poisons, the body heals itself. While the body is cleaning from those things, the immune system enhances & healing starts with rapidity. We induce thorough detoxification with help of the above processes.
     </p>
     <div className={styles.stepsGrid}>
       {[
         { n: 1, title: "Digestive Detox", desc: "Activate the digestive system to improve metabolism through herbs, therapies and metabolic changes." },
         { n: 2, title: "Gut Detox", desc: "Rectum and large intestine cleanse through herbal oils and enema therapies." },
-        { n: 3, title: "Breathing & Lungs Detox", desc: "Carried out through medicated oil or steam and deep yoga breathing techniques." },
+        { n: 3, title: "Breathing & Lungs Detox", desc: "Carried out through medicated oil or steam and deep yoga breathing techniques" },
         { n: 4, title: "Muscles, Bones & Skin", desc: "Through herbal lepana, oil massage, steam therapy and yoga practice." },
         { n: 5, title: "Blood Purification", desc: "Deep cleansing of the blood through Ayurvedic herbs and purification rituals." },
         { n: 6, title: "Digital Detox", desc: "Step away from all mobile phones, laptops, games and social media entirely." },
@@ -345,20 +320,18 @@ const DetoxRetreat: React.FC = () => {
   <div className={styles.systemCardHeader}>
     <div className={styles.systemNum}>1</div>
     <p className={styles.systemCardDesc}>
-      In one, you can come to our yoga Ayurveda panchakama treatment
-      centre in rishikesh. Our expert will start with the standard
-      procedure for detoxification.
+    For one of the packages, you can make your way to our yoga Ayurveda panchakama treatment centre in rishikesh. The process is initiated by our professional practitioner through routine cleansing.
     </p>
   </div>
   <div className={styles.systemCardBody}>
     <p className={styles.providesLabel}>what to expect:</p>
     <ul className={styles.providesList}>
       {[
-        "Personal consultation with our Ayurveda doctor on arrival.",
-        "A customised detox plan designed specifically for your body type.",
-        "Daily herbal treatments, oil therapies and Panchakarma sessions.",
-        "Guided yoga and pranayama classes every morning and evening.",
-        "Nutritious Ayurvedic meals prepared fresh to support your detox.",
+        "Initial consultation with our Ayurveda doctor upon arrival.",
+        "An individual detox plan tailored to your body constitution (Dosha).",
+        "Daily herbal remedies, massage with herbal oils, and Panchakarma procedures.",
+        "Morning and evening yoga asanas and pranayama sessions for relaxation and purification.",
+        "Wholesome vegetarian Ayurvedic food prepared fresh each day.",
       ].map((text) => (
         <li key={text} className={styles.providesItem}>
           <div className={styles.providesDot}><div className={styles.providesDotInner} /></div>
@@ -374,21 +347,17 @@ const DetoxRetreat: React.FC = () => {
         <div className={styles.systemCardHeader}>
           <div className={styles.systemNum}>2</div>
           <p className={styles.systemCardDesc}>
-            We will provide you all material and training at your door and will
-            guide ayurveda, yoga and nutritionist experts to you. Either you can
-            take our therapist services at our center or can do yourself through
-            one time training with our expert through video and call.
+          We’ll deliver you all the material and training right to your doorstep & introduce you to the best ayurveda,yoga And Nutritionists so that you could get a personal consultation with them . You can either consult our experts by coming to our wellness center or do it yourself through a single training by our expert over video call. We have customized detox programs for your special needs.
           </p>
         </div>
         <div className={styles.systemCardBody}>
           <p className={styles.providesLabel}>we will provide you:</p>
           <ul className={styles.providesList}>
             {[
-              "On phone consultation and guidance.",
-              "A pack delivered at your door having all herbal medicine and oil after booking.",
-              "Our therapist will demonstrate all the steps live or through video.",
-              "Our yoga and ayurveda expert will visit you and will have consultation face to face. Also will teach you how to do each step or through video.",
-              "During the detox process, we will guide and monitor and take feedback.",
+              "Consultation and assistance over the phone.",
+              "You will get a pack with herbal medicine and oils delivered to your door, after you book with us.",
+              "Our certified therapist will demonstrate every process through video calls or even in live mode.",
+              "Our experts would come to you and provide the needed advice after proper consultation.",
             ].map((text) => (
               <li key={text} className={styles.providesItem}>
                 <div className={styles.providesDot}><div className={styles.providesDotInner} /></div>

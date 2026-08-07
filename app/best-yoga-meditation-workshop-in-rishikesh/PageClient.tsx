@@ -652,18 +652,17 @@ const MeditationPage: React.FC = () => {
         <h2 className={styles.splitTitle}>What is Meditation?</h2>
         <OmDivider />
         <p className={styles.splitPara}>
-          Meditation cannot be explained in words. Words serve as signposts,
-          pointing toward something, but they are not the thing itself. As a
-          great one once said, "words are the fingers pointing towards the
-          moon but they are not the moon itself."
+        Words cannot describe meditation. Meditation cannot be captured through language. We often call things in a simple sentence like in the words of a great being "words are the fingers pointing towards the moon but they are not the moon itself."
+They are guides only and Meditation is that inner landscape inside all of us - that constant blissful bliss and all that JOY that is us.
+
         </p>
         <p className={styles.splitPara}>
-          Meditation is that vast inner space within you — a constant and complete bliss and joy. 
-          It is the connection to something so much bigger, where you are connected to every living 
-          being in the universe. It is the space where you become the complete watcher of everything.
+        That link to that BIG something where you are linked to every creature in the universe when you can be the complete watcher of all things. That second of open complete surrender into the hands of the divine/God which is when you have accepted 100% that your life IS unfolding before you and where you have become the completely receptive receiver  Where all that unfolds works in and through you..for you And when you reach inside and keep digging, the surprise inside you just keeps showing up about yourself and the world and love and that universe.
+
         </p>
         <p className={styles.splitPara}>
-          When you open yourself completely and surrender to God or the divine, that moment of surrender is when you fully accept your life is happening before you. You become the watcher, and everything works through you and for you. Meditation is digging deep within and constantly finding surprises about yourself, the world, the universe, and love. It is a beautiful process of unfolding or peeling to reach that complete, blissful core essence. Once you begin this inner journey, all desires vanish, and you want nothing but to go deeper.
+        Meditation is that beautiful peel, that unfolding, that going to the center to reach that core essence.
+
         </p>
       </div>
 
@@ -697,17 +696,12 @@ const MeditationPage: React.FC = () => {
       <div className={styles.methodContent}>
         <h3 className={styles.methodTitle}>Vipassana Meditation</h3>
         <p className={styles.bodyPara}>
-          Vipassana involves sitting in a comfortable meditative posture.
-          Focus on your breathing and the fact that you are now sitting. As
-          you breathe, repeat in your mind: "in, out, sitting" or "rising,
-          falling, sitting." You can focus either on your nostrils or on your
-          abdomen. Repeat this a few times and keep your focus with the
-          breath. Note that each round is an individual round. Keep repeating
-          until you feel comfortable. Usually, after a few rounds of noting,
-          meditation comes. If you lose concentration at any point, return
-          your awareness to the breath. During meditation, if any thought or
-          emotion comes up, try to remain the watcher. Do not attach to any of
-          them; just see them come, stay a while, and go.
+        For the Vipassana practice, it is important that you sit comfortably. You observe just the fact that you are sitting and the respiration. In every respiration you should repeat with the mind, while breathing-in "in, out, sitting", while breathing-out "in, out, sitting".
+You can direct the concentration to your nostrils, or to the belly.
+You repeat this a few times, and you should be always attentive toward the breath. Please, notice: each round is only an individual round. You should repeat until you feel comfortable. Meditation usually occurs after the first few rounds of noting.
+In any moment if you lose attention you should only go back to the breath, and do not get angry with you for this!
+During the meditation: if any thought or feeling comes up you should be a watcher. Do not try to engage in them, or attach yourself to them. Just watch this come, stay a bit and then go.
+
         </p>
       </div>
       <div className={styles.methodImage}>
@@ -725,20 +719,10 @@ const MeditationPage: React.FC = () => {
       <div className={styles.methodContent}>
         <h3 className={styles.methodTitle}>Active Meditation</h3>
         <p className={styles.bodyPara}>
-          Active meditation uses the energy of the body to silence the mind.
-          You use lots of energy before sitting still. This could involve
-          exercises such as dancing or aerobatic movements. This type of
-          meditation increases your blood circulation and heats up the body.
-          Your mind's focus and energy shift fully onto the body instead of
-          the brain or thoughts. Once the exercises are done, the meditator
-          sits for a few minutes to absorb the changes in the body. Focus the
-          energy on relaxing the muscles that have been working. This makes it
-          easier for beginner meditators to focus and feel only positive
-          feelings with minimal mind activity. This method is very new and not
-          used traditionally. It is meant for the fast-paced life humans
-          experience these days. It trains the mind to shift quickly from
-          activity to calm. With practice, the meditator can move to traditional
-          static meditation, where sitting still becomes easier.
+        Active Meditation Utilizes Energy Of The Body The goal is to make your mind fall quiet by expending your body’s energy before you begin to sit still. This could be accomplished through energetic activities like dancing or aerial yoga to get your circulation going, or aerobic movements to heat the body. While practicing active meditation, your energy flow is directed down to the body, rather than being utilized by your mind/brain activity.
+After several active moments, one of the active meditators sits for a few minutes to experience the shift in the body and relaxes muscles that have been stretched.
+For a meditator novice, this has very few distractions and emotions/feelings remain entirely positive, with very little mental chatter or distractions. Although relatively new and not something of any traditional background, Active Meditation is designed for the realities of the current way of human life to re-train the mind to be in a better flow between work and rest. It opens us up to stillness and makes static meditation much easier over time.
+
         </p>
       </div>
       <div className={styles.methodImage}>
@@ -756,7 +740,10 @@ const MeditationPage: React.FC = () => {
       <div className={styles.methodContent}>
         <h3 className={styles.methodTitle}>Static Meditation</h3>
         <p className={styles.bodyPara}>
-         Static meditation is a practice in which the meditator sits still, focusing inward until reaching a meditative state. Over time, meditation can expand into every action throughout the day, including brushing teeth, walking, doing chores, practicing Yoga, working, and other aspects of daily life. In this context, meditation means being fully mindful and aware of actions, sensations, and thoughts, both internally and externally. Unlike practices with vigorous movement, static meditation emphasizes stillness and doing each activity at its natural pace with complete energy and attention. This sustained and mindful practice sometimes takes more or less time but always centers on careful awareness. Through static meditation, one aims to connect to the universe's powers, attain advanced meditative stages, and possibly remain in such a state for extended periods. Vipassana meditation, as referenced above, exemplifies a method that can lead to traditional static meditation.
+        When static meditation is undertaken the person would actually be fixed in their pose while doing inward focusing until a meditative condition is attained. Following practice, this meditated state extends beyond fixed postures to include each day’s actions such as brushing teeth, walking, performing tasks, Yoga, working and so forth. When used in this sense, meditated action means mindfully aware of our action, our sensation or thought; interior as exterior.
+Instead of many actions being involved like in more energic forms of activity, static meditation is stillness, though every activity is carried out at normal speed with our full energy and presence.
+The act itself does not take less or more time depending on the person. Static meditations lead towards access and connection to greater cosmic powers and ultimately lead to a perfected form of meditative awareness, to have the potential of sitting for prolonged periods in this awareness.
+
         </p>
       </div>
       <div className={styles.methodImage}>
@@ -770,16 +757,7 @@ const MeditationPage: React.FC = () => {
     </div>
 
     <p className={styles.bodyPara} style={{ marginTop: "1.5rem" }}>
-      If you are interested in exploring a meditation yoga course in
-      Rishikesh, meditation yoga classes in Rishikesh, or yoga and
-      meditation courses in India, there are numerous opportunities for
-      all levels. Whether you are seeking a meditation course for
-      beginners in Rishikesh, a mindfulness meditation course in India, or
-      prefer an online meditation yoga course in India, you will find
-      programs tailored to your needs. For those wishing for a deeper
-      experience, a spiritual meditation retreat in Rishikesh or
-      meditation yoga training in Rishikesh offers unique chances for
-      personal growth and self-discovery.
+    If you’re interested in a meditation yoga course in Rishikesh, yoga & meditation classes Rishikesh, meditation and yoga course in India you’ll find opportunities for any level, such as an online meditation yoga course in India , mindfulness meditation course in India, meditations course for beginners Rishikesh, meditations for yoga teacher training Rishikesh, meditation and spirituality retreat Rishikesh .
     </p>
   </div>
 </section>
@@ -795,13 +773,7 @@ const MeditationPage: React.FC = () => {
         <h2 className={styles.secTitle}>Elevate Your Practice and Inspire Others</h2>
         <OmDivider />
         <p className={styles.bodyPara}>
-          Are you ready to take your yoga journey to the next level and
-          empower others in their mindfulness practices? Our{" "}
-          <strong>Meditation Yoga Teacher Training program</strong> is crafted
-          for those eager to explore the dynamic relationship between
-          meditation and yoga. Join us as we embark on a transformative
-          journey, equipping you to guide others confidently on their paths to
-          self-awareness and tranquillity.
+        The world needs more meditation teachers with the skills to integrate mindful movement into their practices. Perhaps that person is you. Our Meditation Yoga Teacher Training is for you who would like to dive deeper in to the potent connection between meditation and yoga. The Meditation Teacher Yoga training will give you a foundation for teaching others mindfully, on their personal path towards peace and self awareness.
         </p>
       </div>
       <div className={styles.elevateImage}>
@@ -824,7 +796,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>🌟</div>
         <h4 className={styles.whyCardTitle}>Empowering Environment</h4>
         <p className={styles.whyCardText}>
-         Traditional meditation is that kind of meditation in which one focuses on the self and tries to unite the self with the almighty. This practice is also known as moksha or nirvana. The use of mala beads is done to do japa or chanting of a mantra repeatedly up to 108 times. This helps in focusing on oneself and getting free of distractions while meditating.
+        These traditional forms of meditation involve focusing on your own self, and uniting them with the universe or the almighty itself. This is otherwise known as salvation or nirvana! Typically mala beads would be used for chanting a mantra repeatedly 108 times, while chanting, as it helps one focus on one's own self.
         </p>
       </div>
       
@@ -832,7 +804,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>👨‍🏫</div>
         <h4 className={styles.whyCardTitle}>Expert Instructors</h4>
         <p className={styles.whyCardText}>
-        Our experienced teachers are passionate about sharing their knowledge and expertise with you. They will provide you with the tools and feedback necessary to help you lead confidently and clearly.
+        Our experienced teachers are looking to share what they know. They will be equipped to give you everything you need, and the guidance, to go and direct and speak with confidence.
         </p>
       </div>
       
@@ -840,7 +812,8 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>📚</div>
         <h4 className={styles.whyCardTitle}>Comprehensive Curriculum</h4>
         <p className={styles.whyCardText}>
-          Our well-rounded curriculum covers essential topics, including yoga philosophy, anatomy, and meditation techniques. You'll gain a deep understanding of how to combine these elements to enhance your practice and teaching.
+        A comprehensively curated curriculum, spanning yoga’s philosophy, anatomy and meditation practices. We will teach you how to blend these components seamlessly for your own practice, and eventually, as a yoga teacher.
+
         </p>
       </div>
       
@@ -848,7 +821,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>💪</div>
         <h4 className={styles.whyCardTitle}>Practical Experience</h4>
         <p className={styles.whyCardText}>
-          Get ready to step into your role as a teacher! Our program offers ample opportunities to lead meditation sessions and teach asanas, ensuring you are well-prepared to create a nurturing and effective environment for your future students.
+        Prepare to step into your leadership as a teacher. You’ll have numerous opportunities in our program to guide your practice through teaching meditations and asanas that fully prepare you to build inclusive safe spaces for students for years to come.
         </p>
       </div>
       
@@ -856,7 +829,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>🦋</div>
         <h4 className={styles.whyCardTitle}>Transformational Journey</h4>
         <p className={styles.whyCardText}>
-         This training is designed for teaching and personal evolution. Cultivate profound insights and develop your mindfulness practice, enabling you to share authentic experiences with your students.
+        The purpose of this training is both teaching and personal growth. Deepen your insights, strengthen your mindfulness practice, then you will be able to authentically transmit your experiences to your students.
         </p>
       </div>
       
@@ -864,7 +837,7 @@ const MeditationPage: React.FC = () => {
         <div className={styles.whyCardIcon}>🤝</div>
         <h4 className={styles.whyCardTitle}>Building a Strong Community</h4>
         <p className={styles.whyCardText}>
-          You'll connect with a network of driven individuals who share your passion. Together, you will share experiences and support one another in this empowering journey, forging strong relationships that last beyond the program.
+        You will be part of the network of passionate, proactive entrepreneurs in a safe, supportive, empowering space. You’ll form relationships of mutual respect & value which will serve you beyond the course.
         </p>
       </div>
     </div>
@@ -955,20 +928,14 @@ const MeditationPage: React.FC = () => {
           <span className={styles.ctaDividerLine}></span>
         </div>
         <p className={styles.ctaPara}>
-          If you are passionate about yoga and eager to deepen your knowledge
-          while sharing it with others, this training is for you. Whether you
-          are a beginner or have extensive experience, we welcome dedicated
-          individuals ready to embrace the powerful practice of mindfulness.
+        If you are a yoga practitioner and passionate about learning more while also educating others, this is for you. From Novice to an Experienced Practitioner, those committed to embracing the potent and transformative nature of mindfulness are accepted.
         </p>
 
         <h3 className={styles.ctaSubTitle}>
           Embark on Your Transformative Journey
         </h3>
         <p className={styles.ctaPara}>
-          Enroll in our Meditation Yoga Teacher Training program and take a
-          significant step toward enhancing your practice and impacting the
-          lives of others. Together, we will cultivate a world of mindful
-          living, one breath at a time.
+        Whether you are a yogi interested in teaching meditation yoga, a student just trying to learn how to practice, or anywhere in between, this teacher training course will inspire you to continue your yoga practice and share it with the world. We will work towards a more awakened world, breath by breath, if only by each breathing life.
         </p>
         
         <div className={styles.ctaButtonGroup}>

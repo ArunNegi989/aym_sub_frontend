@@ -139,7 +139,7 @@ const YogaTrainingJaipur: React.FC = () => {
             PAGE TITLE
         ══════════════════════════════════════ */}
         <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>Yoga Teacher Training in Jaipur</h1>
+          <h1 className={styles.pageTitle}>Yoga Teacher Training in Jaipur – Become a Certified Yoga Instructor with AYM </h1>
           <div className={styles.titleUnderline}>
             <div className={styles.underlineLine} />
           </div>
@@ -160,7 +160,7 @@ const YogaTrainingJaipur: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Are you looking for Teacher Training in Jaipur
+              Start Your Journey Toward a Rewarding Yoga Career 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -169,24 +169,14 @@ const YogaTrainingJaipur: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Yoga has been and is still a gift to the world for decades. Be it
-              physical or mental, it is a powerful tool when it comes to
-              well-being. It is famous worldwide due to the high demand of
-              students who want to deepen their knowledge. Are you looking for a
-              profound{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training course in Jaipur?
-              </strong>
+            Yoga is a lot more than exercising your body. It is a big change that helps your mind, body and spirit. More and more people are starting to do yoga as a way of life so the need for yoga teachers who are qualified and certified is getting bigger all around the world.
+
             </p>
             <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              We at AYM are your best choice. We offer services in Rishikesh and
-              around different locations. With us, you'll develop the necessary
-              skills that will help you grow as a yoga teacher. Our courses are
-              affordable and come with certification. So join us at AYM, the{" "}
-              <strong className={styles.boldLink}>
-                best yoga TTC in Jaipur
-              </strong>
-              , and learn to be fit and inspire others.
+            If you are looking for a Yoga Teacher Training, in Jaipur AYM has programs that are known all around the world. These programs will help you learn yoga practices and give you the confidence you need to teach yoga to other people.
+
+You might be new to yoga. You might have been doing it for a long time and want to get better. Either way our training program will give you the knowledge and experience you need to start teaching yoga. You will also get a certification that is accepted everywhere which's a big help when you start teaching yoga.
+
             </p>
           </div>
         </div>
@@ -209,7 +199,7 @@ const YogaTrainingJaipur: React.FC = () => {
               className={styles.headingScript}
               style={{ textAlign: "center" }}
             >
-              Gain In-depth Knowledge from the Best Curriculum
+              Why Choose AYM for Yoga Teacher Training in Jaipur?
             </h2>
             <div
               className={styles.headingUnderline}
@@ -218,26 +208,13 @@ const YogaTrainingJaipur: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              We at AYM believe that yoga goes beyond just physical postures.
-              Without proper knowledge, one cannot understand the yogic life.
-              Keeping this in mind, we offer a comprehensive course through our
-              Course of{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in Jaipur
-              </strong>
-              . The curriculum and programs are designed to cater to the needs
-              of all yoga enthusiasts and all levels- beginners, intermediate
-              and advanced.
+            Yoga is a lot more than exercising your body. It is a big change that helps your mind, body and spirit. More and more people are starting to do yoga as a way of life so the need for yoga teachers who are qualified and certified is getting bigger all around the world.
+
             </p>
             <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              Our{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in Jaipur
-              </strong>{" "}
-              courses are well-detailed and covers all aspects of yoga. Our
-              teachings go back to the traditional form but are learned in the
-              modern way. You'll learn yoga techniques and gain the confidence
-              to effectively share this knowledge with the world.
+            If you are looking for a Yoga Teacher Training, in Jaipur AYM has programs that are known all around the world. These programs will help you learn yoga practices and give you the confidence you need to teach yoga to other people.
+            You might be new to yoga. You might have been doing it for a long time and want to get better. Either way our training program will give you the knowledge and experience you need to start teaching yoga. You will also get a certification that is accepted everywhere which's a big help when you start teaching yoga.
+
             </p>
           </div>
         </div>
@@ -256,26 +233,30 @@ const YogaTrainingJaipur: React.FC = () => {
             />
           </div>
           <div className={styles.textWrap}>
+          <h2
+              className={styles.headingScript}
+              style={{ textAlign: "center" }}
+            >
+              Why Choose AYM for Yoga Teacher Training in Jaipur? 
+            </h2>
             <p className={styles.bodyText}>
-              You'll also be involved in daily group practice, expert guidance,
-              detailed instructions on theory and practical classes, receive
-              additional and personalized attention and more. Furthermore, here
-              are some examples of what you'll learn by enrolling on our{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in Jaipur
-              </strong>
+            At AYM we bring together the ideas of yoga with new ways of teaching to make a learning experience that is really interesting and changes you.
+
+Our teacher training programs are made to follow the rules of Yoga Alliance. They help students learn a lot of things. We want our students to be able to do these things:
+
               :
             </p>
             <ol className={styles.numberedList}>
-              <li>1. Introduction of yoga.</li>
-              <li>2. The yoga paths.</li>
-              <li>3. Different yoga postures.</li>
-              <li>4. Yoga and its philosophy and principles.</li>
-              <li>5. 200/300/500-hour yoga TTC in Jaipur.</li>
-              <li>6. Anatomy and physiology.</li>
+              <li>1. Have a yoga practice that they do every day.</li>
+              <li>2. Really understand what yoga is about.</li>
+              <li>3. Be teachers.</li>
+              <li>4. Know how to teach a class.</li>
+              <li>5. Feel confident to teach yoga to people around the world.</li>
+              {/* <li>6. Anatomy and physiology.</li>
               <li>7. Breathing techniques.</li>
-              <li>8. Teaching methodologies</li>
+              <li>8. Teaching methodologies</li> */}
             </ol>
+            <p className={styles.bodyText}>The people who teach at AYM have a lot of experience and they help each student one on one throughout their training. This means that every student gets the help and support they need from our teachers, at AYM.</p>
           </div>
         </div>
 
@@ -301,7 +282,7 @@ const YogaTrainingJaipur: React.FC = () => {
               className={styles.headingScript}
               style={{ textAlign: "center" }}
             >
-              Learn Different Yoga Levels with Certification in Jaipur
+             Start Your Yoga Journey Today
             </h2>
             <div
               className={styles.headingUnderline}
@@ -310,28 +291,13 @@ const YogaTrainingJaipur: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              We at AYM have covered you for candidates who want to learn yoga
-              but need more time. In addition to our long-term courses, we offer
-              short-term courses, such as{" "}
-              <strong className={styles.boldLink}>
-                200 hour yoga TTC in Jaipur
-              </strong>{" "}
-              and{" "}
-              <strong className={styles.boldLink}>
-                300 hour yoga TTC in Jaipur
-              </strong>
-              . Whether you want to deepen your knowledge or become a certified
-              teacher, these courses are best suited for you.
+            Yoga can really change your life in ways. It can make your body healthy, your mind strong and your heart happy. If you want to teach yoga to others you need to find a good teacher training program. This is the step to becoming a great yoga teacher who knows what they are doing and can inspire their students.
             </p>
             <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              These courses involve all necessary skills and practices both in
-              theory and practical form. Certified yoga teachers and experts
-              will guide you. Upon completing your{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in Jaipur
-              </strong>
-              , you'll also be rewarded with a certificate allowing you to teach
-              anywhere in the world.
+            At AYM we want to make sure that yoga is taught in a way. We also want our students to be able to teach yoga all around the world.
+
+            You can join our Yoga Teacher Training in Jaipur. Start a journey that will change your life. You will become healthier, learn more about yourself and become a teacher. Yoga Teacher Training in Jaipur is a way to start this journey.
+
             </p>
 
             {/* Sub-section B */}
@@ -339,27 +305,13 @@ const YogaTrainingJaipur: React.FC = () => {
               className={styles.subHeadingSerif}
               style={{ textAlign: "center" }}
             >
-              Learn Yoga from the Best Teachers and Get Certified
+              Learn from Yoga Teachers Who Have Experience
             </h2>
             <p className={styles.bodyText}>
-              As the leading yoga teacher training provider in Jaipur India, we
-              at AYM have the best teachers and professionals for you. By
-              enrolling, you'll get the opportunity to learn with highly skilled
-              and experienced yoga teachers. Be it any queries, the teachers
-              will guide and support you in every step. You'll be confident as
-              the teachers provide personal attention to all individuals.
+            One of the things about AYM is our group of experienced yoga teachers.
             </p>
             <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              By completing your{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in Jaipur
-              </strong>
-              , you'll feel completely skilled, knowledgeable and capable of
-              sharing your ideas with the world. The best part is that you'll be
-              certified with our Yoga Alliance certification and accreditation
-              that meets the international standard. Once you receive it, you
-              can start your own journey and turn your passion into your best
-              occupation.
+            These teachers have spent years learning and doing traditional yoga. They want to give knowledge in a place where students feel safe and supported.
             </p>
           </div>
         </div>

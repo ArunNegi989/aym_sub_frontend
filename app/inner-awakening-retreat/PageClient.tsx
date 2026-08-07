@@ -212,11 +212,8 @@ const InnerTransformation: React.FC = () => {
     
     <div className={styles.maharishiIntro}>
       <p className={styles.bodyText}>
-        <span className={styles.dropCap}>Y</span>ogi, Mystic, and Visionary. Himalayan Yogi{" "}
-        <strong>Sri Maharishi</strong> belongs to the eternal Siddha
-        Tradition, a lineage of perfected beings. He spent the last 30 years
-        in meditation and practicing traditional Kryia Yoga at the Himalayas
-        with enlightened gurus.
+        <span className={styles.dropCap}>B</span>orn in the vast natural beauty of the Himalayas, Himalayan Yogi Sri Maharishi is an eternal master belonging to the Samgha of the ever perfect ones, the eternal lineage of Siddhas. The Siddha Tradition has dedicated its life-force and energy for thousands of years to the goal of direct, inner attainment and inner presence. For more than 30 years, he has lived in seclusion and practised pure Kriya Yoga in its traditional form high in the serene Himalayas under great enlightened gurus from this lineage.
+
       </p>
     </div>
 
@@ -281,11 +278,8 @@ const InnerTransformation: React.FC = () => {
       
       <div className={styles.textBlock}>
         <p className={styles.bodyText}>
-          <span className={styles.highlight}>We often go by in our daily lives in the automatic mode</span>, running away
-          from questions we don't know how to answer. When we are disconnected from our true selves, 
-          those questions are nearly impossible to be answered because we try to answer them by 
-          looking outside, in material things, in the personalities we've created for ourselves. 
-          But we are not our money; we are not our profession. <strong>So who are we?</strong>
+          <span className={styles.highlight}>We drift through our lives on autopilot</span>, rarely engaging with the core questions – often taught to search for answers in our jobs, our possessions, and the labels we accumulate. But your job title and your bank balance do not define you.
+          <strong>Who then are you?</strong>
         </p>
       </div>
 
@@ -295,9 +289,7 @@ const InnerTransformation: React.FC = () => {
             <div className={styles.insightNumber}>01</div>
             <h4 className={styles.insightTitle}>Inner Exploration</h4>
             <p className={styles.insightText}>
-              The Inner Transformation retreat is an invitation for you to look deeply inside yourself 
-              and connect with your higher self. It is self-realization through constant self-inquiry 
-              and exploration of the inner states of the being.
+            Inner Exploration is an opportunity for you to explore within and commune with your higher self. This is self-actualisation, sustained and real through deep inquiry, not a quick weekend course with a concluding certificate.
             </p>
           </div>
         </div>
@@ -307,9 +299,9 @@ const InnerTransformation: React.FC = () => {
             <div className={styles.insightNumber}>02</div>
             <h4 className={styles.insightTitle}>Freedom Based</h4>
             <p className={styles.insightText}>
-              Every person has their own path to reach inner tranquility. The retreat is based on freedom, 
-              presenting different methods, Eastern philosophies (Yoga, Jainism, Taoism), and techniques 
-              for each person to find their own practice.
+            There is no one way or one truth here.
+Through daily exposure to diverse philosophies such asYoga,Jainism, andTaoism, and different modes of inquiry, we enable you to discern your authentic and personal practice.
+
             </p>
           </div>
         </div>
@@ -318,7 +310,7 @@ const InnerTransformation: React.FC = () => {
       <div className={styles.programNote}>
         <div className={styles.noteDot}></div>
         <p className={styles.noteText}>
-          This retreat consists of a foundation program, with an advanced master program also available.
+        This retreat runs as a 14-day Foundation Program. Practitioners who complete it and wish to go further may apply for the Advanced Master Program, ask us for details when you register.
         </p>
       </div>
     </div>

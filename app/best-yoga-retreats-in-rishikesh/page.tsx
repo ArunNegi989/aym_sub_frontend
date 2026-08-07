@@ -325,7 +325,7 @@ export default function YogaRetreatPage() {
       <section className={styles.heroSection1}>
         <div className={styles.container}>
           <h1 className={styles.pageTitle}>
-            The Best Yoga Retreats in Rishikesh, India
+          The Best Yoga Retreats in Rishikesh, India
           </h1>
           <OmDivider />
 
@@ -333,31 +333,17 @@ export default function YogaRetreatPage() {
             {/* LEFT — text */}
             <div className={styles.s1TextCol}>
               <p className={styles.bodyPara}>
-                Rishikesh, also known as the{" "}
-                <strong>Yoga Capital of the World</strong>, offers unique
-                opportunities for individuals seeking a profound journey into{" "}
-                <strong>Yoga and meditation.</strong> Located at the foothills
-                of the Himalayas and blessed by the tranquil flow of the sacred
-                Ganga River, Rishikesh exudes an unparalleled spiritual energy,
-                making it one of the most sought-after destinations for a{" "}
-                <strong>Yoga Retreat in India.</strong>
+              Nestled at the foothills of the majestic Himalayas along the banks of the Ganga river lies an mesmerizing town known as Rishikesh, the Yoga Capital of the World. It's quite evident why this place is such a favorite for yoga enthusiasts looking for the best yoga retreat rishikesh options. 
+
               </p>
               <p className={styles.bodyPara}>
-                <strong>AYM Yoga School</strong> offers some of the{" "}
-                <strong>best yoga retreats in India</strong>, guided by highly
-                qualified and experienced teachers. Whether you're a beginner
-                eager to explore yoga or an advanced practitioner looking to
-                deepen your practice, our tailored programs provide a
-                life-transforming experience and inspire you to reach new
-                heights in your yoga journey.
+              AYM Yoga School offers structured retreat programs set in the Tapovan area of Rishikesh ranging from just a few days long to two weeks long!
+At AYM Yoga School, we offer some of the Best Yoga Retreat in India, led by Highly Qualified & Experienced Teachers. Our Tailored Programs are designed for Everyone, whether You’re a Beginner wanting to Explore Yoga or an Advanced Practitioner Looking to Deepen Your Practice, We Provide a Life Transformative Experience that Inspire You to Reach New Heights on your Yoga Journey! 
+
               </p>
               <p className={styles.bodyPara}>
-                In addition to yoga, our{" "}
-                <strong>Ayurveda wellness school in India</strong> offers a
-                holistic approach to well-being. Rejuvenate your mind, body,
-                and soul with ancient Ayurvedic therapies at our{" "}
-                <strong>Luxury Ayurvedic retreat in India</strong>, recognized
-                among the <strong>best in the world.</strong>
+              Explore Our Ayurveda Wellness School In India For Holistic Approach To Wellbeing And Rejuvenate Mind, Body & Soul With Ancient Ayurvedic Therapies At Our Luxury Ayurvedic Retreat In India Recognized As One Of The Best In The World 
+
               </p>
 
               <div className={styles.s1Stats}>
@@ -521,12 +507,7 @@ export default function YogaRetreatPage() {
           </h2>
           <OmDivider />
           <p className={styles.bodyPara}>
-           This is one of our shortest <strong>yoga and meditation Rishikesh</strong>{" "}
-            programs. Take a small break from your busy work life and
-            rejuvenate your body, mind, and soul. Join us every month and
-            attend morning yoga classes focused on meditation,
-            detoxification, and Ashtanga yoga. Hatha yoga and mantra
-            chanting sessions for healing and peace continue in the evening.
+          This is one of our shortest yoga and meditation Rishikesh programs. Take a small break from your busy work life and rejuvenate your body, mind, and soul. Join us every month and attend morning yoga classes focused on meditation, detoxification, and Ashtanga yoga. Hatha yoga and mantra chanting sessions for healing and peace continue in the evening.
           </p>
           <p className={styles.bodyPara}>Our <strong>3 to 7 days yoga retreat Rishikesh</strong> costs 25 USD / 2000 INR per day (food and accommodation included).</p>
           <div className={styles.pricePill}>
@@ -545,17 +526,12 @@ export default function YogaRetreatPage() {
           </h2>
           <OmDivider />
           <p className={styles.bodyPara}>
-            Integrate your yoga practice with the ancient science of
-            Ayurveda. AYM offers{" "}
-            <strong>Yoga and Ayurveda detox retreats in Rishikesh</strong>,
-            promising total well-being. We follow the panchakarma process —
-            a five-step detox routine — to eliminate bodily toxins. A
-            combination of yoga and Ayurveda gives profound relief to body,
-            mind, and soul.
+          Integrate your yoga practice with the ancient science of Ayurveda. AYM offers Yoga and Ayurveda detox retreats in Rishikesh, promising total well-being. We follow the panchakarma process, a five-step detox routine,  to eliminate bodily toxins. A combination of yoga and Ayurveda gives profound relief to body, mind, and soul.
+
+
           </p>
           <p className={styles.bodyPara}>
-            The course schedule includes three yoga classes and one Ayurvedic
-            treatment process daily.
+          The course schedule includes three yoga classes and one Ayurvedic treatment process daily.
           </p>
           <div className={styles.pricePill}>
             <span className={styles.priceLabel}>From</span>
@@ -578,16 +554,10 @@ export default function YogaRetreatPage() {
           <h2 className={styles.secTitle}>7 to 14 Days Yoga Retreats India</h2>
           <OmDivider />
           <p className={styles.bodyPara}>
-            Experience a transformative journey in the serene Tapovan area
-            of Rishikesh. At AYM, one of the best yoga training centres in Rishikesh, we offer 7 to 14-day immersive yoga
-            retreats that empower you to continue your personal practice
-            after you leave. Our experienced teachers guide you through each
-            technique with clarity and depth, ensuring you gain a solid foundation.
+          Experience a transformative journey in the serene Tapovan area of Rishikesh with our 14 days yoga retreat in Rishikesh. At AYM, one of the best yoga training centres in Rishikesh, we offer 7 to 14-day immersive yoga retreats that empower you to continue your personal practice after you leave. Our experienced teachers guide you through each technique with clarity and depth, ensuring you gain a solid foundation. 
           </p>
           <p className={styles.bodyPara}>
-            Three classes are held daily along with early morning
-            meditation. Ashtanga and Hatha yoga classes are scheduled in the
-            evenings.
+          Three classes are held daily along with early morning meditation, and Ashtanga and Hatha yoga classes are scheduled in the evenings, making this 14 days yoga retreat in Rishikesh a truly immersive path to deepening your practice.
           </p>
           <div className={styles.pricePill}>
             <span className={styles.priceLabel}>From</span>
@@ -609,17 +579,12 @@ export default function YogaRetreatPage() {
           </h2>
           <OmDivider />
           <p className={styles.bodyPara}>
-            Dive into a holistic approach to healthy living with our{" "}
-            <strong>Rishikesh yoga courses</strong>, which also cover
-            Ayurvedic detoxification. Learn yoga, meditation, proper
-            nutrition, and a healthy lifestyle in two weeks. The{" "}
-            <strong>Ayurveda retreats in Rishikesh</strong> are ideal for
-            those with extended breaks who wish to devote time to deep
-            cleansing or detoxification.
+          Dive into a holistic approach to healthy living with our Rishikesh yoga courses, which also cover Ayurvedic detoxification. Learn yoga, meditation, proper nutrition, and a healthy lifestyle in two weeks. The Ayurveda retreats in Rishikesh are ideal for those with extended breaks who wish to devote time to deep cleansing or detoxification.
+
+
           </p>
           <p className={styles.bodyPara}>
-            The schedule begins early morning with three yoga classes and
-            two hours of Ayurveda treatment daily.
+          The schedule begins early in the morning with three yoga classes and two hours of Ayurveda treatment daily.
           </p>
           <div className={styles.pricePill}>
             <span className={styles.priceLabel}>From</span>
@@ -639,19 +604,11 @@ export default function YogaRetreatPage() {
   <div className={styles.infoBlocksWrap}>
     <div className={styles.infoBlock}>
       <h2 className={styles.secTitle}>
-        Schedule of yoga classes in Yoga Retreat India ( Rishikesh &amp; Goa )
+      Schedule of yoga classes in Yoga Retreat India ( Rishikesh & Goa )
       </h2>
       <OmDivider />
       <p className={styles.bodyPara}>
-        Our <strong>Rishikesh yoga courses</strong> offer a flexible schedule.
-        Depending on your area of interest, you can opt for several courses,
-        such as{" "}
-        <strong>
-          yoga and Ayurveda detox, Hatha yoga retreats, yoga and meditation,
-          or Ashtanga yoga classes
-        </strong>
-        . Most of them are great options for spiritual improvement in yoga,
-        teaching different aspects related to yoga in Rishikesh.
+      Yoga in Rishikesh There are no hard and fast rules here regarding schedules of yoga training courses you can get there such as; yoga and Ayurveda detox; Hatha yoga retreats; yoga and meditation; Ashtanga yoga … depending on what topic suits you the best. Many yoga courses are beneficial for spiritual advancement in yoga there and cover many important aspects relating yoga to nature. You are able to take numerous classes by having participation in those individual yoga courses there.
       </p>
       <p className={styles.bodyPara}>
         It is possible to attend multiple options simultaneously by
@@ -665,12 +622,8 @@ export default function YogaRetreatPage() {
       </h2>
       <OmDivider />
       <p className={styles.bodyPara}>
-        <Link href="/yoga-teacher-training-in-rishikesh" className={styles.infoLink}>
-          AYM&apos;s yoga ashram in Rishikesh
-        </Link>{" "}
-        tends to fill up quickly, with bookings made one to two months in
-        advance. We recommend pre-booking your yoga retreat by filling out
-        the registration form and paying an advance deposit fee of 55 USD.
+      Our ashram in Rishikesh usually stays packed with students booking their yoga retreat weeks or months in advance. Please Book by completing and sending the Registration form to make your deposit of 55USD fee required to secure your Yoga Teacher Training Place.
+
       </p>
     </div>
 
@@ -705,25 +658,20 @@ export default function YogaRetreatPage() {
           className={styles.secTitle}
           style={{ textAlign: "left" }}
         >
-          Affordable Yoga Retreats in Rishikesh
+           Affordable Yoga Retreats in Rishikesh
         </h2>
         <OmDivider />
         <p className={styles.bodyPara}>
-          AYM is among the best places to learn yoga. Whether you're
-          seeking a <strong>yoga retreat for beginners</strong> or
-          looking to pursue yoga professionally, our centre offers some of
-          the{" "}
-          <strong>most affordable yoga retreats in India.</strong>
+        AYM can be considered one of the best places to learn yoga. Be it about a yoga retreat for fresh beginners or if you wish to have yoga as a career, we're one of the cheapest yoga retreats in India.
+
         </p>
         <p className={styles.bodyPara}>
-          Apart from our qualified instructors and constant curriculum
-          updates, we offer nourishing vegan and vegetarian meals. Our
-          large grounds comprise beautiful gardens, a spacious yoga hall,
-          and excellent facilities for a serene stay.
+        Apart from having certified teachers and updated syllabi, we are also well provided with vegetarian and vegan meals. Our spacious grounds have gardens to take you through the pleasant journey, a yoga hall for you to perform yoga and other amenities to make your stay as comfortable as possible.
+
         </p>
         <p className={styles.bodyPara}>
-          Located in the Tapovan area, you can also head out for quick
-          sightseeing and marvel at the stunning surroundings.
+        In case you also want to leave our center for some quick sightseeing and see the beautiful surroundings and explore tapovan where we are located.
+
         </p>
       </div>
 

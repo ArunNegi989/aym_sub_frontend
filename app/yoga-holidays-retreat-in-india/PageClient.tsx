@@ -204,35 +204,19 @@ const YogaHolidays: React.FC = () => {
   <div className={styles.splitGrid}>
     <div className={styles.splitText}>
       <p className={styles.bodyText}>
-        Stress and anxiety result from being caught up in a hectic work
-        schedule and rushing around daily. At AYM, we understand that it is
-        hard to remain relaxed and calm with the pressures of today&apos;s
-        society, which can leave you feeling drained, lethargic, and depleted.
-        At The <strong>Association of Yoga and Meditation</strong>, we have
-        strategically designed a one-week detoxing and invigorating programme.
-        A yoga Holiday in India will leave you feeling rejuvenated and energetic.
-        Your body will be more flexible, melting away any tension and stress — you
-        will be ready to take on the world.
+      Stress, anxiety is all that it takes when caught up with a demanding job and the frantic pace of everyday life. We at AYM understand that maintaining serenity and peace amid the contemporary societal pressures that leave us drained, listless and utterly exhausted, isn’t that easy. In fact, atThe Association of Yoga and Meditation, we have cleverly devised a one-week detoxifying and energizing yoga package for you.A yoga Holiday in India would be apt to renew your zest for life.
+You'll stretch to loosen muscles and melt away every inch of tension and strain, getting ready to face anything.
+
       </p>
       <p className={styles.bodyText}>
-        AYM is one of the best places to visit if you&apos;re looking for a{" "}
-        <strong>Yoga Retreat</strong>. It is among the top yoga holiday centres
-        in India. Your yoga holiday in Rishikesh will give you tremendous,
-        noticeable results in just one week. We have a variety of holiday retreats
-        at AYM, such as Iyengar Yoga, Ashtanga Yoga, and Kundalini Yoga ranging
-        from 7 to 10 days.
+      AYM is the best destination to try if you seek a Yoga Retreat and are looking to have a break. AYM is counted amongst the best centres for Yoga Holidays in India. Your yoga trip to Rishikesh would yield immeasurable and quite clear results in a period of one week. We offer varying Yoga Holiday retreats like Iyengar Yoga, Ashtanga Yoga and Kundalini Yoga varying from 7-10 days.
       </p>
       <p className={styles.bodyText}>
-        These Yoga holidays are for everyone — whether you are a fitness lover,
-        a peace seeker or want an honest, authentic experience that will enhance
-        your overall health. You can expect to sweat, stretch and detoxify,
-        leaving you feeling strong, fresh, and lean.
+      These holidays have been laid out for people across different walks of life whether it be a fitness enthusiast,a seeker of inner peace or anyone wishing for an honest, enriching experience which would improve your general well-being.
       </p>
       <p className={styles.bodyText}>
-        You will practice many different styles of yoga where you will feel the
-        energy rise within and have lots of fun simultaneously. This holiday is
-        great for meeting like-minded individuals but also perfect if you want
-        some alone time to get to know yourself more.
+      So, one should brace to stretch, sweating away toxins making him/her lighter and stronger. You'll undertake several kinds of yoga, feel a surging of energy from deep within you all whilst having immense fun; not to forget, a yoga holiday perfect to bond with like-minded folks or perfect enough to let one indulge in some solitary moments and self-discovery.
+
       </p>
     </div>
 
@@ -269,13 +253,7 @@ const YogaHolidays: React.FC = () => {
   {/* Ayurveda callout */}
   <div className={styles.ayurvedaCallout}>
     <p className={styles.bodyText}>
-      Many things can be combined with{" "}
-      <strong>Yoga Holidays in Rishikesh</strong>, such as meditation and
-      Ayurveda. Yoga and Ayurveda Spa will enhance your well-being — stimulating
-      your mind and transforming your body. Meditation will calm your mind and
-      body, reducing anxiety and tension. Practising{" "}
-      <Link href="/yoga-ayurveda-ttc-in-rishikesh" className={styles.link}>Yoga with Ayurveda</Link>{" "}
-      will restore your inner vitality and give you a healthy mind, body and soul.
+    With Your Yoga Holidays in Rishikesh you can combine anything else; Meditation and Ayurveda can be added too. Yoga & Ayurveda Spa is to improve your well-being which gives rest to your mind and transfigures your body. Mediation is to rest your mind and your body, removing tension and anxiety. Yoga in combination with Ayurveda will fill you with life energy, giving your mind body and soul health.
     </p>
   </div>
 
@@ -326,15 +304,7 @@ const YogaHolidays: React.FC = () => {
     {/* Main description card */}
     <div className={styles.descriptionCard}>
       <p className={styles.beigeBodyText}>
-        AYM Yoga Ashram offers Residential Yoga Camps in lap of Himalayas,
-        under guidance of Yoga Master Yogi Chetan Mahesh. The main Aim of yoga
-        camps is to enrich general people including students with yoga
-        knowledge to maintain health and cultivate yogic life style in
-        students to avoid future coming diseases and stress. It also
-        cultivates moral values and keeps Indian traditional values in the
-        youth. Yoga Shivir is not a yoga teacher training course but it is for
-        self-training and practice. AYM will give participation certificate
-        after completion of yoga camp but not the yoga teaching certification.
+      AYM Yoga Ashram has Residential Yoga camps in the lap of Himalayas where the Yoga camps are conducted by Yoga Master Yogi Chetan Mahesh. The main objective of conducting yoga camps is to enhance yoga knowledge for common man in which the students also gets yoga knowledge and thus enables them to keep good health and establish yogic life style for the students so that the problems like disease and stress kept away in future and it also helps in developing the morality and Indian traditional values among the youth. This yoga is not a yoga teacher training course for self-training and practice. The participation certificate will be given to the student after the camp, but not the yoga teaching certificates.
       </p>
     </div>
 
@@ -546,9 +516,8 @@ const YogaHolidays: React.FC = () => {
       </h2>
 
       <p className={styles.moreInfoText}>
-        Participants are requested to bring necessary items such as bed-sheets, mosquito coils/mats,
-        torch, stationery items (pen, pencil, rubber, sharpeners, writing pad/note book), toiletry
-        articles for the entire duration of yoga camp.
+      It is requested of the interested participants to carry items required such as bed sheets, mosquito coil/mat, torch, stationery (pen, pencil, rubber, sharpener, writing pad/note book), toiletry articles for the whole duration of yoga camp.
+
       </p>
 
       <div className={styles.dressCodeBlock}>
@@ -566,27 +535,23 @@ const YogaHolidays: React.FC = () => {
 
       <div className={styles.moreInfoRules}>
         <p className={styles.moreInfoText}>
-          Mobile phones, i-pods, i-pads, cd/dvd recorders and tape recorders are not allowed in yoga sessions.
+        Any mobile phone,i-pod,i-pad,cd/dvd recorder and tape recorder are prohibited from Yoga sessions.
         </p>
         <p className={styles.moreInfoText}>
-          All participants should report and attend yoga sessions on time.
+        The registered students are requested to be present and attend yoga sessions on time.
         </p>
         <p className={styles.moreInfoText}>
-          Participants must report at camp&apos;s office a day before the camp, latest by 6:00 p.m. and can
-          leave after lunch on the concluding day. Students are not allowed to leave the camp before its
-          conclusion.
+        Participants have to report at camp's office one day in advance, latest by 6:00 p.m. And they are permitted to depart at post lunch time on the last day. Students are not permitted to leave the camp before its termination.
         </p>
         <p className={styles.moreInfoText}>
-          Going out of campus to smoke cigarette, cigar, for chewing paan, pan-masala, for drinking alcohol
-          or any other intoxicants, is completely banned.
+        To go out of the campus to smoke cigarettes, Cigar, to chew paan, pan-masala, drinking wine, liquor or other intoxicating, is strongly prohibited.
+
         </p>
         <p className={styles.moreInfoText}>
-          The participants must walk 2 kilometers and must climb stairs till 2nd floor daily, within the
-          campus for various yoga and meditation sessions.
+        Students have to walk for 2 kilometers, have to climb stairs up to the 2nd floor of the building everyday within campus for the various Yoga & meditation sessions.
         </p>
         <p className={styles.moreInfoText}>
-          Participants are not allowed to eat any kind of fast food and junk food during the camp and during
-          various sessions.
+        Students are not permitted to consume fast food & junk food.
         </p>
       </div>
     </div>

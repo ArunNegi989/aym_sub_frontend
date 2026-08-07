@@ -755,7 +755,7 @@ export default function SoundHealingPage() {
                 <span className={styles.introDecorLine}></span>
               </div>
               <h1 className={styles.secTitleOrange}>
-              Sound Healing Course in Rishikesh: Himalayan Bowls & Chakra Therapy
+              Sound Healing Course in Rishikesh — Himalayan Bowls & Chakra Therapy
               </h1>
               <div className={styles.omDivider}>
                 <span className={styles.divLine} />
@@ -764,17 +764,12 @@ export default function SoundHealingPage() {
               </div>
               <div className={styles.introTextCard}>
                 <p className={styles.bodyPara}>
-                  Are you someone looking for inner peace? Every person has a unique
-                  path they take to find the inner peace where their true selves
-                  reside. The sound healing course is the best solution for you. At
-                  AYM yoga school, we are the best centers that help you learn the
-                  best yoga sound healing. Be it self-realization or spiritual
-                  explorations. Sound healing yoga courses are a way of adding life to
-                  your lifestyle. Therefore, today sound healing is the growing trend
-                  used for healing.
+                There are paths to inner peace that are spoken, walked, and heard. In the AYM Yoga School Sound Healing Training, you'll discover how to use vibration and frequency to re-align the body and mind. With the aid of Himalayan singing bowls, gongs, and ancient mantras, you will discover how to sooth the nervous system, release accumulated tension, and how to lead others in their healing process.
                 </p>
                 <p className={styles.bodyPara}>
-                  Sound healing works on the principle of vibration and frequency, helping to restore balance within the body and mind. Through the use of instruments like singing bowls, gongs, and मंत्र (mantras), this practice allows you to release stress, calm your nervous system, and experience deep relaxation. At AYM Yoga School, our sound healing course is designed to guide you step-by-step, whether you are a beginner or someone looking to deepen your spiritual journey. By the end of the course, you not only understand the science behind sound but also learn how to use it as a powerful tool for personal healing and transformation.
+                This isn't an experiential, just listening class, it's a training where you'll strike and play the instruments yourself.
+You will also be guided to learn the basic principles of a healing frequency and the reasons why sound therapy has been a fundamental part of Himalayan and Vedic practices. Even if you are a beginner and don't have any prior experience or you are a yoga teacher wanting to learn a new therapeutic approach the training is designed to guide you through everything from striking the bowl to leading a full group healing.
+
                 </p>
                 <div className={styles.introSignature}>
                   <span className={styles.signatureLine}></span>
@@ -805,7 +800,7 @@ export default function SoundHealingPage() {
       <section className={styles.whatIsSection}>
         <div className={styles.container}>
           <h2 className={styles.secTitleOrange}>
-            What is a Sound Healing Course?
+          What Is a Sound Healing Course, Exactly?
           </h2>
           <div className={styles.omDivider}>
             <span className={styles.divLine} />
@@ -814,7 +809,7 @@ export default function SoundHealingPage() {
           </div>
 
           <p className={styles.bodyPara}>
-            Sound healing is a process that helps in releasing stress from the body. It has been demonstrated to be a successful process as this approach makes it simple to remove toxins from the body. The sound healing course relies on vibrational effects to reduce physical and mental stress. Overall, it profoundly affects a person&apos;s body and soul in addition to restoring mental equilibrium.
+          Sound healing training involves learning how to work with sound in order to take the body out of stress and into relaxation with instruments such as singing bowls, gongs, tingsha, drums. Training is divided into three levels of progression, so you are learning both the practical aspects (how to hold, strike,layer instruments)and the theory of how and why it works (chakras, metal type, brainwaves).
           </p>
 
           {/* Level Cards */}
@@ -869,19 +864,16 @@ export default function SoundHealingPage() {
             {/* LEFT */}
             <div className={styles.aimLeft}>
               <p className={styles.bodyPara}>
-                Stress is a major reason behind every toxicity and negativity. And
-                this is what yoga sound healing course aims at. It helps in improving
-                the health and well-being of a person. Used over the years, it has
-                successfully achieved a place in the modern industry.
+              Every kind of toxicity and negativity arises from none but stress. It's here that the yoga sound healing course comes into picture. It helps in ameliorating a person's life and health. Over years since it started being practiced it gained its spot in the present world industry.
+
               </p>
               <p className={styles.bodyPara}>
-                Sound healing aims to restore the body's natural frequencies and to
-                cure humanity. Therefore, keeping in mind the well-being of humans
-                and how badly stress can affect their lives, we at AYM have come up
-                with a sound healing course in Rishikesh.
+              It tries to bring a person's body to its innate state of resonance and heal mankind. With that perspective in the center keeping in mind people and ill effects of stress, we at AYM are bringing you with a Sound healing course at Rishikesh.
+
               </p>
               <p className={styles.bodyPara}>
-                This course not only focuses on healing others but also encourages deep personal transformation within yourself. As you progress, you begin to notice a shift in your emotional balance, mental clarity, and overall energy levels. The structured practices and guided sessions at AYM Yoga School help you develop a strong connection between mind, body, and soul. With consistent practice, sound healing becomes more than just a technique—it turns into a lifestyle that supports inner harmony, mindfulness, and lasting peace.
+              Apart from your being a healer to the others, with these sound healing sessions, you will also undergo some deep inner transformation. You would feel changes as you go by into your emotional balance and the way you feel in your mind and yourself, thus creating strong mind-body-soul connection, the AYM Yoga School's sound healing course is made. With practice, you find sound healing as part of your daily life helping you maintain your mental balance and peace.
+
               </p>
               <span className={styles.pillsLabel}>What it restores</span>
               <div className={styles.pillsWrap}>
@@ -923,7 +915,7 @@ export default function SoundHealingPage() {
       <section className={styles.benefitsSection}>
         <div className={styles.container}>
           <h2 className={styles.secTitleOrange}>
-            What are the Benefits of a Sound Healing Course?
+          What are the Benefits of a Sound Healing Course?
           </h2>
           <div className={styles.omDivider}>
             <span className={styles.divLine} /><span className={styles.omGlyph}>ॐ</span><span className={styles.divLine} />
@@ -931,9 +923,7 @@ export default function SoundHealingPage() {
           <div className={styles.benefitsGrid}>
             <div className={styles.benefitsText}>
               <p className={styles.bodyPara}>
-                Why is sound healing so popular among youths? Sound healing has been growing,
-                especially because of the benefits it offers — physical, mental, and emotional.
-                Here are the most highly recognised benefits of our Sound Healing Courses in Rishikesh:
+              What causes sound healing's appeal for young people? Because the benefits it offers are becoming more and more acknowledged-that is to say physical, mental and emotional, sound healing has been an increasing trend. Below are the most highly recognized benefits of our Sound Healing Courses in Rishikesh.
               </p>
               <div className={styles.benCards}>
                 {[
@@ -963,18 +953,14 @@ export default function SoundHealingPage() {
       <section className={styles.expectSection}>
         <div className={styles.container}>
           <h2 className={styles.secTitleOrange}>
-            What can you Expect at AYM for Sound Healing Teacher Training Course?
+          What can you Expect at AYM for Sound Healing Teacher Training Course?
           </h2>
           <div className={styles.omDivider}>
             <span className={styles.divLine} /><span className={styles.omGlyph}>ॐ</span><span className={styles.divLine} />
           </div>
 
           <p className={styles.bodyPara}>
-            When looking for the best sound healing training course, you'll surely come across the
-            Association for Yoga and Meditation. Whether you have past experience or are new in this
-            field, you can acquire full knowledge and different forms of sound healing training courses.
-            We place a lot of emphasis during training sessions on students deepening their own practice
-            — cultivating skills and helping you create your distinctive teaching methods.
+          The Best Sound healing training course will most likely be the one you stumble into from The Association for Yoga and Meditation! Either having experience or being completely new at this, you learn to master full awareness along with many types of sound healing training courses. During the training process, the attention we give to each of the attendees increases so that they get to build on their own skills and establish their own style of teaching.
           </p>
 
           <div className={styles.expectGrid}>

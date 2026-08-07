@@ -53,18 +53,17 @@ const qaData = [
   {
     question: "What will be learned in the Yoga Beginners Course at AYM?",
     answer: [
-      "In this course, you will be learning about yoga postures (asanas), pranayamas (yogic breathing exercises), and meditation (for a peaceful and calm state of mind). There is also a yogic detox program included in the course (they are collectively known as shat kriyas), and you will also be chanting mantras during the sessions.",
-      "You will be introduced to Hatha, Iyengar, Vinyasa, and Shivananda Yoga styles for the asana practice. We focus on alignment correction of our students using appropriate props (as per the Iyengar style of yoga).",
-      "Many of you who want to start yoga might also be new to meditation. Here, you will get the beautiful experience of meditation. Our teachers will be guiding you in the process. You will also be familiarized with the correct way of yogic breathing and be made to practice the same in the session. Here, you will also learn about beginner-level yoga asanas and their benefits.",
-      "Towards the end of the yoga practice session, we do deep relaxation through Yoga Nidra in the Shavasana pose (i.e., the corpse pose), which profoundly calms the body and mind. This practice is well known for removing stress from the nervous system. Join our yoga course for beginners and experience the yogic effect in your mental, emotional, and physical realms!",
-      "Our participants said they felt more relaxed and peaceful after each yoga session.",
+      "In this course you will be learning yoga postures (asanas), pranayamas (yogic breathing exercises) and meditation for inner peace and the bliss of serene contemplation. There is also a yogic detox included in the syllabus ( collectively it's all known as shat kriyas)and you would be chanting mantras throughout the practice too . You'll get the knowledge on different yoga asanas like Hatha, Iyengar, Vinyasa & Shivananda, for the yoga asanas practice, we take utmost care for aligning our students with effective props (on the basis ofIyengar yoga technique).",
+      "So for those willing to start a yogic journey, who might also be a newbie of meditation , here, you will get to enjoy a delightful experience of a beautiful meditation experience with guides who'll guide you throughout the same, will make you acquaint with the right way of doing yogic breathing techniques, will make you practice it too and will teach you Beginner-level yoga asanas and benefits.",
+      "At the end of each session, you'll get into a deep relaxation known as yogic Nidra while in corpse pose (Shavasana), to have your system get rid of the stress and experience ultimate calm for your whole system. Register for yoga beginners and discover the inner yogi in you!! Our participants felt that their every yoga session added immense relaxation and peace into their mind and bodies.",
+      
     ],
   },
   {
     question: "I have completed a beginner yoga course in Rishikesh. What should I do to advance my practice?",
     answer: [
-      "That's great to hear that you've completed a beginner yoga course in Rishikesh! To advance your practice.",
-      "AYM Yoga School offers a certification program that includes a 200 hour yoga course, 300-hour yoga course, 500 hour yoga course, which are pretty intense. You may choose one of these courses which is the most appropriate for you. These advanced-level courses are beneficial for starting a career in yoga and deepening your yogic experience. These courses need commitment and dedication from the practitioners' side. And it is worth all the effort. Thousands of our ex-students have testified the same. (Our yoga teachers' training courses are approved by the Yoga Alliance, USA and YCB, Ministry of AYUSH, Govt of India.",
+      "Happy to know that you completed a beginner yoga course in Rishikesh! To improve your practice. AYM yoga school provides the following yoga teacher training certification courses:200 hour yoga course, 300-hour yoga course, 500 hour yoga course which you can choose according to your comfort, though all the courses are highly intense.",
+      "These advanced yoga courses help in starting a career in yoga and deepen your spiritual and yogic awareness.They require a strong commitment and dedication from the participants' end but are definitely worth it, just like our thousands of ex-students testified. (Our yoga teacher training courses have been approved by Yoga Alliance, USA and YCB, Ministry of AYUSH, Govt of India)",
     ],
   },
 ];
@@ -240,19 +239,15 @@ const YogaBeginners: React.FC = () => {
           </h1>
           <div className={styles.contentBlock}>
             <p className={styles.questionText}>
-              Are you planning to join a beginner&apos;s yoga course in Rishikesh for the first time
-              but feel confused because you don&apos;t have much yoga experience?
+            Are you planning to take your first Yoga beginners training in Rishikesh and do not have the experience or feel all muddled up due to that reason? 
             </p>
             <p className={styles.bodyText}>
-              Yoga is a powerful practice that blends physical movement, breath control, and meditation.
-              It offers numerous benefits for the body and mind. Although it can be daunting for beginners,
-              embracing this journey with an open heart and mind can lead to profound personal growth and well-being.
+            Yoga is one effective way of bringing together breath work, meditation practice and Asana practices together; it provides a lot more than just physical benefit to human beings. So get excited now as it would surely amaze you to know that all you are required is an open mind to embark on this journey with us, you are bound to achieve far more than you imagine.
             </p>
             <p className={styles.bodyText}>
-              We understand you might have many questions about starting your yoga journey in Rishikesh.
-              At AYM Yoga School, we&apos;re here to guide you every step of the way. We regularly conduct
-              beginner-level courses in Rishikesh, India, each lasting around 12 days. Our school is
-              peaceful and serene, perfect for yoga and meditation practice.
+            At AYM Yoga school, we offer an array of 12-day long beginners programs in Rishikesh.
+The environment of our Rishikesh Yoga school is blissfully peaceful & tranquil making it ideal for your learning of Yoga & Mediation.
+
             </p>
             <div className={styles.infoRow}>
               <div className={styles.infoItem}>
@@ -300,9 +295,7 @@ const YogaBeginners: React.FC = () => {
           <div className={styles.understandingBlock}>
             <h4 className={styles.understandingTitle}>Understanding of Yoga</h4>
             <p className={styles.understandingIntro}>
-              Yoga is more than just a series of poses; it&apos;s a holistic approach to health. It originated
-              in ancient India and emphasizes the connection between the body, mind, and spirit. The practice
-              usually includes:
+            Yoga is more than just a series of poses; it's a holistic approach to health. It originated in ancient India and emphasizes the connection between the body, mind, and spirit. The practice usually includes:
             </p>
             <div className={styles.yogaPillarsGrid}>
               <div className={styles.yogaPillarCard}>
@@ -314,7 +307,7 @@ const YogaBeginners: React.FC = () => {
                 <div>
                   <h5 className={styles.yogaPillarName}>Asanas <span>(Postures)</span></h5>
                   <p className={styles.yogaPillarDesc}>
-                    Physical positions that enhance flexibility, strength, and balance.
+                  Bodily Postures, the aim of which is primarily to help in achieving a certain range of movements and to maintain an optimum of tonicity, flexibility, Balance and Strength of your muscles.
                   </p>
                 </div>
               </div>
@@ -329,7 +322,7 @@ const YogaBeginners: React.FC = () => {
                 <div>
                   <h5 className={styles.yogaPillarName}>Pranayama <span>(Breath Control)</span></h5>
                   <p className={styles.yogaPillarDesc}>
-                    Techniques that focus on breath awareness and control to promote relaxation and energy.
+                  Breath Work that involves different breathing techniques that will take you towards Relaxation and rejuvenation, which will provide energy. 
                   </p>
                 </div>
               </div>
@@ -343,7 +336,7 @@ const YogaBeginners: React.FC = () => {
                 <div>
                   <h5 className={styles.yogaPillarName}>Meditation</h5>
                   <p className={styles.yogaPillarDesc}>
-                    Practices aimed at calming the mind and promoting inner peace.
+                  Procedures used to develop concentration and clarity of mind.
                   </p>
                 </div>
               </div>
@@ -427,7 +420,7 @@ const YogaBeginners: React.FC = () => {
               </div>
               <div className={styles.infoContent}>
                 <h4 className={styles.infoTitle}>Ayurvedic Massage</h4>
-                <p className={styles.infoDesc}>Course participants can avail one ayurvedic massage per week</p>
+                <p className={styles.infoDesc}>Students receive one Ayurdevic massage each week of the course.</p>
               </div>
             </div>
             <div className={styles.infoCard}>
@@ -438,7 +431,7 @@ const YogaBeginners: React.FC = () => {
               </div>
               <div className={styles.infoContent}>
                 <h4 className={styles.infoTitle}>Three Meals Daily</h4>
-                <p className={styles.infoDesc}>Nutritious and healthy meals provided throughout the course</p>
+                <p className={styles.infoDesc}>Nutritious and healthful food provided during the course.</p>
               </div>
             </div>
             <div className={styles.infoCard}>
@@ -449,7 +442,7 @@ const YogaBeginners: React.FC = () => {
               </div>
               <div className={styles.infoContent}>
                 <h4 className={styles.infoTitle}>Private Rooms</h4>
-                <p className={styles.infoDesc}>Private rooms with free WiFi and attached bathrooms available</p>
+                <p className={styles.infoDesc}>Single room available with free WiFi and private bath.</p>
               </div>
             </div>
             <div className={styles.infoCard}>
@@ -460,7 +453,7 @@ const YogaBeginners: React.FC = () => {
               </div>
               <div className={styles.infoContent}>
                 <h4 className={styles.infoTitle}>Class Schedule</h4>
-                <p className={styles.infoDesc}>Classes conducted Monday to Saturday, Sundays off</p>
+                <p className={styles.infoDesc}>There are no classes on Sundays.</p>
               </div>
             </div>
             <div className={styles.infoCard}>
@@ -471,15 +464,13 @@ const YogaBeginners: React.FC = () => {
               </div>
               <div className={styles.infoContent}>
                 <h4 className={styles.infoTitle}>Tours & Excursions</h4>
-                <p className={styles.infoDesc}>Tours in and around Rishikesh planned (at course director&apos;s discretion)</p>
+                <p className={styles.infoDesc}>Tours inside/outside of Rishikesh arranged with the Course Director on demand.</p>
               </div>
             </div>
           </div>
           <div className={styles.noteBox}>
             <p className={styles.noteText}>
-              You may refer to the course start dates and end dates for each month, as well as the fee structure
-              in the table below. Please reach out to us to confirm your seats for the yoga course for beginners.
-              We welcome you to be part of this course. <strong>Namaste.</strong>
+            You may refer to the course start dates and end dates for each month, as well as the fee structure in the table below. Please reach out to us to confirm your seats for the yoga course for beginners. We welcome you to be part of this course. <strong>Namaste.</strong>
             </p>
           </div>
         </div>
