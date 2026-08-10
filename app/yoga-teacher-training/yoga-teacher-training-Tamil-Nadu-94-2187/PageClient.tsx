@@ -162,7 +162,7 @@ const YogaTrainingTamilNadu: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Best Yoga School in Tamil Nadu
+            Best Yoga School in Tamil Nadu | Yoga Teacher Training Courses by AYM Yoga School 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,10 +171,9 @@ const YogaTrainingTamilNadu: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              The city of Mahabalipuram is famous for its ancient temples and
-              beaches. These temples and beaches are carved with intricate
-              carvings that date back thousands of years. In addition, the hills
-              of Nilgiri are home to 2,000 wild animals.
+            Discover real yoga learning with AYM Yoga School, one of India's trusted yoga schools. Whether you are starting your yoga journey or wanting to become a certified yoga teacher our recognized Yoga Teacher Training Courses provide the perfect mix of old yoga knowledge and new teaching methods.
+
+If you are searching for a yoga school, in Tamil Nadu AYM Yoga School provides deep yoga programs meant to help you grow your practice, feel better and create a good job in yoga.
             </p>
           </div>
         </div>
@@ -194,7 +193,7 @@ const YogaTrainingTamilNadu: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Experience the art of yoga and mediatation at AYM Yoga School
+            Experience Authentic Yoga in Tamil Nadu 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -203,10 +202,10 @@ const YogaTrainingTamilNadu: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Tamil Nadu is the southernmost state in India and is known for its
-              majestic temples displaying the Dravidian architectural style.
-              Chennai is the capital of Tamil Nadu and it is the center of all
-              commercial, industrial and cultural activities in southern India.
+            Tamil Nadu is a place to visit because it has a lot of really nice old temples. These temples are very beautiful. Tamil Nadu also has peaceful beaches. The culture of Tamil Nadu is very energetic. You can go to Mahabalipuram, Chennai, Coimbatore and the Nilgiri Hills if you want to do yoga and feel good inside. Tamil Nadu is famous for its temples, peaceful beaches and energetic culture. People like to visit Tamil Nadu because of Tamil Nadu temples, peaceful beaches and energetic culture.
+
+At AYM Yoga School we think that yoga is not about moving your body. Yoga is a way of life that helps your body, mind and spirit work together in harmony. Our yoga teachers are experienced teachers. They teach students yoga practices that come from India. Our yoga teachers help students learn these yoga practices, from India at AYM Yoga School.
+
             </p>
           </div>
         </div>
@@ -226,7 +225,7 @@ const YogaTrainingTamilNadu: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Professional Yoga Teacher Training in Tamil Nadu
+            Internationally Certified Yoga Teacher Training in Tamil Nadu
             </h2>
             <div
               className={styles.headingUnderline}
@@ -235,17 +234,9 @@ const YogaTrainingTamilNadu: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School, located in Rishikesh and Goa, is a leading{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training school in India
-              </strong>
-              , we are yoga masters in India. We specialize in teacher training
-              and yoga emotion retreat. Our achievements are known for their
-              quality of teaching from beginners to professionals. If you live
-              or plan to visit Tamil Nadu, don't hesitate to discover the 7
-              chakras of yoga, chakra yoga poses, pranayama yoga and yoga mantra
-              with our yoga masters, then our facilities here will also meet
-              your experience and your needs.
+            AYM Yoga School is a place in India where people go to learn yoga. They have classes for everyone whether you are just starting out with yoga or you have been doing it for a while. They also have classes for people who already teach yoga and want to learn more. At AYM Yoga School you can learn about Hatha Yoga, Ashtanga Vinyasa Yoga and other things like breathing and meditation. You will also learn about the philosophy of yoga, how the body works and how to help your students do the poses correctly.
+
+The people at AYM Yoga School want to help you become a yoga teacher. They teach you everything you need to know, like how to teach a class and how to help your students. You will learn about things like Mantra Chanting and Chakra Meditation. AYM Yoga School is a place to go if you want to learn about yoga and become a yoga teacher. They will help you learn and get the confidence you need to teach yoga to people around the world. AYM Yoga School is really good at helping people learn about yoga and become yoga teachers.
             </p>
           </div>
         </div>
@@ -265,7 +256,7 @@ const YogaTrainingTamilNadu: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Experience of Yoga at AYM in Tamil Nadu
+            Why Choose AYM Yoga School?
             </h2>
             <div
               className={styles.headingUnderline}
@@ -274,19 +265,7 @@ const YogaTrainingTamilNadu: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School is a professional yoga and meditation school
-              located in Rishikesh and Goa. Our area of expertise is to provide
-              high-quality{" "}
-              <strong className={styles.boldLink}>yoga teacher training</strong>{" "}
-              and yoga retreat service to anyone willing to enjoy the benefits
-              of yoga in India. Enjoy Mantras, Pranayama, yoga prayer with our
-              yoga teachers. Our outstanding achievements are widely recognized
-              by students and professors all over the world. And if you live in
-              Tamil Nadu or plan to visit, we also provide our facilities and{" "}
-              <strong className={styles.boldLink}>
-                training courses in Tamil Nadu
-              </strong>
-              .
+            Thousands of students from more than 100 countries have picked AYM Yoga School for yoga education. We focus on quality. That is why we are one of the well-known yoga schools in India. AYM Yoga School offers Yoga Alliance-certified teacher training programs. These programs are led by experienced Indian yoga gurus. They mix yoga with modern teaching methods. Students learn in groups so they get individual attention. They get practical and theoretical training. The learning environment is peaceful and quiet. They study alongside students from all over the world. Our programs have course prices. They also offer learning opportunities for life. If you want to change yourself or become a yoga teacher our programs are made to help you along your yoga journey.
             </p>
           </div>
         </div>
@@ -309,7 +288,7 @@ const YogaTrainingTamilNadu: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Qualified yoga teacher training in India
+            Learn from Experienced Yoga Masters
             </h2>
             <div
               className={styles.headingUnderline}
@@ -318,16 +297,10 @@ const YogaTrainingTamilNadu: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School is located in Rishikesh and Goa. We are a famous
-              yoga and meditation institution in India, specializing in teacher
-              training, yoga gurus. We are a non-profit organization that aims
-              to teach quality yoga classes to anyone who wants to become a{" "}
-              <strong className={styles.boldLink}>
-                qualified yoga instructor
-              </strong>
-              . AYM Yoga School also helps you relieve emotional problems
-              through yoga therapy retreat. In addition, if you are in Tamil
-              Nadu, AYM Yoga School will also fully operate our facilities here.
+            Our teachers who are certified have been teaching students from around the world for a very long time. Every single class that we have is focused on doing things, being aware of our breathing, being mindful and practicing yoga in a safe way.
+
+When students come to our classes they get help that's just for them to become more flexible, to get stronger, to stand up straight to feel good about themselves and to feel happy and healthy overall while they are learning the things they need to know to teach yoga to other people.
+
             </p>
           </div>
         </div>

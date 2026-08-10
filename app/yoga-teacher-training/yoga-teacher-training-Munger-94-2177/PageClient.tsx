@@ -162,7 +162,7 @@ const YogaTrainingMunger: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              The Best Yoga and Meditation School in Munger
+            Best Yoga Teacher Training & Meditation School in Munger
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,25 +171,10 @@ const YogaTrainingMunger: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Yoga is not only for the body but also for the soul. As one of the
-              most promising options for{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training at Munger
-              </strong>
-              , we have always aspired to provide nothing but the very best when
-              it comes to teaching our students. However, at the same time, it
-              is essential to understand that without the correct posture and
-              understanding, yoga will not be able to render you any benefits.
-              Hence if you aspire to become a professional yoga teacher in
-              Munger, the best thing to do is get in touch with us at
-              "Association for Yoga and Meditation". It is our ultimate onus to
-              ensure that each of the teachers we train is the best in the field
-              and can consequently guide you in your endeavor as a professional
-              yoga teacher! Get in touch with us for professional{" "}
-              <strong className={styles.boldLink}>
-                Yoga Teacher Training in Munger
-              </strong>{" "}
-              and kickstart your professional career!
+            Start your journey toward becoming a certified yoga instructor at Association for Yoga and Meditation (AYM) one of the top yoga teacher training institutes in Munger. Whether you want to improve your yoga practice or create a career as a yoga teacher our training programs give you the knowledge, hands-on skills and certification that is known around the world.
+
+At AYM we feel yoga is more than moving the body. It is a practice that helps the body, the mind and the spirit while helping people live a healthier and more balanced life. Our teachers use yoga teachings and new ways of teaching to make sure every student has a good experience.
+
             </p>
           </div>
         </div>
@@ -209,7 +194,7 @@ const YogaTrainingMunger: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Get Exposure To Yoga and the Benefits of Your Body
+            Why Choose Association for Yoga and Meditation (AYM)?
             </h2>
             <div
               className={styles.headingUnderline}
@@ -218,19 +203,9 @@ const YogaTrainingMunger: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM is your one-stop destination if you want professional training
-              in{" "}
-              <strong className={styles.boldLink}>
-                yoga teaching courses in Munger
-              </strong>
-              . The essential requirement that we tend to focus on is to ensure
-              that we can teach and impart knowledge to professionals who can
-              then go ahead and start teaching others who want to know more
-              about Yoga. We have the most comprehensive teaching course, which
-              focuses on the factors necessary for yoga instructors to know
-              before they embark on the journey as professionals. The best thing
-              is that our courses are recognized worldwide, and our trainers are
-              experts waiting to guide you on the right path!
+            The first step to becoming a yoga teacher is to find the right yoga school. At AYM we want to help people learn yoga properly. We have good teachers who have a lot of experience. They teach us in a way that's easy to understand. We also get to practice teaching yoga.
+Our yoga teacher training programs are very good. We get to learn from people who're very good at yoga. When we finish the program we get a certificate that is recognized everywhere. We learn about the philosophy of yoga the body and how to meditate. We do not have many students in a class so we get to ask our teachers a lot of questions. The course fees are also not too high.
+
             </p>
           </div>
         </div>
@@ -250,7 +225,7 @@ const YogaTrainingMunger: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Professional Yoga Teacher Training School in Munger:
+            Professional Yoga Teacher Training in Munger 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -259,17 +234,9 @@ const YogaTrainingMunger: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              The idea behind the inception of the "Association of Yoga and
-              Meditation" is to make sure that all those individuals who want to
-              set a career for themselves in the field of yoga can get
-              professional assistance in their place in Munger. The void of a
-              trusted{" "}
-              <strong className={styles.boldLink}>
-                licensed yoga teacher training course in Munger
-              </strong>{" "}
-              has made it imperative for us to go ahead and provide the
-              individuals with complete assistance in this field and train
-              professionals with the best of our resources.
+            Our Yoga Teacher Training Course is for people who are just starting with yoga, people who really like yoga, people who work in the wellness field and people who want to teach yoga. The Yoga Teacher Training Course teaches students about yoga and new ways of teaching yoga that are based on science. In the Yoga Teacher Training Course students learn about Hatha Yoga, how to align their bodies how to adjust their poses breathing techniques, how to meditate what yoga is all about how the human body works, how to teach yoga, how to manage a classroom what is right and wrong in yoga and how to actually teach yoga.
+By the time the Yoga Teacher Training Course's over students feel good about teaching yoga. They have the skills to teach yoga and they know a lot about yoga so they can teach yoga for a living and be yoga teachers.
+
             </p>
           </div>
         </div>
@@ -289,7 +256,7 @@ const YogaTrainingMunger: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Focus on The Professional Training Course and Certification
+            Internationally Recognized Yoga Certification
             </h2>
             <div
               className={styles.headingUnderline}
@@ -298,17 +265,10 @@ const YogaTrainingMunger: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              The{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher program in Munger
-              </strong>{" "}
-              is aimed at helping professionals set up their careers and take up
-              better choices so that there is an all-round focus for their
-              betterment. To start your career as a professional yoga trainer,
-              it is vital to get a globally-recognized certification to
-              legitimize your training. Hence, at AYM, we have always tried to
-              explain to our students a thorough understanding of yoga practices
-              so that they can easily get through the professional barriers.
+            Getting a certification is really good for people who want to teach yoga. It makes people think you are a teacher and it helps you get jobs all over the world. Our program is made to be very good. It helps people who finish it get jobs in lots of different places like yoga studios, wellness centers and schools. You can even work for companies or fitness clubs. Just teach on your own.
+
+If you want to teach yoga near your home or, in another country, our certification will help you start your career in a way.
+
             </p>
           </div>
         </div>
@@ -331,7 +291,7 @@ const YogaTrainingMunger: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              The Best Yoga Courses in Munger With Pocket-Friendly Prices
+            Learn Authentic Yoga & Meditation
             </h2>
             <div
               className={styles.headingUnderline}
@@ -340,14 +300,9 @@ const YogaTrainingMunger: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              If anybody has told you that you need to spend a fortune when it
-              comes to professional training as a Yoga professional, then they
-              are probably not giving you the right insights. You can get
-              started with professional training in Munger with the best
-              possible price range in an instant. The yoga therapy teacher
-              training course chalked out at "Association of Yoga and
-              Meditation" at Munger is extremely pocket-friendly and hence the
-              perfect starter kit for professionals.
+            Yoga and meditation really go hand in hand. They help you have a body, a clear mind and balanced emotions. If you make meditation a part of your routine it can really help you feel good in the long run.
+When you practice yoga and meditation you can become more flexible and strong. Your posture and the way you stand will get better. You will be able to focus and think clearly. At the time yoga and meditation help reduce stress and worry.
+
             </p>
           </div>
         </div>

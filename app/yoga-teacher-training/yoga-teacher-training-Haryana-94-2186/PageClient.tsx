@@ -169,16 +169,7 @@ const YogaTrainingHaryana: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Our{" "}
-              <strong className={styles.boldLink}>
-                Yoga Teacher Training in Haryana
-              </strong>{" "}
-              is designed to support you on a transformative journey, nurturing
-              a deeper understanding of yoga and meditation. Amidst the serene
-              landscapes of Haryana, we provide a nurturing environment for
-              personal growth and self-discovery. We're here to empower you with
-              the skills and confidence to become a knowledgeable and
-              compassionate yoga instructor.
+            To become a certified yoga instructor you can join our Yoga Teacher Training in Haryana. This training is for people who're new to yoga, people who already practice yoga and people who want to teach yoga. Our training program teaches you about yoga. We combine yoga ideas with new ways of teaching. This helps you feel more confident, get better at yoga and learn how to teach others. Our Yoga Teacher Training in Haryana is a place to learn because it is calm and peaceful.
             </p>
           </div>
         </div>
@@ -207,20 +198,10 @@ const YogaTrainingHaryana: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Embarking on a{" "}
-              <strong className={styles.boldLink}>
-                yoga course in Haryana
-              </strong>{" "}
-              is not just about learning new skills; it's about personal growth
-              and self-discovery. The serene and peaceful environment,
-              surrounded by the natural beauty of Haryana, provides the perfect
-              backdrop for this journey. You will deepen your practice, gain a
-              deeper understanding of yoga philosophy and meditation, and
-              cultivate the skills and confidence to become a knowledgeable and
-              compassionate yoga instructor. But more than that, you will have
-              the chance to experience profound personal growth and
-              self-discovery, establishing a strong foundation for a lifelong
-              yoga practice.
+            Our Yoga Course in Haryana is a way for students to get healthy and feel good. The Yoga Course in Haryana is for everyone no matter if you are just starting out or if you already know some yoga. You can learn about Hatha Yoga and Ashtanga Yoga. How to do the poses just right. You will also learn how to breathe and control your breath and about meditation and the ideas behind yoga. Our Yoga Course in Haryana teaches you about the body and how to teach yoga to people. Our teachers are very good at yoga. They help each student one on one. 
+
+They want to make sure you feel good about what you're doing and that you can become a great yoga teacher. If you have questions the teachers are always there to help you. The Yoga Course in Haryana is in a peaceful place so you can leave your worries behind and just focus on yoga.
+
             </p>
           </div>
         </div>
@@ -249,17 +230,10 @@ const YogaTrainingHaryana: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              There are several compelling reasons to choose a{" "}
-              <strong className={styles.boldLink}>
-                yoga course in Haryana
-              </strong>
-              . The serene and peaceful environment provides the perfect setting
-              for deepening your practice and learning. Additionally, Haryana
-              offers a rich cultural and spiritual heritage that can enhance
-              your understanding of yoga and its principles. Experienced
-              instructors, a comprehensive curriculum, and the opportunity for
-              profound personal growth are additional reasons to consider a yoga
-              course in Haryana.
+            Choosing a yoga school is a decision when you want to learn yoga. Our yoga school is a place to learn because we have teachers who have a lot of experience. They teach us things like Yoga Asanas and Pranayama and Meditation and Yoga Philosophy and Anatomy and Physiology and Adjustments and Teaching Methodology.
+
+At our yoga school in Haryana students get to learn in a peaceful place. We make sure each student gets the help they need from our teachers. This helps them to focus on their yoga practice and also on their growth.
+
             </p>
           </div>
         </div>
@@ -291,32 +265,10 @@ const YogaTrainingHaryana: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Sometimes, it can take work to balance work and professional life.
-              It can get so daunting that you may need more time for yourself.
-              Hence, this is when you can rely on us for{" "}
-              <strong className={styles.boldLink}>
-                online yoga teacher training courses in Haryana
-              </strong>
-              . We have our classes available, keeping the convenience of
-              working professionals in mind.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              Our classes come with pre-recorded videos, essential notes,
-              updated class modules, and many more, to which students will have
-              complete access. Students can even take{" "}
-              <strong className={styles.boldLink}>
-                online yoga TTC courses in Haryana
-              </strong>{" "}
-              anytime, as flexible slots are available.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              Once the courses are over, students are offered{" "}
-              <strong className={styles.boldLink}>
-                recognized yoga teacher training certification
-              </strong>{" "}
-              of high value. This certification can be used anywhere in the
-              world to start one's career as a yoga teacher in a reputed
-              institution or one's yoga studio immediately.
+            Managing work, family and personal responsibilities can make it hard to go to yoga classes in person. That is why our Online Yoga Teacher Training in Haryana gives students the chance to learn from anywhere and at their pace. The online yoga certification program has live classes, high-quality recorded video lessons, complete study materials, updated course modules, practice assignments, teacher support and a flexible learning schedule. Students can look at course materials anytime. Go back to lessons whenever they want, which is great for people who work, take care of the home or live in different countries.
+
+After finishing the training students get a recognized Yoga Teacher Training Certification that helps them begin teaching or keep improving their yoga practice. The flexible learning method lets students handle their learning along with their work, family and personal responsibilities while using the course materials and lessons based on their schedule.
+
             </p>
           </div>
         </div>

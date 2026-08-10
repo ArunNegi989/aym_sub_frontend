@@ -127,21 +127,10 @@ const AboutUs: React.FC = () => {
 
               <div className={styles.schoolBody}>
                 <p className={styles.para}>
-                  Association for Yoga and Meditation (AYM) Yoga School in Rishikesh
-                  is a non-profit organization registered with the government of
-                  India. Spiritual Master <strong>Yogi Chetan Mahesh</strong> leads
-                  the school. It was founded by famous Indian yogis in 2005. We aim
-                  to spread happiness and health through traditional and ancient
-                  yogic wisdom.
+                The Association for Yoga and Meditation (AYM) Yoga School in Rishikesh is a -profit organization that is recognized by the Government of India. The school is led by a Spiritual Master named Yogi Chetan Mahesh. The AYM Yoga School was started by known Indian yogis in the year 2005. The AYM Yoga School wants to share happiness and health by using the ancient knowledge of yoga.
                 </p>
                 <p className={styles.para}>
-                  AYM Yoga School is a true spiritual yoga Ashram, lying 1 km away
-                  from the holy banks of Mother Ganga and in the lap of the lush
-                  green Himalayas. It is the largest yoga school in Rishikesh,
-                  providing yoga and meditation to its thousands of spiritual
-                  pilgrims from all corners of the Earth. With over 100 rooms, the
-                  facilities perfectly blend modern amenities with a traditional,
-                  spiritual feel and comfort.
+                The AYM Yoga School is a spiritual yoga Ashram. It is 1 km from the holy river Ganga and it is surrounded by the tall and green Himalayas. The AYM Yoga School is a yoga school in Rishikesh. It gives yoga and meditation to spiritual pilgrims who come from all over the world.
                 </p>
               </div>
             </div>
@@ -203,11 +192,9 @@ const AboutUs: React.FC = () => {
               </div>
               <h3 className={styles.vmTitle}>Our Vision</h3>
               <p className={styles.para}>
-                AYM YOGA SCHOOL in Rishikesh has a vision of training highly
-                trained teachers with deep knowledge and understanding of yoga.
-                The primary focus of AYM is to train qualified yoga teachers who
-                can spread yoga&apos;s benefits to society. We also have a mission
-                to remove anxiety and depression from modern society.
+              AYM Yoga School in Rishikesh has a vision of training highly skilled and knowledgeable yoga teachers with a deep understanding of yoga. The primary focus of AYM Yoga School is to train qualified yoga teachers who can share the benefits of yoga with society.
+AYM Yoga School also has a mission to help remove anxiety and depression from modern society through the benefits and understanding of yoga.
+
               </p>
             </div>
             <div className={styles.missionCard}>
@@ -222,11 +209,9 @@ const AboutUs: React.FC = () => {
               </div>
               <h3 className={styles.vmTitle}>Our Mission</h3>
               <p className={styles.para}>
-                AYM Yoga training is based on classical teaching styles: asana,
-                pranayama, meditation, stress management and detoxification
-                techniques. AYM invites everyone to experience and realize the
-                real meaning of yoga by understanding its simple, integrated and
-                holistic techniques.
+              AYM Yoga training is based on classical teaching styles, including asana, pranayama, meditation, stress management, and detoxification techniques. AYM invites everyone to experience and realize the real meaning of yoga by understanding its simple, integrated, and holistic techniques. 
+AYM wants you to achieve health, harmony, and happiness while discovering your hidden potential. AYM aims to bring out human excellence at personal, professional, social, and spiritual levels through Raja Yoga, Karma Yoga, Bhakti Yoga, Jayana Yoga, and Hatha Yoga's Tantric culture.
+
               </p>
             </div>
           </div>
@@ -291,7 +276,9 @@ const AboutUs: React.FC = () => {
               <div className={styles.timelineContent}>
                 <h3 className={styles.timelineTitle}>Foundation Year</h3>
                 <p className={styles.para}>
-                In September 2005, it became apparent that a standard for yoga teacher training at the national level (in India) was necessary. Yogi Chetan Mahesh and other well-known yoga experts and great yoga Gurus decided to make a foundation to solve the matter. They registered an organization named 'The Association for Yoga and Meditation' with the government of India.
+                In September 2005, it became apparent that a national-level standard for yoga teacher training in India was necessary. Yogi Chetan Mahesh, along with other well-known yoga experts and great yoga Gurus, decided to establish a foundation to address this matter.
+They registered an organization named The Association for Yoga and Meditation (AYM) with the Government of India.
+
                 </p>
               </div>
               <div className={styles.timelineImageWrapper}>
@@ -310,7 +297,10 @@ const AboutUs: React.FC = () => {
               <div className={styles.timelineContent}>
                 <h3 className={styles.timelineTitle}>National Recognition</h3>
                 <p className={styles.para}>
-                The AYM YOGA SCHOOL in Rishikesh and other training institutes follow traditional and ancient yoga practices with a scientific approach. In 2005, AYM Yoga School of India also got the status as a National Organization of India and became a member of the (IYF) International Yoga Federation. AYM also sets standards for yoga study centres in India according to the IYF guidelines.
+                AYM Yoga School in Rishikesh and other training institutes follow traditional and ancient yoga practices with a scientific approach.
+In 2005, AYM Yoga School of India also received the status of a National Organization of India and became a member of the International Yoga Federation (IYF). 
+AYM also sets standards for yoga study centres in India according to the IYF guidelines.
+
                 </p>
               </div>
               <div className={styles.timelineImageWrapper}>
@@ -329,7 +319,9 @@ const AboutUs: React.FC = () => {
               <div className={styles.timelineContent}>
                 <h3 className={styles.timelineTitle}>Global Expansion</h3>
                 <p className={styles.para}>
-                Graduates from AYM can register at IYF and the Yoga Alliance USA. National yoga associations organize yoga activities and sports nationally in most countries. The winners of national-level sports activities in India can be represented at international levels by IYF. In 2006, AYM passed a resolution to establish an administering body to maintain the international standards of yoga in the name of the Indian Yoga Alliance (IYA).
+                Graduates from AYM Yoga School can register with the International Yoga Federation (IYF) and Yoga Alliance USA.
+National yoga associations organize yoga activities and sports nationally in most countries. The winners of national-level sports activities in India can be represented at international levels by IYF.
+In 2006, AYM passed a resolution to establish an administering body to maintain the international standards of yoga, named the Indian Yoga Alliance (IYA).
                 </p>
               </div>
               <div className={styles.timelineImageWrapper}>
@@ -360,12 +352,7 @@ const AboutUs: React.FC = () => {
 
           <div className={styles.prose}>
             <p className={styles.para}>
-              Association for Yoga and Meditation (AYM) is a national
-              educational organization in India that popularises and promotes
-              yoga education in its original and traditional form. To develop,
-              promote, and integrate yoga, the Association for Yoga and
-              Meditation set and followed the standards for teaching, training,
-              and development of yoga.
+            Association for Yoga and Meditation (AYM) is a national educational organization in India that popularises and promotes yoga education in its original and traditional form. To develop, promote, and integrate yoga, the Association for Yoga and Meditation established and followed standards for yoga teaching, training, and development.
             </p>
 
             <div className={styles.activitiesGrid}>

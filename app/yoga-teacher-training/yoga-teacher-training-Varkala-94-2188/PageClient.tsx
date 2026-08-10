@@ -162,7 +162,7 @@ const YogaTrainingVarkala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              200 Hour Yoga Course in Varkala
+            200 Hour Yoga Teacher Training in Varkala
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,24 +171,7 @@ const YogaTrainingVarkala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Rishikesh and Goa are home to AYM Yoga School campuses. We are a
-              charitable organization devoted to helping aspiring yoga teachers
-              get the best possible training as{" "}
-              <strong className={styles.boldLink}>YTT Varkala</strong>. At our
-              yoga and meditation institute in India, students have access to
-              some of the world's most revered yoga instructors and gurus to
-              avail the{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training Varkala
-              </strong>
-              . To help with emotional distress, the AYM Yoga School also
-              provides yoga therapy retreats and yoga therapy teacher training.
-              During your stay, the AYM Yoga School facilities in Varkala will
-              also be available if you wish to do a{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training program in Varkala
-              </strong>
-              .
+            Become a certified yoga teacher by joining AYM Yoga Schools 200 Hour Yoga Teacher Training in Varkala. Varkala is one of India's coastal destinations. This program is for beginners. This program is for people who want to become yoga teachers. This program is for people who practice yoga with dedication. The course is certified by Yoga Alliance. The course brings together yogic wisdom and modern teaching methods. The course helps you create a base in yoga. No matter if your goal is to teach yoga as a job. No matter if your goal is to make your own yoga practice stronger. No matter if your goal is to live a life. The instructors here are experienced. The instructors here offer training. The setting is a place where you feel support. The setting is a place where you feel inspiration.
             </p>
           </div>
         </div>
@@ -208,7 +191,7 @@ const YogaTrainingVarkala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Best Yoga School in Varkala
+            Why Choose AYM Yoga School in Varkala?
             </h2>
             <div
               className={styles.headingUnderline}
@@ -217,11 +200,9 @@ const YogaTrainingVarkala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Varkala is a lovely village in the southern Indian state of
-              Kerala. The place is ideal for yoga and meditation, with a serene
-              environment spreading the boundaries. Many tourists visit Kerala
-              each year, particularly the Goa-like region near
-              Thiruvananthapuram.
+            AYM Yoga School is a place where people go to learn about yoga from teachers who really love yoga and teach the ways of yoga. The programs at AYM Yoga School focus on helping you grow as a person learning how to teach yoga to others and taking care of your body and mind.
+The 200-hour Yoga Teacher Training course at AYM Yoga School includes a lot of things like Traditional Hatha Yoga and Ashtanga Yoga ways to breathe and control your breath, Meditation and being mindful Yoga Philosophy learning about the body methods for teaching yoga how to help people do yoga poses correctly practicing yoga every day Mantra Chanting and living a yogic lifestyle.
+
             </p>
           </div>
         </div>
@@ -241,8 +222,7 @@ const YogaTrainingVarkala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Looking for Yoga Teacher Training in Varkala, AYM is the Best
-              Option
+            Experience Yoga in the Peaceful Surroundings of Varkala
             </h2>
             <div
               className={styles.headingUnderline}
@@ -251,13 +231,12 @@ const YogaTrainingVarkala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Travellers will have a wonderful time experiencing all the Varkala
-              has to offer. Visit some of India's most famous historical sites,
-              such as the Sivagiri Mutt, Janadanswamy Temple, Achhuthengu Fort,
-              etc. From the Varkala Lighthouse, you can also see the waves of
-              the Arabian Sea as they crash against the shore. Yoga and
-              meditation can be performed at the best level in a serene
-              environment.
+            Varkala is a nice place by the sea in Kerala. It is next to the Arabian Sea. Varkala is famous because it is very peaceful. This makes it a great place to learn about Varkala and about yourself.
+
+The quiet surroundings in Varkala help you think deeply about your life. You can do this while you enjoy the beaches and the stunning cliffs of Varkala.
+
+When you are in Varkala you can go to some places, like Varkala Cliff and Papanasam Beach. You can also visit Janardanaswamy Temple and Sivagiri Mutt. There is also Anjengo Fort which some people call Anchuthengu Fort and Varkala Lighthouse.
+
             </p>
           </div>
         </div>
@@ -277,7 +256,7 @@ const YogaTrainingVarkala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              200 hour yoga course in varkala - Best place for Yoga
+            Comprehensive 200 Hour Yoga Teacher Training Curriculum
             </h2>
             <div
               className={styles.headingUnderline}
@@ -286,29 +265,9 @@ const YogaTrainingVarkala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              The AYM Yoga School in both Rishikesh and Goa is the best choice
-              for anyone seeking a safe and welcoming environment to study yoga
-              and meditation and searching for a{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training course near me
-              </strong>
-              . If you are a yoga practitioner or teacher, Varkala is
-              considering a yoga retreat in India. We are here to provide you
-              with the finest advice and assistance available. Our yoga
-              instructors offer a{" "}
-              <strong className={styles.boldLink}>
-                licensed yoga teacher training course, Varkala
-              </strong>
-              , to lead you meditatively utilizing mantras, breathing techniques
-              or Pranayama, and a yoga prayer. Experts in education around the
-              globe agree that what we've done is genuinely exceptional. Our
-              facilities and{" "}
-              <strong className={styles.boldLink}>
-                Varkala yoga training course
-              </strong>{" "}
-              are available to anyone, whether a local or a tourist. The Varkala
-              International Yoga certification is one of India's most
-              sought-after certifications in yoga and is globally acclaimed.
+            Our curriculum is made to combine learning with life so students are ready for teaching. Students learn Hatha Yoga to build strength and flexibility and alignment and mindfulness using Hatha Yoga.
+They also learn Ashtanga Vinyasa Yoga to build endurance and self control while learning Ashtanga Vinyasa Yoga sequences. The curriculum has Pranayama where students learn breathing methods that help increase energy and clear the mind.
+
             </p>
           </div>
         </div>
@@ -331,7 +290,7 @@ const YogaTrainingVarkala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              The Most Profound Yoga and Meditation Spot in Varkala
+            Learn from Experienced Yoga Teachers
             </h2>
             <div
               className={styles.headingUnderline}
@@ -340,20 +299,7 @@ const YogaTrainingVarkala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Being one of the best yoga and meditation centres in Varkala, AYM
-              Yoga School offers one of the best{" "}
-              <strong className={styles.boldLink}>
-                yoga teaching courses in Varkala
-              </strong>{" "}
-              that teaches students how to practice yoga in a way that
-              alleviates mental and emotional suffering. Whether you want to
-              learn yoga so that you may teach it or to unwind, we have yoga
-              teacher certification classes available in both Rishikesh and Goa,
-              offering{" "}
-              <strong className={styles.boldLink}>
-                registered yoga teacher training courses in Varkala
-              </strong>
-              .
+            Our teachers have a lot of experience teaching yoga. They really know their stuff. They help every single student get better at yoga and learn how to teach it to others. We like to keep our classes small so we can give each student the help and attention they need while they are learning. Our 200 Hour Yoga Teacher Training in Varkala is great for lots of people. It is perfect for people who are just starting out with yoga, people who love yoga, people who want to become yoga teachers, people who work in wellness, fitness instructors, therapists and even travelers who want to make a change in their life. You do not need to have taught yoga before to join our 200 Hour Yoga Teacher Training, in Varkala.
             </p>
           </div>
         </div>

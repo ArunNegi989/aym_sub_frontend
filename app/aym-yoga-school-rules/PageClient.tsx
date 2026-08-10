@@ -235,17 +235,17 @@ const rulesCategories = [
       {
         num: 1,
         title: "Respectful Behavior",
-        content: "Students enrolled in a Yoga Teacher Training Course (TTC) are expected to conduct themselves with respect, mindfulness, and integrity at all times. This applies equally to their public interactions and private behavior while at the venue. They should demonstrate courtesy toward fellow participants, instructors, and staff, maintain a positive and cooperative attitude, and uphold the values of discipline, humility, and self-awareness that are central to yoga practice. In addition, students are encouraged to communicate thoughtfully, avoid disruptive or inappropriate behavior, and resolve any differences with patience and understanding. Respect for cultural diversity, personal boundaries, and the learning environment is essential. Maintaining cleanliness in personal and shared spaces, adhering to the schedule, and following the guidance of instructors are also important aspects of responsible conduct."
+        content: "Students who are in the Yoga Teacher Training Course need to be respectful and mindful all the time. This is important when they are with people and when they are alone at the place where they are studying. When students are with students and with the people who are teaching them they should be kind and helpful. They should try to get along with everyone and remember that yoga is about being disciplined and humble. Students should also think about how their actions will affect others. Students should talk to each other in a way. Not do things that will bother other people. If there are problems students should try to solve them in a way. It is very important to respect people from backgrounds and to respect each other's space.Students in the Yoga Teacher Training Course should also keep their rooms and the shared rooms clean. They should follow the schedule. Listen to what the teachers tell them to do. This is all part of being a student, in the Yoga Teacher Training Course."
       },
       {
         num: 2,
         title: "Mutual Respect",
-        content: "Student's Yoga TTC in India should maintain an atmosphere encouraging mutual respect, civil and congenial relationships and free from all forms of harassment and violence, where everyone can discuss their differences and exchange ideas openly, honestly and respectfully. -Use respectful language without using vulgarity, insults, abusive language, and verbal threats, will make the Yoga TTC course a memorable event. To create a truly enriching and transformative experience during the Yoga Teacher Training Course (TTC) in India, it is essential that the atmosphere is not only built on mutual respect, but also on inclusivity, compassion, and understanding. A safe and supportive environment encourages the free flow of ideas and opinions, fostering growth, learning, and personal development. Every participant should feel valued for their unique perspective, background, and experiences. In addition to maintaining respect in language and behavior, it is important to cultivate emotional intelligence and empathy, ensuring that all interactions contribute to positive energy and a sense of community."
+        content: "Students who are part of a Yoga TTC in India should make sure the environment is one where everyone treats each other with respect. It should be a place where people can be kind and friendly and get along well with each other. There should be no harassment or any kind of violence in the Yoga TTC in India. Everyone should be able to talk about their differences and share their thoughts in a way in the Yoga TTC in India. Using language without any words or insults makes the Yoga TTC in India a special and unforgettable experience. The Yoga TTC in India is a place where people can learn and grow. To make the Yoga Teacher Training Course in India a real learning and growing experience the environment needs to be based on respect. The Yoga Teacher Training Course in India should be open to everyone showing kindness and understanding each other. A place that is safe and supportive allows people to share their thoughts and ideas freely in the Yoga TTC in India. This helps everyone grow and learn and develop as a person in the Yoga TTC in India. Each person should feel important because of the way they think and where they come from and what they have experienced in the Yoga TTC in India. Along with being respectful in the way we speak and act it is also important to be aware of our emotions and to care about others in the Yoga TTC in India. This helps create an energy and a strong sense of being part of a group in the Yoga TTC, in India."
       },
       {
         num: 3,
         title: "Inappropriate Conduct",
-        content: "Student should avoid public displays of affection and public nudity. Celibacy should be kept during the Yoga course. -Students should not possess, use, or distribute alcoholic beverages or illegal or recreational drugs. -Any music played in your lodging should be played so as not to disturb others. Silence is to be maintained after 10:00 pm and before 09:00 am, with no talking or loud noises especially in the sleeping areas. -Students should not make false statements about others with malice to cause harm, or publicly disclose another's private information. -Students should avoid entering into intimate relationships where an imbalance of power or influence, a conflict of interest, or other type of bias exists, for example between staff and guest, or between teacher and student."
+        content: "Students should avoid public displays of affection and public nudity. Celibacy should be maintained during the Yoga course. Students should not possess, use, or distribute alcoholic beverages or illegal or recreational drugs. Any music played in your lodging should be played so as not to disturb others. Silence is to be maintained after 10:00 pm and before 09:00 am, with no talking or loud noises, especially in the sleeping areas. Students should not make false statements about others with malice to cause harm or publicly disclose another person's private information. Students should avoid entering into intimate relationships where an imbalance of power or influence, a conflict of interest, or other type of bias exists, for example, between staff and guests, or between teacher and student."
       }
     ]
   },
@@ -255,17 +255,17 @@ const rulesCategories = [
       {
         num: 4,
         title: "Healthy Lifestyle",
-        content: "During Yoga TTC in India, Smoking, alcohol, non-prescription drugs, eating meat, fish, eggs are to be avoided to maximize the effect of yoga ttc in India."
+        content: "During the Yoga TTC in India, smoking, alcohol, non-prescription drugs, and eating meat, fish, and eggs are to be avoided to maximize the effect of the Yoga TTC in India"
       },
       {
         num: 10,
         title: "Karma Yoga",
-        content: "Karma Yoga is an integral part of yoga ttc in India. Karma Yoga is required for each student, every day. Karma Yoga is a practical approach to help eliminate egoistic and selfish tendencies in students"
+        content: "Karma Yoga is an integral part of Yoga TTC in India. Karma Yoga is required for each student every day. It is a practical approach to help eliminate egoistic and selfish tendencies in students."
       },
       {
         num: 11,
         title: "Temple Guidelines",
-        content: "The purity of the temple areas is to be maintained, minimum of one hands, feet and face must be washed before entering the area. No unnecessary talk or noise in the temple area, which is regarded as a place of worship and meditation for all visitors."
+        content: "The purity of the temple areas is to be maintained. At a minimum, one’s hands, feet, and face must be washed before entering the area. No unnecessary talk or noise is permitted in the temple area, which is regarded as a place of worship and meditation for all visitors."
       }
     ]
   },
@@ -275,12 +275,12 @@ const rulesCategories = [
       {
         num: 5,
         title: "Photography Policy",
-        content: "Unless otherwise specified, photography or video filming is not allowed in the venue during Yoga ttc in India ay AYM, any times i.e. during Meditation, Satsang, Asana class, lectures, anywhere in the temple areas and during meals. This helps to maintain a tranquil and peaceful environment for all."
+        content: "Unless otherwise specified, photography or video filming is not allowed at the venue during Yoga TTC in India at AYM, at any time, including during meditation, Satsang, Asana classes, lectures, in temple areas, and during meals. This helps maintain a tranquil and peaceful environment for all."
       },
       {
         num: 6,
         title: "Media Release",
-        content: "Pictures may be taken during training, workshops, retreats, or classes and used in any marketing or promotional capacity such as Facebook, Instagram, youtube, AYM's website, etc. Students give full permission to release this information by consenting to these terms."
+        content: "Pictures may be taken during training, workshops, retreats, or classes and used for marketing or promotional purposes, such as Facebook, Instagram, YouTube, AYM’s website, etc. Students give full permission to release this information by consenting to these terms."
       }
     ]
   },
@@ -290,17 +290,17 @@ const rulesCategories = [
       {
         num: 7,
         title: "Venue Attendance",
-        content: "For security reasons and to gain maximum benefit from yoga ttc in India, students are encouraged to remain in the same town venue throughout their stay. The program coordinator must agree beforehand all absences from the YTTC, particularly for night and weekend excursions. A 'free day' is incorporated into the weekly program for sightseeing or shopping outside the venue, which is Sunday."
+        content: "For security reasons and to gain maximum benefit from Yoga TTC in India, students are encouraged to remain at the same town venue throughout their stay. The program coordinator must agree beforehand to all absences from the YTTC, particularly for night and weekend excursions. A “free day” is incorporated into the weekly program for sightseeing or shopping outside the venue, which is Sunday."
       },
       {
         num: 8,
         title: "Mandatory Attendance",
-        content: "Attendance and participation in scheduled classes of yoga ttc in india are mandatory. If students expect to be absent from any scheduled event for whatever reason, notice must be submitted to the program coordinator. Many absences from scheduled classes may result in the student being dismissed from the course and asked to leave the course."
+        content: "Attendance and participation in scheduled classes of Yoga TTC in India are mandatory. If students expect to be absent from any scheduled event for any reason, notice must be submitted to the program coordinator. Many absences from scheduled classes may result in the student being dismissed from the course and asked to leave the course."
       },
       {
         num: 9,
         title: "Course Materials",
-        content: "Students leaving the yoga ttc course in India before completion are required to return all their teaching materials"
+        content: "Students leaving the Yoga TTC course in India before completion are required to return all their teaching materials."
       }
     ]
   },
@@ -310,17 +310,17 @@ const rulesCategories = [
       {
         num: 12,
         title: "Fee Policy",
-        content: "All transaction fees for yoga ttc course are the responsibility of the registrant, in case of Cancellation or drop out or any other reason, no fee will be refunded but is possible to adjust in next course within one-year period in case of emergency. So before joining course make sure that you will manage to join the course."
+        content: "All transaction fees for the Yoga TTC course are the responsibility of the registrant. In case of cancellation, drop-out, or any other reason, no fee will be refunded, but it is possible to adjust the fee in the next course within a one-year period in case of an emergency. Therefore, before joining the course, make sure that you will be able to manage to join the course."
       },
       {
         num: 13,
         title: "Cancellation Policy",
-        content: "Final confirmation of the Yoga ttc in india will happen at the time of deposit of advance fee. If you are making any travel arrangement prior to this confirmation, we would advise you to subscribe to a cancellation insurance as Association for Yoga and Meditation cannot be responsible to any cost incurred for cancellation of your travel. Usually there will be no cancellation of a yoga ttc course by school management but Association for yoga and meditation reserve the right to cancel any course in case of emergency."
+        content: "Final confirmation of the Yoga TTC in India will happen at the time of deposit of the advance fee. If you are making any travel arrangements prior to this confirmation, we advise you to subscribe to cancellation insurance, as the Association for Yoga and Meditation cannot be responsible for any costs incurred due to the cancellation of your travel. Usually, there will be no cancellation of a Yoga TTC course by the school management, but the Association for Yoga and Meditation reserves the right to cancel any course in case of an emergency."
       },
       {
         num: 14,
         title: "Liability Disclaimer",
-        content: "AYM Yoga School is not liable for cancellations, changes, or losses resulting from unforeseen circumstances beyond our control. These include, but are not limited to, natural disasters, acts of God, accidents, war, civil unrest, airport closures, or any other force majeure events. The school also holds no responsibility for any illnesses, injuries, or medical or psychiatric conditions that arise during or after the course."
+        content: "Final confirmation of the Yoga TTC in India will happen at the time of deposit of the advance fee. If you are making any travel arrangements prior to this confirmation, we advise you to subscribe to cancellation insurance, as the Association for Yoga and Meditation cannot be responsible for any costs incurred due to the cancellation of your travel.Usually, there will be no cancellation of a Yoga TTC course by the school management, but the Association for Yoga and Meditation reserves the right to cancel any course in case of an emergency."
       }
     ]
   }
@@ -503,16 +503,8 @@ const RulesPage: React.FC = () => {
                     <strong className={styles.boldKey}>
                       Agreement by student:
                     </strong>{" "}
-                    As a Course Participant of the{" "}
-                    <strong>
-                      Association for Yoga and Meditation Organization
-                    </strong>
-                    , I do hereby agree to participate in all activities. I assume
-                    full responsibility for my personal property and myself and will
-                    endeavor to make a genuine effort towards my own self-
-                    improvement according to the teachings of Yoga. I understand
-                    that if I should break any of the rules I may be asked to leave.
-                    No refunds will be granted in any circumstance.
+                    As a Course Participant of the <strong>Association for Yoga and Meditation Organization</strong>, I do hereby agree to participate in all activities. I assume full responsibility for my personal property and myself and will endeavor to make a genuine effort towards my own self- improvement according to the teachings of Yoga. I understand that if I should break any of the rules I may be asked to leave. No refunds will be granted in any circumstance.
+I hereby confirm that I understand that the training program is of intense nature and will be challenging. The course is a full time commitment and does not allow any other activities. I declare that I have disclosed on this form all relevant details and by submitting these details to the Association for Yoga and Meditation I take full responsibility for myself in attending the course.
                   </p>
 
                   <p className={styles.agreePara}>

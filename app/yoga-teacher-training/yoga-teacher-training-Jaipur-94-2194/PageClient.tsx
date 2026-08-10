@@ -169,13 +169,11 @@ const YogaTrainingJaipur: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-            Yoga is a lot more than exercising your body. It is a big change that helps your mind, body and spirit. More and more people are starting to do yoga as a way of life so the need for yoga teachers who are qualified and certified is getting bigger all around the world.
-
+            Yoga is a lot more than moving the body - it is a journey that changes a person from the inside out. It helps the mind, the body and the spirit all grow stronger. More and more people are choosing yoga as a way to live every day. Because of this more and more people are looking for trained and certified yoga teachers across the world.
             </p>
             <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-            If you are looking for a Yoga Teacher Training, in Jaipur AYM has programs that are known all around the world. These programs will help you learn yoga practices and give you the confidence you need to teach yoga to other people.
+            If you are looking for the Yoga Teacher Training, in Jaipur AYM has programs that are known all over the world. These programs help you learn yoga techniques and build the confidence you need to teach others.
 
-You might be new to yoga. You might have been doing it for a long time and want to get better. Either way our training program will give you the knowledge and experience you need to start teaching yoga. You will also get a certification that is accepted everywhere which's a big help when you start teaching yoga.
 
             </p>
           </div>
@@ -213,7 +211,6 @@ You might be new to yoga. You might have been doing it for a long time and want 
             </p>
             <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
             If you are looking for a Yoga Teacher Training, in Jaipur AYM has programs that are known all around the world. These programs will help you learn yoga practices and give you the confidence you need to teach yoga to other people.
-            You might be new to yoga. You might have been doing it for a long time and want to get better. Either way our training program will give you the knowledge and experience you need to start teaching yoga. You will also get a certification that is accepted everywhere which's a big help when you start teaching yoga.
 
             </p>
           </div>
@@ -240,9 +237,7 @@ You might be new to yoga. You might have been doing it for a long time and want 
               Why Choose AYM for Yoga Teacher Training in Jaipur? 
             </h2>
             <p className={styles.bodyText}>
-            At AYM we bring together the ideas of yoga with new ways of teaching to make a learning experience that is really interesting and changes you.
-
-Our teacher training programs are made to follow the rules of Yoga Alliance. They help students learn a lot of things. We want our students to be able to do these things:
+            At AYM we have Yoga Teacher Training programs that people know all around the world. These Yoga Teacher Training programs teach people about yoga and new ways to teach yoga. We made these Yoga Teacher Training programs so they follow the rules of the Yoga Alliance. We want our students to be able to do these things:
 
               :
             </p>
@@ -256,7 +251,7 @@ Our teacher training programs are made to follow the rules of Yoga Alliance. The
               <li>7. Breathing techniques.</li>
               <li>8. Teaching methodologies</li> */}
             </ol>
-            <p className={styles.bodyText}>The people who teach at AYM have a lot of experience and they help each student one on one throughout their training. This means that every student gets the help and support they need from our teachers, at AYM.</p>
+            <p className={styles.bodyText}>Our yoga teachers at AYM are experienced yoga teachers. They help each student one on one. They make sure that every single student gets the help they need with their yoga practice. At AYM you can become a certified yoga teacher. You can just learn more about yoga if you want to.</p>
           </div>
         </div>
 
@@ -296,7 +291,7 @@ Our teacher training programs are made to follow the rules of Yoga Alliance. The
             <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
             At AYM we want to make sure that yoga is taught in a way. We also want our students to be able to teach yoga all around the world.
 
-            You can join our Yoga Teacher Training in Jaipur. Start a journey that will change your life. You will become healthier, learn more about yourself and become a teacher. Yoga Teacher Training in Jaipur is a way to start this journey.
+           
 
             </p>
 
@@ -311,7 +306,7 @@ Our teacher training programs are made to follow the rules of Yoga Alliance. The
             One of the things about AYM is our group of experienced yoga teachers.
             </p>
             <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-            These teachers have spent years learning and doing traditional yoga. They want to give knowledge in a place where students feel safe and supported.
+            The people who teach at AYM are really great. They are very good at yoga. They care about what they do. The yoga teachers at AYM have been practicing yoga for a time. They make sure everyone feels okay about trying things.
             </p>
           </div>
         </div>
@@ -336,7 +331,7 @@ Our teacher training programs are made to follow the rules of Yoga Alliance. The
           <div className={styles.textWrap}>
             {/* Sub-section A */}
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Our Yoga Center and its Facilities
+            Benefits of Joining Our Yoga Teacher Training
             </h2>
             <div
               className={styles.headingUnderline}
@@ -345,30 +340,14 @@ Our teacher training programs are made to follow the rules of Yoga Alliance. The
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              At AYM the{" "}
-              <strong className={styles.boldLink}>
-                best yoga teacher training centre in Jaipur
-              </strong>
-              , we are committed to serving all aspiring and interested students
-              irrespective of caste, culture and background. We are open to all
-              and welcome you all to Rishikesh to be a part of our family. So,
-              immerse yourself in our serene atmosphere and airy spaces.
-              Besides, an open mind and friendly approach are the pillars of our
-              school.
+            When you finish the Yoga Teacher Training program you will make your own Yoga practice better. You will learn a lot about traditional Yoga. This includes learning about the body, the ideas behind Yoga, how to meditate and how to move in a way. The program will help you become flexible, stronger and feel better overall. You will also learn how to teach Yoga classes and how to talk to your students in a way that makes sense.
             </p>
             <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              We have top-notch amenities to ensure you enjoy a comfortable stay
-              while you continue your{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training retreats in Jaipur
-              </strong>
-              . We are equipped with all modern needs and every necessary tool
-              related to yoga. Overall, we aim to allow our students to complete
-              their courses with flexibility and convenience.
+            Our Yoga Teacher Training program will teach you everything you need to know to become a Yoga instructor. When you are done you can get a certificate from the Yoga Alliance that people around the world will recognize. You will also meet people who like Yoga and you can talk to them and learn from them. The Yoga Teacher Training program is a way to keep learning and growing as a person and as a Yoga teacher. You will be part of a group of people who like Yoga and who help each other.
             </p>
 
             {/* Sub-section B */}
-            <h2
+            {/* <h2
               className={styles.subHeadingSerif}
               style={{ textAlign: "left" }}
             >
@@ -414,7 +393,7 @@ Our teacher training programs are made to follow the rules of Yoga Alliance. The
               live, take care of, and grow with each other. Life and yoga are
               not just for living but also for celebrating. So join our
               integrated yoga course and become an expert yoga professional.
-            </p>
+            </p> */}
           </div>
         </div>
 

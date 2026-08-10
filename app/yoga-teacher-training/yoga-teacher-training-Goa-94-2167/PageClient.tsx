@@ -140,7 +140,7 @@ const YogaTrainingGoa: React.FC = () => {
         ══════════════════════════════════════ */}
         <div className={styles.pageHeader}>
           <h1 className={styles.pageTitle}>
-            Yoga Teacher Training in Goa with World-Class Facilities
+            Best Yoga Teacher Training in Goa – Become a Certified Yoga Instructor 
           </h1>
           <div className={styles.titleUnderline}>
             <div className={styles.underlineLine} />
@@ -162,7 +162,7 @@ const YogaTrainingGoa: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Join Yoga, Teach Yoga Make the World a Happier Place
+            Best Yoga Teacher Training in Goa – Become a Certified Yoga Instructor 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,21 +171,10 @@ const YogaTrainingGoa: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              You've found the right site if you're looking to find your place
-              in the worldwide Yoga community. Beautiful in its many forms, yoga
-              has been shown to improve mental and physical wellness in
-              countless people. And if you want to impact the world positively,
-              our{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in Goa
-              </strong>{" "}
-              is the best method to accomplish it. The Association for Yoga and
-              Meditation can help you become the greatest yoga teacher in Goa by
-              offering you an all-inclusive{" "}
-              <strong className={styles.boldLink}>YTT Goa</strong> at a
-              reasonable cost. Thousands of students are ready to walk out into
-              the world and spread hope, and we have prepared them for this
-              time.
+            If you want to find the Yoga Teacher Training in Goa you should check out the Association for Yoga and Meditation. They have Yoga Teacher Training programs that are recognized all over the world. These programs are made to help you become a Yoga Teacher who's confident and really knows what they are doing. You can join these programs whether you are just starting with yoga or you want to learn more about it. The training they offer will give you the skills and confidence you need to teach yoga as a profession. You can teach yoga anywhere in the world after you complete the training.
+
+The Association for Yoga and Meditation combines yoga ideas with new ways of teaching. This makes the learning experience really good for your body, mind and spirit. You will really. Grow as a person when you take their Yoga Teacher Training courses. The Yoga Teacher Training courses at the Association for Yoga and Meditation are very good.
+
             </p>
           </div>
         </div>
@@ -205,7 +194,7 @@ const YogaTrainingGoa: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Gain A Solid Yoga Foundation, and Come Train With Us!
+            Why Choose Our Yoga Teacher Training in Goa? 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -214,39 +203,7 @@ const YogaTrainingGoa: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Suppose you are in search of a{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training course near me
-              </strong>
-              . In that case, our{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher certification program in Goa
-              </strong>{" "}
-              is widely regarded as the region's most thorough and spiritually
-              enlightening. Knowledge of yoga postures and philosophy is
-              beneficial but optional to enrol in our international yoga
-              certification course.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              The course curriculum is internationally recognized, and you
-              become a{" "}
-              <strong className={styles.boldLink}>
-                registered yoga teacher in Goa
-              </strong>{" "}
-              upon completion. Come to our workshops with nothing more than a
-              genuine desire to learn and an open mind about the yogic practices
-              we'll be employing. When you show initiative, we'll do everything
-              we can to help you keep progressing toward completing the{" "}
-              <strong className={styles.boldLink}>
-                licensed yoga trainer program in Goa
-              </strong>
-              . As a result of visiting this page, we hope you'll be motivated
-              and take charge of your learning. We are the pioneers in offering
-              professional development by learning more about yoga through our
-              world-class teacher training sessions in your area. We are the
-              organization that wants to see you succeed in spiritual and
-              academic endeavours if you are looking for a bright career as a
-              yoga instructor.
+            Goa is a place to learn yoga with beautiful beaches, amazing nature and friendly people who want to be healthier. At the Association for Yoga and Meditation people from over the world can come to learn real yoga in a calm and peaceful place in Goa. Students get a Yoga Teacher Certification that is known around the world and learn from experienced and certified yoga teachers. Small class sizes let students get to know their teachers while hands-on teaching sessions give them real experience. The training covers both modern styles of yoga and students join a group of people from different countries who all love yoga. The goal of the Association for Yoga and Meditation is to help every student become a confident yoga teacher who can teach yoga to others and share yoga as an important part of life.
             </p>
           </div>
         </div>
@@ -266,7 +223,7 @@ const YogaTrainingGoa: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Preexisting Conditions for High-Quality Education
+            Internationally Recognized 200 Hour Yoga Teacher Training
             </h2>
             <div
               className={styles.headingUnderline}
@@ -275,23 +232,10 @@ const YogaTrainingGoa: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Our yoga classes in Goa take place in serene, state-of-the-art
-              facilities. Through our yoga therapy teacher training program, we
-              teach unique yoga methods. In that, we focus on the well-being of
-              our participants. With our{" "}
-              <strong className={styles.boldLink}>
-                200-hour certified yoga teacher training program in Goa
-              </strong>
-              , you'll learn everything from scratch to advanced techniques,
-              including over a hundred different poses and the attainment of
-              maximum flexibility. To give you a complete understanding of yoga,
-              we cover its practical uses and philosophical foundations. Our
-              goal is to make you a master of both classical and contemporary
-              forms of yoga through our{" "}
-              <strong className={styles.boldLink}>
-                licensed yoga teacher training course in Goa
-              </strong>
-              .
+            Our 200 Hour Yoga Teacher Training in Goa is great for people who are just starting with yoga and for people who have been doing yoga for a while. You do not need to have taught yoga before to join this course. You just need to like yoga and want to learn more about it.
+
+In this course students learn about Hatha Yoga, Ashtanga Yoga, Pranayama and breathing techniques Meditation Practices, Yoga Philosophy, Human Anatomy and Physiology how to align your body and adjust yoga poses methods, for teaching yoga, planning yoga classes living a yogic lifestyle and yogic ethics.
+
             </p>
           </div>
         </div>
@@ -311,7 +255,7 @@ const YogaTrainingGoa: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Yoga Lessons By Industry Leaders
+            Learn from Experienced Yoga Teachers
             </h2>
             <div
               className={styles.headingUnderline}
@@ -320,21 +264,9 @@ const YogaTrainingGoa: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Learn how to help others through yoga by enrolling in our
-              intensive{" "}
-              <strong className={styles.boldLink}>
-                yoga training course in Goa
-              </strong>
-              . Classes are taught by trained yoga instructors who are all
-              members of the Association for Yoga and Meditation staff. Since
-              optimal performance in each position is paramount, instructors
-              provide pupils customized instruction and pay special attention to
-              their form. You will receive the globally recognized{" "}
-              <strong className={styles.boldLink}>
-                YTT certification in Goa
-              </strong>{" "}
-              only when you have been shaped into a true professional and are
-              ready to serve the world.
+            Our yoga teachers care deeply about their work. I have a lot of experience in teaching yoga. They help each student do their best during the learning process. Every student gets attention. They get feedback on what they're doing well and what they need to work on. They also get guidance throughout their training. Students do not just remember yoga poses. They learn how to teach yoga in a confident way. They learn how to change poses for people, with needs. 
+
+They learn how to make yoga routines. They learn how to help students get the position. They learn how to lead meditation. They learn how to teach breathing exercises. They learn how to make yoga experiences. This practical way of learning helps students become yoga teachers. It makes sure they gain the knowledge and skills needed to be yoga teachers.
             </p>
           </div>
         </div>
@@ -357,7 +289,7 @@ const YogaTrainingGoa: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Deepen Your Yoga Experience
+            Build a Strong Foundation in Traditional Yoga
             </h2>
             <div
               className={styles.headingUnderline}
@@ -366,26 +298,7 @@ const YogaTrainingGoa: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              You've come to the correct place if enrolling in a top-notch{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training program in your locality
-              </strong>{" "}
-              is a top priority. Our{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher certification in Goa
-              </strong>{" "}
-              has been helping aspiring yoga practitioners like you become
-              successful in their future endeavours. Our all-inclusive training
-              will prepare you to become a well-respected{" "}
-              <strong className={styles.boldLink}>
-                licensed yoga teacher in Goa
-              </strong>
-              . We will put all our enthusiasm into shaping you as a most
-              sought-after professional after we thoroughly understand your
-              current abilities and any areas where you may need to grow. More
-              than only learning to keep your thoughts in check and your body in
-              working order, you will also walk away from our training room
-              knowing how to help others do the same.
+            Yoga is more than moving your body around. It is really about learning how yoga can help you in ways. When you do our training you will learn about yoga that goes beyond the physical stuff. This includes how to move your body, how to breathe, how to be mindful and how to understand yourself better. You will learn about the yoga ideas, like what Patanjali said in his Yoga Sutras and what yogis consider to be good behavior. You will also learn how to be mindful, how to meditate, how to deal with stress and how to take care of yourself.. You will learn how to grow as a person. By doing all of this you will really get what yoga is about and you can use this understanding for the rest of your life. You will learn about yoga. Really understand what yoga is and this will help you with yoga for a long time.
             </p>
           </div>
         </div>

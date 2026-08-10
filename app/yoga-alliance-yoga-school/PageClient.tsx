@@ -251,18 +251,11 @@ const AccreditationSection: React.FC = () => {
               <h3 className={styles.introCardTitle}>Indian Yoga Association</h3>
               <div className={styles.introParagraphs}>
                 <p>
-                  The <strong>Indian Yoga Association</strong>, also known as the
-                  Association for Yoga and Meditation, is a national non-profit
-                  organisation registered under the Societies Registration Act with
-                  the Government of India. The Association manages the AYM Yoga
-                  School, which offers teacher training programs in Rishikesh, Goa,
-                  and many other locations, coming soon.
+                  The <strong>Indian Yoga Association (IYA)</strong>, also known as the Association for Yoga and Meditation, is a national non-profit organisation registered under the Societies Registration Act with the Government of India.
                 </p>
 
                 <p>
-                  It is registered with the Yoga Certification Board, under the 
-                  <strong> Ministry of AYUSH, Government of India</strong> and 
-                  <strong> Yoga Alliance, USA.</strong>
+                The Association manages AYM Yoga School, which offers yoga teacher training programs in Rishikesh and Goa, with programs in many other locations coming soon.
                 </p>
               </div>
             </div>
@@ -309,19 +302,10 @@ const AccreditationSection: React.FC = () => {
           <div className={styles.highlightBox}>
             <h4 className={styles.highlightTitle}>📋 Register with Yoga Alliance USA</h4>
             <p className={styles.highlightText}>
-            AYM is a Registered Yoga Alliance Yoga Teacher Training School offers 200 hour, 300 hour and 500 hour yoga alliance certification in rishikesh India and graduates can register them with Yoga Alliance USA as RYT 200 and RYT 500 after graduation from AYM yoga alliance yoga school. To register you need to login to yoga alliance website – www.yogaalliance.org and make your account and fill required information. After verification of your graduation certification from AYM yoga alliance ttc in rishikesh, you will get registered.
+            AYM is a school that teaches yoga. It is registered with the Yoga Alliance. This school offers a few programs to become a yoga teacher. You can take a 200-hour program or a 300-hour program or a 500-hour program to get certified by the Yoga Alliance. These programs are held in Rishikesh, India.
             </p>
             <p className={styles.highlightText}>
-              To register, you need to login to yoga alliance website –{" "}
-              <a
-                href="https://www.yogaalliance.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.link}
-              >
-                www.yogaalliance.org
-              </a>{" "}
-              and make your account and fill required information. After verification of your graduation certification from AYM yoga alliance ttc in rishikesh, you will get registered.
+              So you want to know how to register with the Yoga Alliance in the United States of America. Well first you need to go to the Yoga Alliance website. The website is www.yogaalliance.org. Then you need to make an account on the website by giving them some information about yourself. 
             </p>
           </div>
         </div>
@@ -371,9 +355,11 @@ const AccreditationSection: React.FC = () => {
             <div className={styles.certBoardInfo}>
               <h4>Government Recognition</h4>
               <p>
-               AYM Yoga School is officially recognized by the Ministry of AYUSH (Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homeopathy), which reflects its commitment to maintaining the highest standards of yoga education and teacher training. This recognition ensures that the curriculum, teaching methodology, and overall learning environment align with authentic traditional practices as well as modern educational benchmarks. <br />
+              AYM Yoga School is officially recognized by the Ministry of AYUSH. The Ministry of AYUSH is very important because AYUSH stands for Ayurveda, Yoga and Naturopathy, Unani, Siddha and Homeopathy. This is a deal for AYM Yoga School because it shows that AYM Yoga School is committed to keeping the standards of yoga education and teacher training high. <br />
 
-With this accreditation, students can be confident that they are receiving structured, credible, and globally respected training. The courses are thoughtfully designed to blend ancient yogic wisdom with contemporary teaching techniques, allowing practitioners not only to deepen their personal practice but also to become skilled and confident yoga instructors. <br />
+              This recognition is also important because it makes sure that the things AYM Yoga School teaches, the way the teachers teach and the place where students learn are all good and match the ways of doing things and the new rules of education.
+With this recognition students at AYM Yoga School know they are getting training that people respect all over the world. The classes at AYM Yoga School are made in a way to combine yoga knowledge with new ways of teaching. This helps people who practice yoga at AYM Yoga School get better at yoga and also become yoga teachers who are confident.
+ <br />
 
 {/* AYM Yoga School emphasizes holistic development—covering physical postures (asanas), breath control (pranayama), meditation, philosophy, anatomy, and teaching methodology. The experienced faculty, serene learning environment, and well-structured programs create an ideal space for transformation and growth.<br />
 
@@ -392,30 +378,23 @@ Moreover, certification from a recognized institution like AYM enhances career o
               <h3 className={styles.iyfTitle}>Global Recognition & Standards</h3>
               <div className={styles.introParagraphs}>
                 <p>
-                  Association for Yoga and Meditation school in Rishikesh is a member and 
-                  affiliated to the <strong>International Yoga Federation</strong>, the largest 
-                  yoga organization in the world. The IYF is open to all yogis and yoga 
-                  organizations and supports minimum international standards for yoga teachers 
-                  since 1987.
+                Association for Yoga and Meditation School in Rishikesh is a member of and affiliated with the International Yoga Federation (IYF), the largest yoga organization in the world. The IYF is open to all yogis and yoga organizations and has supported minimum international standards for yoga teachers since 1987.
                 </p>
 
                 <p>
-                  Graduates from AYM Yoga School in Rishikesh can register with the International 
-                  Yoga Federation and receive an <strong>International Yoga Teacher Card</strong>. 
-                  Registration is simple—just create an account on their website and submit your 
-                  graduation credentials.
+                Graduates from AYM Yoga School in Rishikesh can register with the International Yoga Federation and receive an International Yoga Teacher Card. The registration process is simple—create an account on the IYF website and submit your graduation credentials.
                 </p>
               </div>
 
               <div className={styles.iyfFooterNotes}>
                 <div className={styles.noteItem}>
                   <span className={styles.noteIcon}>✓</span>
-                  <p>200, 300 and 500 hour yoga certifications at AYM School are recognized by Indian Yoga Alliance.</p>
+                  <p>200-hour, 300-hour, and 500-hour yoga certifications at AYM School are recognized by Indian Yoga Alliance.</p>
                 </div>
                 <div className={styles.noteItem}>
                   <span className={styles.noteIcon}>✓</span>
                   <p>
-                    Association for Yoga and Meditation is a lifetime member of Yoga Alliance International. 
+                  Association for Yoga and Meditation is a lifetime member of Yoga Alliance International.
                     Visit{" "}
                     <a
                       href="http://www.yogaallianceinternational.net"
@@ -430,8 +409,7 @@ Moreover, certification from a recognized institution like AYM enhances career o
                 <div className={styles.noteItem}>
                   <span className={styles.noteIcon}>✓</span>
                   <p>
-                    International Quality Management System has recognized Association for Yoga and Meditation 
-                    for its 200-hour, 300-hour and 500-hour yoga teacher training in Rishikesh, India.
+                  International Quality Management System has recognized the Association for Yoga and Meditation for its 200-hour, 300-hour, and 500-hour yoga teacher training programs in Rishikesh, India.
                   </p>
                 </div>
               </div>

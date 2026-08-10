@@ -15,11 +15,10 @@ const sections = [
     imageAlt: "Best Yoga Teacher Training in Mysore India",
     heading: "Best Yoga Teacher Training in Mysore India",
     headingStyle: "script" as const,
-    text: `If you know the benefits of yoga and how it can impact one's life, taking up yoga teacher training in Mysore is a great option to spread your knowledge to others. People embracing this old practice may want to share their experiences and assist others in their inner development. At AYM, we offer exclusive programmes in Rishikesh since 2005.
+    text: `Mysore is a place that people over the world know about for learning real yoga. The city has a lot of history with yoga. It is very peaceful and people who practice yoga there do it in a disciplined way. This is why people who love yoga come to Mysore from all over the world. If you really want to learn more about yoga or become a yoga teacher our Yoga Teacher Training in Mysore is a place to start.
 
-Through our comprehensive course, we aim to help individuals gain a solid grasp of yoga so that they can instruct with assurance and effectiveness. As the provider of the top YTT course in Mysore, we introduce our students to yoga's roots, from its history, styles and traditions to where it stands today.
-
-Besides focusing on mindfulness and meditation techniques, students are introduced to new research, strategies, ideologies and much more in our institute in Rishikesh. Students get a chance to be a part of a welcoming atmosphere and get complete assistance as they enrol in our 200 hour yoga teacher training in Mysore.`,
+We have teacher training programs that people all over the world recognize. We made these programs for people who are just starting with yoga and for people who have been practicing for a time. Whether you are new to yoga or you want to become a teacher, our classes teach you old yoga ideas and new ways of teaching. When you take our training you get to practice teaching and you become more confident. You learn what you need to know to teach yoga in a way that is safe and good, for people.
+`,
   },
   {
     id: 2,
@@ -29,9 +28,9 @@ Besides focusing on mindfulness and meditation techniques, students are introduc
     imageAlt: "Yoga Teacher Training in Mysore",
     heading: "Yoga Teacher Training in Mysore",
     headingStyle: "serif" as const,
-    text: `Our goal at AYM is to use the science of yoga by preserving the core teachings while modernizing their ancient knowledge simultaneously. Through yoga, students can discover their nature and inner abilities. As the top 300 hour yoga teacher training in Mysore India, we offer transformative experiences that impact life in many ways.
+    text: `Our Yoga Teacher Training Courses are about helping you become a well-rounded yoga teacher. In addition to learning how to do the poses, students also get to study yoga philosophy, body structure, ways to breathe, how to meditate, how to line up the body correctly, how to teach and how to grow as a person. 
 
-Our extensive curriculum covers every detail of yoga, including anatomy, physiology, alignment and more. You would discover prevalent injuries along with tips for preventing them. We concentrate on the subtle facets beyond asanas and aim to improve the practice. Each 500 hour yoga teacher training course in Mysore has unique goals and aims. In the comfortable environment of Rishikesh, our teachers promote self-awareness. We create an encouraging atmosphere where students can confidently graduate and become professionals.`,
+The program helps students become more aware of themselves, disciplined and more present in their lives while keeping the true spirit of old yoga traditions. Classes are small so that each student gets one-on-one help from teachers who know what they are doing, making sure that every student gets the help they need during the program.`,
   },
   {
     id: 3,
@@ -39,19 +38,10 @@ Our extensive curriculum covers every detail of yoga, including anatomy, physiol
     image:
       "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=700&q=80&fit=crop",
     imageAlt: "Features of Yoga Teacher Training Course in Mysore",
-    heading: "Features of Yoga Teacher Training Course in Mysore",
+    heading: "Why Choose Our Yoga Teacher Training in Mysore?",
     headingStyle: "serif" as const,
     textList: [
-      "Our yoga teacher training course in Mysore is conducted in a spacious and peaceful ambience.",
-      "Students are allowed to spend time with like-minded individuals and experienced professionals.",
-      "Lodging is offered in a secure, comfortable space where lifestyle is not compromised.",
-      "Theoretical and practical classes are conducted besides regular tests and assessments.",
-      "We provide all the study materials to make learning easier. Also, access to pre-recorded videos, live sessions, notes and more are provided.",
-      "Students are offered basic amenities like hot water, wifi, dietary meals, and more.",
-      "Student's progress is recorded and rectified in a non-competitive and non-judgemental atmosphere.",
-      "We offer classes six days a week with one day off during the yoga TTC in Mysore.",
-      "Students are allowed to participate in excursions and seminars where their knowledge is broadened.",
-      "Valuable certification is provided at the end of the courses, making the students' learning evident.",
+      "Our Yoga Alliance certified programs are known all over the world. They are made to give people a real yoga education experience. Our Indian yoga teachers are very good at what they do. I have been teaching for years. They teach our courses. They combine old yoga wisdom with new ways of teaching. We have a lot of things in our courses. Every day people practice Asana and Pranayama and Meditation and Yoga Philosophy. We also have classes on anatomy and how to align your body and how to teach yoga to others. This helps people become yoga instructors. Our Yoga Alliance certified programs provide people with books and other things to help them learn. Our Yoga Alliance certified programs are not about being in a classroom. We have a peaceful place where people can practice yoga. Our rooms are comfortable. We have healthy food that is good for vegetarians. This helps people live a life with yoga. Every week we have workshops and activities and trips to learn about culture. People can meet others from around the world who like yoga.",
     ],
   },
   {
@@ -66,13 +56,14 @@ Our extensive curriculum covers every detail of yoga, including anatomy, physiol
     subSections: [
       {
         heading: "200 Hour Yoga Teacher Training Course in Mysore India",
-        text: `Our 200 hour yoga teacher training in Mysore is a thorough course programme that includes the basics of yoga. It expands its principles, from covering the fundamentals to enlightening the students on meditation, breathing techniques, and more. The skilled and informed instructors at AYM in Rishikesh would help me better understand yoga philosophy. Once the ytt course in Mysore is completed, the students will achieve thorough beginner-level expertise through confidence.`,
+        text: `The 200 Hour Yoga Teacher Training Course is a starting point for people who want to teach yoga and for people who really like doing yoga. You can learn a lot more about yoga. Figure out what yoga is all about. The 200 Hour Yoga Teacher Training Course shows students the basics of yoga and how to make yoga a part of their life.
+`,
       },
       {
         heading: "300 Hour Yoga Teacher Training Course in Mysore",
-        text: `At AYM in Rishikesh, our 300 hour YTT in Mysore is designed for students who aspire to become professionals or deepen their knowledge. Through this course program, students would be introduced to topics like Ayurveda, Sanskrit, Mantras, Vedic Texts and more.
+        text: `Our 300 Hour Yoga Teacher Training is for yoga teachers who already have a certificate and want to get better at what they do and learn more about yoga. This training goes deeper into what yoga's all about so teachers can feel more sure of themselves and really know what they are talking about.
 
-Simply put, the updated 300 hour yoga teacher training course in Mysore has been designed to provide a deeper insight. With knowledgeable and committed instructors in the team, we focus on increasing abilities and discovering inner strength while instilling confidence.`,
+Students learn how to put on really good yoga classes, how to use yoga to help people feel better, what yoga is really all about, about what the yoga words mean, about Ayurveda, how to breathe and meditate in a more advanced way and how to teach a great class.`,
       },
     ],
   },
@@ -82,9 +73,11 @@ Simply put, the updated 300 hour yoga teacher training course in Mysore has been
     image:
       "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?w=700&q=80&fit=crop",
     imageAlt: "Recognized Yoga Teacher Training Course Certification in Mysore",
-    heading: "Recognized Yoga Teacher Training Course Certification in Mysore",
+    heading: "Internationally Recognized Yoga Certification",
     headingStyle: "serif" as const,
-    text: `Regardless of the course program they choose, students enrolling at AYM in Rishikesh are handed over Recognized Yoga Teacher Training courses in Mysore. These certifications hold great value and are accredited, besides meeting the standards of the Yoga Alliances. Once students complete the courses and showcase their expertise and ability towards this practice, they are handed the certificates. Our students can use these yoga TTC certificates in Mysore anywhere in the world to start their journey. Students can begin their yoga studio and teach in reputed yoga institutions worldwide.`,
+    text: `After finishing the training students get a Yoga Teacher Training Certification that is known all over the world. This certification follows the rules that are used in parts of the globe. This certificate helps students to teach yoga as a job, in countries. It also helps them to start their yoga studio. They can plan yoga trips. They can also keep learning more about yoga.
+More important students leave with real skills to teach. They have an understanding of themselves. They feel sure of themselves. They can encourage others by showing yoga practice.
+`,
   },
 ];
 
