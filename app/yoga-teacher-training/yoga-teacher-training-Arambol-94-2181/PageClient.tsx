@@ -162,7 +162,7 @@ const YogaTrainingArambol: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Top yoga and meditation school in Arambol
+            Top Yoga & Meditation School in Arambol, Goa
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,14 +171,10 @@ const YogaTrainingArambol: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              As one of Arambol's best yoga and meditation centres, AYM Yoga
-              School aims to help you learn the correct{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training course
-              </strong>{" "}
-              to become a good yoga teacher and alignment. We help you to open
-              your seven chakras. Whether you want to become a yoga instructor
-              or relax, we also offer suitable courses in Rishikesh and Goa.
+            Welcome to AYM Yoga School in Arambol, Goa. This is a great place to learn yoga and meditation. We have lots of programs like Yoga Teacher Training Courses and yoga retreats. We also have meditation programs and things to help you feel better.
+
+You might want to come to AYM Yoga School to become a yoga teacher.. Maybe you just want to learn more about yoga for yourself. Maybe you just want to get and relax with some yoga in Goa. Our teachers are very good. They teach you the real way of yoga from India. At AYM Yoga School you will learn about Hatha Yoga and Ashtanga Yoga and lots of things, like Pranayama and Meditation and Yoga Philosophy. You will also learn about your body and how to do the poses correctly and about Chakra Healing. We want you to feel comfortable and supported while you are learning at AYM Yoga School
+
             </p>
           </div>
         </div>
@@ -198,7 +194,7 @@ const YogaTrainingArambol: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Best yoga school in Arambol
+            Why Choose AYM Yoga School in Arambol?
             </h2>
             <div
               className={styles.headingUnderline}
@@ -207,10 +203,10 @@ const YogaTrainingArambol: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Arambol is a traditional fisherman's village in northern Goa,
-              about a 90-minute drive from Dabolim Airport. When it comes to
-              the beaches of Goa, Arambol is one of the most charming,
-              beautiful, and peaceful beaches.
+            AYM Yoga School is focused on keeping the ways of yoga alive while giving students a chance to grow their knowledge and abilities through yoga programs that are known all over the world. Under the direction of teachers who know a lot about yoga students get one- on-one help to feel more sure of themselves, get better at moving and learn more about yoga than just the physical parts. AYM Yoga School has different classes, including 100 Hour Yoga Teacher Training, 200 Hour Yoga Teacher Training, 300 Hour Yoga Teacher Training, Yoga and Meditation Retreats, Pranayama and Breathwork Chakra Meditation and Healing, Yoga Philosophy, Yoga Anatomy and Alignment and Sound Healing and Relaxation Sessions. 
+
+No matter if you are just starting with yoga or you have been doing it for a time and want to get better or you want to become a yoga teacher, AYM Yoga School gives you a clear way to learn and real advice to help you reach your own yoga goals and understand the old ways of yoga better.
+
             </p>
           </div>
         </div>
@@ -230,7 +226,7 @@ const YogaTrainingArambol: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Experience the art of yoga and meditation at AYM in Arambol
+            Experience Authentic Yoga in Arambol, Goa 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -239,10 +235,10 @@ const YogaTrainingArambol: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              With its bohemian atmosphere, Arambol attracts tourists from all
-              over the world. Arambol is connected to Mandrem Beach on one end
-              and Querim Beach on the other and is known for its vibrant
-              nightlife, live music performances, and other cultural events.
+            Arambol is a peaceful and pretty beach place in Goa. It is in North Goa. You can get to Arambol from Dabolim Airport in ninety minutes. Arambol is famous for its beaches. Arambol is famous for its sunsets. Arambol is famous for its culture. Arambol is famous for being an easygoing place. The quiet area around Arambol makes it a great spot to practice yoga. It is also a spot to meditate. Arambol is a place to learn more about yourself. Arambol is a place to go for wellness retreats. Arambol is close to Mandrem Beach. Arambol is close to Querim Beach. Lots of people who love yoga come to this area. Lots of travelers come to this area. People from around the world come to this area to have new experiences.
+
+Practicing yoga in Arambol is really nice because you are close to nature. Being in Arambol helps you feel connected to the world around you. Doing yoga in Arambol helps make your body healthy. Doing yoga in Arambol helps make your mind healthy. Doing yoga in Arambol helps make your feelings healthy.
+
             </p>
           </div>
         </div>
@@ -262,7 +258,7 @@ const YogaTrainingArambol: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Experience the art of yoga and meditation at AYM in Arambol
+            Yoga Retreats & Meditation Programs in Arambol 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -271,15 +267,7 @@ const YogaTrainingArambol: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              <strong className={styles.boldLink}>AYM Yoga School</strong> is a
-              professional yoga and meditation school in Rishikesh and Goa. Our
-              area of expertise is to provide high-quality yoga teacher training
-              and yoga retreat service to anyone willing to enjoy the benefits of
-              yoga in India. Enjoy Mantras, Pranayama, and yoga prayer with our
-              yoga teachers. Our outstanding achievements are widely recognized
-              by students and professors worldwide. And if you live in Arambol
-              or plan to visit, we also provide our facilities and training
-              courses there.
+            If you are looking to unwind, reconnect with yourself, and experience yoga without the need for a certification, our **Yoga Retreats in Arambol** offer a relaxing and rejuvenating experience for the mind and body. Each retreat combines **daily yoga classes, guided meditation, Pranayama and breathing practices, mindfulness sessions, healthy vegetarian meals, and time to explore and enjoy the natural beauty of Goa**, creating a balanced wellness experience away from everyday routines 
             </p>
           </div>
         </div>
@@ -302,7 +290,7 @@ const YogaTrainingArambol: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Qualified yoga training in India
+            Join AYM Yoga School in Arambol
             </h2>
             <div
               className={styles.headingUnderline}
@@ -311,14 +299,9 @@ const YogaTrainingArambol: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School is located in Rishikesh and Goa. We are a famous
-              yoga and meditation institution in India, specializing in teacher
-              training, yoga gurus. Our non-profit organization aims to teach
-              quality yoga classes to anyone who wants to become a qualified yoga
-              instructor. AYM Yoga School also helps you relieve emotional
-              problems through a yoga therapy retreat. In addition, if you are
-              in Arambol, AYM Yoga School will also fully operate our facilities
-              here.
+            AYM Yoga School welcomes students from around the world to experience authentic yoga in the peaceful surroundings of Arambol, Goa. With experienced teachers, comprehensive training programs, and a supportive learning community, we help students build lifelong yoga practices and successful teaching careers.
+Start your journey toward better health, inner peace, and professional growth with one of the best yoga and meditation schools in Arambol.
+
             </p>
           </div>
         </div>

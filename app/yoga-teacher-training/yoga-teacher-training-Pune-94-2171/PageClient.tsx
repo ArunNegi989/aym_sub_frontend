@@ -149,7 +149,7 @@ const YogaTrainingPune: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Yoga Teacher Training in Pune with Certification
+            Yoga Teacher Training in Pune with Certification
             </h2>
             <div
               className={styles.headingUnderline}
@@ -158,20 +158,10 @@ const YogaTrainingPune: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              We strongly believe that yoga is no longer just a form of exercise
-              you must master before you can start teaching students. As a yoga
-              instructor, it is essential to measure that you have absorbed the
-              yogic requirements and eventually started with the practice to
-              teach your students the correct values. One such important course
-              that we are going to help you with is none other than the{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training at Pune
-              </strong>
-              . It is a comprehensive program to get you started with the base
-              and the advanced sectors, which is crucial for taking care of
-              since its inception. Contact us at the Association For Yoga and
-              Meditation and sign up for Pune's professional yoga teaching
-              course today!
+            I am looking for a Yoga Teacher Training in Pune where I can learn about yoga philosophy, asanas, meditation, anatomy and how to teach yoga. The Association For Yoga and Meditation (AYAM) has a course that teaches all these things. Yoga is not about the body. It is about the mind and consciousness too. To teach yoga I need to know about the principles of yoga and how to teach people. The Yoga Teacher Training Course in Pune at the Association For Yoga and Meditation (AYAM) helps people learn everything they need to know to become a yoga teacher.
+
+I want to join the Yoga Teacher Training Course in Pune so I can become a certified yoga instructor. The Yoga Teacher Training in Pune will help me learn and become a teacher. I will learn about Yoga Teacher Training. Become a knowledgeable yoga instructor.
+
             </p>
           </div>
         </div>
@@ -188,7 +178,7 @@ const YogaTrainingPune: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Certification Yoga Teacher Training Course in Pune
+            Certified Yoga Teacher Training Course in Pune 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -197,21 +187,9 @@ const YogaTrainingPune: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              If you want to start your journey as a professional yoga teacher,
-              one of the essential things you need to remember is that yoga is
-              not in a single school, and there are different ways to perform
-              the same. As an instructor or teacher, you always have to make
-              sure you have a firm idea about each domain and then eventually
-              select your specifications based on the same. We have ensured that
-              our{" "}
-              <strong className={styles.boldLink}>
-                yoga therapy teacher training course
-              </strong>{" "}
-              is carefully crafted so that you have complete guidance. Not only
-              that, once you are done with the training modules and have passed
-              each of them with succession, you will also be accorded a
-              certification, which is mandatory in a professional field like
-              yoga. After all, everyone cannot choose to become a teacher.
+            Choosing a Yoga Certification Course in Pune is a decision for people who want to make a career out of yoga. To be a yoga teacher you need to know about the different yoga traditions and styles. You also need to know how to teach yoga
+At AYAM the Yoga Teacher Training and Certification Course, in Pune teaches you everything you need to know about yoga. You will learn about yoga philosophy and the traditional way of teaching yoga. You will also learn about the asanas and how to do them correctly. The course covers pranayama and breathing techniques, meditation and mindfulness and anatomy and physiology.
+
             </p>
           </div>
         </div>
@@ -228,7 +206,7 @@ const YogaTrainingPune: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              One-on-One Interaction With Best Yoga Professionals In Pune
+            Learn Directly From Experienced Yoga Professionals in Pune
             </h2>
             <div
               className={styles.headingUnderline}
@@ -237,21 +215,10 @@ const YogaTrainingPune: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              One of the critical factors about Pune as a city is that it is
-              incredibly fast-paced, so you need more time to sit back and
-              relax. In such a frantic situation, it is wise to make sure that
-              you do something that makes you feel good and keeps you motivated
-              and focused as well. There is nothing better than yoga for your
-              body and mind's peace; hence, the demand for a licensed instructor
-              in Pune is entirely innate. Our course has been formulated so that
-              our students can get in touch with the best experts and gather
-              both knowledge and experience from them. The{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training program in Pune
-              </strong>{" "}
-              we designed ensures that each of the students who come on board,
-              irrespective of whether they want to become instructors or not,
-              are given the most prominent exposure to the yogic gurus.
+            Joining a Yoga Teacher Training in Pune has a big plus. You get to learn from yoga teachers and practitioners who have a lot of experience. Pune is a city that's always on the go. People who live there often have busy lives, they are stressed out and their daily routines are very demanding. That is why yoga is really important for them. It helps them stay physically healthy, think clearly and feel balanced emotionally. Because people know how good yoga is for them they want to learn from teachers who're qualified and certified.
+
+Our Yoga Teacher Training in Pune is special because we give students a lot of attention. We show them what to do. They get to work one on one with people who are really good at yoga. If you want to teach yoga to others or just get better at it yourself, our course is a way to learn about yoga from people who really know what they are doing.
+
             </p>
           </div>
         </div>
@@ -268,7 +235,7 @@ const YogaTrainingPune: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Get The Best Knowledge and Facilities With Modern Amenities
+            Modern Facilities and Complete Yoga Learning Environment
             </h2>
             <div
               className={styles.headingUnderline}
@@ -277,20 +244,9 @@ const YogaTrainingPune: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              People believe that yoga is all about using just the body weight.
-              Although it is valid to a certain extent, you need to have some
-              extra accessories as well, which will help you in the process, and
-              we have access to the same in the studio. We have been acclaimed
-              globally as one of the top options whenever you search for a{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training course near me
-              </strong>
-              , and that is also because of the resources we have made available
-              over time. Exposure to such excellent resources guarantees that
-              you can learn in every aspect. Here, the profound focus
-              automatically enriches your experience. No matter the requirement,
-              the Association for Yoga and Meditation has successfully included
-              that in the curriculum.
+            Yoga is not about the poses. It is about connecting our body, our breath, our mind and the way we live. The Yoga Teacher Training Institute in Pune is a place to learn about yoga. We have everything you need to learn about yoga. You will get to practice yoga and learn from our teachers.
+During the training you will get to try out things like advanced yoga practices, meditation techniques, pranayama and breathing exercises and teaching demonstrations. You will also learn about yoga props. Get to use our learning resources and practice spaces. This will help you learn about yoga in a hands-on way. You will get to understand yoga and also learn how to teach it to others.
+
             </p>
           </div>
         </div>
@@ -310,7 +266,7 @@ const YogaTrainingPune: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Affordable Prices With Global Exposure As an Instructor
+            Affordable Yoga Teacher Training Certification With Global Opportunities
             </h2>
             <div
               className={styles.headingUnderline}
@@ -319,19 +275,7 @@ const YogaTrainingPune: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              A common myth says that if you are pursuing a Yoga teacher
-              training certification in Pune, you need an international yoga
-              teacher training certification, which can eventually deter you
-              from setting up a career abroad. However, we have ensured that our
-              certification helps you gain global recognition. You will
-              eventually be able to set up global precedence. Moreover, we have
-              kept the prices extremely affordable so that no matter your
-              economic affiliation, you do not have any problem when you want to
-              be a{" "}
-              <strong className={styles.boldLink}>
-                registered Yoga instructor in Pune
-              </strong>
-              .
+            Many aspiring yoga teachers think they have to go and spend a lot of money on programs to have a good career but a good Yoga Teacher Training Certification in Pune can give the skills, knowledge and foundation needed to work in the yoga and wellness field. At the Association for Yoga and Meditation (AYAM) our low-cost yoga teacher training program focuses on education learning by doing real teaching experience and growing as a professional to help students become sure of themselves as yoga teachers. After finishing the course graduates can find jobs as yoga instructors, yoga trainers, wellness coaches, meditation teachers and yoga therapy practitioners based on their qualifications and what they want to do. The training helps students gain the confidence and teaching abilities needed to teach yoga principles and practices to students in India and around the world making a Yoga Teacher Training Certification in Pune a smart first step, for anyone who wants to work in yoga.
             </p>
           </div>
         </div>

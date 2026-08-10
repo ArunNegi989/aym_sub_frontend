@@ -162,7 +162,7 @@ const YogaTrainingMaharashtra: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Yoga Teacher Training in Maharashtra
+            Yoga Teacher Training in Maharashtra | Certified Yoga Instructor Course 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,20 +171,12 @@ const YogaTrainingMaharashtra: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              <strong className={styles.boldLink}>
-                Yoga Teacher Training in Maharashtra
-              </strong>{" "}
-              offers a comprehensive learning experience for individuals seeking
-              to deepen their understanding of yoga and become certified
-              instructors. The training program, with its focus on both the
-              physical and spiritual aspects of yoga, covers a wide range of
-              topics including various yoga styles, meditation, pranayama,
-              anatomy, and teaching methodologies. Students will have the
-              opportunity to immerse themselves in the rich tradition of yoga
-              while exploring the beautiful landscapes of Maharashtra. Whether
-              you're a beginner or an experienced practitioner, this training
-              program provides a supportive and nurturing environment for
-              personal growth and learning.
+            Do you want to find the Yoga Teacher Training in Maharashtra so you can learn more about Yoga Teacher Training and become a certified yoga instructor? We have a Yoga Teacher Training program that people over the world know about. This Yoga Teacher Training program is for people who are just starting with Yoga Teacher Training for people who have been doing yoga for a while and for people who have a lot of experience with yoga and want to make a career out of Yoga Teacher Training.
+
+Our Yoga Teacher Training is in a peaceful place in Maharashtra. We teach you the ways of yoga and also some new ways of teaching yoga. You will get to practice teaching yoga to others. You will learn a lot about yoga and Yoga Teacher Training. You will also become more confident. You will be able to teach yoga to people anywhere in the world with your Yoga Teacher Training.
+
+Maybe you want to learn more about yoga for yourself. Maybe you want to become a person or maybe you want to be a certified yoga teacher, with Yoga Teacher Training. Our Yoga Teacher Training program will give you the knowledge and the practice you need to do what you want to do with Yoga Teacher Training.
+
             </p>
           </div>
         </div>
@@ -204,7 +196,7 @@ const YogaTrainingMaharashtra: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Benefits of Yoga Teacher Training in Maharashtra
+            Why Choose Our Yoga Teacher Training in Maharashtra? 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -213,22 +205,10 @@ const YogaTrainingMaharashtra: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              The{" "}
-              <strong className={styles.boldLink}>
-                Yoga Teacher Training in Maharashtra
-              </strong>{" "}
-              offers numerous benefits for aspiring yoga instructors.
-              Participants can deepen their yoga practice, understand yoga
-              philosophy and anatomy comprehensively, and develop the skills
-              needed to teach others effectively. The training provides an
-              immersive experience that allows students to connect with
-              like-minded individuals and experienced instructors, fostering a
-              supportive and collaborative learning environment. Maharashtra's
-              serene and natural surroundings offer a peaceful backdrop for
-              self-reflection and growth, enhancing the overall training
-              experience. Upon completion, graduates are equipped with the
-              knowledge and confidence to lead yoga classes and positively
-              impact the lives of others through the practice of yoga.
+            Our Yoga Teacher Training Program is designed to help people understand yoga in a way that's easy to follow. This program meets the standards that most yoga professionals use when they teach. It is meant for people who want to become yoga instructors and learn all aspects of yoga.
+
+The topics we cover in our program include Hatha Yoga, Ashtanga Yoga, Vinyasa Flow, Yin Yoga, Pranayama techniques, meditation practices, yoga philosophy, human anatomy and physiology yoga alignment teaching methodology, class sequencing and practical teaching sessions.
+
             </p>
           </div>
         </div>
@@ -248,7 +228,7 @@ const YogaTrainingMaharashtra: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Why should I choose Yoga Teacher Training in Maharashtra?
+            Affordable Yoga Teacher Training in Maharashtra
             </h2>
             <div
               className={styles.headingUnderline}
@@ -257,19 +237,9 @@ const YogaTrainingMaharashtra: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              <strong className={styles.boldLink}>
-                Yoga Teacher Training Maharashtra
-              </strong>{" "}
-              is an excellent choice for several reasons. Maharashtra offers a
-              rich and diverse cultural heritage, and studying yoga in this
-              region can provide a unique and authentic experience.
-              Additionally, the state has many experienced yoga teachers and
-              practitioners who can offer valuable insights and guidance.
-              Furthermore, Maharashtra's beautiful natural landscapes and serene
-              environment create an ideal setting for focused learning and
-              self-discovery. Lastly, completing your training in Maharashtra
-              may also open opportunities to immerse yourself in the local
-              culture and traditions, enhancing your overall yoga experience.
+            We believe that good yoga education should be available to all people, which's why our low-cost Yoga Teacher Training Program is created to offer great value without losing the quality of learning. Learners get training resources, daily yoga classes, time for meditation, real teaching opportunities, help from skilled teachers, a friendly place to learn and a certificate when they finish the program. 
+By mixing learning everyday practice, meditation and actual teaching experience our goal is to help people build real skills, understand things well and feel sure of themselves as they start their path to being real yoga teachers.
+
             </p>
           </div>
         </div>
