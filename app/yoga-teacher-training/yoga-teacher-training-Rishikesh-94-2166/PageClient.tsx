@@ -149,7 +149,7 @@ const YogaTrainingPushkar: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Explore the Roots of Yogic Knowledge with AYM Yoga Rishikesh
+            Yoga Teacher Training in Rishikesh – Transform Your Passion into a Global Career
             </h2>
             <div
               className={styles.headingUnderline}
@@ -158,19 +158,12 @@ const YogaTrainingPushkar: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Yoga is one of the best ways to take your life towards peace and
-              tranquillity. Those who know the meaning of yoga and want to
-              spread its knowledge to others always look up to taking it as
-              their career. If you have been thinking of the same and want to
-              become a yoga teacher in Rishikesh, then we are here. We at{" "}
-              "Association for Yoga and Meditation" offer a top-class yoga
-              teaching course in Rishikesh. Our consistent services have
-              helped us develop an unparalleled reputation in the market. At
-              our institute of yoga teacher training course near me, we
-              ensure that the students get complete yogic knowledge by
-              exploring its roots. We employ both traditional and advanced
-              yogic concepts, besides educating our students about them so
-              that they can develop a great professional career ahead.
+            AYM Yoga Rishikesh, which is also called the Association for Yoga and Meditation is a yoga school. It is located in the middle of Rishikesh. AYM Yoga Rishikesh offers courses for people who want to become yoga teachers. These courses are named Yoga Teacher Training Courses. People from all over the world know about these courses.
+
+AYM Yoga Rishikesh is, in a place because Rishikesh is known as the Yoga Capital of the World. Our school teaches yoga in a way that mixes traditions with ways of teaching. This helps people who study with us have an experience.
+
+You might be just starting to learn about yoga. You might already know a lot about AYM Yoga Rishikesh and yoga. Either way our programs are created to help you learn more about AYM Yoga Rishikesh and yoga. We want to help you become a yoga teacher or just improve your practice of AYM Yoga Rishikesh and yoga. Our programs are certified by Yoga Alliance, which's a well-known organization.
+
             </p>
           </div>
         </div>
@@ -187,7 +180,7 @@ const YogaTrainingPushkar: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Learn Advanced Yoga Under Experienced Instructors in Rishikesh
+            Yoga Teacher Training in Rishikesh by Experienced Yoga Masters
             </h2>
             <div
               className={styles.headingUnderline}
@@ -196,24 +189,10 @@ const YogaTrainingPushkar: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              As mentioned earlier, we help students in our institute to
-              learn both traditional and modern forms of yoga. We make sure
-              that you are enlightened about how yoga started and where it is
-              in today's time. Our licensed yoga teacher training course in
-              Rishikesh has a very updated and well-designed curriculum.
-              Through our extensive and registered yoga teacher training
-              course in Rishikesh, you will first be assisted to transform
-              yourself into a flexible and fit personality before you would
-              hand up the same to your yoga disciples.
-            </p>
-            <p className={styles.bodyText}>
-              After that, you will be taught ways to educate others in a
-              friendly and professional way. Our classrooms are well equipped
-              and comfortable enough that helps you to focus on achieving the
-              yoga instructor certification near me. We make sure to instill
-              the latest techniques of yoga and meditation in your mind
-              through our yoga training course in Rishikesh so that you can
-              help others to live happy life.
+            Our Yoga Teacher Training in Rishikesh is taught by Yoga Teacher Training teachers who really know what they are doing and have spent a time studying and practicing Yoga Teacher Training. They have put together a plan that teaches us about the ideas behind Yoga Teacher Training, how to do the poses correctly, breathing exercises, meditation, the body, how to teach Yoga Teacher Training and how to live like a Yoga Teacher Training person.
+
+At AYM Yoga Rishikesh students get help from the teachers that's just for them and they learn in a place that is nice and supportive which helps them get better at Yoga Teacher Training and also feel better inside. Our Yoga Teacher Training classes help people become good Yoga Teacher Training teachers. They also help us be more mindful, disciplined and aware of ourselves and our Yoga Teacher Training practice.
+
             </p>
           </div>
         </div>
@@ -230,7 +209,7 @@ const YogaTrainingPushkar: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Global Certified Yoga Teacher in Rishikesh
+            Internationally Certified Yoga Teacher Training Courses
             </h2>
             <div
               className={styles.headingUnderline}
@@ -239,23 +218,10 @@ const YogaTrainingPushkar: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              We at "Association for Yoga and Meditation" have a highly
-              talented and experienced team of instructors who would guide
-              you in yoga teacher training in Rishikesh. It does not matter
-              how skilled or professional you already are - we make sure that
-              you complete YTT certification in Rishikesh starting from
-              scratch and then to the advanced level.
-            </p>
-            <p className={styles.bodyText}>
-              Through our yoga teacher training program in Rishikesh, you
-              will be prepared to face the challenges of the real world. Our
-              yoga therapy teacher training helps you recognize how you would
-              communicate with the students and how you would understand
-              their problems. Lastly, you will be handed over the YTT
-              certification in Rishikesh that is globally accepted. The
-              International yoga certification will help you to get your
-              dream job or launch your own yoga classes anywhere in the
-              world.
+            AYM Yoga Rishikesh provides teacher training programs that are recognized by the Yoga Alliance around the world. These programs help students learn how to teach yoga in a way in any part of the world. The certificates that are given by the school are accepted in countries and can lead to job opportunities at yoga studios, wellness retreats, fitness centers and private teaching.
+
+During the course students get hands-on experience by taking part in practice sessions attending workshops and doing teaching tasks, under the guidance of instructors. This helps them become skilled teachers when they finish the program.
+
             </p>
           </div>
         </div>
@@ -272,7 +238,7 @@ const YogaTrainingPushkar: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Top Rated Yoga Courses Under Experienced Instructors
+            Why Choose AYM Yoga Rishikesh?
             </h2>
             <div
               className={styles.headingUnderline}
@@ -281,15 +247,10 @@ const YogaTrainingPushkar: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              As the top yoga therapy teacher training, we handle all your
-              expectations. We first assist you in becoming in shape, then
-              educate you on how to acquire the proper yoga poses and assist
-              others in managing their mental and physical well-being. You can
-              relax and open your seven chakras by enrolling in our{" "}
-              <strong className={styles.boldLink}>YTT in Pushkar</strong> and
-              obtaining yoga teacher certification. Once you have chosen our
-              yoga teacher training program in Pushkar, we will ensure you are
-              ready for the real world and succeed.
+            Choosing a yoga school is a big decision for people who want to teach yoga. At AYM Yoga Rishikesh we really want to teach people about yoga in an honest way. We also want to make sure that what we teach is good enough for people around the world.
+
+AYM Yoga Rishikesh offers Yoga Alliance-certified teacher training programs. These programs are led by experienced yoga gurus. These programs are also led by faculty. The programs combine yoga practices. The programs also use approaches to yoga education. The programs maintain class sizes. The programs give students learning. The programs give students attention. Daily sessions include Meditation. Daily sessions include Pranayama. Daily sessions include Yoga Philosophy. AYM Yoga Rishikesh also provides accommodation. AYM Yoga Rishikesh also provides food. AYM Yoga Rishikesh is in an environment.  
+
             </p>
           </div>
         </div>
@@ -309,7 +270,7 @@ const YogaTrainingPushkar: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Time to Become a Certified Yoga Teacher
+            Comprehensive Yoga Teacher Training Curriculum
             </h2>
             <div
               className={styles.headingUnderline}
@@ -318,20 +279,7 @@ const YogaTrainingPushkar: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Once you gain the knowledge from our yoga teacher training in
-              Pushkar, you will be able to use it in the real world to assist
-              people in overcoming emotional difficulties. With a well-designed
-              classroom and a focused environment free of any distractions, we
-              work effectively to provide aspiring training for yoga teachers in
-              Pushkar. You can learn more about yoga from us under the guidance
-              of experienced individuals. Then you get to receive a globally
-              recognized{" "}
-              <strong className={styles.boldLink}>
-                YTT certification in Pushkar
-              </strong>
-              . As a reputable institution, we ensure that you receive complete
-              training in ways that help you to grow as a professional in the
-              future.
+            Our Yoga Teacher Training Course gives an education to people who want to become yoga teachers. This course helps them learn more about yoga. The skills they need to teach it well. The classes include Hatha Yoga, Ashtanga Yoga, Pranayama Techniques, Meditation Practices, Yoga Philosophy, Human Anatomy and Physiology, Teaching Methodology, Alignment and Adjustment Techniques, Yogic Cleansing or Shatkarma and Mantra Chanting. The course is made to give an understanding of yoga that is more than just moving the body. It helps students look into the real philosophical and traditional parts of yoga. It gives them the knowledge they need to become sure of themselves and good at teaching yoga.
             </p>
           </div>
         </div>

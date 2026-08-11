@@ -162,7 +162,7 @@ const YogaTrainingThiruvananthapuram: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Best Yoga School in Thiruvananthapuram
+            Become a Certified Yoga Teacher with the Association for Yoga and Meditation
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,13 +171,7 @@ const YogaTrainingThiruvananthapuram: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Located in Thiruvananthapuram, the Association for Yoga and
-              Meditation is one of Thiruvananthapuram's best{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training programs
-              </strong>
-              . With immense knowledge about yoga, we aim to spread its benefit
-              to people worldwide.
+            The Association for Yoga and Meditation has a Yoga Teacher Training program that people really like and trust in Thiruvananthapuram. This program is for people who want to become yoga teachers, for wellness professionals and for people who really like yoga. The Association for Yoga and Meditation program teaches people about yoga in a way that combines yoga ideas with new ways of teaching. This helps students learn what they need to know to become yoga teachers.
             </p>
           </div>
         </div>
@@ -197,7 +191,7 @@ const YogaTrainingThiruvananthapuram: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Advanced Yoga Classes with Experienced Teachers
+            Advanced Yoga Teacher Training with Experienced Instructors
             </h2>
             <div
               className={styles.headingUnderline}
@@ -206,23 +200,10 @@ const YogaTrainingThiruvananthapuram: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              When you search for a{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training course near me
-              </strong>
-              , you'll find us on the top list, as our professionals conduct
-              best-in-class yoga sessions for everyone who wants to become a
-              certified yoga instructor. Along with developing your teaching
-              skills, we give you the chance to build a strong foundation in the
-              ancient yogic tradition. In addition, as a reputed yoga teacher
-              training in Thiruvananthapuram, we strengthen your spiritual bond
-              with yoga so that you can undergo an inner transformation before
-              instructing others. The teachers will support and mentor you
-              throughout your{" "}
-              <strong className={styles.boldLink}>
-                YTT certification in Thiruvananthapuram
-              </strong>{" "}
-              because they are highly qualified, committed, and experienced.
+            Our Yoga Teacher Training in Thiruvananthapuram is taught by Yoga Teacher Training instructors who really know what they are doing and love Yoga Teacher Training. They teach us everything we need to know about Yoga Teacher Training.
+We learn by doing things and by listening to our Yoga Teacher Training instructors.
+Our Yoga Teacher Training covers a lot of things like Traditional Yoga Asanas and Pranayama and Breath Control and Meditation Techniques and Yoga Philosophy and Anatomy and Physiology and Teaching Methodology and Alignment and Adjustment Techniques and Classroom Management Skills.
+
             </p>
           </div>
         </div>
@@ -242,7 +223,7 @@ const YogaTrainingThiruvananthapuram: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Become a Certified Yoga Teacher Today
+            Internationally Recognized Yoga Teacher Certification 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -251,17 +232,10 @@ const YogaTrainingThiruvananthapuram: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              At the Association for Yoga and Meditation, we cater to a{" "}
-              <strong className={styles.boldLink}>
-                registered yoga teacher training course in Thiruvananthapuram
-              </strong>
-              . Once you learn the art of yoga and master all its concepts, you
-              receive a globally-acclaimed certificate from pursuing your own
-              goals. So acquire knowledge in yoga therapy teacher training
-              through our classes and earn yourself a professional certificate
-              to become a licensed yoga teacher today. You'll be highly
-              recognized all across the world and will also be able to pursue a
-              successful career ahead.
+            Our yoga teacher training program is a way to become a yoga teacher. You will learn much about yoga. You will feel confident when you are teaching yoga. When you finish the course you get a Yoga Teacher Certification that people know all over the world. This means you can teach yoga at lots of places like wellness centers, yoga studios, fitness clubs, retreats, schools and even have private classes anywhere in the world.
+
+If you want to teach yoga as a job or you just want to learn more about yoga our certification program will help you with your yoga goals. The yoga teacher training program is really good for people who want to teach yoga or for people who just want to learn more about yoga. Our yoga teacher training program will help you learn about yoga and our Yoga Teacher Certification will help you teach yoga.
+
             </p>
           </div>
         </div>
@@ -281,7 +255,7 @@ const YogaTrainingThiruvananthapuram: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Gain Immense Knowledge to Teach Yoga
+            Why Choose Our Yoga School in Thiruvananthapuram? 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -290,27 +264,10 @@ const YogaTrainingThiruvananthapuram: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Are we dreaming of becoming recognized yoga teachers? We at the
-              Association for Yoga and Meditation offer{" "}
-              <strong className={styles.boldLink}>
-                YTT certification in Thiruvananthapuram
-              </strong>{" "}
-              to help you with your yoga career as an instructor. We have gained
-              a global reputation and made a name in the industry as the best
-              yoga teaching center in Thiruvananthapuram. From focusing on
-              little details, sharing knowledge, and believing in our passion to
-              motivating you, we make sure every student of ours is showered
-              with in-depth knowledge in the field of yoga. Before starting your
-              journey with us, we ensure you've reached the heights of
-              professionalism and flexibility. On the successful completion of
-              your course, we offer yoga teacher certification so that you can
-              widen your boundaries and reach your goals anywhere in the world
-              because the certification carries global recognition. Put, with
-              our{" "}
-              <strong className={styles.boldLink}>
-                yoga training course in Thiruvananthapuram
-              </strong>
-              , you'll not only learn but also grow.
+            At the Association for Yoga and Meditation we believe yoga is more than moving the body; it is a way of life that brings balance, awareness, calmness and overall well-being. Our programs help students get better at stretching and getting stronger, gain confidence when teaching yoga, help with their health, learn good ways to teach yoga, understand the basics of yoga and grow personally while discovering a bigger sense of purpose.
+
+By mixing yoga traditions with real teaching experience we get students ready with the knowledge and abilities they need to share real yoga education with others and become confident yoga teachers. At the Association for Yoga and Meditation yoga is very important in our lives and our education is made to help students get the skills and understanding they need to make yoga a meaningful part of their lives and their journey, as teachers.
+
             </p>
           </div>
         </div>
@@ -333,7 +290,7 @@ const YogaTrainingThiruvananthapuram: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Enroll in the Top Yoga School at an Affordable Price
+            Start Your Yoga Teaching Journey Today
             </h2>
             <div
               className={styles.headingUnderline}
@@ -342,21 +299,10 @@ const YogaTrainingThiruvananthapuram: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Are you searching for the best{" "}
-              <strong className={styles.boldLink}>
-                yoga instructor certification near me
-              </strong>
-              ? We at the Association for Yoga and Meditation are the option as
-              we are the leading provider of licensed yoga teacher training
-              courses in Thiruvananthapuram. With us, you gain a deeper
-              dimension and in-depth knowledge of yoga. We believe yoga is an
-              art and should be embraced by all.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              What makes us the best yoga teachers in Thiruvananthapuram is that
-              we focus not only on shaping you as students but also as qualified
-              yoga gurus. We want to support anyone who wants to develop their
-              passion into a successful profession.
+            If you want to learn about Yoga Teacher Training in Thiruvananthapuram you should start with the Association for Yoga and Meditation. They really care about teaching people yoga so they can have jobs and understand what yoga is all about.
+
+You can sign up now for the Yoga Teacher Training. This is the step to become a certified yoga teacher. You will get help from people who know a lot about yoga and learn from a program that is based on yoga. The Yoga Teacher Training at the Association for Yoga and Meditation is a way to start your journey to become a certified yoga teacher, with the Yoga Teacher Training
+
             </p>
           </div>
         </div>
