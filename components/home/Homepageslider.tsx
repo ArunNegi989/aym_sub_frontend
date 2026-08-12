@@ -13,20 +13,26 @@ interface Slide {
   image: string;
 }
 
+interface HomepageSliderProps {
+  initialSlides?: Slide[];
+}
+
 const AUTOPLAY_DELAY = 5000;
 
-const HomepageSlider = () => {
+const HomepageSlider = ({ initialSlides = [] }: HomepageSliderProps) => {
   const [current, setCurrent] = useState(0);
-  const [slides, setSlides] = useState<Slide[]>([]);
+  const [slides, setSlides] = useState<Slide[]>(initialSlides);
   const [progressKey, setProgressKey] = useState(0);
 
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
 
-  /* FETCH BANNERS */
+  /* FETCH BANNERS (client refresh — skipped on first paint if server already provided data) */
 
   useEffect(() => {
+    if (initialSlides.length) return;
+
     const fetchBanners = async () => {
       try {
         const res = await api.get("/banners");
@@ -40,6 +46,7 @@ const HomepageSlider = () => {
     };
 
     fetchBanners();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /* NAVIGATION FUNCTIONS */
@@ -64,6 +71,7 @@ const HomepageSlider = () => {
     if (img.startsWith("http")) return img;
     return `${process.env.NEXT_PUBLIC_API_URL}${img}`;
   };
+
   /* AUTOPLAY */
 
   useEffect(() => {
@@ -127,6 +135,7 @@ const HomepageSlider = () => {
             alt={slide.bannerName}
             fill
             unoptimized
+            priority={idx === 0}
             className={styles.slideImage}
           />
           <div className={styles.slideOverlay} />
@@ -180,15 +189,6 @@ const HomepageSlider = () => {
           />
         ))}
       </div>
-
-      {/* COUNTER */}
-
-      {/* <p className={styles.slideCounter}>
-        <span className={styles.slideCounterCurrent}>
-          {String(current + 1).padStart(2, "0")}
-        </span>{" "}
-        / {String(slides.length).padStart(2, "0")}
-      </p> */}
 
       {/* PROGRESS BAR */}
 
