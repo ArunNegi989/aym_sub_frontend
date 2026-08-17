@@ -208,8 +208,7 @@ const YogaAshrams: React.FC = () => {
 <section className={styles.experienceSection}>
   <div className={styles.experienceHeader}>
     <h2 className={styles.experienceTitle}>
-    Enthralling experiences in Yoga Ashrams Rishikesh & Practice of Yoga & Mediation
-    </h2>
+    Best Yoga Ashram in Rishikesh for Authentic Practice    </h2>
   </div>
 
   <p className={`${styles.experienceBody} container`}>

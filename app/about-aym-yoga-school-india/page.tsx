@@ -4,7 +4,7 @@ import PageClient from "./PageClient";
 export const metadata: Metadata = {
   title: "About AYM Yoga School | Yoga School in India",
   description:
-    "Learn about AYM Yoga School, a trusted yoga school in India offering authentic yoga education, experienced teachers, and Yoga Alliance & Ministry of AYUSH recognition.",
+    "AYM Yoga School: a trusted, govt-recognized yoga ashram in Rishikesh since 2005. Explore our mission, history & Yoga Alliance-certified TTC programs.",
 
     alternates: {
       canonical: "https://aymyogaschool.com/about-aym-yoga-school-india",
