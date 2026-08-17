@@ -6,7 +6,7 @@ import Image from "next/image";
 import styles from "@/assets/style/Singleblog/Singleblog.module.css";
 
 /* ================================================================
-   TYPES — All preserved
+   TYPES — All preserved with SEO fields added to Blog interface
    ================================================================ */
 export type SectionType =
   | "heading" | "subheading" | "paragraph" | "images" | "divider"
@@ -54,6 +54,13 @@ export interface Blog {
   tags?: string[];
   content?: BlogSection[];
   status?: string;
+  // SEO fields - added to type only, no UI changes
+  metaTitle?: string;
+  metaDescription?: string;
+  canonicalUrl?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
 }
 
 interface SingleBlogProps {
@@ -399,7 +406,7 @@ const RenderSections = ({ sections }: { sections: BlogSection[] }) => (
 );
 
 /* ================================================================
-   MAIN COMPONENT — Modern UI with ALL original widgets
+   MAIN COMPONENT — EXACTLY as it was, NO UI changes
    ================================================================ */
 export default function SingleBlog({
   blog,
