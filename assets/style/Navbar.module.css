@@ -125,7 +125,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 290px;
+  min-width: 310px;
   background: #fff;
   border-top: 3px solid #F15505;
   border-radius: 0 0 8px 8px;
@@ -180,7 +180,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 0.6rem 1rem;
+  padding: 0.4rem 1rem;
   color: #151515;
   text-decoration: none;
   font-family: 'Montserrat', Arial, sans-serif;
