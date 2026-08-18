@@ -85,6 +85,9 @@ interface FormData {
   ogTitle: string;
   ogDescription: string;
   ogImage: string;
+  // Schema Markup
+  schemaType: "Article" | "BlogPosting" | "NewsArticle" | "TechArticle" | "None";
+  schemaCustomJson: string;
 }
 
 interface FormErrors {
@@ -97,6 +100,7 @@ interface FormErrors {
   content?: string;
   metaTitle?: string;
   metaDescription?: string;
+  schemaCustomJson?: string;
 }
 
 /* ═══════════════════════════════════════════════
@@ -167,6 +171,14 @@ const CODE_LANGUAGES = [
   "json", "bash", "sql", "php", "java", "go", "rust",
 ];
 
+const SCHEMA_TYPES = [
+  { value: "Article", label: "Article" },
+  { value: "BlogPosting", label: "Blog Posting (Recommended)" },
+  { value: "NewsArticle", label: "News Article" },
+  { value: "TechArticle", label: "Tech Article" },
+  { value: "None", label: "None" },
+];
+
 /* Block type groups for the Add Block UI */
 const BLOCK_GROUPS = [
   {
@@ -205,6 +217,9 @@ const joditConfig = {
   placeholder: "Start writing paragraph content. Use toolbar for formatting, links, colours…",
 };
 
+const BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL?.replace(/\/api\/?$/, "") ?? "http://localhost:5000";
+
 /* ═══════════════════════════════════════════════
    COMPONENT
 ════════════════════════════════════════════════ */
@@ -218,6 +233,7 @@ export default function AddBlogPage() {
   const [submitted, setSubmitted] = useState<"published" | "draft" | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
   const [autoSlug, setAutoSlug] = useState(true);
+  const [schemaPreview, setSchemaPreview] = useState("");
   const coverFile = useRef<File | null>(null);
   const imageFiles = useRef<Record<string, File>>({});
   const imageFileRefs = useRef<Record<string, HTMLInputElement | null>>({});
@@ -234,7 +250,76 @@ export default function AddBlogPage() {
     ogTitle: "",
     ogDescription: "",
     ogImage: "",
+    // Schema Markup
+    schemaType: "BlogPosting",
+    schemaCustomJson: "",
   });
+
+  /* ─────────────────────────────────────────────
+     GENERATE SCHEMA PREVIEW
+  ────────────────────────────────────────────── */
+  const generateSchemaPreview = (data: any) => {
+    try {
+      if (data.schemaType === "None") {
+        setSchemaPreview("");
+        return;
+      }
+
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aym-yoga.com";
+      const imageUrl = data.coverImage?.startsWith("http") 
+        ? data.coverImage 
+        : `${BASE_URL}${data.coverImage || ""}`;
+
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": data.schemaType || "BlogPosting",
+        "headline": data.title || "",
+        "description": data.excerpt || "",
+        "image": imageUrl || "",
+        "datePublished": data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
+        "dateModified": data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
+        "author": {
+          "@type": "Person",
+          "name": data.author || "AYM Yoga School",
+          "url": siteUrl
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AYM Yoga School",
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${siteUrl}/logo.png`
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `${siteUrl}/blog/${data.slug || ""}`
+        },
+        "keywords": (data.tags || []).join(", "),
+        "articleSection": data.category || "",
+        "inLanguage": "en-US",
+        "isAccessibleForFree": true,
+        "about": {
+          "@type": "Thing",
+          "name": data.category || "Yoga"
+        }
+      };
+
+      // Merge with custom JSON if provided
+      if (data.schemaCustomJson) {
+        try {
+          const custom = JSON.parse(data.schemaCustomJson);
+          Object.assign(schema, custom);
+        } catch (e) {
+          // Invalid JSON, ignore
+        }
+      }
+
+      setSchemaPreview(JSON.stringify(schema, null, 2));
+    } catch (e) {
+      setSchemaPreview("");
+    }
+  };
 
   /* ─────────────────────────────────────────────
      FORM FIELD SETTERS
@@ -242,6 +327,12 @@ export default function AddBlogPage() {
   const set = (key: keyof Omit<FormData, "tags" | "content">, val: string) => {
     setForm((p) => ({ ...p, [key]: val }));
     setErrors((p) => ({ ...p, [key]: undefined }));
+    
+    // Regenerate schema preview when relevant fields change
+    if (["title", "excerpt", "author", "date", "coverImage", "tags", "slug", "category", "schemaType", "schemaCustomJson"].includes(key)) {
+      const updatedForm = { ...form, [key]: val };
+      generateSchemaPreview(updatedForm);
+    }
   };
 
   const handleTitleChange = (val: string) => {
@@ -253,6 +344,7 @@ export default function AddBlogPage() {
       ...(p.metaTitle === "" || p.metaTitle === p.title ? { metaTitle: val } : {})
     }));
     setErrors((p) => ({ ...p, title: undefined }));
+    generateSchemaPreview({ ...form, title: val });
   };
 
   const handleExcerptChange = (val: string) => {
@@ -263,15 +355,21 @@ export default function AddBlogPage() {
       ...(p.metaDescription === "" || p.metaDescription === p.excerpt ? { metaDescription: val } : {})
     }));
     setErrors((p) => ({ ...p, excerpt: undefined }));
+    generateSchemaPreview({ ...form, excerpt: val });
   };
 
   const addTag = (val: string) => {
     const t = val.trim();
     if (!t || form.tags.includes(t)) return;
-    setForm((p) => ({ ...p, tags: [...p.tags, t] }));
+    const newTags = [...form.tags, t];
+    setForm((p) => ({ ...p, tags: newTags }));
+    generateSchemaPreview({ ...form, tags: newTags });
   };
-  const removeTag = (t: string) =>
-    setForm((p) => ({ ...p, tags: p.tags.filter((x) => x !== t) }));
+  const removeTag = (t: string) => {
+    const newTags = form.tags.filter((x) => x !== t);
+    setForm((p) => ({ ...p, tags: newTags }));
+    generateSchemaPreview({ ...form, tags: newTags });
+  };
 
   /* ─────────────────────────────────────────────
      COVER IMAGE
@@ -280,11 +378,13 @@ export default function AddBlogPage() {
     const f = e.target.files?.[0];
     if (!f) return;
     coverFile.current = f;
-    set("coverImage", URL.createObjectURL(f));
+    const url = URL.createObjectURL(f);
+    set("coverImage", url);
     // Auto-populate ogImage if empty
     if (!form.ogImage || form.ogImage === form.coverImage) {
-      setForm((p) => ({ ...p, ogImage: URL.createObjectURL(f) }));
+      setForm((p) => ({ ...p, ogImage: url }));
     }
+    generateSchemaPreview({ ...form, coverImage: url });
   };
 
   const handleCoverDrop = (e: React.DragEvent) => {
@@ -293,10 +393,12 @@ export default function AddBlogPage() {
     const f = e.dataTransfer.files[0];
     if (!f || !f.type.startsWith("image/")) return;
     coverFile.current = f;
-    set("coverImage", URL.createObjectURL(f));
+    const url = URL.createObjectURL(f);
+    set("coverImage", url);
     if (!form.ogImage || form.ogImage === form.coverImage) {
-      setForm((p) => ({ ...p, ogImage: URL.createObjectURL(f) }));
+      setForm((p) => ({ ...p, ogImage: url }));
     }
+    generateSchemaPreview({ ...form, coverImage: url });
   };
 
   const handleCoverUrl = () => {
@@ -308,6 +410,7 @@ export default function AddBlogPage() {
       setForm((p) => ({ ...p, ogImage: url }));
     }
     setCoverUrlInput("");
+    generateSchemaPreview({ ...form, coverImage: url });
   };
 
   /* ─────────────────────────────────────────────
@@ -441,6 +544,16 @@ export default function AddBlogPage() {
     if (form.content.length === 0) e.content = "Add at least one content block";
     if (form.metaTitle && form.metaTitle.length > 70) e.metaTitle = "Meta title should be under 70 characters";
     if (form.metaDescription && form.metaDescription.length > 160) e.metaDescription = "Meta description should be under 160 characters";
+    
+    // Validate custom schema JSON if provided
+    if (form.schemaCustomJson && form.schemaType !== "None") {
+      try {
+        JSON.parse(form.schemaCustomJson);
+      } catch {
+        e.schemaCustomJson = "Invalid JSON format. Please check your syntax.";
+      }
+    }
+    
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -469,6 +582,10 @@ export default function AddBlogPage() {
       fd.append("ogTitle", form.ogTitle || form.title);
       fd.append("ogDescription", form.ogDescription || form.excerpt);
       fd.append("ogImage", form.ogImage || form.coverImage);
+
+      // Schema Markup
+      fd.append("schemaType", form.schemaType);
+      fd.append("schemaCustomJson", form.schemaCustomJson || "");
 
       if (coverFile.current) {
         fd.append("coverImage", coverFile.current);
@@ -752,7 +869,7 @@ export default function AddBlogPage() {
         <div className={styles.formDivider} />
 
         {/* ══════════════════════════════
-            3. SEO META (NEW SECTION)
+            3. SEO META
         ══════════════════════════════ */}
         <div className={styles.sectionBlock}>
           <div className={styles.sectionHeader}>
@@ -899,7 +1016,94 @@ export default function AddBlogPage() {
         <div className={styles.formDivider} />
 
         {/* ══════════════════════════════
-            4. CONTENT BUILDER
+            4. SCHEMA MARKUP
+        ══════════════════════════════ */}
+        <div className={styles.sectionBlock}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionIcon}>✦</span>
+            <h3 className={styles.sectionTitle}>Schema Markup</h3>
+            <span className={styles.sectionBadge}>Structured Data</span>
+          </div>
+
+          <div className={styles.fieldGroup}>
+            <label className={styles.label}>
+              <span className={styles.labelIcon}>✦</span>Schema Type
+            </label>
+            <p className={styles.fieldHint}>Select the schema type for this blog post. BlogPosting is recommended for most blog posts.</p>
+            <div className={styles.inputWrap}>
+              <select
+                className={styles.input}
+                style={{ cursor: "pointer", appearance: "none", paddingRight: "2rem" }}
+                value={form.schemaType}
+                onChange={(e) => set("schemaType", e.target.value as any)}
+              >
+                {SCHEMA_TYPES.map((type) => (
+                  <option key={type.value} value={type.value}>{type.label}</option>
+                ))}
+              </select>
+              <span className={styles.selectArrow}>▾</span>
+            </div>
+          </div>
+
+          {form.schemaType !== "None" && (
+            <>
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>
+                  <span className={styles.labelIcon}>✦</span>Custom Schema JSON
+                  <span className={styles.optional}> (optional)</span>
+                </label>
+                <p className={styles.fieldHint}>
+                  Add custom properties to the schema. Will be merged with the generated schema.
+                  <br />
+                  <span style={{ fontSize: "0.75rem", color: "#a07840" }}>
+                    Example: {"{"}"about": {"{"}"@type": "Thing", "name": "Yoga"{"}"}{"}"}
+                  </span>
+                </p>
+                <div className={`${styles.inputWrap} ${errors.schemaCustomJson ? styles.inputError : ""}`}>
+                  <textarea
+                    className={`${styles.input} ${styles.textarea}`}
+                    style={{ minHeight: "100px", fontFamily: "'Fira Code', 'Courier New', monospace", fontSize: "0.82rem" }}
+                    placeholder='{"additionalProperty": "value"}'
+                    value={form.schemaCustomJson}
+                    rows={4}
+                    onChange={(e) => set("schemaCustomJson", e.target.value)}
+                  />
+                </div>
+                {errors.schemaCustomJson && <p className={styles.errorMsg}>⚠ {errors.schemaCustomJson}</p>}
+              </div>
+
+              {schemaPreview && (
+                <div className={styles.fieldGroup} style={{ marginBottom: 0 }}>
+                  <label className={styles.label}>
+                    <span className={styles.labelIcon}>✦</span>Generated Schema Preview
+                  </label>
+                  <div style={{
+                    background: "#f8f5f0",
+                    borderRadius: "8px",
+                    padding: "0.75rem",
+                    fontSize: "0.75rem",
+                    fontFamily: "'Fira Code', 'Courier New', monospace",
+                    maxHeight: "300px",
+                    overflow: "auto",
+                    border: "1px solid #e8d5b5",
+                    whiteSpace: "pre-wrap",
+                    color: "#2d1b0e",
+                  }}>
+                    {schemaPreview}
+                  </div>
+                  <p className={styles.fieldHint} style={{ marginTop: "0.3rem" }}>
+                    💡 This schema will be rendered as JSON-LD in the page head for better SEO.
+                  </p>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+
+        <div className={styles.formDivider} />
+
+        {/* ══════════════════════════════
+            5. CONTENT BUILDER
         ══════════════════════════════ */}
         <div className={styles.sectionBlock}>
           <div className={styles.sectionHeader}>
