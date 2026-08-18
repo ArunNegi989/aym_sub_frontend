@@ -205,6 +205,49 @@ export default function EditBlogPage() {
   });
 
   /* ─────────────────────────────────────────────
+     HELPER: Clean JSON with multi-line strings
+  ────────────────────────────────────────────── */
+  const cleanSchemaJson = (jsonString: string): string => {
+    if (!jsonString) return "";
+    
+    // Try to parse and re-stringify first
+    try {
+      // Handle multi-line description field by manually fixing it
+      let cleaned = jsonString;
+      
+      // Find the description field and fix its content
+      // Look for "description": "..." pattern
+      const descriptionMatch = cleaned.match(/"description":\s*"([\s\S]*?)"(?=\s*[,}])/);
+      if (descriptionMatch) {
+        const fullMatch = descriptionMatch[0];
+        const content = descriptionMatch[1];
+        // Escape newlines in the content
+        const escapedContent = content.replace(/\n/g, '\\n').replace(/\r/g, '');
+        const fixed = `"description": "${escapedContent}"`;
+        cleaned = cleaned.replace(fullMatch, fixed);
+      }
+      
+      const parsed = JSON.parse(cleaned);
+      return JSON.stringify(parsed);
+    } catch (e) {
+      // If parsing fails, do a more aggressive cleaning
+      try {
+        // Remove all newlines and extra spaces
+        const cleaned = jsonString
+          .replace(/\n/g, ' ')
+          .replace(/\r/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+        const parsed = JSON.parse(cleaned);
+        return JSON.stringify(parsed);
+      } catch (e2) {
+        // If still failing, return the original
+        return jsonString;
+      }
+    }
+  };
+
+  /* ─────────────────────────────────────────────
      FETCH
   ────────────────────────────────────────────── */
   useEffect(() => {
@@ -232,6 +275,17 @@ export default function EditBlogPage() {
             : undefined,
         }));
 
+        // Handle schema custom JSON - format it nicely for display
+        let schemaCustomJson = data.schemaCustomJson || "";
+        if (schemaCustomJson) {
+          try {
+            const parsed = JSON.parse(schemaCustomJson);
+            schemaCustomJson = JSON.stringify(parsed, null, 2);
+          } catch (e) {
+            // If it's not valid JSON, keep as is
+          }
+        }
+
         setForm({
           title: data.title ?? "",
           slug: data.slug ?? "",
@@ -252,19 +306,21 @@ export default function EditBlogPage() {
           ogImage: data.ogImage ? resolveImage(data.ogImage) : resolveImage(data.coverImage),
           // Schema Markup
           schemaType: data.schemaType || "BlogPosting",
-          schemaCustomJson: data.schemaCustomJson || "",
+          schemaCustomJson: schemaCustomJson,
         });
 
         // Generate preview
         generateSchemaPreview({
           schemaType: data.schemaType || "BlogPosting",
-          schemaCustomJson: data.schemaCustomJson || "",
+          schemaCustomJson: schemaCustomJson,
           title: data.title || "",
           excerpt: data.excerpt || "",
           author: data.author || "",
           date: data.date || "",
           coverImage: data.coverImage || "",
           tags: data.tags || [],
+          slug: data.slug || "",
+          category: data.category || "",
         });
       } catch (err) {
         console.error("Fetch blog error:", err);
@@ -328,10 +384,12 @@ export default function EditBlogPage() {
       // Merge with custom JSON if provided
       if (data.schemaCustomJson) {
         try {
-          const custom = JSON.parse(data.schemaCustomJson);
-          Object.assign(schema, custom);
+          // Clean the custom JSON
+          const cleaned = cleanSchemaJson(data.schemaCustomJson);
+          const parsed = JSON.parse(cleaned);
+          Object.assign(schema, parsed);
         } catch (e) {
-          // Invalid JSON, ignore
+          console.warn("Custom JSON parsing failed, using base schema:", e);
         }
       }
 
@@ -530,9 +588,10 @@ export default function EditBlogPage() {
     // Validate custom schema JSON if provided
     if (form.schemaCustomJson && form.schemaType !== "None") {
       try {
-        JSON.parse(form.schemaCustomJson);
+        const cleaned = cleanSchemaJson(form.schemaCustomJson);
+        JSON.parse(cleaned);
       } catch {
-        e.schemaCustomJson = "Invalid JSON format. Please check your syntax.";
+        e.schemaCustomJson = "Invalid JSON format. Please check your syntax, especially multi-line text in description field.";
       }
     }
     
@@ -565,9 +624,34 @@ export default function EditBlogPage() {
       fd.append("ogDescription", form.ogDescription || form.excerpt);
       fd.append("ogImage", form.ogImage || form.coverImage);
 
-      // Schema Markup
+      // Schema Markup - Clean and minify
+      let cleanSchemaJson = form.schemaCustomJson || "";
+      if (cleanSchemaJson) {
+        try {
+          cleanSchemaJson = cleanSchemaJson.trim();
+          const parsed = JSON.parse(cleanSchemaJson);
+          cleanSchemaJson = JSON.stringify(parsed);
+        } catch (e) {
+          // Try cleaning with the helper
+          try {
+            cleanSchemaJson = cleanSchemaJson.trim();
+            const parsed = JSON.parse(cleanSchemaJson);
+            cleanSchemaJson = JSON.stringify(parsed);
+          } catch (e2) {
+            // If still failing, try removing newlines
+            cleanSchemaJson = cleanSchemaJson
+              .replace(/\n/g, ' ')
+              .replace(/\r/g, ' ')
+              .replace(/\s+/g, ' ')
+              .trim();
+            const parsed = JSON.parse(cleanSchemaJson);
+            cleanSchemaJson = JSON.stringify(parsed);
+          }
+        }
+      }
+      
       fd.append("schemaType", form.schemaType);
-      fd.append("schemaCustomJson", form.schemaCustomJson || "");
+      fd.append("schemaCustomJson", cleanSchemaJson);
 
       if (coverFile.current) {
         fd.append("coverImage", coverFile.current);
@@ -1412,7 +1496,7 @@ export default function EditBlogPage() {
                   Add custom properties to the schema. Will be merged with the generated schema.
                   <br />
                   <span style={{ fontSize: "0.75rem", color: "#a07840" }}>
-                    Example: {"{"}"about": {"{"}"@type": "Thing", "name": "Yoga"{"}"}{"}"}
+                    💡 Multi-line text in fields like "description" will be automatically handled.
                   </span>
                 </p>
                 <div className={`${styles.inputWrap} ${errors.schemaCustomJson ? styles.inputError : ""}`}>
@@ -1422,10 +1506,18 @@ export default function EditBlogPage() {
                     placeholder='{"additionalProperty": "value"}'
                     value={form.schemaCustomJson}
                     rows={4}
-                    onChange={(e) => set("schemaCustomJson", e.target.value)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setForm((p) => ({ ...p, schemaCustomJson: val }));
+                      setErrors((p) => ({ ...p, schemaCustomJson: undefined }));
+                      generateSchemaPreview({ ...form, schemaCustomJson: val });
+                    }}
                   />
                 </div>
                 {errors.schemaCustomJson && <p className={styles.errorMsg}>⚠ {errors.schemaCustomJson}</p>}
+                <p className={styles.fieldHint} style={{ fontSize: "0.7rem", color: "#b08850", marginTop: "0.2rem" }}>
+                  💡 The JSON will be automatically cleaned and minified when saved.
+                </p>
               </div>
 
               {schemaPreview && (

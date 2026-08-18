@@ -221,6 +221,50 @@ const BASE_URL =
   process.env.NEXT_PUBLIC_API_URL?.replace(/\/api\/?$/, "") ?? "http://localhost:5000";
 
 /* ═══════════════════════════════════════════════
+   HELPER: Clean JSON with multi-line strings
+════════════════════════════════════════════════ */
+const cleanSchemaJson = (jsonString: string): string => {
+  if (!jsonString) return "";
+  
+  // Try to parse and re-stringify first
+  try {
+    // Handle multi-line description field by manually fixing it
+    let cleaned = jsonString;
+    
+    // Find the description field and fix its content
+    // Look for "description": "..." pattern
+    const descRegex = /"description":\s*"([\s\S]*?)"(?=\s*[,}])/;
+    const descriptionMatch = cleaned.match(descRegex);
+    if (descriptionMatch) {
+      const fullMatch = descriptionMatch[0];
+      const content = descriptionMatch[1];
+      // Escape newlines in the content
+      const escapedContent = content.replace(/\n/g, '\\n').replace(/\r/g, '');
+      const fixed = '"description": "' + escapedContent + '"';
+      cleaned = cleaned.replace(fullMatch, fixed);
+    }
+    
+    const parsed = JSON.parse(cleaned);
+    return JSON.stringify(parsed);
+  } catch (e) {
+    // If parsing fails, do a more aggressive cleaning
+    try {
+      // Remove all newlines and extra spaces
+      const cleaned = jsonString
+        .replace(/\n/g, ' ')
+        .replace(/\r/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      const parsed = JSON.parse(cleaned);
+      return JSON.stringify(parsed);
+    } catch (e2) {
+      // If still failing, return the original
+      return jsonString;
+    }
+  }
+};
+
+/* ═══════════════════════════════════════════════
    COMPONENT
 ════════════════════════════════════════════════ */
 export default function AddBlogPage() {
@@ -268,7 +312,7 @@ export default function AddBlogPage() {
       const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aym-yoga.com";
       const imageUrl = data.coverImage?.startsWith("http") 
         ? data.coverImage 
-        : `${BASE_URL}${data.coverImage || ""}`;
+        : BASE_URL + (data.coverImage || "");
 
       const schema = {
         "@context": "https://schema.org",
@@ -288,12 +332,12 @@ export default function AddBlogPage() {
           "name": "AYM Yoga School",
           "logo": {
             "@type": "ImageObject",
-            "url": `${siteUrl}/logo.png`
+            "url": siteUrl + "/logo.png"
           }
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `${siteUrl}/blog/${data.slug || ""}`
+          "@id": siteUrl + "/blog/" + (data.slug || "")
         },
         "keywords": (data.tags || []).join(", "),
         "articleSection": data.category || "",
@@ -308,10 +352,12 @@ export default function AddBlogPage() {
       // Merge with custom JSON if provided
       if (data.schemaCustomJson) {
         try {
-          const custom = JSON.parse(data.schemaCustomJson);
-          Object.assign(schema, custom);
+          const cleaned = cleanSchemaJson(data.schemaCustomJson);
+          const parsed = JSON.parse(cleaned);
+          Object.assign(schema, parsed);
         } catch (e) {
           // Invalid JSON, ignore
+          console.warn("Custom JSON parsing failed, using base schema:", e);
         }
       }
 
@@ -481,7 +527,7 @@ export default function AddBlogPage() {
     updateBlock(blockIdx, { tableHeaders: headers });
   };
   const addTableCol = (blockIdx: number) => {
-    const headers = [...(form.content[blockIdx].tableHeaders ?? []), `Column ${(form.content[blockIdx].tableHeaders?.length ?? 0) + 1}`];
+    const headers = [...(form.content[blockIdx].tableHeaders ?? []), "Column " + ((form.content[blockIdx].tableHeaders?.length ?? 0) + 1)];
     const rows = (form.content[blockIdx].tableRows ?? []).map((r) => [...r, ""]);
     updateBlock(blockIdx, { tableHeaders: headers, tableRows: rows });
   };
@@ -548,9 +594,10 @@ export default function AddBlogPage() {
     // Validate custom schema JSON if provided
     if (form.schemaCustomJson && form.schemaType !== "None") {
       try {
-        JSON.parse(form.schemaCustomJson);
+        const cleaned = cleanSchemaJson(form.schemaCustomJson);
+        JSON.parse(cleaned);
       } catch {
-        e.schemaCustomJson = "Invalid JSON format. Please check your syntax.";
+        e.schemaCustomJson = "Invalid JSON format. Please check your syntax, especially multi-line text in description field.";
       }
     }
     
@@ -583,9 +630,40 @@ export default function AddBlogPage() {
       fd.append("ogDescription", form.ogDescription || form.excerpt);
       fd.append("ogImage", form.ogImage || form.coverImage);
 
-      // Schema Markup
+      // Schema Markup - Clean and minify
+      let finalSchemaJson = form.schemaCustomJson || "";
+      if (finalSchemaJson) {
+        try {
+          // First try: direct parse
+          finalSchemaJson = finalSchemaJson.trim();
+          const parsed = JSON.parse(finalSchemaJson);
+          finalSchemaJson = JSON.stringify(parsed);
+        } catch (e) {
+          // Second try: use cleanSchemaJson helper
+          try {
+            const cleanedJson = cleanSchemaJson(finalSchemaJson);
+            const parsed = JSON.parse(cleanedJson);
+            finalSchemaJson = JSON.stringify(parsed);
+          } catch (e2) {
+            // Third try: aggressive cleaning
+            try {
+              const aggressivelyCleaned = finalSchemaJson
+                .replace(/\n/g, ' ')
+                .replace(/\r/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+              const parsed = JSON.parse(aggressivelyCleaned);
+              finalSchemaJson = JSON.stringify(parsed);
+            } catch (e3) {
+              // If all fails, keep original
+              console.warn("Failed to parse schema JSON, using original");
+            }
+          }
+        }
+      }
+      
       fd.append("schemaType", form.schemaType);
-      fd.append("schemaCustomJson", form.schemaCustomJson || "");
+      fd.append("schemaCustomJson", finalSchemaJson);
 
       if (coverFile.current) {
         fd.append("coverImage", coverFile.current);
@@ -1539,7 +1617,7 @@ export default function AddBlogPage() {
                   Add custom properties to the schema. Will be merged with the generated schema.
                   <br />
                   <span style={{ fontSize: "0.75rem", color: "#a07840" }}>
-                    Example: {"{"}"about": {"{"}"@type": "Thing", "name": "Yoga"{"}"}{"}"}
+                    💡 Multi-line text in fields like "description" will be automatically handled.
                   </span>
                 </p>
                 <div className={`${styles.inputWrap} ${errors.schemaCustomJson ? styles.inputError : ""}`}>
@@ -1549,10 +1627,18 @@ export default function AddBlogPage() {
                     placeholder='{"additionalProperty": "value"}'
                     value={form.schemaCustomJson}
                     rows={4}
-                    onChange={(e) => set("schemaCustomJson", e.target.value)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setForm((p) => ({ ...p, schemaCustomJson: val }));
+                      setErrors((p) => ({ ...p, schemaCustomJson: undefined }));
+                      generateSchemaPreview({ ...form, schemaCustomJson: val });
+                    }}
                   />
                 </div>
                 {errors.schemaCustomJson && <p className={styles.errorMsg}>⚠ {errors.schemaCustomJson}</p>}
+                <p className={styles.fieldHint} style={{ fontSize: "0.7rem", color: "#b08850", marginTop: "0.2rem" }}>
+                  💡 The JSON will be automatically cleaned and minified when saved.
+                </p>
               </div>
 
               {schemaPreview && (
