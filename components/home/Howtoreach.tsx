@@ -576,7 +576,7 @@ export default function HowToReach(): React.ReactElement {
             btnText="Check Flights on MakeMyTrip"
             btnHref="https://www.makemytrip.com/flights/"
             linkText="More Air Travel Details"
-            linkHref="#air-details"
+            linkHref="https://www.makemytrip.com/flights/"
           />
           <TravelCard
             icon={<TrainIcon />}
@@ -588,7 +588,7 @@ export default function HowToReach(): React.ReactElement {
             btnText="Book Train on IRCTC"
             btnHref="https://www.irctc.co.in/"
             linkText="More Train Travel Details"
-            linkHref="#train-details"
+            linkHref="https://www.irctc.co.in/"
           />
           <TravelCard
             icon={<BusIcon />}
@@ -600,7 +600,7 @@ export default function HowToReach(): React.ReactElement {
             btnText="Book Bus on RedBus"
             btnHref="https://www.redbus.in/"
             linkText="More Bus Travel Details"
-            linkHref="#bus-details"
+            linkHref="https://www.redbus.in/"
           />
         </div>
 
