@@ -869,241 +869,7 @@ export default function AddBlogPage() {
         <div className={styles.formDivider} />
 
         {/* ══════════════════════════════
-            3. SEO META
-        ══════════════════════════════ */}
-        <div className={styles.sectionBlock}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionIcon}>✦</span>
-            <h3 className={styles.sectionTitle}>SEO & Open Graph</h3>
-            <span className={styles.sectionBadge}>Search Engine Optimization</span>
-          </div>
-
-          <div className={styles.fieldGroup}>
-            <label className={styles.label}>
-              <span className={styles.labelIcon}>✦</span>Meta Title
-              <span className={styles.optional}> (optional)</span>
-            </label>
-            <p className={styles.fieldHint}>SEO title for search results. Auto-populates from blog title. Recommended: 50-60 characters.</p>
-            <div className={`${styles.inputWrap} ${errors.metaTitle ? styles.inputError : ""} ${form.metaTitle ? styles.inputSuccess : ""}`}>
-              <input
-                type="text"
-                className={styles.input}
-                placeholder={form.title || "Blog title will be used by default"}
-                value={form.metaTitle}
-                maxLength={70}
-                onChange={(e) => set("metaTitle", e.target.value)}
-              />
-              <span className={styles.charCount}>{form.metaTitle.length}/70</span>
-            </div>
-            {errors.metaTitle && <p className={styles.errorMsg}>⚠ {errors.metaTitle}</p>}
-            <div className={styles.previewHint}>
-              {form.metaTitle ? (
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", color: "#1a0e2e" }}>
-                  <strong>Preview:</strong> {form.metaTitle} | AYM Yoga Blog
-                </span>
-              ) : (
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", color: "#b08850" }}>
-                  Preview will appear here
-                </span>
-              )}
-            </div>
-          </div>
-
-          <div className={styles.fieldGroup}>
-            <label className={styles.label}>
-              <span className={styles.labelIcon}>✦</span>Meta Description
-              <span className={styles.optional}> (optional)</span>
-            </label>
-            <p className={styles.fieldHint}>SEO description for search results. Auto-populates from excerpt. Recommended: 150-160 characters.</p>
-            <div className={`${styles.inputWrap} ${errors.metaDescription ? styles.inputError : ""} ${form.metaDescription ? styles.inputSuccess : ""}`}>
-              <textarea
-                className={`${styles.input} ${styles.textarea}`}
-                placeholder={form.excerpt || "Excerpt will be used by default"}
-                value={form.metaDescription}
-                maxLength={160}
-                rows={3}
-                onChange={(e) => set("metaDescription", e.target.value)}
-              />
-              <span className={styles.charCount}>{form.metaDescription.length}/160</span>
-            </div>
-            {errors.metaDescription && <p className={styles.errorMsg}>⚠ {errors.metaDescription}</p>}
-          </div>
-
-          <div className={styles.fieldGroup}>
-            <label className={styles.label}>
-              <span className={styles.labelIcon}>✦</span>Canonical URL
-              <span className={styles.optional}> (optional)</span>
-            </label>
-            <p className={styles.fieldHint}>Specify the canonical URL to avoid duplicate content issues.</p>
-            <div className={styles.inputWrap}>
-              <input
-                type="url"
-                className={styles.input}
-                placeholder="https://aym-yoga.com/blog/your-post-slug"
-                value={form.canonicalUrl}
-                onChange={(e) => set("canonicalUrl", e.target.value)}
-              />
-            </div>
-          </div>
-
-          <div className={styles.ornament} style={{ margin: "1.5rem 0", padding: "0 1rem" }}>
-            <span>❧</span><div className={styles.ornamentLine} />
-            <span style={{ fontSize: "0.8rem", letterSpacing: "0.1em", color: "#b08850" }}>Open Graph</span>
-            <div className={styles.ornamentLine} /><span>❧</span>
-          </div>
-
-          <div className={styles.fieldGroup}>
-            <label className={styles.label}>
-              <span className={styles.labelIcon}>✦</span>OG Title
-              <span className={styles.optional}> (optional)</span>
-            </label>
-            <p className={styles.fieldHint}>Title for social media sharing. Auto-populates from blog title.</p>
-            <div className={styles.inputWrap}>
-              <input
-                type="text"
-                className={styles.input}
-                placeholder={form.title || "Blog title will be used by default"}
-                value={form.ogTitle}
-                maxLength={200}
-                onChange={(e) => set("ogTitle", e.target.value)}
-              />
-              <span className={styles.charCount}>{form.ogTitle.length}/200</span>
-            </div>
-          </div>
-
-          <div className={styles.fieldGroup}>
-            <label className={styles.label}>
-              <span className={styles.labelIcon}>✦</span>OG Description
-              <span className={styles.optional}> (optional)</span>
-            </label>
-            <p className={styles.fieldHint}>Description for social media sharing. Auto-populates from excerpt.</p>
-            <div className={styles.inputWrap}>
-              <textarea
-                className={`${styles.input} ${styles.textarea}`}
-                placeholder={form.excerpt || "Excerpt will be used by default"}
-                value={form.ogDescription}
-                maxLength={300}
-                rows={2}
-                onChange={(e) => set("ogDescription", e.target.value)}
-              />
-              <span className={styles.charCount}>{form.ogDescription.length}/300</span>
-            </div>
-          </div>
-
-          <div className={styles.fieldGroup} style={{ marginBottom: 0 }}>
-            <label className={styles.label}>
-              <span className={styles.labelIcon}>✦</span>OG Image
-              <span className={styles.optional}> (optional)</span>
-            </label>
-            <p className={styles.fieldHint}>Image for social media sharing. Auto-populates from cover image.</p>
-            <div className={styles.inputWrap}>
-              <input
-                type="text"
-                className={styles.input}
-                placeholder={form.coverImage || "Cover image URL will be used by default"}
-                value={form.ogImage}
-                onChange={(e) => set("ogImage", e.target.value)}
-              />
-            </div>
-            {form.ogImage && (
-              <div style={{ marginTop: "0.5rem", borderRadius: "6px", overflow: "hidden", maxWidth: "200px" }}>
-                <img src={form.ogImage} alt="OG Preview" style={{ width: "100%", height: "auto", display: "block" }} />
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div className={styles.formDivider} />
-
-        {/* ══════════════════════════════
-            4. SCHEMA MARKUP
-        ══════════════════════════════ */}
-        <div className={styles.sectionBlock}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionIcon}>✦</span>
-            <h3 className={styles.sectionTitle}>Schema Markup</h3>
-            <span className={styles.sectionBadge}>Structured Data</span>
-          </div>
-
-          <div className={styles.fieldGroup}>
-            <label className={styles.label}>
-              <span className={styles.labelIcon}>✦</span>Schema Type
-            </label>
-            <p className={styles.fieldHint}>Select the schema type for this blog post. BlogPosting is recommended for most blog posts.</p>
-            <div className={styles.inputWrap}>
-              <select
-                className={styles.input}
-                style={{ cursor: "pointer", appearance: "none", paddingRight: "2rem" }}
-                value={form.schemaType}
-                onChange={(e) => set("schemaType", e.target.value as any)}
-              >
-                {SCHEMA_TYPES.map((type) => (
-                  <option key={type.value} value={type.value}>{type.label}</option>
-                ))}
-              </select>
-              <span className={styles.selectArrow}>▾</span>
-            </div>
-          </div>
-
-          {form.schemaType !== "None" && (
-            <>
-              <div className={styles.fieldGroup}>
-                <label className={styles.label}>
-                  <span className={styles.labelIcon}>✦</span>Custom Schema JSON
-                  <span className={styles.optional}> (optional)</span>
-                </label>
-                <p className={styles.fieldHint}>
-                  Add custom properties to the schema. Will be merged with the generated schema.
-                  <br />
-                  <span style={{ fontSize: "0.75rem", color: "#a07840" }}>
-                    Example: {"{"}"about": {"{"}"@type": "Thing", "name": "Yoga"{"}"}{"}"}
-                  </span>
-                </p>
-                <div className={`${styles.inputWrap} ${errors.schemaCustomJson ? styles.inputError : ""}`}>
-                  <textarea
-                    className={`${styles.input} ${styles.textarea}`}
-                    style={{ minHeight: "100px", fontFamily: "'Fira Code', 'Courier New', monospace", fontSize: "0.82rem" }}
-                    placeholder='{"additionalProperty": "value"}'
-                    value={form.schemaCustomJson}
-                    rows={4}
-                    onChange={(e) => set("schemaCustomJson", e.target.value)}
-                  />
-                </div>
-                {errors.schemaCustomJson && <p className={styles.errorMsg}>⚠ {errors.schemaCustomJson}</p>}
-              </div>
-
-              {schemaPreview && (
-                <div className={styles.fieldGroup} style={{ marginBottom: 0 }}>
-                  <label className={styles.label}>
-                    <span className={styles.labelIcon}>✦</span>Generated Schema Preview
-                  </label>
-                  <div style={{
-                    background: "#f8f5f0",
-                    borderRadius: "8px",
-                    padding: "0.75rem",
-                    fontSize: "0.75rem",
-                    fontFamily: "'Fira Code', 'Courier New', monospace",
-                    maxHeight: "300px",
-                    overflow: "auto",
-                    border: "1px solid #e8d5b5",
-                    whiteSpace: "pre-wrap",
-                    color: "#2d1b0e",
-                  }}>
-                    {schemaPreview}
-                  </div>
-                  <p className={styles.fieldHint} style={{ marginTop: "0.3rem" }}>
-                    💡 This schema will be rendered as JSON-LD in the page head for better SEO.
-                  </p>
-                </div>
-              )}
-            </>
-          )}
-        </div>
-
-        <div className={styles.formDivider} />
-
-        {/* ══════════════════════════════
-            5. CONTENT BUILDER
+            3. CONTENT BUILDER
         ══════════════════════════════ */}
         <div className={styles.sectionBlock}>
           <div className={styles.sectionHeader}>
@@ -1581,6 +1347,240 @@ export default function AddBlogPage() {
               ))}
             </div>
           </div>
+        </div>
+
+        <div className={styles.formDivider} />
+
+        {/* ══════════════════════════════
+            4. SEO & OPEN GRAPH (MOVED TO BOTTOM)
+        ══════════════════════════════ */}
+        <div className={styles.sectionBlock}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionIcon}>✦</span>
+            <h3 className={styles.sectionTitle}>SEO & Open Graph</h3>
+            <span className={styles.sectionBadge}>Search Engine Optimization</span>
+          </div>
+
+          <div className={styles.fieldGroup}>
+            <label className={styles.label}>
+              <span className={styles.labelIcon}>✦</span>Meta Title
+              <span className={styles.optional}> (optional)</span>
+            </label>
+            <p className={styles.fieldHint}>SEO title for search results. Auto-populates from blog title. Recommended: 50-60 characters.</p>
+            <div className={`${styles.inputWrap} ${errors.metaTitle ? styles.inputError : ""} ${form.metaTitle ? styles.inputSuccess : ""}`}>
+              <input
+                type="text"
+                className={styles.input}
+                placeholder={form.title || "Blog title will be used by default"}
+                value={form.metaTitle}
+                maxLength={70}
+                onChange={(e) => set("metaTitle", e.target.value)}
+              />
+              <span className={styles.charCount}>{form.metaTitle.length}/70</span>
+            </div>
+            {errors.metaTitle && <p className={styles.errorMsg}>⚠ {errors.metaTitle}</p>}
+            <div className={styles.previewHint}>
+              {form.metaTitle ? (
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", color: "#1a0e2e" }}>
+                  <strong>Preview:</strong> {form.metaTitle} | AYM Yoga Blog
+                </span>
+              ) : (
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", color: "#b08850" }}>
+                  Preview will appear here
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div className={styles.fieldGroup}>
+            <label className={styles.label}>
+              <span className={styles.labelIcon}>✦</span>Meta Description
+              <span className={styles.optional}> (optional)</span>
+            </label>
+            <p className={styles.fieldHint}>SEO description for search results. Auto-populates from excerpt. Recommended: 150-160 characters.</p>
+            <div className={`${styles.inputWrap} ${errors.metaDescription ? styles.inputError : ""} ${form.metaDescription ? styles.inputSuccess : ""}`}>
+              <textarea
+                className={`${styles.input} ${styles.textarea}`}
+                placeholder={form.excerpt || "Excerpt will be used by default"}
+                value={form.metaDescription}
+                maxLength={160}
+                rows={3}
+                onChange={(e) => set("metaDescription", e.target.value)}
+              />
+              <span className={styles.charCount}>{form.metaDescription.length}/160</span>
+            </div>
+            {errors.metaDescription && <p className={styles.errorMsg}>⚠ {errors.metaDescription}</p>}
+          </div>
+
+          <div className={styles.fieldGroup}>
+            <label className={styles.label}>
+              <span className={styles.labelIcon}>✦</span>Canonical URL
+              <span className={styles.optional}> (optional)</span>
+            </label>
+            <p className={styles.fieldHint}>Specify the canonical URL to avoid duplicate content issues.</p>
+            <div className={styles.inputWrap}>
+              <input
+                type="url"
+                className={styles.input}
+                placeholder="https://aym-yoga.com/blog/your-post-slug"
+                value={form.canonicalUrl}
+                onChange={(e) => set("canonicalUrl", e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className={styles.ornament} style={{ margin: "1.5rem 0", padding: "0 1rem" }}>
+            <span>❧</span><div className={styles.ornamentLine} />
+            <span style={{ fontSize: "0.8rem", letterSpacing: "0.1em", color: "#b08850" }}>Open Graph</span>
+            <div className={styles.ornamentLine} /><span>❧</span>
+          </div>
+
+          <div className={styles.fieldGroup}>
+            <label className={styles.label}>
+              <span className={styles.labelIcon}>✦</span>OG Title
+              <span className={styles.optional}> (optional)</span>
+            </label>
+            <p className={styles.fieldHint}>Title for social media sharing. Auto-populates from blog title.</p>
+            <div className={styles.inputWrap}>
+              <input
+                type="text"
+                className={styles.input}
+                placeholder={form.title || "Blog title will be used by default"}
+                value={form.ogTitle}
+                maxLength={200}
+                onChange={(e) => set("ogTitle", e.target.value)}
+              />
+              <span className={styles.charCount}>{form.ogTitle.length}/200</span>
+            </div>
+          </div>
+
+          <div className={styles.fieldGroup}>
+            <label className={styles.label}>
+              <span className={styles.labelIcon}>✦</span>OG Description
+              <span className={styles.optional}> (optional)</span>
+            </label>
+            <p className={styles.fieldHint}>Description for social media sharing. Auto-populates from excerpt.</p>
+            <div className={styles.inputWrap}>
+              <textarea
+                className={`${styles.input} ${styles.textarea}`}
+                placeholder={form.excerpt || "Excerpt will be used by default"}
+                value={form.ogDescription}
+                maxLength={300}
+                rows={2}
+                onChange={(e) => set("ogDescription", e.target.value)}
+              />
+              <span className={styles.charCount}>{form.ogDescription.length}/300</span>
+            </div>
+          </div>
+
+          <div className={styles.fieldGroup} style={{ marginBottom: 0 }}>
+            <label className={styles.label}>
+              <span className={styles.labelIcon}>✦</span>OG Image
+              <span className={styles.optional}> (optional)</span>
+            </label>
+            <p className={styles.fieldHint}>Image for social media sharing. Auto-populates from cover image.</p>
+            <div className={styles.inputWrap}>
+              <input
+                type="text"
+                className={styles.input}
+                placeholder={form.coverImage || "Cover image URL will be used by default"}
+                value={form.ogImage}
+                onChange={(e) => set("ogImage", e.target.value)}
+              />
+            </div>
+            {form.ogImage && (
+              <div style={{ marginTop: "0.5rem", borderRadius: "6px", overflow: "hidden", maxWidth: "200px" }}>
+                <img src={form.ogImage} alt="OG Preview" style={{ width: "100%", height: "auto", display: "block" }} />
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className={styles.formDivider} />
+
+        {/* ══════════════════════════════
+            5. SCHEMA MARKUP (MOVED TO BOTTOM)
+        ══════════════════════════════ */}
+        <div className={styles.sectionBlock}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionIcon}>✦</span>
+            <h3 className={styles.sectionTitle}>Schema Markup</h3>
+            <span className={styles.sectionBadge}>Structured Data</span>
+          </div>
+
+          <div className={styles.fieldGroup}>
+            <label className={styles.label}>
+              <span className={styles.labelIcon}>✦</span>Schema Type
+            </label>
+            <p className={styles.fieldHint}>Select the schema type for this blog post. BlogPosting is recommended for most blog posts.</p>
+            <div className={styles.inputWrap}>
+              <select
+                className={styles.input}
+                style={{ cursor: "pointer", appearance: "none", paddingRight: "2rem" }}
+                value={form.schemaType}
+                onChange={(e) => set("schemaType", e.target.value as any)}
+              >
+                {SCHEMA_TYPES.map((type) => (
+                  <option key={type.value} value={type.value}>{type.label}</option>
+                ))}
+              </select>
+              <span className={styles.selectArrow}>▾</span>
+            </div>
+          </div>
+
+          {form.schemaType !== "None" && (
+            <>
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>
+                  <span className={styles.labelIcon}>✦</span>Custom Schema JSON
+                  <span className={styles.optional}> (optional)</span>
+                </label>
+                <p className={styles.fieldHint}>
+                  Add custom properties to the schema. Will be merged with the generated schema.
+                  <br />
+                  <span style={{ fontSize: "0.75rem", color: "#a07840" }}>
+                    Example: {"{"}"about": {"{"}"@type": "Thing", "name": "Yoga"{"}"}{"}"}
+                  </span>
+                </p>
+                <div className={`${styles.inputWrap} ${errors.schemaCustomJson ? styles.inputError : ""}`}>
+                  <textarea
+                    className={`${styles.input} ${styles.textarea}`}
+                    style={{ minHeight: "100px", fontFamily: "'Fira Code', 'Courier New', monospace", fontSize: "0.82rem" }}
+                    placeholder='{"additionalProperty": "value"}'
+                    value={form.schemaCustomJson}
+                    rows={4}
+                    onChange={(e) => set("schemaCustomJson", e.target.value)}
+                  />
+                </div>
+                {errors.schemaCustomJson && <p className={styles.errorMsg}>⚠ {errors.schemaCustomJson}</p>}
+              </div>
+
+              {schemaPreview && (
+                <div className={styles.fieldGroup} style={{ marginBottom: 0 }}>
+                  <label className={styles.label}>
+                    <span className={styles.labelIcon}>✦</span>Generated Schema Preview
+                  </label>
+                  <div style={{
+                    background: "#f8f5f0",
+                    borderRadius: "8px",
+                    padding: "0.75rem",
+                    fontSize: "0.75rem",
+                    fontFamily: "'Fira Code', 'Courier New', monospace",
+                    maxHeight: "300px",
+                    overflow: "auto",
+                    border: "1px solid #e8d5b5",
+                    whiteSpace: "pre-wrap",
+                    color: "#2d1b0e",
+                  }}>
+                    {schemaPreview}
+                  </div>
+                  <p className={styles.fieldHint} style={{ marginTop: "0.3rem" }}>
+                    💡 This schema will be rendered as JSON-LD in the page head for better SEO.
+                  </p>
+                </div>
+              )}
+            </>
+          )}
         </div>
 
         <div className={styles.formDivider} />
