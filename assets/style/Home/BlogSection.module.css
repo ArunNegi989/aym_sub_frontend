@@ -232,7 +232,7 @@
 
 .author {
   color: #f15505;
-    font-family: Cormorant Garamond, serif;
+    /* font-family: Cormorant Garamond, serif; */
     font-size: .72rem;
     font-style: italic;
 }
@@ -256,7 +256,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     margin: 0 0 .55rem;
-    font-family: Cinzel, serif;
+    /* font-family: Cinzel, serif; */
     font-size: clamp(.75rem, 1.2vw, .9rem);
     font-weight: 600;
     line-height: 1.45;
