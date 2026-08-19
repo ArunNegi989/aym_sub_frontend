@@ -130,7 +130,7 @@
 }
 
 .mainTitle {
-  font-family: 'Cinzel', serif;
+  /* font-family: 'Cinzel', serif; */
   font-size: clamp(1.25rem, 3vw, 2.1rem);
   font-weight: 700;
   color: var(--brown-deep);
@@ -225,7 +225,7 @@
 }
 
 .blockTitle {
-  font-family: 'Cinzel', serif;
+  /* font-family: 'Cinzel', serif; */
   font-size: clamp(0.92rem, 2vw, 1.32rem);
   font-weight: 700;
   color: var(--saffron-dark);
@@ -248,11 +248,11 @@
 }
 
 .videoHeadingTitle {
-  font-family: 'Cinzel', serif;
+  /* font-family: 'Cinzel', serif; */
   font-size: clamp(0.92rem, 2vw, 1.28rem);
   font-weight: 700;
   color: var(--saffron);
-  font-style: italic;
+  /* font-style: italic; */
   letter-spacing: 0.04em;
   margin-bottom: 0.4rem;
 }
@@ -294,7 +294,7 @@
 }
 
 .ratingPlatform {
-  font-family: 'Cinzel', serif;
+  /* font-family: 'Cinzel', serif; */
   font-size: clamp(0.82rem, 1.5vw, 1rem);
   font-weight: 700;
   color: var(--saffron-dark);
@@ -732,7 +732,7 @@
 }
 
 .reviewPara {
-  font-family: 'Cormorant Garamond', serif;
+  /* font-family: 'Cormorant Garamond', serif; */
   font-size: clamp(0.88rem, 1.5vw, 1.02rem);
   line-height: 1.9;
   color: var(--text);

@@ -226,7 +226,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--ff-d);
+  /* font-family: var(--ff-d); */
   font-size: clamp(1.3rem, 3.5vw, 2.3rem);
   font-weight: 700;
   color: var(--maho);
@@ -360,7 +360,7 @@
 }
 
 .uniqueTitle {
-  font-family: var(--ff-d);
+  /* font-family: var(--ff-d); */
   font-size: .8rem;
   font-weight: 700;
   color: var(--maho);
@@ -369,7 +369,7 @@
 }
 
 .uniqueBody {
-  font-family: var(--ff-b);
+  /* font-family: var(--ff-b); */
   font-size: .92rem;
   color: #5a3e22;
   line-height: 1.75;
@@ -503,7 +503,7 @@
 }
 
 .courseTitle {
-  font-family: var(--ff-d);
+  /* font-family: var(--ff-d); */
   font-size: .82rem;
   font-weight: 700;
   color: var(--maho);
@@ -514,7 +514,7 @@
 }
 
 .courseDesc {
-  font-family: var(--ff-b);
+  /* font-family: var(--ff-b); */
   font-size: .93rem;
   color: #5a3e22;
   line-height: 1.75;
@@ -760,7 +760,7 @@
 }
 
 .aymTitle {
-  font-family: var(--ff-d);
+  /* font-family: var(--ff-d); */
   font-size: .82rem;
   font-weight: 700;
   color: var(--maho);
@@ -768,7 +768,7 @@
 }
 
 .aymBody {
-  font-family: var(--ff-b);
+  /* font-family: var(--ff-b); */
   font-size: .95rem;
   color: #5a3e22;
   line-height: 1.8;

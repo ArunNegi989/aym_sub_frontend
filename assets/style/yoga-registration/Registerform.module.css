@@ -345,10 +345,10 @@
 }
 
 .formTitle {
-  font-family: 'Cormorant Garamond', serif;
+  /* font-family: 'Cormorant Garamond', serif; */
   font-size: clamp(1.1rem, 2.1vw, 1.55rem);
   font-weight: 600;
-  font-style: italic;
+  /* font-style: italic; */
   color: var(--maroon);
   text-align: center;
   margin: 0 0 0.5rem;
@@ -368,6 +368,7 @@
   font-size: clamp(0.8rem, 1.2vw, 0.9rem);
   line-height: 1.8;
   color: var(--text-muted);
+  font-family:'Poppins';
   margin: 0 0 1.2rem;
 }
 
@@ -399,9 +400,9 @@
   flex-direction: column;
   gap: 0.3rem;
 }
-
+z
 .label {
-  font-family: 'Cinzel', serif;
+  /* font-family: 'Cinzel', serif; */
   font-size: clamp(0.58rem, 0.9vw, 0.7rem);
   font-weight: 600;
   letter-spacing: 0.07em;
@@ -432,7 +433,7 @@
   background: #fffbf4;
   box-shadow: 0 0 0 3px rgba(224, 123, 0, 0.13);
 }
-
+a
 .input[type="date"] {
   color-scheme: light;
 }
