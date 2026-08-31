@@ -63,17 +63,17 @@ interface FormErrors {
 }
 
 const flights: ScheduleRow[] = [
-  { col1: "IndiGo", col2: "06:30 AM", col3: "07:30 AM", col4: "1h" },
-  { col1: "Air India", col2: "09:15 AM", col3: "10:20 AM", col4: "1h 5m" },
-  { col1: "Vistara", col2: "01:40 PM", col3: "02:45 PM", col4: "1h 5m" },
-  { col1: "SpiceJet", col2: "05:55 PM", col3: "07:00 PM", col4: "1h 5m" },
+  { col1: "IndiGo", col2: "09:00 AM", col3: "09:50 AM", col4: "50m" },
+  { col1: "Air India", col2: "09:20 AM", col3: "10:20 AM", col4: "1h 5m" },
+  { col1: "IndiGo", col2: "03:10 PM", col3: "04:00 PM", col4: "50m" },
+  { col1: "Air India", col2: "03:40 PM", col3: "04:35 PM", col4: "55m" },
 ];
 
 const trains: ScheduleRow[] = [
-  { col1: "Dehradun Shatabdi", col2: "06:45 AM", col3: "11:25 AM", col4: "Haridwar" },
-  { col1: "Mussoorie Express", col2: "10:00 PM", col3: "05:30 AM", col4: "Haridwar" },
-  { col1: "Jan Shatabdi Exp.", col2: "03:20 PM", col3: "09:00 PM", col4: "Haridwar" },
-  { col1: "Nanda Devi Exp.", col2: "11:50 PM", col3: "05:10 AM", col4: "Haridwar" },
+  { col1: "Dehradun Shatabdi", col2: "06:45 AM", col3: "12:55 PM", col4: "Dehradun" },
+  { col1: "Vande Bharat Exp", col2: "05:50 PM", col3: "10:35 PM", col4: "Dehradun" },
+  { col1: "DDN Janshatabdi", col2: "03:20 PM", col3: "09:05 PM", col4: "Dehradun" },
+  { col1: "Mussoorie Exp.", col2: "10:25 PM", col3: "09:05 AM", col4: "Dehradun" },
 ];
 
 const buses: ScheduleRow[] = [
@@ -576,7 +576,7 @@ export default function HowToReach(): React.ReactElement {
             btnText="Check Flights on MakeMyTrip"
             btnHref="https://www.makemytrip.com/flights/"
             linkText="More Air Travel Details"
-            linkHref="#air-details"
+            linkHref="https://www.makemytrip.com/flights/"
           />
           <TravelCard
             icon={<TrainIcon />}
@@ -588,7 +588,7 @@ export default function HowToReach(): React.ReactElement {
             btnText="Book Train on IRCTC"
             btnHref="https://www.irctc.co.in/"
             linkText="More Train Travel Details"
-            linkHref="#train-details"
+            linkHref="https://www.irctc.co.in/"
           />
           <TravelCard
             icon={<BusIcon />}
@@ -600,7 +600,7 @@ export default function HowToReach(): React.ReactElement {
             btnText="Book Bus on RedBus"
             btnHref="https://www.redbus.in/"
             linkText="More Bus Travel Details"
-            linkHref="#bus-details"
+            linkHref="https://www.redbus.in/"
           />
         </div>
 

@@ -162,7 +162,7 @@ const YogaTrainingBengaluru: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Qualified yoga training in India
+            Yoga Teacher Training in Bengaluru | AYM Yoga School
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,14 +171,10 @@ const YogaTrainingBengaluru: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School is located in Rishikesh and Goa. We are a famous
-              yoga and meditation institution in India, specializing in teacher
-              training, yoga gurus. Our non-profit organization aims to teach
-              quality yoga classes to anyone who wants to become a qualified yoga
-              instructor. AYM Yoga School also helps you relieve emotional
-              problems through yoga therapy retreat. In addition, if you are in
-              Bengaluru, AYM Yoga School will also fully operate our facilities
-              here.
+            Welcome to AYM Yoga School. This is a place where you can learn Yoga Teacher Training in Bengaluru. We also have programs in Rishikesh and Goa that people from countries know about. At AYM Yoga School we want to teach people yoga. We want to share meditation and wellness programs with people who want to be yoga teachers or like yoga. We want people from over the world to come and learn with us.
+
+If you are new to yoga or if you want to be a certified yoga instructor our teachers will help you. They will teach you yoga practices that have been around for a long time. You will learn in a place where people support and inspire you. Our teachers have a lot of experience. They will guide you through Yoga Teacher Training, at AYM Yoga School.
+
             </p>
           </div>
         </div>
@@ -198,7 +194,7 @@ const YogaTrainingBengaluru: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Experience the art of yoga and mediatation at AYM in Bengaluru
+            Experience Authentic Yoga and Meditation in Bengaluru
             </h2>
             <div
               className={styles.headingUnderline}
@@ -207,18 +203,7 @@ const YogaTrainingBengaluru: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School is a professional yoga and meditation school
-              located in Rishikesh and Goa. Our area of expertise is to provide
-              high-quality{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training
-              </strong>{" "}
-              and yoga retreat service to anyone willing to enjoy the benefits of
-              yoga in India. Enjoy Mantras, Pranayama, yoga prayer with our yoga
-              teachers. Our outstanding achievements are widely recognized by
-              students and professors all over the world. And if you live in
-              Bengaluru or plan to visit, we also provide our facilities and
-              training courses there.
+            At AYM Yoga School in Bengaluru, we combine traditional yoga knowledge with modern teaching methods to create a comprehensive learning experience. Our classes cover Yoga Asanas, Pranayama and breathing techniques, Meditation, Mantra Chanting, Yoga Philosophy, Anatomy and Physiology, and Teaching Methodology, while our skilled yoga teachers guide students through structured lessons and daily practice to develop physical strength, mental clarity, inner balance, and spiritual growth.
             </p>
           </div>
         </div>
@@ -238,7 +223,7 @@ const YogaTrainingBengaluru: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Top yoga and mediation centre in Bengaluru
+            Best Yoga School in Bengaluru for Teacher Training
             </h2>
             <div
               className={styles.headingUnderline}
@@ -247,11 +232,7 @@ const YogaTrainingBengaluru: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              As one of Bengaluru's best yoga and meditation centres, AYM Yoga
-              School aims to help you learn the correct yoga retreat to solve
-              emotional pain and personal problems. We help you to open your
-              seven chakras. Whether you want to become a yoga instructor or
-              relax, we offer qualified courses in Rishikesh and Goa.
+            If you are looking for Yoga Teacher Training in Bengaluru, AYM Yoga School offers programs designed for both beginners and experienced yoga practitioners, with comprehensive courses covering Authentic Hatha Yoga, Ashtanga Yoga, Meditation Techniques, Pranayama Practice, Alignment and Adjustment, Yoga Philosophy, and Relaxation. The experienced teachers at AYM Yoga School have taught yoga internationally and provide personalized guidance to help every student develop their knowledge, strengthen their practice, and progress confidently throughout their yoga training.
             </p>
           </div>
         </div>
@@ -271,7 +252,7 @@ const YogaTrainingBengaluru: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Top yoga and mediation centre in Bengaluru
+            Yoga Retreats and Holistic Wellness Programs 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -280,11 +261,7 @@ const YogaTrainingBengaluru: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Bengaluru, or Bangalore, is the capital of Karnataka. Bangalore is
-              located on the Deccan Plateau in southern India. It has become the
-              centre of India's high-tech industry and has become the Silicon
-              Valley of India. Major technology giants such as Infosys and Wipro
-              all have headquarters in the city.
+            AYM Yoga School offers yoga retreats in Bengaluru. These retreats are designed to help participants reconnect with themselves. The activities include yoga, meditation, breathwork and relaxation techniques. The retreats are for anyone who wants to reduce stress and anxiety. They are also for people who want to improve flexibility and posture. The retreats help improve well-being. They also help develop mindfulness. Participants can restore mental balance. They can experience a way of living. The yoga retreats at AYM Yoga School give an opportunity to step away from the demands of life. They allow participants to focus on health and well-being. They help cultivate inner peace
             </p>
           </div>
         </div>
@@ -307,7 +284,7 @@ const YogaTrainingBengaluru: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Experience the art of yoga and mediatation at AYM in Bengaluru
+            Why Choose AYM Yoga School Bengaluru?
             </h2>
             <div
               className={styles.headingUnderline}
@@ -316,10 +293,7 @@ const YogaTrainingBengaluru: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              The city is famous for its international culture, and the park
-              makes it a garden city with a bustling nightlife. Other factors
-              that attract tourists are countless shopping venues, adventure
-              theme parks and fine restaurants.
+            Students from over India and many other countries choose AYM Yoga School. We are really good at teaching yoga the way. AYM Yoga School is special because we have teachers who know what they are doing and have certificates to prove it. We teach yoga the way. AYM Yoga School has good training programs for people who want to be yoga teachers. We also have classes where people can meditate and learn how to breathe. Our classes are small so we can pay attention to each student. Everyone is welcome at AYM Yoga School. We have programs for people who are just starting out with yoga and for people who have been doing yoga for a time. People from different countries come to AYM Yoga School to learn together. Our main goal at AYM Yoga School is to help students learn a lot about yoga. We want students to feel confident and be able to do yoga well. We also want students to have the skills they need to teach yoga to others if they want to. AYM Yoga School wants to help students make their yoga practice better or have a career as a yoga teacher.
             </p>
           </div>
         </div>

@@ -131,7 +131,7 @@
 }
 
 .mainTitle {
-  font-family: var(--font-display), serif;
+  /* font-family: var(--font-display), serif; */
   font-size: clamp(1.4rem, 3.5vw, 2.4rem);
   font-weight: 700;
   color: #F15505;

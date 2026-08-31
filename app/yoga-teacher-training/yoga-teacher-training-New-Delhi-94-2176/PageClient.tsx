@@ -162,7 +162,7 @@ const YogaTrainingNewDelhi: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Professional Yoga Training in Delhi
+            Professional Yoga Teacher Training in Delhi
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,19 +171,12 @@ const YogaTrainingNewDelhi: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              We always believe that when it comes to training students, it is
-              essential to first learn from professionals and then implement the
-              same. If you are looking for the best course for{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in New Delhi
-              </strong>
-              , then the best choice is none other than the Association of Yoga
-              and Meditation. Since its inception, it has been our endeavor that
-              we can provide a world-class training environment to all Yoga
-              aspirants. When it comes to professional yoga therapy teacher
-              training, you do not have to look anywhere else as we fill the
-              void. AYM is your one-stop destination for the most profound
-              training, and we have tried to strive for excellence.
+            I want to have a career in yoga. The Association for Yoga and Meditation or AYM is a place to start. They are known for teaching people how to become yoga teachers in Delhi.
+
+If you want to be a yoga teacher or just want to learn more about yoga for yourself or even start a career in wellness the people at AYM can help you. They have good training programs that can help you do what you want to do.
+
+The people teaching these courses are experts. They combine old yoga ideas with new ways of teaching. You will get to practice what you learn. You will even get a certificate that people all around the world will recognize. The Association for Yoga and Meditation wants to help people become yoga teachers who really know what they are doing and who care about others. Yoga teachers from the Association for Yoga and Meditation can help people. Make their communities better.
+
             </p>
           </div>
         </div>
@@ -203,7 +196,7 @@ const YogaTrainingNewDelhi: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Yoga Classes From Yoga Professional
+            Learn from Experienced Yoga Professionals
             </h2>
             <div
               className={styles.headingUnderline}
@@ -212,18 +205,9 @@ const YogaTrainingNewDelhi: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              We strongly believe that a trained teacher has to be a good
-              student first; hence, if you want to start as a yoga teacher, you
-              have to be a student first. The best thing about our professional
-              course is that we have got it from some of the best experts who
-              have calibrated yoga instructors all around the country and take
-              out that time to train you. One of the major reasons AYM has been
-              able to get such precedence as a good{" "}
-              <strong className={styles.boldLink}>
-                registered yoga training course in New Delhi
-              </strong>{" "}
-              is because of our proficiency in the field. Our team consists of
-              the best teachers who will train you thoroughly.
+            Yoga teachers who are really good at what they do start by learning themselves. At AYM you will learn from yoga teachers who have a lot of experience and instructors who are certified. These people have spent years teaching yoga. They know a lot about yoga education and meditation and the body. They also know about breathing and how to position your body when you do yoga.
+Our program is set up to help each student learn what they need to know to become a yoga teacher. You will get to practice teaching yoga. You will learn how to position your body and how to breathe. You will also learn about the philosophy of yoga and how to meditate. We want to make sure that you know how to teach yoga in a way.
+
             </p>
           </div>
         </div>
@@ -243,7 +227,7 @@ const YogaTrainingNewDelhi: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Focus on the Best Of Yoga With World Class Amenities
+            Comprehensive Yoga Teacher Training Program
             </h2>
             <div
               className={styles.headingUnderline}
@@ -252,18 +236,9 @@ const YogaTrainingNewDelhi: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Our{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training program
-              </strong>{" "}
-              is for everyone who aspires to be a professional yoga instructor!
-              There are no two ways that the basic tenet for yoga is using your
-              body lucidly and ensuring that you can develop strength. But in
-              many cases, you do need amenities and resources, and that is what
-              we provide the students during the training sessions. Do not
-              worry. No matter what aid you need, we will ensure that we can
-              arrange the same in an instant surpassing the industry's quality
-              standards.
+            Our Yoga Teacher Training Course is perfect for people who are just starting out with yoga and really want to learn more about it. This includes fitness coaches and wellness professionals who are already working in the health industry as well as yoga practitioners and healthcare professionals who want to learn more. The Yoga Teacher Training Course is also an option for people who are looking for a career change.
+The Yoga Teacher Training Course covers a lot of topics including Hatha Yoga and Ashtanga Yoga. We also learn about Pranayama and Meditation which're important parts of yoga practice. The Yoga Teacher Training Course includes classes on Yoga Philosophy, which helps us understand the history and meaning of yoga. We learn about Human Anatomy and Physiology which's important for teaching yoga safely and effectively. The course also covers Teaching Methodology, which shows us how to plan and teach yoga classes.
+
             </p>
           </div>
         </div>
@@ -283,7 +258,7 @@ const YogaTrainingNewDelhi: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Affordable Price Structure to Suit Yoga Enthusiasts
+            Modern Training Facilities & Supportive Learning Environment
             </h2>
             <div
               className={styles.headingUnderline}
@@ -292,14 +267,10 @@ const YogaTrainingNewDelhi: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Once you start with our journey, you will be able to get the best
-              exposure and transfer the same to your students as you practice!
-              One of the essential factors is that we have tried to keep the
-              price range extremely nominal so that anyone who aspires to be a
-              yoga instructor does not feel restricted because of the
-              investments. However, this does not imply that we tamper with the
-              quality and does not focus on the quality of the{" "}
-              <strong className={styles.boldLink}>certification</strong>.
+            A good place to learn is really important, for people who want to study yoga. At AYM we make sure our classrooms are nice and comfortable, we have equipment and our teachers show you how to do things in a way that makes sense. We also have people who will help you and guide you as you learn.
+
+Our school is set up to be a quiet place where you can pay attention to your body, think about your thoughts and feelings and work on being a better person.
+
             </p>
           </div>
         </div>
@@ -322,7 +293,7 @@ const YogaTrainingNewDelhi: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Get Certified, Get Acclaimed
+            Affordable Yoga Teacher Training in Delhi 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -331,16 +302,10 @@ const YogaTrainingNewDelhi: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Most of you would agree that the best thing you can do to add
-              value to your entire forte is to add a certification to the same.
-              When the certification is globally acclaimed, nothing can turn out
-              better. We got you covered with that aspect. For the most
-              professional and reliable{" "}
-              <strong className={styles.boldLink}>
-                YTT certification in New Delhi
-              </strong>
-              , feel free to contact us at Association for Yoga and Meditation.
-              We will help you proceed further toward a bright career path.
+            Yoga education is really important. It should be available to everyone. This is why we make sure our Yoga Teacher Training courses do not cost much. We want to make sure that everyone can afford them without us having to lower the quality of the education we provide.
+
+We try to keep the cost of our courses low so that people who want to become yoga teachers can get the training they need. Our Yoga Teacher Training courses give people the chance to learn from teachers and get a certificate that is recognized. We want to help people achieve their goals without having to spend much money on our Yoga Teacher Training courses.
+
             </p>
           </div>
         </div>

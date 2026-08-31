@@ -162,7 +162,7 @@ const YogaTrainingAuroville: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Experience the art of yoga and mediatation at AYM in Auroville
+            Yoga & Meditation in Auroville | AYM Yoga School
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,16 +171,10 @@ const YogaTrainingAuroville: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School is a professional yoga and meditation school in
-              Rishikesh and Goa. Our area of expertise is to provide
-              high-quality{" "}
-              <strong className={styles.boldLink}>yoga teacher training</strong>{" "}
-              and yoga retreat service to anyone willing to enjoy the benefits of
-              yoga in India. Enjoy Mantras, Pranayama, and yoga prayer with our
-              yoga teachers. Our outstanding achievements are widely recognized
-              by students and professors worldwide. And if you live in Auroville
-              or plan to visit, we also provide our facilities and training
-              courses there.
+            You can find out how yoga and meditation can really change your life in Auroville with AYM Yoga School. Auroville is a peaceful place with a strong spiritual past, which makes it perfect for people who want to feel more balanced and calm inside. AYM Yoga School is a place for you to learn whether you are just starting out with yoga or you have been doing it for a long time and want to get better. Our programs are made to help you feel better and be healthier.
+
+At AYM Yoga School we teach you about the ways of yoga and give you the guidance you need to really learn. We do lots of things in our yoga classes like poses and breathing exercises and meditation and chanting.
+
             </p>
           </div>
         </div>
@@ -200,7 +194,7 @@ const YogaTrainingAuroville: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Qualified yoga training in India
+            AYM Yoga School – A Trusted Name in Yoga Education 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -209,14 +203,10 @@ const YogaTrainingAuroville: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School is located in Rishikesh and Goa. We are a famous
-              yoga and meditation institution in India specializing in
-              teacher-training yoga gurus. Our non-profit organization aims to
-              teach quality yoga classes to anyone who wants to become a
-              qualified yoga instructor. AYM Yoga School also helps you relieve
-              emotional problems through yoga therapy retreats. In addition, if
-              you are in Auroville, AYM Yoga School will also fully operate our
-              facilities here.
+            AYM Yoga School is famous all over the world for teaching people about yoga and helping them stay healthy. We have schools in Rishikesh and Goa. Many students from parts of the world have come to us to learn about yoga. We teach them through courses that show them how to teach yoga, yoga retreats and programs that help people meditate.
+
+If you are a student or a traveler who is visiting Auroville we want you to know that we are committed to teaching you yoga and helping you stay healthy. Our teachers are very experienced. They care about each person who comes to our school. They make sure that everyone gets the attention they need when they are in our programs. AYM Yoga School is about helping people learn and grow through yoga.
+
             </p>
           </div>
         </div>
@@ -236,7 +226,7 @@ const YogaTrainingAuroville: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Top yoga and mediation centre in Auroville
+            Why Choose AYM Yoga School in Auroville? 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -245,11 +235,10 @@ const YogaTrainingAuroville: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              As one of Auroville's best yoga and meditation centres, AYM Yoga
-              School aims to help you learn the correct yoga retreat to solve
-              emotional pain and personal problems. We help you to open your
-              seven chakras. Whether you want to become a yoga instructor or
-              relax, we offer qualified courses in Rishikesh and Goa.
+            Choosing AYM Yoga School gives a chance to learn yoga in a place that focuses on finding out more about yourself growing as a person and feeling good all around. The classes have Traditional Hatha Yoga and Ashtanga Yoga exercises, times to meditate together breathing methods, singing mantras and cleaning practices from yoga knowing about the energy centers in the body and balancing energy learning about yoga ideas and living with awareness and help from teachers who know a lot and have the right papers. 
+
+The place where you learn is friendly for people who are just starting out and for those who have been doing yoga for a while. It helps each person reach their goals whether they want to be more flexible, feel less stressed, be more aware, get better at yoga or become a teacher. AYM Yoga School offers the information, real experience and support needed to help every student, on their yoga journey.
+
             </p>
           </div>
         </div>
@@ -269,7 +258,7 @@ const YogaTrainingAuroville: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Top yoga and mediation centre in Auroville
+            Yoga Retreats & Teacher Training in India 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -278,12 +267,10 @@ const YogaTrainingAuroville: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              People from 124 countries/regions (including Indians from 23
-              different states) brought their native soil to Oroville, where
-              they were deposited and lived together, symbolizing peace and
-              harmony. If you are looking for a place to escape for peace and
-              tranquillity, then Auroville is your best choice. Sit in one of
-              the cafes and enjoy the experience there.
+            AYM Yoga School is one of India's leading yoga institutions. It offers respected Yoga Teacher Training Courses and immersive yoga retreats. The courses are carefully designed to help students develop confidence. They also help students deepen their practice. Students gain an understanding of traditional yoga.
+
+The yoga retreats are perfect for individuals seeking relaxation. They are also great for healing. The retreats offer a break from the demands of life. Through yoga, meditation and mindful living participants experience renewed energy. They also experience improved well-being. Participants find inner peace.
+
             </p>
           </div>
         </div>
@@ -307,7 +294,7 @@ const YogaTrainingAuroville: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Experience the art of yoga and mediatation at AYM in Auroville
+            Discover the Spiritual Beauty of Auroville
             </h2>
             <div
               className={styles.headingUnderline}
@@ -316,9 +303,12 @@ const YogaTrainingAuroville: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Auroville is an experimental town developed in Puducherry by
-              spiritual leader Mirra Alfassa in 1968. It was established to
-              develop a small town where people worldwide can live peacefully.
+            Auroville is a place in Tamil Nadu. It was started in 1968 by Mirra Alfassa also known as The Mother. The Mother wanted to create a place where people from around the world could live together in peace and harmony. She really wanted Auroville to be a place where everyone gets along.
+
+Auroville is surrounded by lots of trees, which's really nice. There are spots for thinking and calm cafes where you can just sit and relax. People from everywhere come to visit Auroville because they want to live a life. They want to get from the hustle and bustle of city life.
+
+The whole atmosphere in Auroville is very peaceful. This makes Auroville a great place to practice yoga, meditate, think about your life and learn more about yourself and your spirit. Auroville is about peace and people come here to find that. They come to Auroville to feel the peace and harmony that Auroville's all about. Auroville is a place where you can be yourself and find your peace, that is what Auroville is really about.
+
             </p>
           </div>
         </div>

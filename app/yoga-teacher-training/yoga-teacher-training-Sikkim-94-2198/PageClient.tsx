@@ -149,7 +149,7 @@ const YogaTrainingSikkim: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Explore the Roots of Yoga with AYM
+            Discover Authentic Yoga Teacher Training in Sikkim
             </h2>
             <div
               className={styles.headingUnderline}
@@ -158,15 +158,10 @@ const YogaTrainingSikkim: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              If you understand the importance of yoga and want to spread it to
-              others, then the best thing you can do is make it your career. We
-              at the "Association for Yoga and Meditation" can help you travel
-              back to the roots where yoga originated. Additionally, as the top{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in Sikkim
-              </strong>
-              , we can help you learn about both ancient and contemporary yoga
-              practices.
+            Start your journey to becoming a yoga teacher with the Association for Yoga and Meditation. They have a Yoga Teacher Training program in Sikkim. This program teaches you about yoga and how to teach it in a modern way. You will learn a lot about yoga. Get ready for a great career as a yoga teacher.
+
+You can join this program if you are new to yoga if you already practice yoga or if you just want to change your life. The Association for Yoga and Meditation yoga teacher training program will give you the knowledge and skills you need to teach yoga. You will become a yoga teacher with the Association for Yoga and Meditation Yoga Teacher Training program.
+
             </p>
           </div>
         </div>
@@ -183,7 +178,7 @@ const YogaTrainingSikkim: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Advanced Yoga Teacher Training Course in Sikkim
+            Why Choose Association for Yoga and Meditation?
             </h2>
             <div
               className={styles.headingUnderline}
@@ -192,18 +187,9 @@ const YogaTrainingSikkim: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              When enrolling in a yoga teacher training course near me, you will
-              discover our name at the top of the list. We allow you to develop
-              your teaching skills while gaining a strong foundation in the
-              ancient yogic tradition. Other than that, we assist you in
-              strengthening your spiritual bond with yoga through our yoga
-              teacher training in Sikkim. Our highly qualified, committed, and
-              experienced teachers will support and guide you throughout our{" "}
-              <strong className={styles.boldLink}>
-                registered yoga teacher training course in Sikkim
-              </strong>
-              . In their presence, you will also get to understand and explore
-              yourself and your capabilities.
+            We at AYM feel that yoga is much more than the physical postures practiced; yoga is a holistic living philosophy for the body, mind, and spirit. Our dedicated teachers facilitate each student’s progress through an organized learning journey focused on genuine yoga practice utilizing intelligent teaching techniques that will better enable you to learn and grow with your yoga practice. 
+Our teacher training course program is designed to prepare you to develop a personalized yoga practice, correct yoga posture alignment, learn yoga philosophy and yogic living, learn about the human body and function enabling safe and ethical instruction, cultivate the practice of pranayama (breath work) and meditation and transform into a knowledgeable teacher through effective learning how to verbally cue and deliver instruction, including teaching practice feedback from our teachers and your fellow trainees. Yogas at AYM.
+
             </p>
           </div>
         </div>
@@ -220,8 +206,7 @@ const YogaTrainingSikkim: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Brush Up Your Skills to Teach Yoga Through Our Extensive Course
-              Program
+            Comprehensive Yoga Teacher Training Course in Sikkim 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -230,17 +215,8 @@ const YogaTrainingSikkim: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Our accredited yoga teaching course in Sikkim has established a
-              solid reputation. We create a dynamic and serene environment to
-              ensure you are surrounded by good energy during the{" "}
-              <strong className={styles.boldLink}>
-                licensed yoga teacher training course in Sikkim
-              </strong>
-              . You can communicate directly with the masters and get your
-              questions answered during the yoga teacher course in Sikkim. In
-              addition to practical instruction, in-depth theoretical
-              information is included in our well-designed and comprehensive
-              curriculum of yoga therapy teacher training.
+            Our carefully designed Yoga Teacher Training curriculum combines theoretical knowledge with practical, real-life learning to help you build a strong foundation for teaching yoga. The course covers Yoga Asanas, with clear guidance on proper body alignment, posture modifications, sequencing, and safe practice; Pranayama & Breathwork, where you learn traditional breathing techniques that support focus, energy, balance, and overall well-being; Meditation Practices, introducing methods that develop mindfulness, awareness, mental clarity, and emotional balance; Yoga Philosophy, exploring traditional teachings such as the Yoga Sutras, Bhagavad Gita, yogic principles, and practical ways to apply these teachings in daily life; Anatomy & Physiology, helping you understand how the body moves and responds during yoga practice so you can teach with greater awareness and care; and Teaching Methodology, where you learn lesson planning, class sequencing, clear communication, classroom management, student observation, and effective yoga teaching techniques. 
+
             </p>
           </div>
         </div>
@@ -257,7 +233,7 @@ const YogaTrainingSikkim: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Transform Into a Licensed Yoga Teacher By Choosing Us
+            Learn from Experienced Yoga Teachers
             </h2>
             <div
               className={styles.headingUnderline}
@@ -266,18 +242,9 @@ const YogaTrainingSikkim: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              You can confidently choose our yoga training course in Sikkim,
-              knowing we will ensure you understand every little aspect.
-              Regardless of your prior experience, we believe in teaching you
-              from scratch so that you fully understand even the most minute
-              details of yoga. Before teaching others, we, as the best{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training program in Sikkim
-              </strong>
-              , make sure that you get in shape and are flexible. We help you
-              prepare for the real world and behave professionally before you
-              receive yoga teacher certification. With us, you may develop into
-              a real professional without putting too much pressure on yourself.
+            Our dedicated yoga instructors bring years of teaching experience and authentic yogic knowledge to every class. Students receive individual attention, constructive feedback, and continuous mentorship throughout the training.
+We maintain small batch sizes to ensure every participant receives personalized guidance and practical teaching experience.
+
             </p>
           </div>
         </div>
@@ -297,7 +264,7 @@ const YogaTrainingSikkim: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Learn and Educate Others A Peaceful Way of Life
+            Experience Yoga in the Peaceful Environment of Sikkim
             </h2>
             <div
               className={styles.headingUnderline}
@@ -306,18 +273,9 @@ const YogaTrainingSikkim: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              You will build a strong foundation of discipline before receiving
-              the yoga instructor certification near me. Our course encourages
-              physical, mental, emotional, and spiritual growth from which you
-              can naturally and confidently train others. Our course curriculum
-              aims to develop excellent yoga teachers and provide them with{" "}
-              <strong className={styles.boldLink}>
-                YTT certification in Sikkim
-              </strong>
-              . No matter where you are, our international yoga certification is
-              highly valuable everywhere. By deciding on us, you build a
-              foundation of tranquillity and peace at a genuinely reasonable
-              price.
+            Sikkim is a place to do yoga because Sikkim is in the Himalayas. The mountains in Sikkim are really quiet and peaceful.
+The air in Sikkim is fresh and clean. All this natural beauty in Sikkim and the peacefulness of Sikkim makes Sikkim a great place for yoga and learning about yourself. Practicing yoga in nature is really good for you.
+
             </p>
           </div>
         </div>

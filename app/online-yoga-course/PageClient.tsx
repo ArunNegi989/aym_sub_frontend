@@ -205,7 +205,7 @@ const faqs = [
 const whyReasons = [
   {
     title: "Learn from the Best",
-    desc: "Our highly experienced yoga teachers bring years of expertise to guide you through every aspect of yoga.",
+    desc: "Our exceptionally experienced and talented yoga teachers, with years of yoga teaching experience will make you journey all the way.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" />
@@ -214,7 +214,7 @@ const whyReasons = [
   },
   {
     title: "Comprehensive Curriculum",
-    desc: "Dive deep into Hatha Yoga, Ashtanga Yoga, Vinyasa Yoga, meditation, pranayama, and yoga philosophy from home.",
+    desc: "Explore Hatha Yoga, Ashtanga Yoga, Vinyasa Yoga, meditation, pranayama & yoga philosophy from home.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="18" height="14" rx="2" />
@@ -224,7 +224,7 @@ const whyReasons = [
   },
   {
     title: "Globally Recognized Certification",
-    desc: "Earn an internationally accredited yoga certification recognized by Yoga Alliance, USA.",
+    desc: "Get internationally renowned & accepted Yoga teacher training certification accredited with Yoga Alliance, USA.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="8" r="5" />
@@ -234,7 +234,7 @@ const whyReasons = [
   },
   {
     title: "Interactive Live Sessions",
-    desc: "Engage in real-time classes, one-on-one mentoring, and guided practice to ensure personal attention.",
+    desc: "Take live 1-1 mentoring & classes under the guidance to ensure personalized guidance.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M15 10l4.553-2.277A1 1 0 0121 8.677V15.32a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
@@ -243,7 +243,7 @@ const whyReasons = [
   },
   {
     title: "Flexible Learning",
-    desc: "Balance your yoga teacher training with your daily life through a well-structured and accessible online format.",
+    desc: "Create a perfect balance between your life with the most efficient & well laid out online structured course.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="9" />
@@ -253,7 +253,7 @@ const whyReasons = [
   },
   {
     title: "Lifetime Access to Recordings",
-    desc: "Every live session is recorded and made available to you forever — revisit any class, any time, at your own pace.",
+    desc: "All live sessions will be forever recorded & given to you to refer to it any number of times.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -264,7 +264,7 @@ const whyReasons = [
   },
   {
     title: "Small Batch Sizes",
-    desc: "Classes are capped at 5–7 students per batch, ensuring every participant receives direct, personal feedback from instructors.",
+    desc: "We will be having a small batch of only 5-7 students to give individual attention from instructors in every batch.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="9" cy="7" r="3" />
@@ -275,7 +275,7 @@ const whyReasons = [
   },
   {
     title: "Rooted in Rishikesh Tradition",
-    desc: "Our teaching lineage comes directly from the Himalayan tradition of Rishikesh — the birthplace and world capital of yoga.",
+    desc: "Our whole teaching lineage comes from the Himalayan traditions of Rishikesh (birthplace & capital of the yoga world).",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 20l4-8 4 4 4-10 4 14" />
@@ -285,7 +285,7 @@ const whyReasons = [
   },
   {
     title: "Multi-Language Support",
-    desc: "Our instructors teach in both English and Hindi, making the course accessible to a diverse global and Indian student community.",
+    desc: "Our tutors are bilingual speaking both English and Hindi so that we cover maximum global and Indian students.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="9" />
@@ -296,7 +296,7 @@ const whyReasons = [
   },
   {
     title: "Post-Course Mentorship",
-    desc: "Your journey doesn't end at graduation. We offer continued guidance, community access, and support as you begin your teaching career.",
+    desc: "We will be there with you even after the course gets over to guide and mentor you.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 20h5v-1a4 4 0 00-5.5-3.7" />
@@ -311,7 +311,7 @@ const whyReasons = [
 const keyBenefits = [
   {
     title: "Start Anytime, From Anywhere",
-    desc: "Enroll whenever you're ready. Our courses are open year-round and accessible globally from any device.",
+    desc: "Join us at any time; our courses are open all year round and accessible from all over the world on any device.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
@@ -321,7 +321,7 @@ const keyBenefits = [
   },
   {
     title: "Yoga Alliance Certified",
-    desc: "All our teacher training programs are recognized by Yoga Alliance (USA), ensuring international credibility.",
+    desc: "Teacher Training programs in all levels are approved by Yoga Alliance (USA) and hence accredited Internationally.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9 12l2 2 4-4" />
@@ -331,7 +331,7 @@ const keyBenefits = [
   },
   {
     title: "Study at Your Own Pace",
-    desc: "Our flexible format allows you to study at your own pace, making it easy to balance learning with personal life.",
+    desc: "Our relaxed course design means that you can study in your own time in a way which suits your life.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -1092,7 +1092,7 @@ const schema = {
           "name": "What are the eligibility criteria for joining this course?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Anyone with a sincere interest in learning yoga and who is in reasonably good physical health is welcome to apply. Whether you are a beginner or have some prior experience, you can choose a course that suits your goals and level."
+            "text": "Everyone that is genuinely interested in the art of yoga and is in decent physical condition is a candidate for any of these training programs. No previous experience in yoga is required and you can select the program according to your goal and level."
           }
         },
         {
@@ -1100,7 +1100,7 @@ const schema = {
           "name": "How do I register for these courses?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "An advance payment of USD 200 is required, along with a transaction fee of USD 15 (totaling USD 215). The remaining course fee can be paid within the first two weeks of enrollment."
+            "text": "Reserve your spot with an up-front, down payment of $200. Plus $15 for the transaction fee ($215 for all), you can pay the balance any time within the first two weeks."
           }
         },
         {
@@ -1108,7 +1108,7 @@ const schema = {
           "name": "How do I get the certification?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Upon successful completion of the course and final assessments, a recognized certification is awarded. The certificate is shipped to the participant's postal address, with shipping charges borne by the participant."
+            "text": "After successfully completing the course and the exams at the end, you will be issued a certificate. Your certificate will then be mailed to the postal address given; shipping cost would be charged to the candidate."
           }
         },
         {
@@ -1116,7 +1116,7 @@ const schema = {
           "name": "What is the group size of each class?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Each online training batch is intentionally limited to 5 to 7 participants, allowing instructors to focus on alignment, posture corrections, and individual progress."
+            "text": "Each online training batch is kept intentionally small, consisting of only 5 to 7 participants. This enables our instructors to pay close attention to proper alignment, technique, and to guide each individual through every lesson."
           }
         },
         {
@@ -1124,7 +1124,7 @@ const schema = {
           "name": "How are the courses designed?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Programs include 2 to 4 live online classes per day, depending on time zone, location, and batch size. After enrollment, the team connects with each student to finalize a suitable class schedule."
+            "text": "Each of our programs comes with carefully curated live online classes with 2 to 4 sessions scheduled per day, which vary based on your timezone, location, and batch size. Upon enrollment, our team will contact you to confirm a class schedule that works for you."
           }
         }
       ]
@@ -1223,12 +1223,7 @@ const fetchBatches = async () => {
             Online Yoga Teacher Training Course: Certify From Anywhere
             </VintageHeading>
             <p className={styles.bodyPara}>
-              At AYM Yoga School, Rishikesh, we bring you a professionally curated{" "}
-              <strong>online Yoga Teacher Training Course</strong> designed for
-              yoga enthusiasts worldwide. Whether you&apos;re a beginner or an
-              experienced practitioner, our online yoga course offers the same
-              depth and authenticity as our in-person training in Rishikesh, the{" "}
-              <strong>Yoga Capital of the World</strong>.
+            AYM Yoga School, Rishikesh, introduces a fully accredited online Yoga Teacher Training Course for yoga lovers all across the globe. As a beginner or an experienced Yogi, you can gain the same knowledge through online yoga as the one received from our on-campus yoga teacher training in Rishikesh - the Yoga Capital of the World.
             </p>
           </div>
         </div>
@@ -1433,36 +1428,26 @@ const fetchBatches = async () => {
           <div className={styles.infoBox}>
             <h4 className={styles.infoBoxTitle}>The Advantages of Fully Online Courses</h4>
             <p className={styles.infoBoxText}>
-              In addition to the above courses, we have fully recorded online teachers&apos; training
-              courses for 200 hours yoga teachers&apos; training as well as for 300 hours training program.
+            Besides the above courses, we also have a fully pre-recorded online teachers' training course for 200 hours yoga teachers' training and 300 hours training program.
             </p>
             <ol className={styles.advantageList}>
-              <li>You can start the course any time.</li>
-              <li>These courses are recognized by Yoga Alliance, United States.</li>
+              <li>The course can be taken up any time.</li>
+              <li> These courses are approved by Yoga Alliance, United States.</li>
               <li>
-                The courses are based on self-paced learning modules, so you can study as per a
-                schedule that fits you.
+              Each course consists of self-paced learning modules, so you can be flexible with the schedules and study according to your pace.
               </li>
             </ol>
             <p className={styles.infoBoxText}>
-              In the 200 hours course you will learn about various yoga aasanas aka yoga postures,
-              various breathing techniques, the yoga philosophy, alignment correction, anatomy of the
-              human body, various meditation techniques, creating your own yogic sequence, various yoga
-              teaching methodologies etc.
+            In the 200 hours course you will be learning about various yoga asanas (also known as yoga postures), different breathing techniques, yoga philosophy, how to do alignment correction, about the anatomy of the human body, techniques of meditation, how to sequence a yogic sequence for yourself, different yoga teaching techniques etc.
             </p>
             <h4 className={styles.infoBoxTitle}>How Do I Apply for These Courses?</h4>
             <p className={styles.infoBoxText}>
-              Please reach out to us at{" "}
-              <strong>aymyogaschool@gmail.com</strong>, or you may click the links provided in
-              the webpage to fill the online registration and submit it. Once we receive the same,
-              our team will reach out to you for further guidance.
+            You can contact us on{" "}
+              <strong>aymyogaschool@gmail.com</strong>, or alternatively log on to the links on the webpage to submit the registration form. The registration form will be received by our team and our team will contact you for more information.
             </p>
             <h4 className={styles.infoBoxTitle}>What Should I Do After the Registration Process?</h4>
             <p className={styles.infoBoxText}>
-              Once the registration is done, we will be sharing the training materials of the course
-              with you. It includes recorded training sessions as well as other course materials like
-              e-books and yoga manual. There is a live exam that will be conducted; once you complete
-              the same you will be provided with your certification.
+            Once you register for the course, we'll share the training materials of the same. These will be pre-recorded training sessions along with additional material including some useful e-books, yoga manual, and a final online exam will also take place upon successful completion of which you’ll be awarded your certificate.
             </p>
           </div>
         </div>

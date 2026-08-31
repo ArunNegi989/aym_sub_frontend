@@ -162,7 +162,7 @@ const YogaTrainingDharamshala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Yoga Teacher Training Program in Dharamshala
+            Yoga Teacher Training in Dharamshala
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,18 +171,10 @@ const YogaTrainingDharamshala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Are you looking for the most professional{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in Dharamshala
-              </strong>{" "}
-              but unable to find the perfect option suitable for you? Your
-              search for the best yoga teaching course in Dharamshala ends as
-              "Association for Yoga and Meditation" provides the most
-              comprehensive professional course for teaching yoga to aspirants.
-              The idea behind AYM is to ensure that students who want to pursue
-              yoga in the long run and set up a career for themselves do not
-              have to go through any fundamental problems and can get
-              professional teacher training at Dharamshala.
+            To become a certified yoga instructor you can join the Yoga Teacher Training program in Dharamshala at the Association for Yoga and Meditation. This program is for people who are just starting out with yoga, for those who want to become yoga teachers and for people who already practice yoga. The program teaches you yoga methods and modern ways of teaching. This helps you have a career in yoga.
+
+Dharamshala is a peaceful place in the Himalayan foothills. It is a place to learn more about yoga and become a better teacher. You can deepen your yoga practice, learn more about yoga and become confident enough to teach yoga to students from, over the world.
+
             </p>
           </div>
         </div>
@@ -202,7 +194,7 @@ const YogaTrainingDharamshala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Focus on the Top-Class Facilities and Resources in Dharamshala
+            Why Choose Our Yoga Teacher Training in Dharamshala? 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -211,16 +203,10 @@ const YogaTrainingDharamshala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Not only for the sole purpose of the yoga teaching certification,
-              AYM thinks beyond that and ensures that each student who comes
-              under the institution's wings can have the best understanding of
-              what yoga is. Yoga is not only for the physical body; hence,
-              focusing on mental well-being is equally important. Not only for
-              those who want to build a career in Dharamshala, but the
-              international yoga certification is also prevalent when getting
-              certified under AYM. The idea has been to incorporate the best
-              facilities and resources to give aspirants a holistic learning
-              experience.
+            The Association for Yoga and Meditation wants to teach people yoga. We have teachers who know what they are doing. They help people learn in a way that makes sense. Our classes are designed to make yoga teachers who know a lot are confident and care about others.
+
+Our program stands out with a structured yoga teaching plan and qualified teachers with credentials to support students throughout their learning. Students receive practical training sessions with individual guidance, while small class sizes provide personal attention. Our school is located in the Himalayas, and the program combines yoga philosophy with modern teaching methods. The yoga certification is recognized around the world, and students can continue learning and receiving support from us. Certification is subject to the rules and requirements that apply to the program.
+
             </p>
           </div>
         </div>
@@ -240,7 +226,7 @@ const YogaTrainingDharamshala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Become a professional yoga instrutor with AYM in Dharamshala
+            Comprehensive Yoga Teacher Training Curriculum
             </h2>
             <div
               className={styles.headingUnderline}
@@ -249,22 +235,10 @@ const YogaTrainingDharamshala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              I aspire to become a professional yoga instructor in the future.
-              Nothing can be better than having experience, understanding how an
-              instructor works, and ensuring students learn better. Exposure to
-              the Association for Yoga and Meditation will help you understand
-              that very well because you will be trained by experts who have
-              been in the field for years. The knowledge that they tend to have
-              is profound and innate. The best thing is that the yoga therapy
-              teacher training curriculum is set so that you learn about yoga
-              and how to conduct yourself as an instructor. Talking about the
-              perks- you get a globally-acclaimed certification and license to
-              start practising as a{" "}
-              <strong className={styles.boldLink}>
-                registered yoga instructor
-              </strong>
-              . We also help you start your professional career through
-              exclusive guidance.
+            Our yoga program is really great for students who want to learn yoga. It teaches you about Hatha Yoga and Ashtanga Yoga and other things like Pranayama and Breathwork. You also learn about Meditation and Mindfulness which's very important. The yoga program covers Yoga Philosophy, Yoga Anatomy and Physiology and Teaching Methodology.
+
+When you are in the yoga program you learn how to do yoga poses and breathing exercises. You also learn about meditation and philosophy and how to move your body in a way. The program teaches you how to put on a class and give clear instructions to your students. You learn how to manage a classroom, which helps you build confidence, as a yoga teacher. The yoga program helps you learn about yoga and how to teach yoga to other people.
+
             </p>
           </div>
         </div>
@@ -284,7 +258,7 @@ const YogaTrainingDharamshala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Start Yoga Practice and Get Certified in Dharamshala
+            Learn from Experienced Yoga Teachers 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -293,18 +267,10 @@ const YogaTrainingDharamshala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              One cannot just choose to open a yoga studio one fine day and
-              start training students. They need the authority to train students
-              and teach them yoga as a registered instructor. At the Association
-              for Yoga and Meditation, our{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training program
-              </strong>{" "}
-              has been set so that after the training session, you can get
-              certification without any hassle and start your endeavour. All you
-              need to do is attend the classes with close attention, complete
-              the course successfully, and see an excellent career waiting for
-              you.
+            Our teachers have years of real classroom experience and a strong understanding of classic yoga practices. During the program they offer ongoing guidance, helpful advice and one-on-one support to help you grow into a capable and self-assured yoga teacher.
+
+The program focuses not on technical skills but also, on clear communication, strong leadership and good professional behavior.
+
             </p>
           </div>
         </div>
@@ -327,7 +293,7 @@ const YogaTrainingDharamshala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Professional Training Does Not Cost A Fortune
+            Why Dharamshala is the Perfect Place to Learn Yoga 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -336,14 +302,9 @@ const YogaTrainingDharamshala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Many are under the wrong notion of aspiring for a professional{" "}
-              <strong className={styles.boldLink}>
-                licensed yoga teacher training course in Dharamshala
-              </strong>
-              . One must spend a lot. However, this is different; you only need
-              to contact us at AYM. We have curated the course so that every
-              enthusiast can afford professional training through the best
-              institute in India without compromising the quality of training.
+              MDharamshala is a beautiful place that people all around the world know about. It is famous for being very peaceful, having a lot of history and looking absolutely stunning. The Himalayan mountains are around Dharamshala, which makes it a great place to practice yoga, meditate and learn more about yourself.
+The whole area is very quiet so students can concentrate on what they're learning. At the time they get to experience what it is like to live a balanced life with yoga, which is a nice change from the hustle and bustle of daily life.
+
             </p>
           </div>
         </div>

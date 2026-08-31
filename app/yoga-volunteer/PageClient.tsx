@@ -202,45 +202,45 @@ export default function PostYTTCPage() {
     {
       num: "01",
       title: "Yoga Volunteer Program",
-      desc: "Students have to indulge in voluntary service in exchange for their stay. A sacred exchange of seva and spiritual growth.",
+      desc: "Students must do community service in return to their stay. A sacred give and take of seva and spiritual growth.",
       icon: "🌿",
     },
     {
       num: "02",
       title: "Yoga Immersion",
-      desc: "Immerse yourself in Teachings. Deep dive into the ancient wisdom passed down through Guru-parampara lineage.",
+      desc: "Immersed in Teachings. A deeper dive into the ancient wisdom passed through Guru-parampara lineage.",
       icon: "📿",
     },
     {
       num: "03",
       title: "Yoga Sadhana",
-      desc: "They have to practice various asanas and meditation themselves to increase their learning and personal mastery.",
+      desc: "Students must perform different asanas and meditation on their own to increase their practice and self-mastery.",
       icon: "🪷",
     },
     {
       num: "04",
       title: "Advance Yoga Sadhana",
-      desc: "Inner awakening course — for those ready to transcend the ordinary and step into advanced yogic practices.",
+      desc: "Awakening course. For students willing to move beyond what is ordinary and embrace advanced yogic practices.",
       icon: "✨",
       highlight: true,
     },
   ];
 
   const rules = [
-    "You must devote your time to the activities of ashram.",
-    "Students should not be allowed to leave ashram without permission (except on weekly free day) or at their designated time, with consent of your course director.",
-    "Practitioners will have to follow the path of karma yoga (8 hours).",
-    "It is expected for students to wake up and sleep on time.",
-    "Use of electronic gadgets like mobile phone and tablets are not allowed in the ashrams except in their designated time frames. Heavy electrical items like iron are not permitted.",
-    "Ashram has the right to decide your admission and period of stay; also ashram can refuse your visit without assigning any reason to you.",
-    "Students have to keep their room neat and tidy and keep it the same as they were assigned.",
-    "Giving clothes, money, and tips are not allowed as it affects the dignity of the ashram. If willing to provide monetary help, please donate it in the office.",
+    "You should dedicate your days to fulfill ashram duties.",
+    "It is not permissible for students to leave the ashram without permission (save for weekly day offs) or to go beyond allotted hours of stay, provided a prior permission is taken from your course director. ",
+    "The visitors are supposed to follow the Karma Yoga path for (8 hrs).",
+    "Students should be sleeping or waking up in time.",
+    "Electronic devices such as phones and tablets are not allowed in ashrams except during the allowed time. Heavy electric things such as iron are not welcomed.",
+    "Ashram reserves the right to admission/stay duration to its sole discretion and can reject visiting individuals without informing reason.",
+    "Students should maintain his/her room clean and neat, it must be in a position that we kept it for your visit.",
+    "It is strongly forbidden to donate money, clothes and to tip the servants, as it makes a blot on the dignity of the ashram, interested persons should donate your charity in the office.",
   ];
 
   const prohibited = [
-    "Smoking, alcohol, non-vegetarian, and onion and garlic are not allowed.",
-    "Photography, video, and audio recording during classes and ceremonies are allowed only with permission of director; pets are not allowed.",
-    "Students are expected to respect local culture and tradition. Any public display of affection like a hug, kissing is not allowed. AYM Yoga Ashram highly condemns any harassment at staff, guest, and visitors.",
+    "Non vegetarian food, smoking, alcohol, onion and garlic are prohibited.",
+    "Photographing, video and audio recording of class and ceremony only with director of ashram permission, no pets permitted in ashram.",
+    "Photographing, video and audio recording of class and ceremony only with director of ashram permission, no pets permitted in ashram.",
   ];
 
   return (
@@ -295,19 +295,13 @@ export default function PostYTTCPage() {
            
           <div className={styles.heroContent}>
             <p className={styles.heroPara}>
-              Recently there are ample of yoga schools has opened in Rishikesh for various reasons.
-              Some are solely focusing on yoga teacher training and while some are focusing on the lineage of ancient yoga.
+            At present, a lot of schools are emerging in Rishikesh which have yoga among its teachings, to knowYoga teacher training in Rishikesh Some are of intention to devote to the lineage of the ancient practice, such as the one which will come.
             </p>
             <p className={styles.heroPara}>
-              The AYM{" "}
-              <span className={styles.highlightText}>yoga ashram in Rishikesh</span>{" "}
-              is the perfect blend of both. We at AYM yoga ashram strongly believe in following Guru parampara
-              and create a strong bond with their disciples even after the completion of their yoga courses.
+            AYM is one of these ASHRAMS. The best combination between both The ashram AYM believes very strongly about the guru parampara (relationship between teacher and disciples even after they completed their yoga training etc.).
             </p>
             <p className={styles.heroPara}>
-              The students who are willing to deepen their practice or sadhana under the guidance of our yoga gurus
-              at AYM are welcome for post-yoga TTC in AYM yoga ashram. Our ashram firmly believes in creating a safe
-              environment to encourage spirituality, respect, and moral and ethical behavior among our students.
+            Those who like to enhance, build even more experience in their YOGA practices(YOGA SADHANA) on our yoga mentors at the AYM YOGA ASHRAM are most welcome to do our post yoga TTC after we have already completed. AYM yoga ASHRAM is devoted to a safe place, encouraging spirituality, respect and morale.
             </p>
           </div>
         </div>
@@ -376,21 +370,15 @@ export default function PostYTTCPage() {
               <h2 className={styles.sectionTitle}>Details of the Courses</h2>
               <div className={styles.applyDivider} />
               <p className={styles.applyPara}>
-                Write us an email{" "}
+              We'd be glad to answer any questions. Email us at{" "}
                 <span className={styles.emailBadge}>aymyogaschool[at]gmail.com</span>{" "}
-                for the details of Post TTC yoga programs which you want to apply.
+                and inquire about our Post TTC yoga programs.
               </p>
               <p className={styles.applyPara}>
-                Our school is welcoming students for a volunteering position at the moment, so if you are willing
-                to improve your spiritual education and enhance your yogic knowledge, then it is for you. You will be
-                provided with{" "}
-                <span className={styles.highlightText}>accommodation, food, and drop in facilities</span>{" "}
-                in exchange for your services.
+              At this time, our school is accepting applications for a volunteering position. If you are interested in expanding your spiritual education and enhancing your yogic knowledge, this opportunity is for you. We will provide you with accommodation, food and drop-in facilities in exchange for your services.
               </p>
               <p className={styles.applyPara}>
-                Students who are willing to join must follow the discipline set by the school. Students behavior must
-                be under the guidelines of ashram cultures.{" "}
-                <em>One should not treat ashram like a resort.</em>
+              Students participating in this program must respect our school's disciplinary regulations. Student conduct and behavior will be held to the highest standards of Ashram culture; you are not to mistake our Ashram for a resort.
               </p>
             </div>
             <div className={styles.applyRight}>
@@ -399,7 +387,7 @@ export default function PostYTTCPage() {
               </div>
               <div className={styles.applyQuote}>
                 <span className={styles.quoteMarks}>"</span>
-                One should not treat ashram like a resort — it is a place of inner transformation, discipline, and devotion.
+                Students participating in this program must respect our school's disciplinary regulations. Student conduct and behavior will be held to the highest standards of Ashram culture; you are not to mistake our Ashram for a resort.
                 <span className={styles.quoteMarks}>"</span>
               </div>
             </div>
@@ -458,14 +446,13 @@ export default function PostYTTCPage() {
               <div className={styles.policyIcon}>🧣</div>
               <h3 className={styles.policyTitle}>Dress Code</h3>
               <p className={styles.policyText}>
-                Students are expected to wear modest clothing: tight clothing, clothes which reveal their
-                shoulders, midriff, and legs are strictly prohibited.
+              Students are required to wear modest clothes, no tights, leggings, exposed arms, legs, and shoulders should be visible in the hall.
               </p>
               <div className={styles.policySubtitle}>This includes:</div>
               <ul className={styles.policyList}>
-                <li>Shorts, leggings, low cut and sleeveless T-shirt and tank tops</li>
-                <li>Dress code and student behavior are in accordance with local culture and for enhancing the spiritual atmosphere</li>
-                <li>Dress code should be maintained at all times, including yoga classes</li>
+                <li>Shorts, legging, tight to the body, undercut neck, no-sleeve tops and tank tops </li>
+                <li>Guidelines in dress code and student behaviour are to comply with the surrounding culture and to upgrade the energetic ambience.</li>
+                <li>The dress code must always be kept both outside and during yoga sessions.</li>
               </ul>
             </div>
 
@@ -487,15 +474,13 @@ export default function PostYTTCPage() {
               <div className={styles.policyIcon}>🪷</div>
               <h3 className={styles.policyTitle}>Attendance</h3>
               <p className={styles.policyText}>
-                Your attendance at all ashram activities is mandatory while Post YYTC program at AYM.
-                You are supposed to be on time for each program. Though only resident guest is allowed during asana classes.
+              You will need to attend every activity given on the ashram when the Post YYTC program is on at AYM. One needs to be present on time on every program given on the ashram. Even guests are allowed only during asana class.
               </p>
               <div className={styles.policySubtitle} style={{ marginTop: "1.4rem" }}>
                 Silence
               </div>
               <p className={styles.policyText}>
-                Guests are requested to keep silence during their meal, during the period of Satsang.
-                Also, everyone has to keep their light off after <strong>10:30 PM</strong>.
+              The guest should keep quiet in the dining hall, satsang time and also everyone need to put off his/her light after <strong>10:30 PM</strong>.
               </p>
             </div>
           </div>

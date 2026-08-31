@@ -139,7 +139,7 @@ const YogaTrainingKochi: React.FC = () => {
             PAGE TITLE
         ══════════════════════════════════════ */}
         <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>Yoga Teacher Training in Kochi</h1>
+          <h1 className={styles.pageTitle}>Yoga Teacher Training in Kochi, India – Become a Certified Yoga Instructor</h1>
           <div className={styles.titleUnderline}>
             <div className={styles.underlineLine} />
           </div>
@@ -160,22 +160,10 @@ const YogaTrainingKochi: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <p className={styles.bodyText}>
-              Embark on a transformative journey with our{" "}
-              <strong className={styles.boldLink}>
-                Yoga Teacher Training (YTT) course in Kochi, India
-              </strong>
-              . Our comprehensive yoga teacher training program offers a perfect
-              blend of traditional and modern yoga practices, providing aspiring
-              yoga teachers with the knowledge, skills, and confidence to lead
-              their classes.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              Throughout the training, participants will delve into various
-              aspects of yoga, including asana, pranayama, meditation, anatomy,
-              philosophy, teaching methodology, and more. Our experienced and
-              passionate instructors will guide students through an immersive
-              learning experience that will foster personal growth and deepen
-              their understanding of yoga.
+            I want to tell you about our Yoga Teacher Training in Kochi, India. This is for people who want to teach yoga for people who already practice yoga and want to learn more and for anyone who wants to know more about yoga. Our Yoga Teacher Training Course in Kochi teaches you a lot about yoga. We combine yoga traditions with new ways of teaching. This helps you learn what you need to become a yoga teacher.
+
+Our yoga school is in a place in Kochi, Kerala. This is a place to learn yoga because you can really focus on what you are doing. You can learn about yoga and also learn about the spiritual side of India. Some people want to become yoga teachers, some people want to get better at yoga. Some people want to live a healthier life. Our Yoga Teacher Training Course in Kochi can help you do any of these things. It is a great experience that can change your life. Our Yoga Teacher Training in Kochi is very special.
+
             </p>
           </div>
         </div>
@@ -195,22 +183,11 @@ const YogaTrainingKochi: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <p className={styles.bodyText}>
-              Located in Kochi, a serene and picturesque city, our training
-              centre provides the ideal environment for self-reflection and
-              learning. Participants can immerse themselves in India's rich
-              culture and spiritual heritage, further enhancing their yoga
-              journey.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              Upon completing the program, graduates will receive a Yoga
-              Alliance, USA certification, allowing them to teach yoga with
-              confidence and credibility worldwide. Whether you want to deepen
-              your practice or pursue a career as a yoga instructor, our{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training program in Kochi
-              </strong>{" "}
-              offers a life-changing experience that will inspire and empower
-              you.
+            Our Yoga Teacher Training Course in Kochi is made to help people understand yoga completely. It covers the side of yoga and the ideas behind it. In this course students learn about Yoga Asanas. They find out how to do the postures correctly and how to teach them to other people. They also become more flexible and strong. They learn how to balance their bodies. The course also teaches Pranayama and Breathwork. This is about breathing techniques. These techniques help people focus. They help with stress.
+
+They help people understand the connection between their bodies and minds.
+Students also learn about Meditation and Mindfulness Practices. These practices help people become calm and clear.
+
             </p>
           </div>
         </div>
@@ -230,7 +207,7 @@ const YogaTrainingKochi: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Benefits of yoga course in Kochi
+            Benefits of Joining a Yoga Course in Kochi
             </h2>
             <div
               className={styles.headingUnderline}
@@ -239,9 +216,10 @@ const YogaTrainingKochi: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              The yoga course in Kochi offers many benefits, encompassing
-              physical, mental, and spiritual well-being. Through the practice
-              of yoga, participants can expect the following benefits:
+            A Yoga Course in Kochi can really help you live a balanced life. You will feel better in your body and mind. Regular yoga practice is good for you. It can make you more flexible and strong. You will have balance and posture.
+
+You will also know your body better. A Yoga Course in Kochi teaches you about your body and mind. This helps you feel more connected to yourself. A Yoga Course in Kochi is great for people who want to feel stronger and more in control.
+
             </p>
             <p className={styles.bodyText} style={{ marginTop: "0.75rem" }}>
               <strong>1. Physical Fitness:</strong> The course helps improve
@@ -317,7 +295,7 @@ const YogaTrainingKochi: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Why should I join the yoga course in Kochi?
+            Why is Kochi the Ideal Destination for Yoga Teacher Training? 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -326,41 +304,10 @@ const YogaTrainingKochi: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              There are several compelling reasons to join a yoga course in
-              Kochi:
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "0.75rem" }}>
-              <strong>1. Spiritual Environment:</strong> with its serene and
-              spiritual ambience, Kochi provides an ideal setting for immersing
-              oneself in yoga and deepening one's spiritual connection.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "0.75rem" }}>
-              <strong>2. Experienced Instructors:</strong> The yoga courses in
-              Kochi are led by experienced and knowledgeable instructors who can
-              guide students on a transformative journey toward physical,
-              mental, and spiritual well-being.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "0.75rem" }}>
-              <strong>3. Cultural Immersion:</strong> Kochi's rich cultural
-              heritage and historical significance offer a unique backdrop for
-              practising yoga, allowing participants to experience a deeper
-              connection to the tradition and philosophy of yoga.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "0.75rem" }}>
-              <strong>4. Relaxing Surroundings:</strong> Kochi's natural beauty
-              and tranquil surroundings create a peaceful and rejuvenating
-              environment, perfect for self-reflection and personal growth.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "0.75rem" }}>
-              <strong>5. Yoga Alliance Certification:</strong> Completing a yoga
-              course in Kochi can lead to a Yoga Alliance certification,
-              enabling participants to teach yoga with credibility and
-              confidence globally.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "0.75rem" }}>
-              Overall, joining a yoga course in Kochi offers an enriching and
-              transformative experience. It allows one to deepen one's practice
-              and embrace a holistic approach to well-being.
+            Kochi is a great place to learn yoga because it has a lot of natural beauty and a deep cultural scene. You can feel the atmosphere all around you. When you are in Kochi you can see a lot of places to learn yoga and you can learn about the traditional culture of Kerala. The people are very friendly. They make you feel welcome when you are practicing yoga. You can also learn about the history of India.
+
+The city of Kochi is very quiet. That helps you to focus on your yoga journey and think about your own personal growth. Kochi is a place to get away from your daily problems and just focus on yoga and yourself. Learning yoga, in Kochi is an experience because Kochi has everything you need to learn and grow as a yoga student.
+
             </p>
           </div>
         </div>

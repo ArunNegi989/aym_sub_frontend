@@ -171,13 +171,12 @@ const YogaTrainingAgra: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              At the Association for Yoga and Meditation, we help you to get
-              immersed in the land where Yoga was born. Furthermore, being the{" "}
-              <strong className={styles.boldLink}>
-                best yoga teacher training in Agra
-              </strong>
-              , we help you to explore every aspect of it, including the
-              traditional and modern ones.
+            Experience authentic yoga teacher training in the yoga capital of the world
+
+Start your journey with the Association for Yoga and Meditation where ancient yogic wisdom meets modern teaching methods. Situated in the heart of Rishikesh, the birthplace of yoga, our Yoga Teacher Training Course (YTTC) is created for people who want to become yoga teachers, those who are serious about their practice and individuals who love wellness from, over the world.
+
+No matter if your aim is to improve your practice or to become a certified yoga instructor, our complete training gives the knowledge, confidence and hands-on experience required to teach yoga with real meaning.
+
             </p>
           </div>
         </div>
@@ -197,7 +196,7 @@ const YogaTrainingAgra: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Advanced Yoga Teacher with Best Class Facilities
+            Learn from Experienced Yoga Teachers in a Traditional Gurukul Environment
             </h2>
             <div
               className={styles.headingUnderline}
@@ -206,20 +205,10 @@ const YogaTrainingAgra: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              As you search for the{" "}
-              <strong className={styles.boldLink}>
-                best yoga teacher training course near me
-              </strong>
-              , you will find us, where we offer you a chance to gain a solid
-              foundation in the classical yogic tradition besides honing your
-              teaching abilities. At the same time, we deepen your spiritual
-              connection to Yoga so that you can prepare yourself for inner
-              transformation before educating others. Our yoga therapy teacher
-              training at the Association for Yoga and Meditation is entirely
-              based on the Gurukul system. The instructors are well-educated,
-              dedicated, and highly experienced to support and guide you
-              throughout the journey of{" "}
-              <strong className={styles.boldLink}>YTT in Agra</strong>.
+            Our Yoga Teacher Training in Rishikesh is really special because it is based on the way of teaching called the Gurukul system. In this system students get to learn from teachers who have a lot of experience with yoga. These teachers know a lot about yoga. They help each student one on one. This means that every student gets the help they need to get better at yoga and understand it more.
+
+Our Yoga Teacher Training in Rishikesh teaches things like Hatha Yoga and Ashtanga Yoga and also things like breathing exercises and meditation. We also learn about the philosophy of yoga and how our bodies work. Our Yoga Teacher Training in Rishikesh teaches us how to teach yoga to people and how to make sure they are doing the poses correctly. Our Yoga Teacher Training in Rishikesh is a way to learn about yoga and become a yoga teacher. Our Yoga Teacher Training, in Rishikesh helps people learn and grow in ways.
+
             </p>
           </div>
         </div>
@@ -239,7 +228,7 @@ const YogaTrainingAgra: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Develop Your Skills to Teach Yoga | Absorb Peace
+            Develop Confidence, Skills, and Inner Transformation
             </h2>
             <div
               className={styles.headingUnderline}
@@ -248,20 +237,10 @@ const YogaTrainingAgra: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Our{" "}
-              <strong className={styles.boldLink}>
-                registered yoga teacher training course in Agra
-              </strong>{" "}
-              has gained quite a reputation among enthusiasts for being the best
-              in the city and the nation. With a robust and peaceful ambience
-              created, we ensure that you are surrounded by positive energy when
-              learning the skills for becoming a successful yoga teacher in
-              Agra. We allow you to interact closely with the masters and solve
-              your queries. Our well-designed and extensive curriculum of{" "}
-              <strong className={styles.boldLink}>
-                yoga training courses in Agra
-              </strong>{" "}
-              covers practical training and in-depth theoretical knowledge.
+            Our Yoga Teacher Training in Rishikesh follows the Gurukul system of teaching. This system allows students to work with yoga teachers. These teachers have knowledge of yoga. Each student gets attention. This helps students improve their yoga practice. It also helps them understand yoga better. The training lets students learn yoga in a way. They get guidance from yoga teachers.
+
+Our Yoga Teacher Training in Rishikesh includes Hatha Yoga, Ashtanga Yoga, Pranayama, Meditation, Yoga Philosophy, Human Anatomy and Physiology, Teaching Methodology, Alignment and Adjustment and Yoga Therapy Basics. The training teaches students about yoga. It also shows them how to teach yoga to others. It helps them feel more confident when teaching yoga. It helps them grow as a person and in their spirit. Our Yoga Teacher Training in Rishikesh is a way to learn about yoga. It is a way to become a yoga teacher.
+
             </p>
           </div>
         </div>
@@ -281,7 +260,7 @@ const YogaTrainingAgra: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Become a Licensed Yoga Trainer | Get Acclaimed Worldwide
+            Internationally Recognized Yoga Teacher Certification
             </h2>
             <div
               className={styles.headingUnderline}
@@ -290,22 +269,10 @@ const YogaTrainingAgra: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              When you choose our{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training program in Agra
-              </strong>
-              , you can rest assured knowing that we will enlighten you with
-              every tiny detail. Despite your knowledge, we believe in training
-              you from scratch so you can thoroughly know even the minute
-              aspects of Yoga. As the premium provider of{" "}
-              <strong className={styles.boldLink}>
-                yoga instructor certification in Agra
-              </strong>
-              , we ensure that you become fit and flexible before offering
-              classes to others. Our licensed yoga teacher training course in
-              Agra pushes one to be ready for the real world and act
-              effortlessly as a professional. With us, you will learn and grow
-              every day without going hard on yourself.
+            Our Yoga Teacher Training Course in Rishikesh is designed to follow guidelines. This makes it a strong choice for people who want to become yoga teachers across the globe. Once you complete the course you will receive a certificate. This certificate supports you in creating a career as a yoga teacher.
+
+Whether you want to teach in yoga studios or in wellness retreats or in fitness centers. If you want to launch your own yoga business our training provides you with the skills and the knowledge that you need to succeed.
+
             </p>
           </div>
         </div>
@@ -328,7 +295,7 @@ const YogaTrainingAgra: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Establish a Foundation of Peace and Tranquility Through Yoga
+            Build a Lifelong Foundation Through Yoga
             </h2>
             <div
               className={styles.headingUnderline}
@@ -337,19 +304,10 @@ const YogaTrainingAgra: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              During the course program, you will construct a solid foundation
-              of discipline that fosters your physical, mental, emotional, and
-              spiritual growth and a solid platform through which you can
-              naturally and confidently instruct others. Our course curriculum
-              is designed to create great yoga teachers and offer them{" "}
-              <strong className={styles.boldLink}>
-                YTT certification in Agra
-              </strong>
-              , which is well-adored worldwide. Our international yoga
-              certification is precious no matter where you go to promote this
-              ancient physical and mental therapy. By choosing us, you establish
-              a foundation of Peace and tranquillity at a genuinely affordable
-              expense.
+            Yoga is more than moving your body - it is a way of life. Our teacher training program helps you build discipline, stay present and understand yourself better while gaining the skills to help others.
+
+Join our Yoga Teacher Training Course, in Rishikesh. Feel real yogic learning in the spiritual center of India. No matter if you are just starting your yoga journey or taking your teaching to the level we are here to help you at every step of your change.
+
             </p>
           </div>
         </div>

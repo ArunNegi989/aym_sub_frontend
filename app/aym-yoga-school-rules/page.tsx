@@ -4,7 +4,7 @@ import PageClient from "./PageClient";
 export const metadata: Metadata = {
   title: "AYM Yoga School Rules & Policies | AYM Yoga School",
   description:
-    "Read the AYM Yoga School rules and guidelines for Yoga Teacher Training. Learn about attendance, discipline, accommodation, and course policies before enrolling.",
+    "Explore AYM Yoga School's rules & code of conduct for Yoga Teacher Training in Rishikesh — respect, discipline, attendance & lifestyle guidelines.",
 
     alternates: {
       canonical: "https://aymyogaschool.com/aym-yoga-school-rules",

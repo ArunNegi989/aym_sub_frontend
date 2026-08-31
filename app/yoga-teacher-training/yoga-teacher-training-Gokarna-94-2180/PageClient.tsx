@@ -162,7 +162,7 @@ const YogaTrainingGokarna: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Top yoga school in Gokarna
+            AYM Yoga School – A Premier Yoga Teacher Training Center in Gokarna
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,17 +171,10 @@ const YogaTrainingGokarna: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School is one of Gokarna's most fabulous yoga and
-              meditation centres and a centre for{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in Gokarna
-              </strong>
-              . Our yoga teacher training program, Gokarna and Goa, is perfect
-              if you want to become a yoga teacher or get away from it all for a
-              while. The{" "}
-              <strong className={styles.boldLink}>YTT Gokarna</strong>'s mission
-              is to teach yoga and meditation practices and help you open your
-              chakras to achieve peace of mind and happiness.
+            AYM Yoga School is a great place to learn yoga and meditation in Gokarna. They have classes that can help you become a certified yoga teacher. These classes are recognized around the world. If you want to teach yoga or just want to learn more about it and live a life, AYM Yoga School in Gokarna is a great place to do that. You can grow as a person. Also become a better yoga teacher.
+
+Our goal at AYM Yoga School is to teach people the meaning of yoga and meditation. We want to help our students feel happy and calm inside. We want them to be clear about what they think and feel good over. We do this by teaching them the ways of yoga
+
             </p>
           </div>
         </div>
@@ -201,7 +194,7 @@ const YogaTrainingGokarna: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Certified Yoga Teacher Training Course Near Me
+            Certified Yoga Teacher Training Course in Gokarna
             </h2>
             <div
               className={styles.headingUnderline}
@@ -210,30 +203,9 @@ const YogaTrainingGokarna: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              There is no better place to learn yoga for becoming a{" "}
-              <strong className={styles.boldLink}>yoga teacher Gokarna</strong>{" "}
-              and meditation than at the AYM Yoga School, which has campuses in
-              both Rishikesh and Goa and provides a certification course. If you
-              are a yoga practitioner or teacher considering going on a yoga
-              retreat in India, you can count on us to help you every step.
-            </p>
-            <p className={styles.bodyText} style={{ marginTop: "1rem" }}>
-              The world's educators and students agree that we've accomplished
-              something remarkable through our{" "}
-              <strong className={styles.boldLink}>
-                YTT certification in Gokarna
-              </strong>
-              . Our yoga teachers, who teach the{" "}
-              <strong className={styles.boldLink}>
-                yoga teaching course Gokarna
-              </strong>
-              , will guide you through meditation using mantras, breathing
-              exercises (Pranayama), and a yoga prayer. You'll be happy to know
-              that we provide the same services as the{" "}
-              <strong className={styles.boldLink}>
-                yoga training course Gokarna
-              </strong>
-              , whether you live there or are simply planning a visit.
+            AYM Yoga School offers Yoga Alliance certified teacher training in a few places like Gokarna, Rishikesh and Goa. This program is really good because it teaches you about yoga and how to teach it to others. You learn a lot of things like Traditional Hatha and Ashtanga Yoga. You also learn about Pranayama which's all about breathing techniques. Then there is Meditation and Mantra Chanting which's very relaxing.
+The program also teaches you about Yoga Philosophy and Anatomy and Physiology. You get to learn about Teaching Methodology which is important if you want to become a yoga teacher. The teachers at AYM Yoga School are very skilled. They guide you through everything including Alignment and Adjustment Techniques.
+
             </p>
           </div>
         </div>
@@ -253,7 +225,7 @@ const YogaTrainingGokarna: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              The Finest Location in Gokarna for Yogic Practices
+            Experience Authentic Yoga in Gokarna
             </h2>
             <div
               className={styles.headingUnderline}
@@ -262,11 +234,10 @@ const YogaTrainingGokarna: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Gokarna caters to a wide variety of visitors, with attractions
-              like the Bird Sanctuary and Damdama Lake catering to eco-tourists
-              and outdoor lovers, museums and art galleries showcasing ancient
-              art, fitness centres catering to the daring, and nightclubs
-              catering to the socially active.
+            Gokarna is a nice place to go to. It has some beaches and a very spiritual feeling. The natural beauty of Gokarna is what makes Gokarna such a great place to practice yoga. Gokarna is away from the city so students can focus on their yoga practice and relax at the time.
+
+Gokarna is not about yoga. Gokarna has a lot of things to see and do. You can visit the beaches of Gokarna. See the amazing views of the landscape. You can go to the temples of Gokarna. You can walk on the trails of Gokarna.
+
             </p>
           </div>
         </div>
@@ -286,7 +257,7 @@ const YogaTrainingGokarna: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Get Yourself Globally Acclaimed By Yoga and Meditation License
+            Become a Globally Certified Yoga Teacher 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -295,16 +266,10 @@ const YogaTrainingGokarna: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              We understand the demand for yoga worldwide and also the need for
-              the same. That is why we focus on developing true professionals
-              who can guide individuals in various aspects of yoga and
-              meditation to enhance their lifestyles. Our{" "}
-              <strong className={styles.boldLink}>
-                Yoga Teacher Training course
-              </strong>{" "}
-              is well-adored worldwide; as you complete the certification
-              through us, you can start practising teaching yoga to others as a
-              registered professional.
+            Yoga is getting really popular everywhere. So a lot of people want to learn from teachers who really know what they are doing. At AYM Yoga School we teach students everything they need to become yoga teachers. We want our students to be able to teach yoga that's real and safe for everyone.
+
+Our yoga teacher training programs are designed to help students get better at yoga themselves, learn how to teach others, understand the side of yoga, take care of their whole body and mind and feel confident when they are leading a yoga class. After students finish our programs and get their certificate they can start teaching yoga in different countries. They can share yoga with people around the world. Yoga is a part of what we do, at AYM Yoga School.
+
             </p>
           </div>
         </div>
@@ -327,7 +292,7 @@ const YogaTrainingGokarna: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Yoga Instruction from the Masters
+            Learn from Experienced Yoga Masters
             </h2>
             <div
               className={styles.headingUnderline}
@@ -336,28 +301,7 @@ const YogaTrainingGokarna: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Schools of AYM Yoga can be found in several places in India, and
-              Gokarna is one of them as you search for{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training courses near me
-              </strong>
-              . When you study with us at our yoga and meditation centre in
-              India, you'll have access to some of the most well-respected yoga
-              teachers who provide yoga instructor certification and are the
-              best yoga gurus in the world. Our nonprofit group is committed to
-              providing yoga instructors-in-training with the resources you need
-              to succeed through our{" "}
-              <strong className={styles.boldLink}>
-                licensed yoga teacher training course, Gokarna
-              </strong>
-              . The AYM Yoga School provides globally acclaimed yoga therapy
-              teacher training and hosts retreats for people experiencing
-              emotional discomfort. Not only will that, but all three Gokarna
-              locations of the AYM Yoga School, the{" "}
-              <strong className={styles.boldLink}>
-                registered yoga teacher training course Gokarna
-              </strong>
-              , will be operational and eager to have you as a guest.
+            AYM Yoga School has a group of yoga teachers who have spent many years studying and doing yoga. They help students learn the beginning parts of yoga and build the abilities they need to become yoga teachers. At AYM Yoga School students get help during their yoga learning experience helping each student get better at their yoga practice in their special way and feel sure about what they can do through yoga. The yoga training also helps students as they get stronger in their bodies, clearer in their minds and more connected, in their spirits.
             </p>
           </div>
         </div>

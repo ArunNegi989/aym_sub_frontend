@@ -164,9 +164,9 @@
     font-size: clamp(1rem, 1.7vw, 1.1rem);
     line-height: 1.85;
     color: #4a3418;
-    max-width: 800px;
+    /* max-width: 800px; */
     margin: 0 auto;
-    background: rgba(255, 250, 240, 0.6);
+    /* background: rgba(255, 250, 240, 0.6); */
     padding: 1rem 1.8rem;
     border-radius: 48px;
     backdrop-filter: blur(2px);

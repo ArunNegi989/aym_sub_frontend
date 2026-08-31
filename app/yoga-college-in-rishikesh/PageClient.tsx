@@ -50,23 +50,25 @@ const tabs = [
     label: "Yoga Protocol Instructor",
     hours: "200 HRS",
     content: {
-      intro: `Yoga protocol instructor is a basic level of certification provided by AYM yoga school in Rishikesh for practitioners seeking a basic knowledge of yoga and its practices (yoga asanas) under the guidance of experienced yoga teachers. It is the best foundational yoga course for the practitioner who wants to teach yoga at the group level or an individual class. `,
-       extra: `Additionally, this certification focuses on enhancing teaching skills, including class sequencing, communication, and student handling. Participants learn how to create a safe and supportive environment for beginners, making yoga accessible to people of all age groups. By the end of the course, students not only gain essential knowledge but also develop the ability to conduct group sessions effectively with clarity and confidence. The program also encourages personal growth by fostering discipline, consistency, and a deeper awareness of one’s physical and mental well-being. This holistic approach helps individuals not only become better instructors but also lead a more balanced and mindful lifestyle.`,
-      affiliation: `The yoga certification board accredits this 200-hour level-1 instructional yoga course by AYM yoga school in rishikesh.`,
+      intro: `A yoga protocol instructor is a certificate level yoga at AYM yoga school in Rishikesh, providing an opportunity to students and yoga followers with basic knowledge of yoga and its Asanas under qualified yoga instructors in yoga. This is a fundamental yoga for every practitioner intending to teach yoga in either group classes or one-to-one classes.
+Also, it focuses on upgrading the teaching ability of students, like structuring asanas, vocal communication and management of students, so that the students will be able to teach a beginner to yoga, making a foundation of yoga practices for students of all ages. In conclusion, students achieve not just a basic understanding of yoga, but also learn to confidently conduct group classes effectively with the utmost clarity and proficiency. The course also works on the internal development by combining discipline and regularity with an awareness of the body. With such an effective style the practitioner is able not only teach more efficiently, but also live a stable and peaceful life.
+
+`,
+      affiliation: `Accreditation for this Level - I, a 200-hour yoga instructor course, is by: The Yoga Certification Board.`,
       sections: [
         {
           title: "Aim and Objective",
-          content: `To teach basic yoga at the group level in parks, community-level on/off the occasion of international yoga day.`,
+          content: `To conduct a basic yoga course at group level in parks, at community level on/off on the occasion of international yoga day.`,
           bullets: [
-            "To promote health and wellness through the means of yoga.",
-            "200 hours of instructional yoga course that can do in one go or parts.",
-            "To cultivate yoga and its practices in the individual for his health and wellbeing.",
+            "To spread health and wellness with the help of yoga.",
+            "200 hours course for teaching yoga that could be undertaken at a stretch or part-wise.",
+            "To inculcate yoga and its practice in an individual for the benefit of his health.",
           ],
           images: [IMGS.aim1, IMGS.aim2, IMGS.aim3],
         },
         {
           title: "Duration of this course",
-          content: `The duration of this 200 hour of instructional yoga course can be complete in the span of 1 to 3 months. If you complete this entire course in one go, you will complete it in 1 month as a full-time course or complete it in 3 months as a part-time.`,
+          content: `This 200 hour instructional yoga course may take 1-3 months to complete. If you complete this whole course in one stretch, you complete it in 1 month of the full-time course or within 3 months of the part-time course.`,
         },
         {
           title: "Eligibility Criteria",
@@ -114,24 +116,24 @@ const tabs = [
     label: "Yoga Wellness Instructor",
     hours: "400 HRS",
     content: {
-      intro: `Yoga wellness instructor is a Level-2 yoga instructor course for those practitioners who wants to start their career as a professional yoga instructor and want to teach yoga in groups or a school or a wellness center. This instructional yoga course is best for those who wish to impart yoga to individuals or in mass to promote health and wellness.` ,
-      extra: `Additionally, this course deepens the understanding of yoga by introducing advanced asanas, pranayama techniques, and meditation practices. It helps practitioners refine their alignment, improve teaching methodology, and gain confidence in handling diverse groups of students with different needs and abilities.
+      intro: `Level 2 Yoga Wellness Instructor, this course is specifically meant for yoga students who intend to start their professional yoga teacher careers. This course aims at empowering a trainee with skills & confidence for teaching in group, for a school, gym or yoga wellness centre. If you dream of spreading wellness, empowering others with the practice of yoga whether individually or in group you are just the right candidate for this course.
 
-The program also focuses on lifestyle management and the therapeutic aspects of yoga, enabling instructors to guide individuals toward better physical and mental well-being. By the end of the course, participants are well-prepared to teach professionally in studios, wellness centers, or community settings with clarity, confidence, and authenticity.`,
-      affiliation: `This 400 hour level-2 yoga wellness instructor is a course registered with the yoga certification board, Government of India.`,
+Advanced asanas, Pranayama sessions & meditations have also been added.
+During this course trainees focus on improving alignment & also learn about the teaching module for varied types of students based on their physical & mental capabilities. Life style changes & healing therapy modules would also be taught in a yoga wellness centre to impart best teaching experience. At the successful completion of 400 hrs yoga teacher program with us one is surely equipped to teach professionally in an appropriate environment with grace and charisma.`,
+      affiliation: ` Level-2 Yoga Wellness Instructor 400 hr course registered with the YCB, govt of India.`,
       sections: [
         {
           title: "Objectives of this course",
           bullets: [
-            "To prepare the trainee for providing yoga and its teaching at the mass level.",
-            "To prepare the trainee to start his career as a professional yoga teacher",
-            "This yoga wellness instructor course is structured by AYM yoga school to provide basic knowledge of yoga and its physical, mental, and wellness practices in your daily life",
-            "A 400-hour instructional yoga course for a yoga wellness instructor can be a full-time course and a part-time course.",
+            "To train the trainee for giving yoga and its teachings at a mass level.",
+            "To train the trainee for launching his profession as a professional yoga teacher.",
+            "AYM yoga school organized this yoga wellness instructor course for a basic understanding of yoga and its physical, mental as well as wellness practices in your routine life.",
+            "This yoga wellness instructor course, 400 hours instructional yoga course can be the full-time and the part-time course.",
           ],
         },
         {
           title: "Duration of this course",
-          content: `This 400 hour of level-2 yoga wellness course can be completed in the span of 3 months as a full-time course or you can complete this as a part-time course in the duration of 6 months.`,
+          content: `This 400hr Level-2 Yoga wellness course can be completed within a period of 3 months as a full time course or you can finish the course as a part-time within a 6 month period.`,
         },
         {
           title: "Eligibility criteria",
@@ -179,16 +181,16 @@ The program also focuses on lifestyle management and the therapeutic aspects of 
     label: "Yoga Teacher & Evaluator",
     hours: "800 HRS",
     content: {
-      intro: `AYM yoga school in Rishikesh has 800 hours of level-3 yoga teacher and evaluator vocational yoga course in accreditation with yoga certification board, Government of India. 800 hour of instructional yoga course is for practitioners looking forward to starting their careers as master yoga trainers in the premier yoga institution, yoga studios, college, universities, etc.`,
-      extra: `This 800 hour of training program by AYM yoga school in Rishikesh will train you as a master trainer of yoga and its practices.`,
-      affiliation: `800 hours of level-3 yoga teacher and evaluator course is registered with yoga certification board.`,
+      intro: `AYM Yoga School Rishikesh offers an 800 hour, Level-3 yoga teacher and evaluator vocational yoga course for Yoga Certification Board, Government of India. This 800 hour yoga course teaches you to become a master yoga trainer in the yoga institutions, yoga studios, colleges and universities.`,
+      extra: `This 800 hour yoga training program in AYM Rishikesh would make you a master yoga trainer`,
+      affiliation: `This 800 hr, Level-3, yoga teacher and evaluation course is registered under the Yoga Certification Board.`,
       sections: [
         {
           title: "Objectives of this course",
           bullets: [
-            "To prepare the student to teach yoga as a master yoga trainer so that he/she can teach yoga at a premier yoga institute.",
-            "This 800 hour level-3 yoga teacher and evaluator training program by AYM yoga school in Rishikesh will provide you with all the knowledge of yoga and its practices.",
-            "800 hour level-3 yoga course can be completed by the practitioner as a full-time course and also as a part-time course.",
+            "It prepares the student for teaching yoga as a certified Yoga Master &Yoga Trainer that can teach yoga in a renowned yoga academy.",
+            "You gain exhaustive knowledge on every aspect of yoga and its practice through this level-3YogaTeacher and Evaluator Training program with 800hrs from AYM Yoga School in Rishikesh.",
+            "The 800-hour  level-3yoga teacher training program can be pursued either by attending full-time or through attending a part-time yoga training program.",
           ],
         },
         {
@@ -249,8 +251,8 @@ The program also focuses on lifestyle management and the therapeutic aspects of 
         { label: "Name of the Certification", text: "Yoga Master (YM)" },
       ],
       eligibility: [
-        "For open candidates there is no eligibility criteria",
-        "For admission in the course it is suggested that the candidate should be graduate in any stream from a recognized University or equivalent. However, the Yoga Institutions can define their own eligibility.",
+        "For open candidates No eligibility criteria required.",
+        "Minimum eligibility for entry into the course will be Graduate in Any Stream from a recognized University or the equivalent. But yoga institutions are permitted to decide their eligibility criteria.",
       ],
       extraDetails: [
         { label: "Minimum age", text: "No age limit" },
@@ -357,11 +359,11 @@ const collegeCourses = [
 ];
 
 const maObjectives = [
-  "To equip students with research-based yoga.",
-  "To uplift the knowledge of yoga therapy for healing different diseases.",
-  "To prepare students to open their own yoga centers.",
-  "To prepare students for joining higher courses in yoga like Ph.D in Yoga.",
-  "To provide them deep insight in yoga sutra of Patanjali, Bhagwat Gita, Hatha Yoga Pradapika and Gherund Samhita.",
+  "Impart to students the research-based yoga",
+  "Elevate knowledge on Yoga therapy to treatVarious ailments",
+  "Prepare to start one’s own yoga centre.",
+  "Prepare to appear inHigher yoga courses such as P.h.D in yoga.",
+  "Impart deeper knowledge on Yoga sutra of Patanjali Bhagwat Gita, Hatha Yoga Pradapika and Gherund Samhita.",
 ];
 
 /* ══════════════════════════════════════
@@ -1215,16 +1217,7 @@ export default function YogaCollegeRishikesh() {
               About AYM Yoga College
             </VintageHeading>
             <p className={styles.bodyPara}>
-              AYM Yoga College was established on 21 June 2016 to spread the
-              quality of higher yoga education in India. We are honored to
-              inform everyone that AYM Yoga institutions has started AYM Yoga
-              College (Yoga Mahavidhyalaya) in Rishikesh, India. The specialty
-              of this college will be quality of teaching, research-oriented
-              educational classes, participation of students in research
-              projects, latest and up to date yoga and meditational practices,
-              debates on yoga and meditational topics, guest lectures by known
-              personalities from the field of yoga and meditation, job
-              placements on national and international level.
+            AYM Yoga College was founded with the mission to teach The Best Higher Yoga Education quality in INDIA on date 21 June 2016, we felt honoured to introduce you all about; AYM YOGA INSTITUTIONS ( INDIA has Launched AYM Yoga College-Yoga Mahavidhyalaya at Rishikesh,INDIA) which will specialise for the quality of the Teaching, Yoga Mahavidyalay, participation of student’s research, best available,most updated, contemporary Yoga and meditation practice and meditation techniques, discussions on yoga and meditation subjects, eminent scholars for guest lecture and the placement of job at the Indian & International level. 
             </p>
 
             <div className={styles.collegeHighlights}>
@@ -1310,10 +1303,7 @@ export default function YogaCollegeRishikesh() {
 
               <VintageHeading center={false}>How to Apply</VintageHeading>
               <p className={styles.bodyPara}>
-                You can buy the prospectus for MA and PG Diploma from AYM Yoga
-                College office and submit it on given date along with admission
-                fee. Admission will be based as per Uttarakhand Sanskrit
-                University norms.
+              MA& PG Diploma prospectus would be available for sale fromAYM Yoga College office and prospectus should be deposited on due date with admission fees. Admission will be based on Uttarakhand Sanskrit University rules.
               </p>
             </>
           </TextVideoRow>
@@ -1333,24 +1323,13 @@ export default function YogaCollegeRishikesh() {
               Career Option after Diploma &amp; Masters
             </VintageHeading>
             <p className={styles.bodyPara}>
-              The courses of Yoga and Meditation open a vast possibility and
-              opportunities for job seeking aspirants. After completion of
-              course, people can work in hospitals, health centers, health clubs
-              or can practice on their own as yoga and meditation experts. They
-              are also free to teach the same in colleges and universities.
+            Yoga and Meditation courses offer tremendous possibility & scope for job aspirations. A few people take up jobs in hospitals, health centers and other health clubs, some practice on their own as Meditation and Yoga expertise and even get jobs at universities or colleges to teach yoga and meditation. Furthermore a variety of people go for research at various places like researcher association or scholar or can perform their works with the client as consultant.
             </p>
             <p className={styles.bodyPara}>
-              They can also start their career as research associate/scholar,
-              research analyst, consultant, freelancer or even certified
-              instructor. There are vacancies in yoga, meditation and other
-              related fields, which keep appearing online and offline and one
-              needs to keep oneself updated to get the job of interest.
+            Many jobs are offered at the internet or on net concerning these streams for instance on yoga and other streams associated with Meditation.
             </p>
             <p className={styles.bodyPara}>
-              One can also start own work by becoming health advisor/counsellor
-              and can offer people, their expert advice and services. Thus, this
-              course has great potential when it comes to having good career
-              prospects.
+            So an individual also becomes a specialist HealthAdvisor cum Advisor, offering counseling and consultancy services on health issues. Hence, the courses offered to the students have wonderful career prospects.
             </p>
             <div className={styles.careerOptions}>
               {[

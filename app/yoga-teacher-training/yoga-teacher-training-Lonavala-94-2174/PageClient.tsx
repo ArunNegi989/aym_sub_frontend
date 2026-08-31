@@ -162,7 +162,7 @@ const YogaTrainingLonavala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Certified Yoga Training Program At Lonavla
+            Become a Certified Yoga Instructor in Lonavala
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,18 +171,12 @@ const YogaTrainingLonavala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              People visit Lonavala regularly for complete relaxation in a
-              serene environment. But did you know that yoga is one of the most
-              promising methods for relaxation? Hence, if you want to start your
-              career as a professional yoga instructor in Lonavla, the best
-              option is just before you! Association for Yoga and Meditation has
-              got you the best{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in Lonavala
-              </strong>
-              . The ultimate prerogative of this training program is to ensure
-              that professionals can start practising without any hindrances in
-              the best possible exposure in the field of yoga.
+            If you want to have a career in yoga that is really fulfilling you should think about joining the Certified Yoga Teacher Training Program in Lonavala. This program is offered by the Association for Yoga and Meditation.
+
+They have a thorough training program that is perfect for people who are just starting out with yoga, people who really like yoga and people who want to teach yoga someday. This program will help you learn how to teach yoga in a way and it will also help you get better at yoga yourself.
+
+The program is in Lonavala, which's a really beautiful place with lots of hills and peaceful areas. The yoga teacher training course at the Association for Yoga and Meditation combines yoga ideas with new ways of teaching.
+
             </p>
           </div>
         </div>
@@ -202,7 +196,7 @@ const YogaTrainingLonavala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Get Overwhelmed with Yoga, Learn From the Masters
+            Why Choose AYM for Yoga Teacher Training in Lonavala?
             </h2>
             <div
               className={styles.headingUnderline}
@@ -211,20 +205,9 @@ const YogaTrainingLonavala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              To be a yoga teacher in Lonavala, you must focus on specific areas
-              for a trainer to understand. The best thing about this course is
-              that it has been curated keeping these needs in mind, and every
-              professional ethics will be communicated to you so that you do not
-              have any problem setting up your career in the real world. If you
-              are based out of Lonavala and want to start on this journey as a
-              professional yoga instructor, we are here to help you. We provide
-              you with constant guidance in the field and assist you further in
-              kickstarting your career as a{" "}
-              <strong className={styles.boldLink}>
-                registered yoga master
-              </strong>
-              . We are a registered yoga teacher training school in Lonavala,
-              bringing you a world-class training environment at your doorstep.
+            At AYM we think that to become a yoga teacher you need to learn a lot more than the yoga poses. Our teachers are very experienced. They help the students learn about the basics of yoga philosophy, the human body, how to do the poses correctly, how to breathe properly, how to meditate and how to teach yoga to other people.
+The program, at AYM helps the students feel confident when they are teaching yoga it teaches them how to help their students do the poses correctly and safely it teaches them about the body and how to prevent injuries it teaches them breathing and meditation techniques it teaches them how to manage a classroom and how to teach it gives them practice teaching yoga and it gives them a certificate that says they are a yoga teacher and this certificate is recognized everywhere.
+
             </p>
           </div>
         </div>
@@ -244,7 +227,7 @@ const YogaTrainingLonavala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Certified Training for Yoga Professional
+            Comprehensive Yoga Teacher Training Curriculum
             </h2>
             <div
               className={styles.headingUnderline}
@@ -253,21 +236,9 @@ const YogaTrainingLonavala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              To become a professional and teach students, you must ensure that
-              your basics are straightforward and that you know the exact
-              measures to avoid glitches during the practice. In case you have
-              any doubts that need to be cleared, you can easily approach the
-              experts who have been in this field for a long time. They possess
-              profound knowledge while guiding you through the basics and the
-              advanced sections through deep understanding. The entire
-              curriculum of the{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training program in Lonavala
-              </strong>{" "}
-              is planned out as such so that, starting from the basics to the
-              advanced sections, you can get assistance at each of the levels.
-              All you need to do is set up your mindset for a serene training
-              platform and a bright career path, and you are almost there.
+            At AYM we think that to become a yoga teacher you need to learn a lot more than the yoga poses. Our teachers are very experienced. They help the students learn about the basics of yoga philosophy, the human body, how to do the poses correctly, how to breathe properly, how to meditate and how to teach yoga to other people.
+The program, at AYM helps the students feel confident when they are teaching yoga it teaches them how to help their students do the poses correctly and safely it teaches them about the body and how to prevent injuries it teaches them breathing and meditation techniques it teaches them how to manage a classroom and how to teach it gives them practice teaching yoga and it gives them a certificate that says they are a yoga teacher and this certificate is recognized everywhere.
+
             </p>
           </div>
         </div>
@@ -287,7 +258,7 @@ const YogaTrainingLonavala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Best Facilities Available At AYM
+            Learn from Experienced Yoga Masters
             </h2>
             <div
               className={styles.headingUnderline}
@@ -296,18 +267,10 @@ const YogaTrainingLonavala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              One of the best things about the yoga therapy teacher training
-              course conducted by AYM is that you will be given an innate focus
-              on each factor, like the facilities. We know that there are
-              indispensable facilities and resources to train students in the
-              more advanced sections of yoga. Thus, we have them in place along
-              with world-class infrastructure. The most crucial factor that we
-              have focused on is ensuring that students can understand the
-              insights of yoga and they can embark on their professional journey
-              once they are done with the course. After attending the course,
-              they receive a globally acclaimed{" "}
-              <strong className={styles.boldLink}>certification</strong> as
-              well.
+            Our yoga teachers have been teaching for a time and they really know their stuff when it comes to traditional yoga. Every time you take a class with them you will learn something, get to work one on one with them and get better at yoga.
+
+The yoga teachers will always be there to help you get better at teaching yoga, make your own practice stronger and get ready to have a career teaching yoga to other people.
+
             </p>
           </div>
         </div>
@@ -330,7 +293,7 @@ const YogaTrainingLonavala: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Affordable Pricing Setup For Student Convenience
+            Modern Facilities and Peaceful Learning Environment
             </h2>
             <div
               className={styles.headingUnderline}
@@ -339,17 +302,9 @@ const YogaTrainingLonavala: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              We understand that there is a common notion among many that when
-              it comes to YTT certification in Lonavala, one needs to shell out
-              a hefty amount. But that is different from the course curriculum
-              set up by AYM. We have made it quite clear that when it comes to
-              yoga, nothing can stop you from learning it through us and getting
-              acclaimed worldwide as a{" "}
-              <strong className={styles.boldLink}>
-                certified yoga instructor
-              </strong>
-              . Even the price juncture should be separate from starting with a
-              bright career path.
+            AYM is a nice place to learn yoga. They make you feel welcome. It is easy to learn there. The school has rooms to practice yoga in and these rooms are quiet and clean. They also have a lot of books and things to help you learn. You can take classes to learn how to teach yoga to others. They have workshops where you can meet people who like yoga too. There are also spaces where you can sit and meditate. The teachers and other students are very supportive and friendly.
+
+AYM is in Lonavala, which's a very calm and peaceful place. This makes it a great place to learn yoga, relax and think about your yoga journey. AYM and yoga go well together in this setting. You can learn a lot about yoga at AYM. It is a great place to practice yoga.
             </p>
           </div>
         </div>

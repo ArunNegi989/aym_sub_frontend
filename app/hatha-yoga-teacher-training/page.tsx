@@ -4,7 +4,7 @@ import PageClient from "./PageClient";
 export const metadata: Metadata = {
   title: "Traditional Hatha Yoga Teacher Training | AYM Yoga School",
   description:
-    "Join AYM Yoga School for Hatha Yoga Teacher Training in Rishikesh. Learn traditional Hatha yoga, meditation, pranayama, philosophy, and teaching techniques.",
+    "Become a certified Hatha Yoga teacher in Rishikesh, India's yoga capital. Ancient techniques, expert gurus, small batches. Book your seat today!",
 
     alternates: {
       canonical: "https://aymyogaschool.com/hatha-yoga-teacher-training",

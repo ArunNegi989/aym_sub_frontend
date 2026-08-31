@@ -140,7 +140,7 @@ const YogaTrainingKolkata: React.FC = () => {
         ══════════════════════════════════════ */}
         <div className={styles.pageHeader}>
           <h1 className={styles.pageTitle}>
-            Yoga Teacher Training Course in Kolkata
+            Best Yoga Teacher Training in Kolkata | Association for Yoga and Meditation (AYM)
           </h1>
           <div className={styles.titleUnderline}>
             <div className={styles.underlineLine} />
@@ -162,7 +162,7 @@ const YogaTrainingKolkata: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Highly Recommend Yoga school in Kolkata
+            Best Yoga Teacher Training in Kolkata | Association for Yoga and Meditation (AYM)
             </h2>
             <div
               className={styles.headingUnderline}
@@ -171,29 +171,10 @@ const YogaTrainingKolkata: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              It is impossible to stress the importance of making time for
-              self-care and paying attention to your body. Isn't it? But yoga is
-              a wonderful method to perform both. More is better when it comes
-              to yoga, and you'll feel better and advance more with each new
-              session you attend at the{" "}
-              <strong className={styles.boldLink}>
-                Yoga course in Kolkata
-              </strong>
-              . New to learning yoga and its different poses?
-            </p>
-            <p className={styles.bodyText}>
-              We at the Association for Yoga and Meditation provide top-notch
-              yoga classes to every student. Being the provider of the best{" "}
-              <strong className={styles.boldLink}>
-                yoga teaching course in Kolkata
-              </strong>
-              , we encourage you to move on if you feel stuck in the beginning.
-              Yoga is flexible and so we are. Also when searching for{" "}
-              <strong className={styles.boldLink}>
-                yoga instructor certification near me
-              </strong>{" "}
-              we top the list as our experts and teachers are well recognized and
-              popular.
+            If you are looking for a trusted Yoga Teacher Training in Kolkata the Association for Yoga and Meditation or Yoga Teacher Training in Kolkata at the Association for Yoga and Meditation offers good programs for people who are just starting out with Yoga Teacher Training in Kolkata for people who really like yoga and for people who want to become yoga teachers. The Yoga Teacher Training in Kolkata courses at the Association for Yoga and Meditation are recognized all over the world and they teach you things that have been passed down for a long time along with new ways of teaching, which helps you have a great career and also helps you feel better in your body, mind and spirit.
+
+You might want to do Yoga Teacher Training in Kolkata for yourself or you might want to become a certified yoga teacher either way the Association for Yoga and Meditation's a great place to go because they have people who really know what they are doing they give you a lot of practice and they make sure you feel supported while you are learning Yoga Teacher Training, in Kolkata
+
             </p>
           </div>
         </div>
@@ -213,7 +194,7 @@ const YogaTrainingKolkata: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Explore and Experience Yoga with AYM in Kolkata
+            Why Choose AYM Yoga School in Kolkata? 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -222,29 +203,10 @@ const YogaTrainingKolkata: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              At the Association for Yoga and Meditation, we are the leading
-              provider of{" "}
-              <strong className={styles.boldLink}>
-                registered yoga teacher training courses in Kolkata
-              </strong>
-              . We make sure that people acquire the capacity to study the right
-              yoga techniques through our unique and best-in-class yoga therapy
-              teacher training so that you can impart them to others in their
-              professional lives. Our training courses positively impact people
-              of all ages since they are well-designed and straightforward
-              enough.
-            </p>
-            <p className={styles.bodyText}>
-              Our teachers come with the best yoga teacher certification that
-              makes it easy both for students and teachers to maintain a positive
-              attitude throughout the journey. Unlike others, once your course is
-              complete, we'll provide you with{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training certification in Kolkata
-              </strong>{" "}
-              international yoga certification. You can rest assured knowing that
-              you'll be learning all techniques and methods from the best of
-              teachers.
+            At the Association for Yoga and Meditation we believe yoga is more than moving the body; it is a way of life that brings balance, awareness, calmness and overall well-being. Our programs help students get better at stretching and building strength, feel more confident when teaching yoga, take care of their health, learn how to teach yoga properly, understand what yoga is really about and grow as individuals while discovering a stronger sense of purpose.
+
+By mixing yoga traditions with real teaching experience we get students ready with the knowledge and abilities they need to offer real yoga education to others and become sure of themselves as yoga teachers. At the Association for Yoga and Meditation yoga is an important part of our lives and our education is made to help students gain the abilities and understanding they need to make yoga a meaningful part of their own lives and their journey, as teachers.
+
             </p>
           </div>
         </div>
@@ -264,7 +226,7 @@ const YogaTrainingKolkata: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Affordable Yoga Teacher Training in Kolkata
+            International Yoga Teacher Certification in Kolkata
             </h2>
             <div
               className={styles.headingUnderline}
@@ -273,24 +235,12 @@ const YogaTrainingKolkata: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              When you choose Association for Yoga and Meditation, you get to
-              learn about yoga and its every aspect. From teaching you how you
-              can help to manage your lifestyle to engaging in meditation to
-              adapting new yogic ideas, as the world's top{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training in Kolkata
-              </strong>
-              , we make sure you get deep knowledge in the field of yoga.
-            </p>
-            <p className={styles.bodyText}>
-              We respect honesty and diversity, along with assisting others and
-              bringing about positive changes. We genuinely care about
-              everyone's well-being, and we want to give you advice and
-              instruction so that you can feel better and become a renowned{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher in Kolkata
-              </strong>{" "}
-              and worldwide.
+            AYM offers a *International Yoga Teacher Training Certification in Kolkata* that helps students improve their yoga practice. They also learn how to teach yoga to others.
+
+The course teaches students how to do yoga asanas. They learn about Pranayama and breathing techniques. Students also learn how to meditate and understand what yoga is about.
+
+They study the body. How it works with yoga. Students learn how to teach yoga classes and plan them well. They understand what it means to be a yoga teacher.
+
             </p>
           </div>
         </div>
@@ -310,7 +260,7 @@ const YogaTrainingKolkata: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Get Globally Accepted as the Best Yoga Teacher
+            Affordable Yoga Teacher Training Courses in Kolkata
             </h2>
             <div
               className={styles.headingUnderline}
@@ -319,31 +269,9 @@ const YogaTrainingKolkata: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              Holding a reputation for providing the best{" "}
-              <strong className={styles.boldLink}>
-                yoga training course in Kolkata
-              </strong>
-              , we ensure everyone is provided with the best quality knowledge.
-              We aim to provide you with an experience that will boost your
-              passion and help you in the future. Also, we conduct several tests
-              to ensure you're well suited for a{" "}
-              <strong className={styles.boldLink}>
-                licensed yoga teacher training course in Kolkata
-              </strong>
-              .
-            </p>
-            <p className={styles.bodyText}>
-              We value shaping you as the future of yoga and reaching heights of
-              success. Moreover, you can expect to be guided and instructed in
-              the best way through our world-class{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training program in Kolkata
-              </strong>
-              . Also, we ensure that when one searches for the best{" "}
-              <strong className={styles.boldLink}>
-                yoga teacher training course near me
-              </strong>
-              , you're one of them to top the list.
+            Yoga is really good for you and everyone should be able to learn about it. This is why AYM provides Yoga Teacher Training in Kolkata. They make sure that the people who learn from them get a good education.
+Their programs are good for lots of people. This includes people who're new to yoga. It also includes fitness professionals and wellness consultants and meditation practitioners and healthcare professionals. People who want to be yoga teachers can also learn from them.. People who just want to feel better about themselves can learn from them too.
+
             </p>
           </div>
         </div>
@@ -366,7 +294,7 @@ const YogaTrainingKolkata: React.FC = () => {
           </div>
           <div className={styles.textWrap}>
             <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
-              Qualified yoga training in Kolkata India
+            Learn from Experienced Yoga Teachers 
             </h2>
             <div
               className={styles.headingUnderline}
@@ -375,14 +303,10 @@ const YogaTrainingKolkata: React.FC = () => {
               <div className={styles.headingUnderlineLine} />
             </div>
             <p className={styles.bodyText}>
-              AYM Yoga School is located in Rishikesh and Goa. We are a famous
-              yoga and meditation institution in India, specializing in teacher
-              training, yoga gurus. We are a non-profit organization that aims
-              to teach quality yoga classes to anyone who wants to become a
-              qualified yoga instructor. AYM Yoga School also helps you relieve
-              emotional problems through yoga therapy retreat. In addition, if
-              you are in Kolkata, AYM Yoga School will also fully operate our
-              facilities here.
+            At AYM the instructors are really good at yoga. They have been teaching for a long time. They want to help every student learn what yoga is really about. That is more than just the poses you do with your body.
+
+The way we teach is special because we pay attention to each student and help them feel good about what they're doing. We help students get better at yoga and learn what they need to know so they can teach yoga to others in a way.
+
             </p>
           </div>
         </div>
