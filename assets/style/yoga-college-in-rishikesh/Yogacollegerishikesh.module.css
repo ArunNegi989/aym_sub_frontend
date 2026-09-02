@@ -1017,7 +1017,6 @@
   width: 100%;
   aspect-ratio: 16/7;
   overflow: hidden;
-  max-height: 520px;
 }
 
 .fullVideoIframe {
