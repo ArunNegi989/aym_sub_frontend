@@ -8,6 +8,26 @@ export const setAccessToken = (token: string) => {
 
 export const getAccessToken = () => accessToken;
 
+// ✅ Shared refresh promise — jab tak ek refresh chal raha hai,
+// baaki sab requests usi promise ka result reuse karengi (race condition fix)
+let refreshPromise: Promise<string> | null = null;
+
+const refreshAccessToken = async (): Promise<string> => {
+  if (!refreshPromise) {
+    refreshPromise = api
+      .post("/auth/refresh")
+      .then((res) => {
+        const token = res.data.accessToken;
+        setAccessToken(token);
+        return token;
+      })
+      .finally(() => {
+        refreshPromise = null;
+      });
+  }
+  return refreshPromise;
+};
+
 api.interceptors.request.use((config) => {
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
@@ -28,9 +48,8 @@ api.interceptors.response.use(
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
-        const res = await api.post("/auth/refresh");
-        setAccessToken(res.data.accessToken);
-        originalRequest.headers.Authorization = "Bearer " + res.data.accessToken;
+        const token = await refreshAccessToken(); // ✅ ab shared hai, duplicate nahi
+        originalRequest.headers.Authorization = "Bearer " + token;
         return api(originalRequest);
       } catch {
         window.location.href = "/auth/login";
