@@ -178,7 +178,14 @@ const navItems: NavItem[] = [
     ],
   },
   
-   { href: "/admin/yogacourse/online-yogacourse-seatbooking", label: "Online Yoga Course Seatbooking",icon: "🖼" },
+    {
+    label: "Online Yoga", icon: "✦",
+    children: [
+      { href: "/admin/yogacourse/online-yogacourse-seatbooking", label: "Online yoga seat" },
+      { href: "/admin/yogacourse/online-yoga-course",  label: "Online yoga course" },
+    ],
+  },
+   { href: "/admin/yogacourse/ayush-course",  label: "Ayush Course", icon: "🖼" },
   {
     label: "Teachers", icon: "🧘",
     children: [

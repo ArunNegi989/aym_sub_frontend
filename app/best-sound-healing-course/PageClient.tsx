@@ -124,6 +124,9 @@ interface SeatBatch {
   dormPrice: number;
   twinPrice: number;
   privatePrice: number;
+  inrDormPrice: number;      // ✅ naya
+  inrTwinPrice: number;      // ✅ naya
+  inrPrivatePrice: number;   // ✅ naya
   totalSeats: number;
   bookedSeats: number;
   note: string;
@@ -420,31 +423,32 @@ function PremiumSeatBookingSoundHealing({
             </div>
           </div>
           <div className={styles.psbRpBody}>
-            <div className={styles.psbPriceLbl}>With Accommodation</div>
-            <div className={styles.psbPriceRow}>
-              <div className={styles.psbPriceCard}>
-                <div className={styles.psbPcAmt}>
-                  {selected
-                    ? currency === "INR"
-                      ? `₹${Math.round(selected.privatePrice * rate)}`
-                      : `$${selected.privatePrice}`
-                    : "—"}
-                  <span className={styles.psbPcCur}>{currency}</span>
-                </div>
-                <div className={styles.psbPcLbl}>Private Room</div>
-              </div>
-              <div className={styles.psbPriceCard}>
-                <div className={styles.psbPcAmt}>
-                  {selected
-                    ? currency === "INR"
-                      ? `₹${Math.round(selected.twinPrice * rate)}`
-                      : `$${selected.twinPrice}`
-                    : "—"}
-                  <span className={styles.psbPcCur}>{currency}</span>
-                </div>
-                <div className={styles.psbPcLbl}>Twin / Shared</div>
-              </div>
-            </div>
+           <div className={styles.psbPriceLbl}>With Accommodation</div>
+<div className={styles.psbPriceRow}>
+  <div className={styles.psbPriceCard}>
+    <div className={styles.psbPcAmt}>
+      {selected
+        ? currency === "INR"
+          ? `₹${selected.inrPrivatePrice.toLocaleString("en-IN")}`
+          : `$${selected.privatePrice}`
+        : "—"}
+      <span className={styles.psbPcCur}>{currency}</span>
+    </div>
+    <div className={styles.psbPcLbl}>Private Room</div>
+  </div>
+  <div className={styles.psbPriceCard}>
+    <div className={styles.psbPcAmt}>
+      {selected
+        ? currency === "INR"
+          ? `₹${selected.inrTwinPrice.toLocaleString("en-IN")}`
+          : `$${selected.twinPrice}`
+        : "—"}
+      <span className={styles.psbPcCur}>{currency}</span>
+    </div>
+    <div className={styles.psbPcLbl}>Twin / Shared</div>
+  </div>
+</div>
+
             <div className={styles.psbPriceLbl}>Dormitory</div>
             <div className={styles.psbPriceWide}>
               <div className={styles.psbPwLeft}>

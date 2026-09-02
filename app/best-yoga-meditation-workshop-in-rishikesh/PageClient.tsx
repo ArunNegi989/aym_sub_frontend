@@ -252,6 +252,11 @@ function PremiumSeatBookingMeditation({
   }, [seats]);
 
   const selected = seats.find((s) => s._id === selectedId) ?? null;
+  const selectedCourseFee = selected
+  ? currency === "INR"
+    ? { amount: `₹${parseFloat(selected.inrFee.replace(/[₹,]/g, "") || "0").toLocaleString("en-IN")}`, cur: "INR" }
+    : { amount: `$${selected.usdFee}`, cur: "USD" }
+  : { amount: "—", cur: currency };
 
   const fmtPrice = (
     batch: SeatBatch | null,
@@ -344,45 +349,50 @@ function PremiumSeatBookingMeditation({
             <p className={styles.psbNoBatches}>No upcoming batches available at the moment.</p>
           ) : (
             <div className={styles.psbBatchGrid}>
-              {seats.map((batch) => {
-                const rem = batch.totalSeats - batch.bookedSeats;
-                const full = rem <= 0;
-                const low = !full && rem <= 5;
-                const dotCls = full ? styles.psbDRed : low ? styles.psbDOrange : styles.psbDGreen;
-                const txtCls = full ? styles.psbSRed : low ? styles.psbSOrange : styles.psbSGreen;
-                const statusTxt = full ? "Fully Booked" : low ? "Limited" : "Available";
-                const seatsPercent = Math.max(5, (rem / batch.totalSeats) * 100);
-                const isSelected = selectedId === batch._id;
-                const dormFmt = fmtPrice(batch, "dorm");
-                return (
-                  <div
-                    key={batch._id}
-                    className={[styles.psbBc, full ? styles.psbBcFull : "", isSelected ? styles.psbBcSel : ""].filter(Boolean).join(" ")}
-                    onClick={() => { if (!full) setSelectedId(batch._id); }}
-                  >
-                    <div className={styles.psbBcTick}>
-                      <svg viewBox="0 0 10 10" fill="none">
-                        <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                    <div className={styles.psbBcMonth}>{monthYear(batch.startDate)}</div>
-                    <div className={styles.psbBcDates}>{shortDateRange(batch.startDate, batch.endDate)}</div>
-                    <div className={styles.psbBcPrice}>{dormFmt.amount} <span>{dormFmt.cur}</span></div>
-                    <div className={styles.psbBcStatus}>
-                      <div className={`${styles.psbBcDot} ${dotCls}`} />
-                      <span className={`${styles.psbBcStxt} ${txtCls}`}>{statusTxt}</span>
-                    </div>
-                    {!full && (
-                      <>
-                        <div className={styles.psbBcSeatsBar}>
-                          <div className={styles.psbBcSeatsBarFill} style={{ width: `${seatsPercent}%`, background: low ? "linear-gradient(90deg,#c8700a,#e09030)" : "linear-gradient(90deg,#3d6000,#6aa000)" }} />
-                        </div>
-                        <span className={styles.psbBcSeatsBadge} style={{ color: low ? "#c8700a" : "#3d6000" }}>{rem} / {batch.totalSeats} seats left</span>
-                      </>
-                    )}
-                  </div>
-                );
-              })}
+             {seats.map((batch) => {
+  const rem = batch.totalSeats - batch.bookedSeats;
+  const full = rem <= 0;
+  const low = !full && rem <= 5;
+  const dotCls = full ? styles.psbDRed : low ? styles.psbDOrange : styles.psbDGreen;
+  const txtCls = full ? styles.psbSRed : low ? styles.psbSOrange : styles.psbSGreen;
+  const statusTxt = full ? "Fully Booked" : low ? "Limited" : "Available";
+  const seatsPercent = Math.max(5, (rem / batch.totalSeats) * 100);
+  const isSelected = selectedId === batch._id;
+
+  // ✅ Batch card ab usdFee/inrFee dikhayega, dormPrice nahi
+  const courseFee = currency === "INR"
+    ? { amount: `₹${parseFloat(batch.inrFee.replace(/[₹,]/g, "")).toLocaleString("en-IN")}`, cur: "INR" }
+    : { amount: `$${batch.usdFee}`, cur: "USD" };
+
+  return (
+    <div
+      key={batch._id}
+      className={[styles.psbBc, full ? styles.psbBcFull : "", isSelected ? styles.psbBcSel : ""].filter(Boolean).join(" ")}
+      onClick={() => { if (!full) setSelectedId(batch._id); }}
+    >
+      <div className={styles.psbBcTick}>
+        <svg viewBox="0 0 10 10" fill="none">
+          <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
+      <div className={styles.psbBcMonth}>{monthYear(batch.startDate)}</div>
+      <div className={styles.psbBcDates}>{shortDateRange(batch.startDate, batch.endDate)}</div>
+      <div className={styles.psbBcPrice}>{courseFee.amount} <span>{courseFee.cur}</span></div>
+      <div className={styles.psbBcStatus}>
+        <div className={`${styles.psbBcDot} ${dotCls}`} />
+        <span className={`${styles.psbBcStxt} ${txtCls}`}>{statusTxt}</span>
+      </div>
+      {!full && (
+        <>
+          <div className={styles.psbBcSeatsBar}>
+            <div className={styles.psbBcSeatsBarFill} style={{ width: `${seatsPercent}%`, background: low ? "linear-gradient(90deg,#c8700a,#e09030)" : "linear-gradient(90deg,#3d6000,#6aa000)" }} />
+          </div>
+          <span className={styles.psbBcSeatsBadge} style={{ color: low ? "#c8700a" : "#3d6000" }}>{rem} / {batch.totalSeats} seats left</span>
+        </>
+      )}
+    </div>
+  );
+})}
             </div>
           )}
         </div>
@@ -436,18 +446,7 @@ function PremiumSeatBookingMeditation({
               <span className={styles.psbFoodBadge}>Food Included</span>
             </div>
 
-            {selected && currency === "USD" && selected.inrFee && (
-              <div className={styles.psbInrRow}>
-                <span className={styles.psbInrLbl}>Indian Price</span>
-                <span className={styles.psbInrAmt}>{selected.inrFee}</span>
-              </div>
-            )}
-            {selected && currency === "INR" && selected.usdFee && (
-              <div className={styles.psbInrRow}>
-                <span className={styles.psbInrLbl}>USD Price</span>
-                <span className={styles.psbInrAmt}>{selected.usdFee}</span>
-              </div>
-            )}
+            
 
             <div className={styles.psbDivider} />
             {selected && (
@@ -485,19 +484,19 @@ function PremiumSeatBookingMeditation({
                 <span className={styles.psbSelHint}>← Select a batch to continue</span>
               )}
             </div>
-            {selected && selected.bookedSeats < selected.totalSeats ? (
-              <Link
-                href={selected.applyLink ?? `/yoga-registration?batchId=${selected._id}&type=meditation`}
-                className={styles.psbBookBtn}
-              >
-                Book Now — {fmtPrice(selected, "dorm").amount} {currency}
-                <svg className={styles.psbArrowIcon} viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff3d2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-            ) : (
-              <span className={`${styles.psbBookBtn} ${styles.psbBookBtnDis}`}>Book Now</span>
-            )}
+          {selected && selected.bookedSeats < selected.totalSeats ? (
+  <Link
+    href={selected.applyLink ?? `/yoga-registration?batchId=${selected._id}&type=meditation`}
+    className={styles.psbBookBtn}
+  >
+    Book Now — {selectedCourseFee.amount} {currency}
+    <svg className={styles.psbArrowIcon} viewBox="0 0 16 16" fill="none">
+      <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff3d2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </Link>
+) : (
+  <span className={`${styles.psbBookBtn} ${styles.psbBookBtnDis}`}>Book Now</span>
+)}
             {selected?.note && <p className={styles.psbNote}><strong>Note:</strong> {selected.note}</p>}
           </div>
         </div>
