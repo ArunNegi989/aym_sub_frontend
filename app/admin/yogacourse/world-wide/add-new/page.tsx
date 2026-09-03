@@ -725,7 +725,7 @@ export default function AddWorldwidePage() {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setSubmitted(true);
-      setTimeout(() => router.push("/admin/yogacourse/yoga-world-wide"), 1500);
+      setTimeout(() => router.push("/admin/yogacourse/world-wide"), 1500);
     } catch (e: any) {
       alert(e?.response?.data?.message || e?.message || "Something went wrong");
     } finally {
@@ -748,7 +748,7 @@ export default function AddWorldwidePage() {
   return (
     <div className={styles.formPage}>
       <div className={styles.breadcrumb}>
-        <button className={styles.breadcrumbLink} onClick={() => router.push("/admin/yogacourse/yoga-world-wide")}>
+        <button className={styles.breadcrumbLink} onClick={() => router.push("/admin/yogacourse/world-wide")}>
           Worldwide Content
         </button>
         <span className={styles.breadcrumbSep}>›</span>
@@ -999,7 +999,7 @@ export default function AddWorldwidePage() {
       </div>{/* /formCard */}
 
       <div className={styles.formActions}>
-        <Link href="/admin/yogacourse/yoga-world-wide" className={styles.cancelBtn}>← Cancel</Link>
+        <Link href="/admin/yogacourse/world-wide" className={styles.cancelBtn}>← Cancel</Link>
         <button type="button"
           className={`${styles.submitBtn} ${isSubmitting ? styles.submitBtnLoading : ""}`}
           onClick={handleSubmit(onSubmit)} disabled={isSubmitting}>
