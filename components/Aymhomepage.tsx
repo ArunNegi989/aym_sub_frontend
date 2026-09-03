@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "@/assets/style/Aymhomepage.module.css";
+import Link from "next/link";
 
 /* ══════════════════════════════════════════
    SVG DECORATIONS
@@ -225,28 +226,28 @@ const courses = [
     title: "100 Hour YTTC",
     desc: "100 Hour Yoga Teacher Training Course In Rishikesh",
     badge: null,
-    href: "#",
+    href: "/100-hour-yoga-ttc-in-rishikesh",
   },
   {
     id: 2,
     title: "200 Hour YTTC",
     desc: "200 Hour Yoga Teacher Training Course In Rishikesh",
     badge: "RYS 200",
-    href: "#",
+    href: "/200-hour-yoga-teacher-training-in-rishikesh",
   },
   {
     id: 3,
     title: "300 Hour YTTC",
     desc: "300 Hour Yoga Teacher Training Course In Rishikesh",
     badge: "RYS 300",
-    href: "#",
+    href: "/300-hour-yoga-ttc-in-rishikesh",
   },
   {
     id: 4,
     title: "500 Hour YTTC",
     desc: "500 Hour Yoga Teacher Training Course In Rishikesh",
     badge: "RYS 500",
-    href: "#",
+    href: "/500-hour-yoga-ttc-in-rishikesh",
   },
 ];
 
@@ -259,6 +260,8 @@ const fees = [
     materials: "Study Materials",
     accommodation: "Private / Shared",
     alliance: "Yoga Alliance, USA",
+    href: "/200-hour-yoga-teacher-training-in-rishikesh",
+    
   },
   {
     hours: "300 Hour Course",
@@ -268,6 +271,7 @@ const fees = [
     materials: "Study Materials",
     accommodation: "Private / Shared",
     alliance: "Yoga Alliance, USA",
+    href: "/300-hour-yoga-ttc-in-rishikesh",
   },
   {
     hours: "500 Hour Course",
@@ -277,6 +281,7 @@ const fees = [
     materials: "Study Materials",
     accommodation: "Private / Shared",
     alliance: "Yoga Alliance, USA",
+    href: "/500-hour-yoga-ttc-in-rishikesh",
   },
 ];
 
@@ -415,9 +420,9 @@ const AymHomePage: React.FC = () => {
               )}
               <h3 className={styles.courseTitle}>{c.title}</h3>
               <p className={styles.courseDesc}>{c.desc}</p>
-              <a href={c.href} className={styles.btn}>
+              <Link href={c.href} className={styles.btn}>
                 Read More
-              </a>
+              </Link>
             </div>
           ))}
         </div>
@@ -530,9 +535,9 @@ const AymHomePage: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                <a href="#" className={styles.btn}>
+                <Link href={f.href} className={styles.btn}>
                   More Info
-                </a>
+                </Link>
               </div>
             </div>
           ))}

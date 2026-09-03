@@ -15,8 +15,8 @@
   --shadow: 0 8px 40px rgba(196, 90, 0, 0.12);
   --shadow-hover: 0 16px 60px rgba(196, 90, 0, 0.2);
 
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  background: var(--cream);
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #ffffff;
   color: var(--text);
   overflow-x: hidden;
 }
@@ -103,7 +103,7 @@
 }
 
 .sectionTitle {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family:'Montserrat', Arial, sans-serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 700;
   color: var(--text);
@@ -258,7 +258,7 @@
 .courseTitle {
   position: relative;
   z-index: 1;
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--orange);
@@ -284,7 +284,7 @@
   display: inline-block;
   background: var(--orange);
   color: #fff;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -383,7 +383,7 @@
 }
 
 .aboutSubTitle {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   font-weight: 700;
   color: var(--orange);
@@ -403,7 +403,7 @@
 ══════════════════════════════════════════ */
 
 .feeSection {
-  background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 50%, var(--cream) 100%);
+  background: #ffffff;
 }
 
 .feeGrid {
@@ -461,7 +461,7 @@
 }
 
 .feeHours {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--orange);
@@ -480,20 +480,20 @@
 .feeDollar {
   font-size: 1.5rem;
   font-weight: 700;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .feePriceNum {
   font-size: 3.2rem;
   font-weight: 900;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   line-height: 1;
 }
 
 .feeMo {
   font-size: 1rem;
   color: var(--text-muted);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .feeList {
@@ -599,7 +599,7 @@
 }
 
 .contactQuote p {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-style: italic;
   font-size: 1.1rem;
   color: var(--brown);
@@ -634,7 +634,7 @@
 }
 
 .contactCardTitle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--orange);
@@ -651,7 +651,7 @@
   padding: 0.75rem 1rem;
   border: 1px solid var(--border);
   border-radius: 6px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1rem;
   color: var(--text);
   background: var(--cream);
