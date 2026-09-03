@@ -325,7 +325,7 @@ export default function RegisterForm() {
     bookMethod: "post",
     bookBodyKey: "batchId",
   },
-"beginners": {                  // 🆕 naya
+"beginners": {                  
     getBatch: "/yoga-beginners-seats/get-batch",
     bookSeat: "/yoga-beginners-seats/bookSeat",
     courseName: "Yoga Teacher Training Course for Beginners in Rishikesh",
