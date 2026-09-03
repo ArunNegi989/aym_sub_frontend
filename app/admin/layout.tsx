@@ -172,7 +172,7 @@ const navItems: NavItem[] = [
       {
         label: "World Wide", icon: "🌍",
         children: [
-          { href: "/admin/yogacourse/yoga-world-wide", label: "World Wide" },
+          { href: "/admin/yogacourse/world-wide", label: "World Wide" },
         ],
       },
     ],
