@@ -590,6 +590,7 @@ export default function RegisterForm() {
 
             <div className={styles.formBody}>
               {/* Full Name */}
+                 <div className={styles.fieldRow}>
               <div className={styles.fieldFull}>
                 <label className={styles.label}>Full Name</label>
                 <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} placeholder="Enter full name" className={styles.input} />
@@ -600,7 +601,7 @@ export default function RegisterForm() {
                 <label className={styles.label}>Email Address</label>
                 <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter email address" className={styles.input} />
               </div>
-
+</div>
               {/* Phone + Birth Date */}
               <div className={styles.fieldRow}>
                 <div className={styles.fieldHalf}>
@@ -646,6 +647,7 @@ export default function RegisterForm() {
               </div>
 
               {/* How did you know */}
+               <div className={styles.fieldRow}>
               <div className={styles.fieldFull}>
                 <label className={styles.label}>How did you know about AYM Yoga School?</label>
                 <div className={styles.selectWrap}>
@@ -670,7 +672,7 @@ export default function RegisterForm() {
                   <span className={styles.selectArrow}>▾</span>
                 </div>
               </div>
-
+ </div>
               {/* Start Date + End Date */}
               <div className={styles.fieldRow}>
                 <div className={styles.fieldHalf}>
