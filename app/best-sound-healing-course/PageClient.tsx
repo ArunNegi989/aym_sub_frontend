@@ -501,7 +501,7 @@ function PremiumSeatBookingSoundHealing({
               )}
             </div>
             {selected ? (
-              <Link href={`/yoga-registration?batchId=${selected._id}&type=sound-healing`} className={styles.psbBookBtn}>
+              <Link href={`/registration?batchId=${selected._id}&type=sound-healing`} className={styles.psbBookBtn}>
                 Book Now — {fmtPrice(selected).amount} {currency}
                 <svg className={styles.psbArrowIcon} viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff3d2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

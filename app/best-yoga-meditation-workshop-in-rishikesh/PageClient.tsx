@@ -486,7 +486,7 @@ function PremiumSeatBookingMeditation({
             </div>
           {selected && selected.bookedSeats < selected.totalSeats ? (
   <Link
-    href={selected.applyLink ?? `/yoga-registration?batchId=${selected._id}&type=meditation`}
+    href={selected.applyLink ?? `/registration?batchId=${selected._id}&type=meditation`}
     className={styles.psbBookBtn}
   >
     Book Now — {selectedCourseFee.amount} {currency}

@@ -240,15 +240,21 @@ export default function RegisterForm() {
   const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
   const searchParams = useSearchParams();
-  const batchId  = searchParams.get("batchId");   // 100hr/200hr/300hr flow
-  const courseId = searchParams.get("courseId");  // CoursesSection flow ✅
+  const batchId  = searchParams.get("batchId");   
+  const courseId = searchParams.get("courseId");  
 
   type CourseType =
   | "100hr"
   | "200hr"
   | "300hr"
+  | "500hr" 
   | "200hr-online"
-  | "300hr-online";
+  | "300hr-online"
+  | "prenatal"
+  | "kundalini-200hr"
+  | "sound-healing"
+  | "meditation"
+  | "beginners"
   const rawType = searchParams.get("type");
   const type = rawType as CourseType;
 
@@ -258,6 +264,8 @@ export default function RegisterForm() {
     getBatch: string;
     bookSeat: string;
     courseName: string;
+    bookMethod?: "patch" | "post";
+    bookBodyKey?: string; 
   }
 > = {
   "100hr": {
@@ -272,10 +280,16 @@ export default function RegisterForm() {
     courseName: "200 Hour Yoga TTC",
   },
 
-  "300hr": {
-    getBatch: "/300hr-seats/getBatch",
-    bookSeat: "/300hr-seats/bookSeat",
-    courseName: "300 Hour Yoga TTC",
+ "300hr": {
+  getBatch: "/300hr-seats/single",        
+  bookSeat: "/300hr-seats/book-seat",     
+  courseName: "300 Hour Yoga TTC",
+},
+
+ "500hr": {                         
+    getBatch: "/500hr-seats",         
+    bookSeat: "/500hr-seats/book-seat",
+    courseName: "500 Hour Yoga TTC",
   },
 
   "200hr-online": {
@@ -289,6 +303,34 @@ export default function RegisterForm() {
     bookSeat: "/online-seats/book-seat",
     courseName: "300 Hour Live Online",
   },
+ "sound-healing": {   // ✅ hyphen
+  getBatch: "/sound-healing-seats/get-batch",
+  bookSeat: "/sound-healing-seats/book-seat",
+  courseName: "Sound Healing Course",
+},
+  "meditation": {
+    getBatch: "/meditation-seats/get-batch",
+    bookSeat: "/meditation-seats/book-seat",
+    courseName: "Yoga & Meditation Workshop",
+  },
+   "kundalini-200hr": {                         
+    getBatch: "/kundalini-seats",             
+    bookSeat: "/kundalini-seats/book-seat",
+    courseName: "Kundalini Yoga TTC",
+  },
+  "prenatal": {
+    getBatch: "/prenatal-seats",             
+    bookSeat: "/prenatal-seats/book-seat",   
+    courseName: "Prenatal Yoga Teacher Training",
+    bookMethod: "post",
+    bookBodyKey: "batchId",
+  },
+"beginners": {                  // 🆕 naya
+    getBatch: "/yoga-beginners-seats/get-batch",
+    bookSeat: "/yoga-beginners-seats/bookSeat",
+    courseName: "Yoga Teacher Training Course for Beginners in Rishikesh",
+  },
+
 };
 
   const handleChange = (
@@ -341,60 +383,65 @@ export default function RegisterForm() {
 
   // ── Submit ──
   const handleSubmit = async () => {
-    if (!isCaptchaVerified) {
-      alert("Please complete the CAPTCHA verification before submitting.");
-      return;
-    }
+  if (!isCaptchaVerified) {
+    alert("Please complete the CAPTCHA verification before submitting.");
+    return;
+  }
 
-    setIsSubmitting(true);
+  setIsSubmitting(true);
 
-    try {
-      // Step 1: Registration save
-      await api.post("/registration/create", {
-        ...formData,
-        gender,
-        batchId:  batchId  ?? null,
-        courseId: courseId ?? null, // ✅
-        type:     type     ?? null,
-      });
+  try {
+    // Step 1: Registration save
+    await api.post("/registration/create", {
+      ...formData,
+      gender,
+      batchId: batchId ?? null,
+      courseId: courseId ?? null,
+      type: type ?? null,
+    });
 
-      // Step 2: Email bhejo
-      const res = await api.post("/email/send-email", {
-        ...formData,
-        gender,
-        batchId,
-        type,
-      });
+    // Step 2: Email bhejo
+    const res = await api.post("/email/send-email", {
+      ...formData,
+      gender,
+      batchId,
+      type,
+    });
 
-      if (res?.data?.success) {
-        // Step 3a: Batch seat book karo (100hr/200hr/300hr)
-        if (batchId && type && API_MAP[type]) {
-          await api.patch(`${API_MAP[type].bookSeat}/${batchId}`);
+    if (res?.data?.success) {
+      // Step 3a: Batch seat book karo
+      if (batchId && type && API_MAP[type]) {
+        const config = API_MAP[type];
+        if (config.bookMethod === "post" && config.bookBodyKey) {
+          await api.post(config.bookSeat, { [config.bookBodyKey]: batchId });
+        } else {
+          await api.patch(`${config.bookSeat}/${batchId}`);
         }
-
-        // Step 3b: CoursesSection seat book karo ✅
-        if (courseId) {
-          await api.patch(`/courses-section/${courseId}/book-seat`);
-        }
-
-        setSubmitSuccess(true);
-
-        setTimeout(() => {
-          setSubmitSuccess(false);
-          setGender("Male");
-          setFormData(INITIAL_FORM);
-          setIsCaptchaVerified(false);
-        }, 2800);
-      } else {
-        alert("Email failed ❌");
       }
-    } catch (err) {
-      console.log("ERROR:", err);
-      alert("Server error ❌");
-    } finally {
-      setIsSubmitting(false);
+
+      // Step 3b: CoursesSection seat book karo
+      if (courseId) {
+        await api.patch(`/courses-section/${courseId}/book-seat`);
+      }
+
+      setSubmitSuccess(true);
+
+      setTimeout(() => {
+        setSubmitSuccess(false);
+        setGender("Male");
+        setFormData(INITIAL_FORM);
+        setIsCaptchaVerified(false);
+      }, 2800);
+    } else {
+      alert("Email failed ❌");
     }
-  };
+  } catch (err) {
+    console.log("ERROR:", err);
+    alert("Server error ❌");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <>
