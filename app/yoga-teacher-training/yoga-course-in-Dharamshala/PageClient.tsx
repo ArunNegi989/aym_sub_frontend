@@ -1,0 +1,341 @@
+import React from "react";
+import styles from "@/assets/style/yoga-teacher-training/Yogatraining.module.css";
+import Link from "next/link";
+
+/* ─────────────────────────────────────────────
+   CITY LINKS DATA
+───────────────────────────────────────────── */
+const cityLinks: { name: string; href: string }[] = [
+  {
+    name: "Jaipur",
+    href: "/yoga-teacher-training/yoga-course-in-Jaipur",
+  },
+  {
+    name: "Mysore",
+    href: "/yoga-teacher-training/yoga-course-in-Mysore",
+  },
+  {
+    name: "Haryana",
+    href: "/yoga-teacher-training/yoga-course-in-Haryana",
+  },
+  { name: "Agra", href: "/yoga-teacher-training/yoga-course-in-Agra" },
+  {
+    name: "Mumbai",
+    href: "/yoga-teacher-training/yoga-course-in-Mumbai",
+  },
+  {
+    name: "Coimbatore",
+    href: "/yoga-teacher-training/yoga-course-in-Coimbatore",
+  },
+  {
+    name: "Uttrakhand",
+    href: "/yoga-teacher-training/yoga-course-in-Uttrakhand",
+  },
+  {
+    name: "Varkala",
+    href: "/yoga-teacher-training/yoga-course-in-Varkala",
+  },
+  {
+    name: "Gokarna",
+    href: "/yoga-teacher-training/yoga-course-in-Gokarna",
+  },
+  {
+    name: "Tamil Nadu",
+    href: "/yoga-teacher-training/yoga-course-in-Tamil-Nadu",
+  },
+  { name: "Goa", href: "/yoga-teacher-training/yoga-course-in-Goa" },
+  { name: "Kochi", href: "/yoga-teacher-training/yoga-course-in-Kochi" },
+  {
+    name: "Munger",
+    href: "/yoga-teacher-training/yoga-course-in-Munger",
+  },
+  {
+    name: "Dharamshala",
+    href: "/yoga-teacher-training/yoga-course-in-Dharamshala",
+  },
+  {
+    name: "Lonavala",
+    href: "/yoga-teacher-training/yoga-course-in-Lonavala",
+  },
+  {
+    name: "New Delhi",
+    href: "/yoga-teacher-training/yoga-course-in-New-Delhi",
+  },
+  {
+    name: "Kerala",
+    href: "/yoga-teacher-training/yoga-course-in-Kerala",
+  },
+  {
+    name: "Puducherry",
+    href: "/yoga-teacher-training/yoga-course-in-Puducherry",
+  },
+  {
+    name: "Pushkar",
+    href: "/yoga-teacher-training/yoga-course-in-Pushkar",
+  },
+  {
+    name: "Sikkim",
+    href: "/yoga-teacher-training/yoga-course-in-Sikkim",
+  },
+  {
+    name: "Gurugram",
+    href: "/yoga-teacher-training/yoga-course-in-Gurugram",
+  },
+  { name: "Pune", href: "/yoga-teacher-training/yoga-course-in-Pune" },
+  {
+    name: "Chennai",
+    href: "/yoga-teacher-training/yoga-course-in-Chennai",
+  },
+  {
+    name: "Varanasi",
+    href: "/yoga-teacher-training/yoga-course-in-Varanasi",
+  },
+  {
+    name: "Maharashtra",
+    href: "/yoga-teacher-training/yoga-course-in-Maharashtra",
+  },
+  {
+    name: "Arambol",
+    href: "/yoga-teacher-training/yoga-course-in-Arambol",
+  },
+  {
+    name: "Thiruvananthapuram",
+    href: "/yoga-teacher-training/yoga-course-in-Thiruvananthapuram",
+  },
+  {
+    name: "Kolkata",
+    href: "/yoga-teacher-training/yoga-course-in-Kolkata",
+  },
+  {
+    name: "Rishikesh",
+    href: "/yoga-teacher-training/yoga-course-in-Rishikesh",
+  },
+  {
+    name: "Himachal Pradesh",
+    href: "/yoga-teacher-training/yoga-course-in-Himachal-Pradesh",
+  },
+  
+  {
+    name: "Bengaluru",
+    href: "/yoga-teacher-training/yoga-course-in-Bengaluru",
+  },
+  {
+    name: "Auroville",
+    href: "/yoga-teacher-training/yoga-course-in-Auroville",
+  },
+];
+
+/* ─────────────────────────────────────────────
+   MAIN COMPONENT
+───────────────────────────────────────────── */
+const YogaTrainingDharamshala: React.FC = () => {
+  return (
+    <div className={styles.page}>
+      {/* Top border */}
+      <div className={styles.a} />
+
+      <div className={styles.container}>
+        {/* ══════════════════════════════════════
+            PAGE TITLE
+        ══════════════════════════════════════ */}
+        <div className={styles.pageHeader}>
+          <h1 className={styles.pageTitle}>
+            Yoga Teacher Training School in Dharamshala
+          </h1>
+          <div className={styles.titleUnderline}>
+            <div className={styles.underlineLine} />
+          </div>
+        </div>
+
+        {/* ══════════════════════════════════════
+            SECTION 1 — Image Left
+            "Yoga Teacher Training Program in Dharamshala"
+        ══════════════════════════════════════ */}
+        <div className={`${styles.section} ${styles.sectionImageLeft}`}>
+          <div className={styles.imgWrap}>
+            <img
+              src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=700&q=80&fit=crop"
+              alt="Yoga Teacher Training Program in Dharamshala"
+              className={styles.sectionImg}
+              loading="lazy"
+            />
+          </div>
+          <div className={styles.textWrap}>
+            <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
+            Yoga Teacher Training in Dharamshala
+            </h2>
+            <div
+              className={styles.headingUnderline}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <div className={styles.headingUnderlineLine} />
+            </div>
+            <p className={styles.bodyText}>
+            To become a certified yoga instructor you can join the Yoga Teacher Training program in Dharamshala at the Association for Yoga and Meditation. This program is for people who are just starting out with yoga, for those who want to become yoga teachers and for people who already practice yoga. The program teaches you yoga methods and modern ways of teaching. This helps you have a career in yoga.
+
+Dharamshala is a peaceful place in the Himalayan foothills. It is a place to learn more about yoga and become a better teacher. You can deepen your yoga practice, learn more about yoga and become confident enough to teach yoga to students from, over the world.
+
+            </p>
+          </div>
+        </div>
+
+        {/* ══════════════════════════════════════
+            SECTION 2 — Image Right
+            "Focus on the Top-Class Facilities and Resources in Dharamshala"
+        ══════════════════════════════════════ */}
+        <div className={`${styles.section} ${styles.sectionImageRight}`}>
+          <div className={styles.imgWrap}>
+            <img
+              src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=700&q=80&fit=crop"
+              alt="Focus on the Top-Class Facilities and Resources in Dharamshala"
+              className={styles.sectionImg}
+              loading="lazy"
+            />
+          </div>
+          <div className={styles.textWrap}>
+            <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
+            Why Choose Our Yoga Teacher Training in Dharamshala? 
+            </h2>
+            <div
+              className={styles.headingUnderline}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <div className={styles.headingUnderlineLine} />
+            </div>
+            <p className={styles.bodyText}>
+            The Association for Yoga and Meditation wants to teach people yoga. We have teachers who know what they are doing. They help people learn in a way that makes sense. Our classes are designed to make yoga teachers who know a lot are confident and care about others.
+
+Our program stands out with a structured yoga teaching plan and qualified teachers with credentials to support students throughout their learning. Students receive practical training sessions with individual guidance, while small class sizes provide personal attention. Our school is located in the Himalayas, and the program combines yoga philosophy with modern teaching methods. The yoga certification is recognized around the world, and students can continue learning and receiving support from us. Certification is subject to the rules and requirements that apply to the program.
+
+            </p>
+          </div>
+        </div>
+
+        {/* ══════════════════════════════════════
+            SECTION 3 — Image Left
+            "Become a professional yoga instrutor with AYM in Dharamshala"
+        ══════════════════════════════════════ */}
+        <div className={`${styles.section} ${styles.sectionImageLeft}`}>
+          <div className={styles.imgWrap}>
+            <img
+              src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=700&q=80&fit=crop"
+              alt="Become a professional yoga instrutor with AYM in Dharamshala"
+              className={styles.sectionImg}
+              loading="lazy"
+            />
+          </div>
+          <div className={styles.textWrap}>
+            <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
+            Comprehensive Yoga Teacher Training Curriculum
+            </h2>
+            <div
+              className={styles.headingUnderline}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <div className={styles.headingUnderlineLine} />
+            </div>
+            <p className={styles.bodyText}>
+            Our yoga program is really great for students who want to learn yoga. It teaches you about Hatha Yoga and Ashtanga Yoga and other things like Pranayama and Breathwork. You also learn about Meditation and Mindfulness which's very important. The yoga program covers Yoga Philosophy, Yoga Anatomy and Physiology and Teaching Methodology.
+
+When you are in the yoga program you learn how to do yoga poses and breathing exercises. You also learn about meditation and philosophy and how to move your body in a way. The program teaches you how to put on a class and give clear instructions to your students. You learn how to manage a classroom, which helps you build confidence, as a yoga teacher. The yoga program helps you learn about yoga and how to teach yoga to other people.
+
+            </p>
+          </div>
+        </div>
+
+        {/* ══════════════════════════════════════
+            SECTION 4 — Image Right
+            "Start Yoga Practice and Get Certified in Dharamshala"
+        ══════════════════════════════════════ */}
+        <div className={`${styles.section} ${styles.sectionImageRight}`}>
+          <div className={styles.imgWrap}>
+            <img
+              src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?w=700&q=80&fit=crop"
+              alt="Start Yoga Practice and Get Certified in Dharamshala"
+              className={styles.sectionImg}
+              loading="lazy"
+            />
+          </div>
+          <div className={styles.textWrap}>
+            <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
+            Learn from Experienced Yoga Teachers 
+            </h2>
+            <div
+              className={styles.headingUnderline}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <div className={styles.headingUnderlineLine} />
+            </div>
+            <p className={styles.bodyText}>
+            Our teachers have years of real classroom experience and a strong understanding of classic yoga practices. During the program they offer ongoing guidance, helpful advice and one-on-one support to help you grow into a capable and self-assured yoga teacher.
+
+The program focuses not on technical skills but also, on clear communication, strong leadership and good professional behavior.
+
+            </p>
+          </div>
+        </div>
+
+        {/* ══════════════════════════════════════
+            SECTION 5 — Image Left
+            "Professional Training Does Not Cost A Fortune"
+        ══════════════════════════════════════ */}
+        <div
+          className={`${styles.section} ${styles.sectionImageLeft}`}
+          style={{ borderBottom: "none" }}
+        >
+          <div className={styles.imgWrap}>
+            <img
+              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80&fit=crop"
+              alt="Professional Training Does Not Cost A Fortune"
+              className={styles.sectionImg}
+              loading="lazy"
+            />
+          </div>
+          <div className={styles.textWrap}>
+            <h2 className={styles.headingSerif} style={{ textAlign: "center" }}>
+            Why Dharamshala is the Perfect Place to Learn Yoga 
+            </h2>
+            <div
+              className={styles.headingUnderline}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <div className={styles.headingUnderlineLine} />
+            </div>
+            <p className={styles.bodyText}>
+              MDharamshala is a beautiful place that people all around the world know about. It is famous for being very peaceful, having a lot of history and looking absolutely stunning. The Himalayan mountains are around Dharamshala, which makes it a great place to practice yoga, meditate and learn more about yourself.
+The whole area is very quiet so students can concentrate on what they're learning. At the time they get to experience what it is like to live a balanced life with yoga, which is a nice change from the hustle and bustle of daily life.
+
+            </p>
+          </div>
+        </div>
+
+        {/* ══════════════════════════════════════
+            CITY LINKS
+        ══════════════════════════════════════ */}
+        <div className={styles.citySection}>
+          <h3 className={styles.cityHeading}>
+            Indian Yoga is also easily reachable from :
+          </h3>
+          <div className={styles.cityLinksWrap}>
+            {cityLinks.map((city, i) => (
+              <React.Fragment key={i}>
+                <Link href={city.href} className={styles.cityLink}>
+                  {city.name}
+                </Link>
+                {i < cityLinks.length - 1 && (
+                  <span className={styles.citySep}>, </span>
+                )}
+              </React.Fragment>
+            ))}
+            <span className={styles.cityDot}>.</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom border */}
+      <div className={styles.a} />
+    </div>
+  );
+};
+
+export default YogaTrainingDharamshala;
