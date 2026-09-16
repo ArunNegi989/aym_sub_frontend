@@ -8,7 +8,6 @@ const nextConfig: NextConfig = {
         hostname: "aymyogaschool.com",
         pathname: "/uploads/**",
       },
-     
       {
         protocol: "http",
         hostname: "192.168.1.22",
@@ -18,6 +17,7 @@ const nextConfig: NextConfig = {
     ],
     dangerouslyAllowSVG: true,
    
+    minimumCacheTTL: 2678400,
   },
 
   reactStrictMode: false,
