@@ -21,7 +21,6 @@ const lato = Lato({
   style: ["normal"],
 });
 
-// ✅ Alt body font (Poppins) — variable name fix kiya
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -41,10 +40,9 @@ export const metadata: Metadata = {
   description:
     "AYM Yoga School, Rishikesh: Yoga Alliance & AYUSH-certified teacher training courses, retreats & meditation programs. Book your yoga journey today.",
 
-    alternates: {
-      canonical: "https://aymyogaschool.com",
-    },
-
+  alternates: {
+    canonical: "https://aymyogaschool.com",
+  },
 };
 
 //schema
@@ -130,7 +128,7 @@ const schema = {
       "inLanguage": "en-IN"
     }
   ]
-}
+};
 
 export default function RootLayout({
   children,
@@ -140,23 +138,28 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/*
+          FIXED: Pehle yahan gtag.js DO BAAR load ho raha tha —
+          ek raw <script> tag se, aur ek Next.js <Script> se.
+          Ab sirf ek hi copy hai, aur strategy "lazyOnload" kar di hai
+          taaki yeh page ka initial render block na kare.
+        */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9S9H4M3CHH"
+          strategy="lazyOnload"
+        />
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9S9H4M3CHH"></script>
-<Script
-  src="https://www.googletagmanager.com/gtag/js?id=G-9S9H4M3CHH"
-  strategy="afterInteractive"
-/>
+        <Script id="google-analytics" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-<Script id="google-analytics" strategy="afterInteractive">
-  {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+            gtag('config', 'G-9S9H4M3CHH');
+          `}
+        </Script>
 
-    gtag('config', 'G-9S9H4M3CHH');
-  `}
-</Script>
-      <Script id="google-tag-manager" strategy="afterInteractive">
+        <Script id="google-tag-manager" strategy="lazyOnload">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];
             w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
@@ -168,6 +171,7 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-KR9JNCWB');
           `}
         </Script>
+
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -178,21 +182,20 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-{/* schema */}
-<Script
-  id="schema"
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify(schema),
-  }}
-/>
-
+        {/* schema */}
+        <Script
+          id="schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        />
       </head>
 
       <body
         className={`${playfairDisplay.variable} ${lato.variable} ${poppins.variable} ${montserrat.variable} antialiased`}
       >
-         <noscript>
+        <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-KR9JNCWB"
             height="0"
@@ -203,10 +206,9 @@ export default function RootLayout({
         <AuthProvider>
           <ConditionalLayout>{children}</ConditionalLayout>
         </AuthProvider>
-
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
           crossOrigin="anonymous"
         />
       </body>
