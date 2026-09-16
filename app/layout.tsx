@@ -139,22 +139,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/*
-          FIXED: Manual gtag.js + gtag('config', ...) block yahan se
-          poori tarah hata diya gaya hai.
-
-          Wajah: GTM container (GTM-KR9JNCWB) ke andar already ek
-          GA4 Configuration tag set hai jo khud gtag.js load karta hai
-          (URL mein &gtm=... parameter isi ka signature hai — treemap
-          mein "gtag.js?id=G-9S9H4M3CHH&cx=c&gtm=4e69e1" wahi tha).
-
-          Isliye ab manual gtag load karne ki zaroorat nahi — GTM
-          khud GA4 ko fire karega. Isse duplicate ~167 KiB chunk
-          permanently hat gaya hai.
-
-          NOTE: Agar GTM dashboard mein GA4 Configuration tag na mile,
-          to wahan pehle add karo, tabhi GA4 tracking kaam karegi.
-        */}
+   
         <Script id="google-tag-manager" strategy="lazyOnload">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];
@@ -168,15 +153,43 @@ export default function RootLayout({
           `}
         </Script>
 
+       
         <link
-          rel="stylesheet"
+          rel="preload"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          as="style"
         />
         <link
+          rel="preload"
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          rel="stylesheet"
+          as="style"
           crossOrigin="anonymous"
         />
+
+        <Script id="defer-css" strategy="beforeInteractive">
+          {`
+            [
+              "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+              "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            ].forEach(function (href) {
+              var link = document.createElement("link");
+              link.rel = "stylesheet";
+              link.href = href;
+              document.head.appendChild(link);
+            });
+          `}
+        </Script>
+
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          />
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          />
+        </noscript>
 
         {/* schema */}
         <Script
@@ -203,13 +216,7 @@ export default function RootLayout({
           <ConditionalLayout>{children}</ConditionalLayout>
         </AuthProvider>
 
-        {/*
-          FIXED: strategy "beforeInteractive" se "lazyOnload" kar diya.
-          "beforeInteractive" Bootstrap JS ko sabse pehle, render se bhi
-          pehle load karta tha — yeh LCP ke liye bahot bura hai.
-          Bootstrap ka JS (dropdowns, modals, carousels) ke liye lazyOnload
-          bilkul theek hai kyunki yeh interaction ke time hi chahiye hota hai.
-        */}
+       
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
           strategy="lazyOnload"
