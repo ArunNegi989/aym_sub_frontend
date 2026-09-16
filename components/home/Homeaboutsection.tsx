@@ -1,8 +1,5 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "../../assets/style/Home/Homeaboutsection.module.css";
-import api from "@/lib/api";
 import Link from "next/link";
 
 interface Stat {
@@ -26,31 +23,29 @@ interface HomeAboutData {
   ctaLink: string;
 }
 
-export const HomeaboutSection = () => {
-  const [data, setData] = useState<HomeAboutData | null>(null);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchAbout = async () => {
-      try {
-        const res = await api.get("/home-about/get-home-about");
-        setData(res.data.data);
-      } catch (error) {
-        console.error("Failed to fetch home about");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchAbout();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className={styles.loadingWrapper}>
-        <div className={styles.loadingSpinner} />
-      </div>
+async function getHomeAboutData(): Promise<HomeAboutData | null> {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/home-about/get-home-about`,
+      { next: { revalidate: 3600 } } // 1 hour cache, adjust as needed
     );
+
+    if (!res.ok) {
+      console.error("Home-about fetch failed:", res.status, res.statusText);
+      return null;
+    }
+
+    const json = await res.json();
+    return json.data ?? null;
+  } catch (error) {
+    console.error("Server-side home-about fetch error:", error);
+    return null;
   }
+}
+
+export const HomeaboutSection = async () => {
+  const data = await getHomeAboutData();
 
   if (!data) return null;
 
@@ -58,7 +53,6 @@ export const HomeaboutSection = () => {
   const hasAccred     = Array.isArray(data.accreditations) && data.accreditations.length > 0;
   const hasYogaStyles = Array.isArray(data.yogaStyles)     && data.yogaStyles.length > 0;
 
-  const estStat   = hasStats ? data.stats[0] : null;
   const restStats = hasStats ? data.stats.slice(0) : [];
 
   return (
@@ -70,13 +64,6 @@ export const HomeaboutSection = () => {
       <div className={styles.hero}>
         <span className={styles.heroOm} aria-hidden="true">ॐ</span>
         <div className={styles.heroInner}>
-
-          {/* {estStat && (
-            <div className={styles.estBadge}>
-              <span className={styles.estValue}>{estStat.value}</span>
-              <span className={styles.estLabel}>{estStat.label}</span>
-            </div>
-          )} */}
 
           {data.superTitle && (
             <p className={styles.superTitle}>{data.superTitle}</p>
@@ -131,69 +118,69 @@ export const HomeaboutSection = () => {
       {/* ═══════════════════════════════════════════════════
           CONTENT SECTION
       ════════════════════════════════════════════════════ */}
-      
+
       <div className={styles.contentSection}>
-<div className={styles.container}>
-        {/* ── ROW A: paraOne (left) + pullQuote (right) ── */}
-        <div className={styles.rowA}>
-          <div className={styles.rowALeft}>
-            {data.paraOne && (
-              <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraOne }} />
+        <div className={styles.container}>
+          {/* ── ROW A: paraOne (left) + pullQuote (right) ── */}
+          <div className={styles.rowA}>
+            <div className={styles.rowALeft}>
+              {data.paraOne && (
+                <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraOne }} />
+              )}
+            </div>
+
+            {data.quoteText && (
+              <aside className={styles.pullQuote}>
+                <span className={styles.pullMark} aria-hidden="true">&ldquo;</span>
+                <div className={styles.pullText} dangerouslySetInnerHTML={{ __html: data.quoteText }} />
+              </aside>
             )}
           </div>
 
-          {data.quoteText && (
-            <aside className={styles.pullQuote}>
-              <span className={styles.pullMark} aria-hidden="true">&ldquo;</span>
-              <div className={styles.pullText} dangerouslySetInnerHTML={{ __html: data.quoteText }} />
-            </aside>
-          )}
-        </div>
-
-        {/* ── PARA TWO — full width spanning both columns ── */}
-        {data.paraTwo && (
-          <div className={styles.paraFullWidth}>
-            <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraTwo }} />
-          </div>
-        )}
-
-        {/* ── DIVIDER ── */}
-        <div className={styles.sectionDivider}>
-          <span className={styles.dividerLine} />
-          <span className={styles.dividerGem}>ॐ</span>
-          <span className={styles.dividerLine} />
-        </div>
-
-        {/* ── ROW B: yogaStyles (left) + paraRight/paraThree/paraSmall (right) ── */}
-        <div className={styles.rowB}>
-          {hasYogaStyles && (
-            <div className={styles.stylesPanel}>
-              <div className={styles.stylesPanelHead}>
-                <span>🧘</span>
-                <h4 className={styles.stylesPanelTitle}>Multi-Style Yoga Courses</h4>
-              </div>
-              <div className={styles.stylesTags}>
-                {data.yogaStyles.map((s, i) => (
-                  <span key={i} className={styles.styleTag}>{s}</span>
-                ))}
-              </div>
+          {/* ── PARA TWO — full width spanning both columns ── */}
+          {data.paraTwo && (
+            <div className={styles.paraFullWidth}>
+              <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraTwo }} />
             </div>
           )}
 
-          <div className={styles.rowBInfo}>
-            {data.paraRight && (
-              <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraRight }} />
-            )}
+          {/* ── DIVIDER ── */}
+          <div className={styles.sectionDivider}>
+            <span className={styles.dividerLine} />
+            <span className={styles.dividerGem}>ॐ</span>
+            <span className={styles.dividerLine} />
           </div>
-        </div>
-            {data.paraThree && (
-              <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraThree }} />
-            )}
-            {data.paraSmall && (
-              <div className={styles.paraFullWidth} dangerouslySetInnerHTML={{ __html: data.paraSmall }} />
+
+          {/* ── ROW B: yogaStyles (left) + paraRight/paraThree/paraSmall (right) ── */}
+          <div className={styles.rowB}>
+            {hasYogaStyles && (
+              <div className={styles.stylesPanel}>
+                <div className={styles.stylesPanelHead}>
+                  <span>🧘</span>
+                  <h4 className={styles.stylesPanelTitle}>Multi-Style Yoga Courses</h4>
+                </div>
+                <div className={styles.stylesTags}>
+                  {data.yogaStyles.map((s, i) => (
+                    <span key={i} className={styles.styleTag}>{s}</span>
+                  ))}
+                </div>
+              </div>
             )}
 
-      </div>
+            <div className={styles.rowBInfo}>
+              {data.paraRight && (
+                <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraRight }} />
+              )}
+            </div>
+          </div>
+          {data.paraThree && (
+            <div className={styles.para} dangerouslySetInnerHTML={{ __html: data.paraThree }} />
+          )}
+          {data.paraSmall && (
+            <div className={styles.paraFullWidth} dangerouslySetInnerHTML={{ __html: data.paraSmall }} />
+          )}
+
+        </div>
       </div>
 
       {/* ═══════════════════════════════════════════════════
