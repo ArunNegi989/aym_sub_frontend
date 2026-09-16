@@ -134,8 +134,8 @@ const HomepageSlider = ({ initialSlides = [] }: HomepageSliderProps) => {
             src={getImageUrl(slide.image)}
             alt={slide.bannerName}
             fill
-            unoptimized
             priority={idx === 0}
+            sizes="100vw"
             className={styles.slideImage}
           />
           <div className={styles.slideOverlay} />

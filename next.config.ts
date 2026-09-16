@@ -4,6 +4,12 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: "https",
+        hostname: "aymyogaschool.com",
+        pathname: "/uploads/**",
+      },
+     
+      {
         protocol: "http",
         hostname: "192.168.1.22",
         port: "5000",
@@ -11,12 +17,10 @@ const nextConfig: NextConfig = {
       },
     ],
     dangerouslyAllowSVG: true,
-    unoptimized: true,
+   
   },
 
   reactStrictMode: false,
-
- 
 };
 
 export default nextConfig;
