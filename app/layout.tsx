@@ -21,6 +21,7 @@ const lato = Lato({
   style: ["normal"],
 });
 
+// ✅ Alt body font (Poppins) — variable name fix kiya
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -139,26 +140,21 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/*
-          FIXED: Pehle yahan gtag.js DO BAAR load ho raha tha —
-          ek raw <script> tag se, aur ek Next.js <Script> se.
-          Ab sirf ek hi copy hai, aur strategy "lazyOnload" kar di hai
-          taaki yeh page ka initial render block na kare.
+          FIXED: Manual gtag.js + gtag('config', ...) block yahan se
+          poori tarah hata diya gaya hai.
+
+          Wajah: GTM container (GTM-KR9JNCWB) ke andar already ek
+          GA4 Configuration tag set hai jo khud gtag.js load karta hai
+          (URL mein &gtm=... parameter isi ka signature hai — treemap
+          mein "gtag.js?id=G-9S9H4M3CHH&cx=c&gtm=4e69e1" wahi tha).
+
+          Isliye ab manual gtag load karne ki zaroorat nahi — GTM
+          khud GA4 ko fire karega. Isse duplicate ~167 KiB chunk
+          permanently hat gaya hai.
+
+          NOTE: Agar GTM dashboard mein GA4 Configuration tag na mile,
+          to wahan pehle add karo, tabhi GA4 tracking kaam karegi.
         */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-9S9H4M3CHH"
-          strategy="lazyOnload"
-        />
-
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-9S9H4M3CHH');
-          `}
-        </Script>
-
         <Script id="google-tag-manager" strategy="lazyOnload">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];
@@ -206,6 +202,14 @@ export default function RootLayout({
         <AuthProvider>
           <ConditionalLayout>{children}</ConditionalLayout>
         </AuthProvider>
+
+        {/*
+          FIXED: strategy "beforeInteractive" se "lazyOnload" kar diya.
+          "beforeInteractive" Bootstrap JS ko sabse pehle, render se bhi
+          pehle load karta tha — yeh LCP ke liye bahot bura hai.
+          Bootstrap ka JS (dropdowns, modals, carousels) ke liye lazyOnload
+          bilkul theek hai kyunki yeh interaction ke time hi chahiye hota hai.
+        */}
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
           strategy="lazyOnload"
