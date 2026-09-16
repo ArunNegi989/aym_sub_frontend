@@ -29,6 +29,10 @@ function SmartVideo({ src, poster }: { src: string; poster?: string }) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [isUserActive, setIsUserActive] = React.useState(false);
   const [isMuted, setIsMuted] = React.useState(true);
+  // NEW: controls whether the real YouTube iframe has been mounted yet.
+  // Until the user clicks, we only render a lightweight poster + play button
+  // so YouTube's ~800+ KiB of player/embed scripts never load on first paint.
+  const [playYoutube, setPlayYoutube] = React.useState(false);
   const hideTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   React.useEffect(() => {
@@ -60,7 +64,74 @@ function SmartVideo({ src, poster }: { src: string; poster?: string }) {
   };
 
   const youtubeEmbedUrl = getYouTubeEmbedUrl(src);
+
   if (youtubeEmbedUrl) {
+    // ── FACADE STATE ──
+    // Renders only a poster image + play button. No YouTube script,
+    // no iframe, no network request to youtube.com happens here.
+    if (!playYoutube) {
+      return (
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label="Play video"
+          onClick={() => setPlayYoutube(true)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") setPlayYoutube(true);
+          }}
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "100%",
+            cursor: "pointer",
+            backgroundImage: `url(${poster || "/images/video-thumbnail.jpg"})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundColor: "#000",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "rgba(0,0,0,0.15)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "68px",
+              height: "68px",
+              borderRadius: "50%",
+              background: "rgba(0,0,0,0.65)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "26px",
+              color: "#fff",
+              boxShadow: "0 2px 12px rgba(0,0,0,0.4)",
+              transition: "transform 0.2s ease, background 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform =
+                "translate(-50%, -50%) scale(1.08)";
+              e.currentTarget.style.background = "rgba(230,92,0,0.85)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translate(-50%, -50%) scale(1)";
+              e.currentTarget.style.background = "rgba(0,0,0,0.65)";
+            }}
+          >
+            ▶
+          </div>
+        </div>
+      );
+    }
+
+    // ── REAL EMBED — only mounted after user clicks ──
     const embedSrc = `${youtubeEmbedUrl}&autoplay=1&mute=1&loop=1&controls=1&modestbranding=1&playsinline=1`;
     return (
       <div
@@ -276,7 +347,6 @@ function AwardRow({ cert }: { cert: AwardCert }) {
 
   return (
     <div className={styles.awardCard}>
-
       {/* ── TOP SAFFRON BANNER ── */}
       <div className={styles.awardTopBanner}>
         <div className={styles.awardBannerTitle}>{cert.label}</div>
@@ -285,7 +355,6 @@ function AwardRow({ cert }: { cert: AwardCert }) {
 
       {/* ── BODY — grid: portrait-col | main-col ── */}
       <div className={styles.awardBody}>
-
         {/* LEFT: portrait + stats */}
         <div className={styles.awardPortraitCol}>
           <div className={styles.portraitFrame}>
@@ -317,19 +386,14 @@ function AwardRow({ cert }: { cert: AwardCert }) {
 
         {/* RIGHT: description + courses */}
         <div className={styles.awardMainCol}>
-
           {/* Description */}
           <div className={styles.awardDescArea}>
             <h3 className={styles.awardDescTitle}>
               Ministry of AYUSH Recognition — Government of India
             </h3>
 
-            {cert.descPara1 && (
-              <p className={styles.para}>{cert.descPara1}</p>
-            )}
-            {cert.descPara2 && (
-              <p className={styles.para}>{cert.descPara2}</p>
-            )}
+            {cert.descPara1 && <p className={styles.para}>{cert.descPara1}</p>}
+            {cert.descPara2 && <p className={styles.para}>{cert.descPara2}</p>}
 
             {metaPoints.length > 0 && (
               <ul className={styles.bulletList}>
@@ -366,10 +430,7 @@ function AwardRow({ cert }: { cert: AwardCert }) {
               </div>
               <div className={styles.courseChipTrack}>
                 {ayushCourses.map((course, i) => (
-                  <div
-                    className={styles.courseChip}
-                    key={course._id || i}
-                  >
+                  <div className={styles.courseChip} key={course._id || i}>
                     <div className={styles.chipNum}>
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -379,7 +440,6 @@ function AwardRow({ cert }: { cert: AwardCert }) {
               </div>
             </div>
           )}
-
         </div>
       </div>
 
@@ -394,7 +454,6 @@ function AwardRow({ cert }: { cert: AwardCert }) {
           </span>
         )}
       </div>
-
     </div>
   );
 }
@@ -421,17 +480,16 @@ export const AccreditationSection: React.FC = () => {
   }, []);
 
   if (loading) return <p>Loading…</p>;
-  if (!data)   return <p>No data found</p>;
+  if (!data) return <p>No data found</p>;
 
-  const courseCerts: any[]       = data.courseCerts || [];
-  const awardCerts: AwardCert[]  = data.awardCerts  || [];
+  const courseCerts: any[] = data.courseCerts || [];
+  const awardCerts: AwardCert[] = data.awardCerts || [];
 
   return (
     <>
       {/* ══════════════ AUTHENTIC SECTION ══════════════ */}
       <section className={styles.authenticSection}>
         <div className={styles.container}>
-
           {/* Header */}
           <div className={styles.sectionHeaderCenter}>
             <h2 className={styles.sectionTitle}>{data.sectionTitle}</h2>
@@ -487,8 +545,7 @@ export const AccreditationSection: React.FC = () => {
               <p className={styles.para}>{data.immersePara1}</p>
               <p className={styles.para}>{data.immersePara2}</p>
               <a href={data.immerseCtaLink} className={styles.knowMoreBtn}>
-                {data.immerseCtaText}{" "}
-                <span className={styles.btnArrow}>→</span>
+                {data.immerseCtaText} <span className={styles.btnArrow}>→</span>
               </a>
             </div>
 
@@ -501,7 +558,6 @@ export const AccreditationSection: React.FC = () => {
               </div>
             </div>
           </div>
-
         </div>
         <div className={styles.bottomBorder} />
       </section>
@@ -509,7 +565,6 @@ export const AccreditationSection: React.FC = () => {
       {/* ══════════════ RECOGNITION SECTION ══════════════ */}
       <section className={styles.recognitionSection}>
         <div className={styles.container}>
-
           <div className={styles.sectionHeaderCenter}>
             <h2 className={styles.sectionTitle}>{data.recognitionTitle}</h2>
             <div className={styles.titleUnderline} />
@@ -567,7 +622,6 @@ export const AccreditationSection: React.FC = () => {
               </div>
             </div>
           )}
-
         </div>
       </section>
     </>
